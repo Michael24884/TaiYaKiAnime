@@ -4,13 +4,12 @@
 Stream anime and sync your MyAnimeList (MAL) together with TaiYaKi!
 
 
-![image](https://github.com/Michael24884/TaiYaKi./blob/master/Reference/Screen%20Shot%202019-02-20%20at%2010.22.23%20PM.png "Main1")
+![image](https://github.com/Michael24884/TaiYaKiAnime/blob/master/Reference/15CAFB4E-2CF2-4CF7-885D-F1B415B08F2C.png "Main1")
 
-![image](https://github.com/Michael24884/TaiYaKi./blob/master/Reference/Screen%20Shot%202019-02-20%20at%2010.23.33%20PM.png "Main2")
+![image](https://github.com/Michael24884/TaiYaKiAnime/blob/master/Reference/9D441123-B746-42A3-837F-6F638A521ABD.png "Main2")
 
-![image](https://github.com/Michael24884/TaiYaKi./blob/master/Reference/Screen%20Shot%202019-02-20%20at%2010.24.25%20PM.png "Main3")
+![image](https://github.com/Michael24884/TaiYaKiAnime/blob/master/Reference/C10F1455-5D07-4CF8-A6F1-979E19EBAAA1.png "Main3")
 
-![image](https://github.com/Michael24884/TaiYaKi./blob/master/Reference/Screen%20Shot%202019-02-20%20at%2010.24.46%20PM.png "Main4")
 
 
 
