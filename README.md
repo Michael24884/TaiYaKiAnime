@@ -6,11 +6,13 @@ Stream anime and sync your MyAnimeList (MAL) together with TaiYaKi!
 
 ![image](https://github.com/Michael24884/TaiYaKiAnime/blob/master/Reference/15CAFB4E-2CF2-4CF7-885D-F1B415B08F2C.png "Main1")
 
-![image](https://github.com/Michael24884/TaiYaKiAnime/blob/master/Reference/9D441123-B746-42A3-837F-6F638A521ABD.png "Main2")
+![image](https://github.com/Michael24884/TaiYaKiAnime/blob/master/Reference/IMG_0093.PNG "Main2")
 
-![image](https://github.com/Michael24884/TaiYaKiAnime/blob/master/Reference/C10F1455-5D07-4CF8-A6F1-979E19EBAAA1.png "Main3")
+![image](https://github.com/Michael24884/TaiYaKiAnime/blob/master/Reference/9D441123-B746-42A3-837F-6F638A521ABD.png "Main3")
 
-![image](https://github.com/Michael24884/TaiYaKiAnime/blob/master/Reference/IMG_0077.PNG "Main 4")
+![image](https://github.com/Michael24884/TaiYaKiAnime/blob/master/Reference/C10F1455-5D07-4CF8-A6F1-979E19EBAAA1.png "Main4")
+
+![image](https://github.com/Michael24884/TaiYaKiAnime/blob/master/Reference/IMG_0077.PNG "Main 5")
 
 
 
