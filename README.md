@@ -16,6 +16,7 @@ Stream anime and sync your MyAnimeList (MAL) together with TaiYaKi!
   * Sync your list and watch anime at the same time, totally ad-free and no premium purchases necessary
   * Multiple sources to choose from
   * Uses the Jikan API 
+  * Progress automatically updates to your MAL list
   * Constantly updated!
   
 
