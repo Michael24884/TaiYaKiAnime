@@ -19,16 +19,10 @@ Stream anime and sync your MyAnimeList (MAL) together with TaiYaKi!
   ### Features
 
   * Sync your list and watch anime at the same time, totally ad-free and no premium purchases necessary
-  * Receive airing notifications for anime you subscribe to
   * Multiple sources to choose from
-  * Check your statistics constantly updated
-  * Web sites are Adblocked and safe to use 
-  * Uses the Jikan API to find all the MAL shows and movies 
-  * Finished an anime? Check out the recommendations list 
-  * Want to know if an anime is worth your time? Unblur other user's reviews and read to find out!
-  * Anime instantly load, no long buffering; less than 10 seconds! ( This is for scraping sites )
-  * Discover anime airing on a particular day or go ahead and search by genres!
+  * Uses the Jikan API 
   * Constantly updated!
+  
 
  ## Download
 
@@ -40,6 +34,4 @@ Stream anime and sync your MyAnimeList (MAL) together with TaiYaKi!
 ### OPTION 2)
 
   If you're jailbroken, you can install the .ipa directly into your device with filza manager and app sync
-  [Download IPA](https://www.dropbox.com/s/0554gpy1pr49vn2/Taiyaki.ipa?dl=0)
-
-Thanks to JunesiPhone for iphone screenshots <3
+  [Download IPA]
