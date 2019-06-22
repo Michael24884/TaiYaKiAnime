@@ -4,7 +4,7 @@
 Stream anime and sync your MyAnimeList (MAL) together with TaiYaKi!
 
 
-![image](https://github.com/Michael24884/TaiYaKiAnime/blob/v2/IMG_0166.PNG =450X450 "Main1")
+![image](https://github.com/Michael24884/TaiYaKiAnime/blob/v2/IMG_0166.PNG =450X450)
 
 ![image](https://github.com/Michael24884/TaiYaKiAnime/blob/v2/IMG_0167.PNG "Main2")
 
