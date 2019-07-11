@@ -23,11 +23,12 @@ Stream anime and sync your MyAnimeList (MAL) together with TaiYaKi!
  ## Download
 
 ### OPTION 1)
+   (This version has not been updated)
   This app is currently on the Ignition store! You can directly install the app through your device's web browser.
   
   [TaiYaKi Download](https://app.ignition.fun)
   
 ### OPTION 2)
-
+   New (Beta 3)
   If you're jailbroken, you can install the .ipa directly into your device with filza manager and app sync
-  [Download IPA](https://www.dropbox.com/s/7dq51olrrx1axg3/Taiyaki.ipa?dl=0)
+  [Download IPA](https://www.dropbox.com/s/dej72noqu7gb3xq/Taiyaki_Beta_3.ipa?dl=0)
