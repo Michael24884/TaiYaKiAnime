@@ -5,7 +5,7 @@ Stream anime and sync your MyAnimeList (MAL) together with TaiYaKi!
 
 ### App is Currently in Beta
 
-<a href="Sources"><img src="https://github.com/Michael24884/TaiYaKiAnime/blob/master/Reference/E692F62A-BDB3-41A5-80E4-5C65C3C772D3.png" align="center" height="450" width="225" ></a>
+<a href="Sources"><img src="https://github.com/Michael24884/TaiYaKiAnime/blob/master/Reference/CBE39A66-1857-4535-8B71-D6C8C6B7CBCC.png" align="center" height="450" width="225" ></a>
 
 <a href="Discover"><img src="https://github.com/Michael24884/TaiYaKiAnime/blob/master/Reference/8D0E8FD2-C6F5-41A3-A1EA-1DE048C43CAA.png" align="center" height="450" width="225" ></a>
 
