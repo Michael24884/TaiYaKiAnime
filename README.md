@@ -5,18 +5,20 @@ Stream anime and sync your MyAnimeList (MAL) together with TaiYaKi!
 
 ### App is Currently in Beta
 
-<a href="Main1"><img src="https://github.com/Michael24884/TaiYaKiAnime/blob/v2/IMG_0166.PNG" align="center" height="450" width="225" ></a>
+<a href="Sources"><img src="https://github.com/Michael24884/TaiYaKiAnime/blob/master/Reference/E692F62A-BDB3-41A5-80E4-5C65C3C772D3.png" align="center" height="450" width="225" ></a>
 
-<a href="Main2"><img src="https://github.com/Michael24884/TaiYaKiAnime/blob/v2/IMG_0167.PNG" align="center" height="450" width="225" ></a>
+<a href="Discover"><img src="https://github.com/Michael24884/TaiYaKiAnime/blob/master/Reference/8D0E8FD2-C6F5-41A3-A1EA-1DE048C43CAA.png" align="center" height="450" width="225" ></a>
 
-<a href="Main3"><img src="https://github.com/Michael24884/TaiYaKiAnime/blob/v2/IMG_0168.PNG" align="center" height="450" width="225" ></a>
+<a href="Detail"><img src="https://github.com/Michael24884/TaiYaKiAnime/blob/master/Reference/70997048-2095-401F-A77C-E3832A476644.png" align="center" height="450" width="225" ></a>
+
+<a href="MAL List"><img src="https://github.com/Michael24884/TaiYaKiAnime/blob/master/Reference/0B83EEF4-292F-445A-84E1-9EDE540DCF35.png" align="center" height="450" width="225" ></a>
 
   ### Features
 
   * Sync your list and watch anime at the same time, totally ad-free and no premium purchases necessary
   * Multiple sources to choose from
   * Uses the Jikan API 
-  * Receive Notifications to anime’s 
+  * Receive Notifications to anime you’re watching 
   * Progress automatically updates to your MAL list
   * Constantly updated!
   
