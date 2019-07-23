@@ -5,13 +5,12 @@ Stream anime and sync your MyAnimeList (MAL) together with TaiYaKi!
 
 ### App is Currently in Beta
 
-<a href="Sources"><img src="https://github.com/Michael24884/TaiYaKiAnime/blob/master/Reference/CBE39A66-1857-4535-8B71-D6C8C6B7CBCC.png" align="center" height="450" width="225" ></a>
+<a href="Sources"><img src="https://github.com/Michael24884/TaiYaKiAnime/blob/master/Reference/CBE39A66-1857-4535-8B71-D6C8C6B7CBCC.png" align="center" height="450" width="225" ></a> <a href="Discover"><img src="https://github.com/Michael24884/TaiYaKiAnime/blob/master/Reference/8D0E8FD2-C6F5-41A3-A1EA-1DE048C43CAA.png" align="center" height="450" width="225" ></a>
 
-<a href="Discover"><img src="https://github.com/Michael24884/TaiYaKiAnime/blob/master/Reference/8D0E8FD2-C6F5-41A3-A1EA-1DE048C43CAA.png" align="center" height="450" width="225" ></a>
 
-<a href="Detail"><img src="https://github.com/Michael24884/TaiYaKiAnime/blob/master/Reference/70997048-2095-401F-A77C-E3832A476644.png" align="center" height="450" width="225" ></a>
+<a href="Detail"><img src="https://github.com/Michael24884/TaiYaKiAnime/blob/master/Reference/70997048-2095-401F-A77C-E3832A476644.png" align="center" height="450" width="225" ></a> <a href="MAL List"><img src="https://github.com/Michael24884/TaiYaKiAnime/blob/master/Reference/0B83EEF4-292F-445A-84E1-9EDE540DCF35.png" align="center" height="450" width="225" ></a>
 
-<a href="MAL List"><img src="https://github.com/Michael24884/TaiYaKiAnime/blob/master/Reference/0B83EEF4-292F-445A-84E1-9EDE540DCF35.png" align="center" height="450" width="225" ></a>
+
 
   ### Features
 
