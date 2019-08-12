@@ -31,5 +31,5 @@ Stream anime and sync your MyAnimeList (MAL) together with TaiYaKi!
   [TaiYaKi Download](https://app.ignition.fun)
   
 ### OPTION 2) (Includes Betas)
-  [Github Download](https://github.com/Michael24884/TaiYaKiAnime/releases/latest)
+  [Github Download](https://github.com/Michael24884/TaiYaKiAnime/releases)
   If you decide you want to install publics or betas you can find the download list here. You will need to be jailbroken or install using Cydia Impactor
