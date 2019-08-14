@@ -23,7 +23,9 @@
   * Uses the Jikan API 
   * Receive Notifications to anime you’re watching 
   * Progress automatically updates to your MAL list
+  * Binge Watching(coming soon!)
   * Constantly updated!
+  
   
 
  ## Download
