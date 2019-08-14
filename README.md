@@ -3,7 +3,9 @@
 <img src="https://github.com/Michael24884/TaiYaKiAnime/blob/master/Reference/New%20Document%204.svg" align="center">
 
 
-Stream anime and sync your MyAnimeList (MAL) together with TaiYaKi!
+<p align="center">
+  <strong>Stream anime and sync your MyAnimeList (MAL) together with TaiYaKi!</strong>
+</p>
 
 ### App is Currently in Beta
 
