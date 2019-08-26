@@ -15,6 +15,9 @@
 <a href="Detail"><img src="https://github.com/Michael24884/TaiYaKiAnime/blob/master/Reference/70997048-2095-401F-A77C-E3832A476644.png" align="center" height="450" width="225" ></a> <a href="MAL List"><img src="https://github.com/Michael24884/TaiYaKiAnime/blob/master/Reference/0B83EEF4-292F-445A-84E1-9EDE540DCF35.png" align="center" height="450" width="225" ></a>
 
 
+### Compatible with iPhone and iPad => iOS 11.3+
+<img src="https://github.com/Michael24884/TaiYaKiAnime/blob/master/Reference/6AD2EDF4-794B-4834-B6A0-2768F0D92923.png" align="center" height="200" width="375">
+
 
   ### Features
 
