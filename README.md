@@ -16,7 +16,7 @@
 
 
 ### Compatible with iPhone and iPad => iOS 11.3+
-<img src="https://github.com/Michael24884/TaiYaKiAnime/blob/master/Reference/6AD2EDF4-794B-4834-B6A0-2768F0D92923.png" align="center" height="200" width="375">
+<img src="https://github.com/Michael24884/TaiYaKiAnime/blob/master/Reference/DF079E92-756F-45C0-A128-5E833A6BF46A.png" align="center" height="300" width="450">
 
 
   ### Features
