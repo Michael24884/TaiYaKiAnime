@@ -1,6 +1,6 @@
 # TaiYaKi
 
-<img src="https://github.com/Michael24884/TaiYaKiAnime/blob/master/Reference/New%20Document%208.svg">
+<img src="https://github.com/Michael24884/TaiYaKiAnime/blob/master/Reference/finalizer.svg">
 
 
 <p align="center">
