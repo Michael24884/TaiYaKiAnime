@@ -29,6 +29,7 @@
   * Binge Watching(coming soon!)
   * Constantly updated!
   
+  The taiyaki fish icon was made by Jenni Jackson. Dribbble page can be found here: https://dribbble.com/jennijackson
   
 
  ## Download
