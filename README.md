@@ -10,15 +10,12 @@
 ### App is Currently in Beta
 
 ### Compatible with iPhone and iPad => iOS 11.3+ & Android 5.0+
-<img src="https://github.com/Michael24884/TaiYaKiAnime/blob/master/Reference/DF079E92-756F-45C0-A128-5E833A6BF46A.png" align="center" height="300" width="450">
+<img src="https://github.com/Michael24884/TaiYaKiAnime/blob/master/IMG_0062.JPG" align="center" height="400" width="500">
+
+<a href="Detailed"><img src="https://github.com/Michael24884/TaiYaKiAnime/blob/master/IMG_0076.PNG" align="center" height="450" width="225" >
 
 
-<a href="Sources"><img src="https://github.com/Michael24884/TaiYaKiAnime/blob/master/Reference/CBE39A66-1857-4535-8B71-D6C8C6B7CBCC.png" align="center" height="450" width="225" ></a> <a href="Discover"><img src="https://github.com/Michael24884/TaiYaKiAnime/blob/master/Reference/8D0E8FD2-C6F5-41A3-A1EA-1DE048C43CAA.png" align="center" height="450" width="225" ></a>
-
-
-<a href="Detail"><img src="https://github.com/Michael24884/TaiYaKiAnime/blob/master/Reference/70997048-2095-401F-A77C-E3832A476644.png" align="center" height="450" width="225" ></a> <a href="MAL List"><img src="https://github.com/Michael24884/TaiYaKiAnime/blob/master/Reference/0B83EEF4-292F-445A-84E1-9EDE540DCF35.png" align="center" height="450" width="225" ></a>
-
-
+<a href="List"><img src="https://github.com/Michael24884/TaiYaKiAnime/blob/master/iVBORw0KGgoAAAANSUhEUgAABS0AAAo4CAYAAAC8JoK+AAABgmlDQ1BzUkdCIElFQzYxOTY2LTIu-2 2.PNG" align="center" height="450" width="225">
 
 
 
