@@ -12,7 +12,7 @@
 ### Compatible with iPhone and iPad => iOS 11.3+ & Android 5.0+
 <img src="https://github.com/Michael24884/TaiYaKiAnime/blob/master/IMG_0062.JPG" align="center" height="400" width="500">
 
-<a href="Detailed"><img src="https://github.com/Michael24884/TaiYaKiAnime/blob/master/IMG_0076.PNG" align="center" height="450" width="225" >
+<a href="Detailed"><img src="https://github.com/Michael24884/TaiYaKiAnime/blob/master/iVBORw0KGgoAAAANSUhEUgAABS0AAAo4CAYAAAC8JoK+AAABgmlDQ1BzUkdCIElFQzYxOTY2LTIu-2" align="center" height="450" width="225" >
 
 
 <a href="List"><img src="https://github.com/Michael24884/TaiYaKiAnime/blob/master/iVBORw0KGgoAAAANSUhEUgAABS0AAAo4CAYAAAC8JoK+AAABgmlDQ1BzUkdCIElFQzYxOTY2LTIu-2 2.PNG" align="center" height="450" width="225">
