@@ -6,6 +6,7 @@
                 <title>Version 4.4</title>
                 <description>A new Update is Available</description>
                 <pubDate>Wed, 5 Feb 2020</pubDate>
+                  <sparkle:version>4.4</sparkle:version>
                 <enclosure url="https://github.com/Michael24884/TaiYaKiAnime/releases/latest" sparkle:os="android" />
             </item>
         </channel>
