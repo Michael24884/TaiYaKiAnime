@@ -39,8 +39,8 @@
    -Deprecated. Please use the TestFlight Link below 
   
 ### OPTION 2) (Includes Betas)
-  [TestFlight Download]()
+  [TestFlight Download](https://testflight.apple.com/join/zXzQz2CY)
 
 ### Android 
-[Github](https://github.com/Michael24884/TaiYaKiAnime/releases/latest)
+[Github Download Latest](https://github.com/Michael24884/TaiYaKiAnime/releases/latest)
 
