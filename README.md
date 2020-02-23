@@ -41,3 +41,6 @@
 ### OPTION 2) (Includes Betas)
   [TestFlight Download]()
 
+### Android 
+[Github](https://github.com/Michael24884/TaiYaKiAnime/releases/latest)
+
