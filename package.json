@@ -2,7 +2,7 @@
   "name": "taiyaki-web",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Michael24884.github.io/taiyaki-web",
+  "homepage": "https://Michael24884.github.io/TaiYaKiAnime",
   "dependencies": {
     "@material-ui/core": "^4.10.2",
     "@testing-library/jest-dom": "^4.2.4",
