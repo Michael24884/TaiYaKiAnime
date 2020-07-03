@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/taiyaki-web/precache-manifest.041b259971209b13f5215212c27f5005.js"
+  "/taiyaki-web/precache-manifest.8864300ed247cc3b4c0784983f549b63.js"
 );
 
 self.addEventListener('message', (event) => {

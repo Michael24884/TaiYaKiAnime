@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/taiyaki-web/static/css/main.0032604d.chunk.css",
-    "main.js": "/taiyaki-web/static/js/main.b467f1d5.chunk.js",
-    "main.js.map": "/taiyaki-web/static/js/main.b467f1d5.chunk.js.map",
+    "main.js": "/taiyaki-web/static/js/main.86da01b1.chunk.js",
+    "main.js.map": "/taiyaki-web/static/js/main.86da01b1.chunk.js.map",
     "runtime-main.js": "/taiyaki-web/static/js/runtime-main.bc64ee11.js",
     "runtime-main.js.map": "/taiyaki-web/static/js/runtime-main.bc64ee11.js.map",
     "static/js/2.456493a9.chunk.js": "/taiyaki-web/static/js/2.456493a9.chunk.js",
     "static/js/2.456493a9.chunk.js.map": "/taiyaki-web/static/js/2.456493a9.chunk.js.map",
     "index.html": "/taiyaki-web/index.html",
-    "precache-manifest.041b259971209b13f5215212c27f5005.js": "/taiyaki-web/precache-manifest.041b259971209b13f5215212c27f5005.js",
+    "precache-manifest.8864300ed247cc3b4c0784983f549b63.js": "/taiyaki-web/precache-manifest.8864300ed247cc3b4c0784983f549b63.js",
     "service-worker.js": "/taiyaki-web/service-worker.js",
     "static/css/main.0032604d.chunk.css.map": "/taiyaki-web/static/css/main.0032604d.chunk.css.map",
     "static/js/2.456493a9.chunk.js.LICENSE.txt": "/taiyaki-web/static/js/2.456493a9.chunk.js.LICENSE.txt",
@@ -25,6 +25,6 @@
     "static/js/runtime-main.bc64ee11.js",
     "static/js/2.456493a9.chunk.js",
     "static/css/main.0032604d.chunk.css",
-    "static/js/main.b467f1d5.chunk.js"
+    "static/js/main.86da01b1.chunk.js"
   ]
 }
