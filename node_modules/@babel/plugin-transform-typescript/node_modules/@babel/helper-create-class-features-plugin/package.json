@@ -1,0 +1,36 @@
+{
+  "name": "@babel/helper-create-class-features-plugin",
+  "version": "7.10.3",
+  "author": "The Babel Team (https://babeljs.io/team)",
+  "license": "MIT",
+  "description": "Compile class public and private fields, private methods and decorators to ES6",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/babel/babel.git",
+    "directory": "packages/babel-helper-create-class-features-plugin"
+  },
+  "main": "lib/index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "babel",
+    "babel-plugin"
+  ],
+  "dependencies": {
+    "@babel/helper-function-name": "^7.10.3",
+    "@babel/helper-member-expression-to-functions": "^7.10.3",
+    "@babel/helper-optimise-call-expression": "^7.10.3",
+    "@babel/helper-plugin-utils": "^7.10.3",
+    "@babel/helper-replace-supers": "^7.10.1",
+    "@babel/helper-split-export-declaration": "^7.10.1"
+  },
+  "peerDependencies": {
+    "@babel/core": "^7.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.10.3",
+    "@babel/helper-plugin-test-runner": "^7.10.3"
+  },
+  "gitHead": "2787ee2f967b6d8e1121fca00a8d578d75449a53"
+}
