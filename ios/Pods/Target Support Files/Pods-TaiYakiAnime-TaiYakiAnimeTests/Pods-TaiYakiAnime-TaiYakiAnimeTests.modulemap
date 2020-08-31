@@ -1,0 +1,6 @@
+module Pods_TaiYakiAnime_TaiYakiAnimeTests {
+  umbrella header "Pods-TaiYakiAnime-TaiYakiAnimeTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
