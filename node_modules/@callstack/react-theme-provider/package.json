@@ -1,0 +1,69 @@
+{
+  "name": "@callstack/react-theme-provider",
+  "version": "3.0.5",
+  "description": "Theme provider for react and react-naitve applications",
+  "main": "./lib/index.js",
+  "typings": "./typings/index.d.ts",
+  "files": [
+    "lib",
+    "typings"
+  ],
+  "scripts": {
+    "flow": "flow",
+    "typescript": "tsc",
+    "lint": "eslint .",
+    "prepare": "babel src --out-dir lib --ignore '**/__tests__/**' --source-maps --delete-dir-on-start && flow-copy-source -i '**/__tests__/**' src lib",
+    "test": "jest",
+    "example": "yarn link && cd examples/web && yarn link @callstack/react-theme-provider && yarn start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/callstack/react-theme-provider.git"
+  },
+  "keywords": [
+    "react",
+    "react-native",
+    "theme",
+    "provider"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/callstack/react-theme-provider/issues"
+  },
+  "homepage": "https://github.com/callstack/react-theme-provider#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.3.4",
+    "@babel/plugin-proposal-class-properties": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "@babel/preset-flow": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
+    "@callstack/eslint-config": "^3.0.2",
+    "@types/react": "^16.8.8",
+    "eslint": "^5.15.1",
+    "flow-bin": "^0.94.0",
+    "flow-copy-source": "^2.0.3",
+    "jest": "^24.5.0",
+    "prettier": "^1.16.4",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4",
+    "typescript": "^3.3.3333"
+  },
+  "peerDependencies": {
+    "react": "^16.3.0"
+  },
+  "dependencies": {
+    "deepmerge": "^3.2.0",
+    "hoist-non-react-statics": "^3.3.0"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js"
+    },
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/typings/"
+    ]
+  }
+}

@@ -1,0 +1,2 @@
+Object.defineProperty(exports,"__esModule",{value:true});exports.default=void 0;var _require=require('react-native'),NativeModules=_require.NativeModules;var RCTAsyncStorage=NativeModules.PlatformLocalStorage||NativeModules.RNC_AsyncSQLiteDBStorage||NativeModules.RNCAsyncStorage;var _default=RCTAsyncStorage;exports.default=_default;
+//# sourceMappingURL=RCTAsyncStorage.js.map

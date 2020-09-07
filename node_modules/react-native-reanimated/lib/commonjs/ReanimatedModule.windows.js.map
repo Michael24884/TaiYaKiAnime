@@ -1,0 +1,1 @@
+{"version":3,"sources":["ReanimatedModule.windows.js"],"names":["ReanimatedModuleCompat"],"mappings":";;;;;;;AAAA;;;;eAEeA,+B","sourcesContent":["import ReanimatedModuleCompat from './ReanimatedModuleCompat';\n\nexport default ReanimatedModuleCompat;\n"]}

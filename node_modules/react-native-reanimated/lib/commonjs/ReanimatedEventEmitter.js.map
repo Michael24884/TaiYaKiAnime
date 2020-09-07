@@ -1,0 +1,1 @@
+{"version":3,"sources":["ReanimatedEventEmitter.js"],"names":["NativeEventEmitter","ReanimatedModule"],"mappings":";;;;;;;AAAA;;AACA;;;;eAEe,IAAIA,+BAAJ,CAAuBC,yBAAvB,C","sourcesContent":["import ReanimatedModule from './ReanimatedModule';\nimport { NativeEventEmitter } from 'react-native';\n\nexport default new NativeEventEmitter(ReanimatedModule);\n"]}

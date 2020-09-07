@@ -1,0 +1,105 @@
+{
+  "name": "react-native-gesture-handler",
+  "version": "1.7.0",
+  "description": "Experimental implementation of a new declarative API for gesture handling in react-native",
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest",
+    "precommit": "lint-staged",
+    "web": "expo start:web"
+  },
+  "main": "index.js",
+  "types": "react-native-gesture-handler.d.ts",
+  "files": [
+    "android/build.gradle",
+    "android/src/main/AndroidManifest.xml",
+    "android/src/main/java/",
+    "android/lib/build.gradle",
+    "android/lib/src/main/java/",
+    "ios/",
+    "web/",
+    "__mocks__/",
+    "touchables/**/*.js",
+    "createHandler.js",
+    "Directions.js",
+    "DrawerLayout.js",
+    "GestureHandler.js",
+    "Gestures.js",
+    "GestureButtons.js",
+    "GestureComponents.js",
+    "GestureComponents.web.js",
+    "createNativeWrapper.js",
+    "GestureHandlerPropTypes.js",
+    "NativeViewGestureHandler.js",
+    "GestureHandlerButton.js",
+    "GestureHandlerRootView.js",
+    "GestureHandlerRootView.android.js",
+    "GestureHandlerRootView.android.expo.js",
+    "GestureHandlerButton.web.js",
+    "gestureHandlerRootHOC.android.js",
+    "gestureHandlerRootHOC.ios.js",
+    "gestureHandlerRootHOC.js",
+    "index.js",
+    "PlatformConstants.js",
+    "PlatformConstants.web.js",
+    "react-native-gesture-handler.d.ts",
+    "README.md",
+    "RNGestureHandlerModule.js",
+    "RNGestureHandlerModule.web.js",
+    "jestSetup.js",
+    "RNGestureHandler.podspec",
+    "State.js",
+    "Swipeable.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/software-mansion/react-native-gesture-handler.git"
+  },
+  "author": {
+    "email": "krzys.magiera@gmail.com",
+    "name": "Krzysztof Magiera"
+  },
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/software-mansion/react-native-gesture-handler/issues"
+  },
+  "homepage": "https://github.com/software-mansion/react-native-gesture-handler#readme",
+  "dependencies": {
+    "@egjs/hammerjs": "^2.0.17",
+    "hoist-non-react-statics": "^2.3.1",
+    "invariant": "^2.2.4",
+    "prop-types": "^15.7.2"
+  },
+  "jest": {
+    "preset": "jest-react-native"
+  },
+  "devDependencies": {
+    "@expo/webpack-config": "^0.10.4",
+    "@types/react": "^16.8.6",
+    "@types/react-native": "^0.60.0",
+    "babel-jest": "16.0.0",
+    "babel-preset-expo": "^7.1.0",
+    "expo": "^35.0.1",
+    "flow-bin": "^0.98.0",
+    "husky": "^0.14.3",
+    "jest": "^24.7.1",
+    "jest-react-native": "16.0.0",
+    "lint-staged": "^8.0.0-beta.1",
+    "prettier": "^1.13.7",
+    "react": "^16.8.6",
+    "react-dom": "^16.12.0",
+    "react-native": "^0.60.0",
+    "react-native-web": "^0.11.7",
+    "react-test-renderer": "16.8.6"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "resolutions": {
+    "fsevents": "1.2.4"
+  }
+}

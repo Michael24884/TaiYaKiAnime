@@ -1,0 +1,1 @@
+{"version":3,"sources":["ReanimatedEventEmitter.js"],"names":["addListener","removeAllListeners"],"mappings":";;;;;;eAAe;AACbA,EAAAA,WAAW,EAAE,MAAM,CAAE,CADR;AAEbC,EAAAA,kBAAkB,EAAE,MAAM,CAAE;AAFf,C","sourcesContent":["export default {\n  addListener: () => {},\n  removeAllListeners: () => {},\n};\n"]}

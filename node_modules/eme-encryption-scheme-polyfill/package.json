@@ -1,0 +1,49 @@
+{
+  "name": "eme-encryption-scheme-polyfill",
+  "description": "A polyfill for the encryptionScheme field in EME",
+  "version": "2.0.1",
+  "license": "Apache-2.0",
+  "author": "Google",
+  "homepage": "https://github.com/google/eme-encryption-scheme-polyfill#readme",
+  "maintainers": [
+    {
+      "name": "Joey Parrish",
+      "email": "joeyparrish@google.com"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/google/eme-encryption-scheme-polyfill/issues"
+  },
+  "scripts": {
+    "lint": "eslint index.js",
+    "closure-compiler-check": "google-closure-compiler -O ADVANCED --generate_exports --js_output_file /dev/null --jscomp_error '*' closure-compiler-check/* index.js",
+    "build": "browserify index.js -s EncryptionSchemePolyfills -t babelify -t stripify -p tinyify -p browserify-header -o dist/eme-encryption-scheme-polyfill.js",
+    "prepublishOnly": "npm run-script lint && npm run-script closure-compiler-check && npm run-script build"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.2",
+    "@babel/preset-env": "^7.7.1",
+    "babel-plugin-transform-async-to-promises": "^0.8.15",
+    "babelify": "^10.0.0",
+    "browserify": "^16.5.0",
+    "browserify-header": "^1.0.1",
+    "eslint": "^6.6.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-jsdoc": "^18.4.1",
+    "google-closure-compiler": "latest",
+    "stripify": "^6.0.0",
+    "tinyify": "^2.5.2"
+  },
+  "main": "index.js",
+  "files": [
+    "dist/eme-encryption-scheme-polyfill.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/google/eme-encryption-scheme-polyfill.git"
+  },
+  "keywords": [
+    "EME",
+    "polyfill"
+  ]
+}
