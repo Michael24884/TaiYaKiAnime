@@ -1,7 +1,7 @@
 # TaiYaKi
 
-<img src="https://github.com/Michael24884/TaiYaKiAnime/blob/master/Reference/finalizer.svg">
+<img src="https://github.com/Michael24884/TaiYaKiAnime/blob/v2/Reference/IMG_1230.PNG?raw=true" width="100%">
 
-  More Info: https://michael24884.github.io/TaiYaKiAnime/
+Website/Docs coming soon...
   
-  The taiyaki fish icon was made by Jenni Jackson. Dribbble page can be found here: https://dribbble.com/jennijackson
+
