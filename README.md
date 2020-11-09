@@ -12,15 +12,15 @@
 
 |                           Home Screen                           |     Detailed view with Anilist integrations           |
 | :---------------------------------------------------------------: | :-------------------------------------------------: |
-| <img src="Assets/img/detail7.png" width="300">          |  <img src="Assets/img/detail4.png" width="300">|
+| <img src="Assets/img/detail7.PNG" width="300">          |  <img src="Assets/img/detail4.PNG" width="300">|
 |       Dark Version Support                                      |      See your third party tracker profile             |
-|<img src="Assets/img/detail2.png" width="300">           |  <img src="Assets/img/detail6.png" width="300">|
+|<img src="Assets/img/detail2.PNG" width="300">           |  <img src="Assets/img/detail6.PNG" width="300">|
 |       See your third party tracker stats                        |     Spoiler-free support to prevent accidental reveals |
-|<img src="Assets/img/detail5.png" width="300">           |  <img src="Assets/img/detail11.png" width="300">  |
+|<img src="Assets/img/detail5.PNG" width="300">           |  <img src="Assets/img/detail11.PNG" width="300">  |
 |       Supports dark version + Color match                       |     Queue Player support to binge your anime  |
-|<img src="Assets/img/screens/detail2.png" width="300">           |  <img src="Assets/img/detail10.png" width="300"> |
+|<img src="Assets/img/screens/detail2.PNG" width="300">           |  <img src="Assets/img/detail10.PNG" width="300"> |
 |       In App video player                                       |     In App video player + Up Next                   |
-|<img src="Assets/img/detail8.png"  width="500">          | <img src="Assets/img/detail9.png" width="500">|
+|<img src="Assets/img/detail8.PNG"  width="500">          | <img src="Assets/img/detail9.PNG" width="500">|
 
 (Images are on an iPhone but are the same for Android)
 
