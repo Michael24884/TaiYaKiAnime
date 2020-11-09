@@ -17,8 +17,8 @@
 |<img src="Assets/img/detail2.PNG" width="300">           |  <img src="Assets/img/detail6.PNG" width="300">|
 |       See your third party tracker stats                        |     Spoiler-free support to prevent accidental reveals |
 |<img src="Assets/img/detail5.PNG" width="300">           |  <img src="Assets/img/detail11.PNG" width="300">  |
-|       Supports dark version + Color match                       |     Queue Player support to binge your anime  |
-|<img src="Assets/img/screens/detail2.PNG" width="300">           |  <img src="Assets/img/detail10.PNG" width="300"> |
+|       Episodes Dark Version                             |     Queue Player support to binge your anime  |
+|<img src="Assets/img/detail3.PNG" width="300">           |  <img src="Assets/img/detail10.PNG" width="300"> |
 |       In App video player                                       |     In App video player + Up Next                   |
 |<img src="Assets/img/detail8.PNG"  width="500">          | <img src="Assets/img/detail9.PNG" width="500">|
 
