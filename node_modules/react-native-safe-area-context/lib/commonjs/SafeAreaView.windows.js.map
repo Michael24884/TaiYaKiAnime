@@ -1,0 +1,1 @@
+{"version":3,"sources":["SafeAreaView.windows.tsx"],"names":["SafeAreaView","View"],"mappings":";;;;;;;AAAA;;AAEO,MAAMA,YAAY,GAAGC,iBAArB","sourcesContent":["import { View } from 'react-native';\n\nexport const SafeAreaView = View;\n"]}

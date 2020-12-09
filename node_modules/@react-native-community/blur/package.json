@@ -1,0 +1,49 @@
+{
+  "name": "@react-native-community/blur",
+  "version": "3.6.0",
+  "description": "React Native Blur component",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint src index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:react-native-community/react-native-blur.git"
+  },
+  "keywords": [
+    "react-native",
+    "ios",
+    "react-component"
+  ],
+  "author": "Alexey Kureev <kureev-mail@ya.ru> (https://github.com/Kureev)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/react-native-community/react-native-blur/issues"
+  },
+  "homepage": "https://github.com/react-native-community/react-native-blur",
+  "dependencies": {
+    "prop-types": "^15.5.10"
+  },
+  "devDependencies": {
+    "@react-native-community/eslint-config": "^1.0.0",
+    "eslint": "^6.8.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "husky": "^4.2.3",
+    "lint-staged": "^10.1.2",
+    "prettier": "2.0.4",
+    "react": "16.13.1",
+    "react-native": "0.62.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,json,css,md}": [
+      "prettier --write",
+      "git add"
+    ]
+  }
+}

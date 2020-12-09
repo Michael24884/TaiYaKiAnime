@@ -1,0 +1,1 @@
+{"version":3,"sources":["FontProcessor.tsx"],"names":["processFonts","fontFamilies"],"mappings":"AAAA;AACA,OAAO,SAASA,YAAT,CACLC,YADK,EAEmB;AACxB,SAAOA,YAAP;AACD","sourcesContent":["// do nothing outside of expo\nexport function processFonts(\n  fontFamilies: (string | undefined)[]\n): (string | undefined)[] {\n  return fontFamilies;\n}\n"]}

@@ -1,0 +1,4 @@
+#Mon Nov 23 16:28:37 PST 2020
+base.0=/Users/michaelgarcia/Documents/Github/Taiyaki_Typed/android/app/build/intermediates/transforms/r8/release/0/classes.dex
+path.0=classes.dex
+renamed.0=classes.dex

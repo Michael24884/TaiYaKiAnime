@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <string msgid="7903180715631665059" name="abc_action_bar_home_description">"Нүүр хуудас уруу шилжих"</string>
+    <string msgid="6794660482873516081" name="abc_action_bar_up_description">"Дээш шилжих"</string>
+    <string msgid="1155814932213556626" name="abc_action_menu_overflow_description">"Бусад сонголт"</string>
+    <string msgid="2571498368472823490" name="abc_action_mode_done">"Болсон"</string>
+    <string msgid="3732416590524162402" name="abc_activity_chooser_view_see_all">"Бүгдийг харах"</string>
+    <string msgid="1798588241954930982" name="abc_activitychooserview_choose_application">"Аппыг сонгох"</string>
+    <string msgid="3403923230105792483" name="abc_capital_off">"ИДЭВХГҮЙ"</string>
+    <string msgid="7831734969929204599" name="abc_capital_on">"ИДЭВХТЭЙ"</string>
+    <string msgid="5725160506500770567" name="abc_menu_alt_shortcut_label">"Alt+"</string>
+    <string msgid="944415252197684443" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
+    <string msgid="129742188101734366" name="abc_menu_delete_shortcut_label">"устгах"</string>
+    <string msgid="6840127756824236027" name="abc_menu_enter_shortcut_label">"оруулах"</string>
+    <string msgid="4974283687810130415" name="abc_menu_function_shortcut_label">"Функц+"</string>
+    <string msgid="8046416353848716905" name="abc_menu_meta_shortcut_label">"Мета+"</string>
+    <string msgid="3271697756921353410" name="abc_menu_shift_shortcut_label">"Шифт+"</string>
+    <string msgid="2304645930658438191" name="abc_menu_space_shortcut_label">"зай"</string>
+    <string msgid="8327365089695024394" name="abc_menu_sym_shortcut_label">"Sym+"</string>
+    <string msgid="3570106412128999382" name="abc_prepend_shortcut_label">"Цэс+"</string>
+    <string msgid="940844115270746197" name="abc_search_hint">"Хайх…"</string>
+    <string msgid="1769270744562318534" name="abc_searchview_description_clear">"Асуулга арилгах"</string>
+    <string msgid="908784302972860853" name="abc_searchview_description_query">"Хайх асуулга"</string>
+    <string msgid="5466662225065974044" name="abc_searchview_description_search">"Хайх"</string>
+    <string msgid="8203855622131699655" name="abc_searchview_description_submit">"Асуулга илгээх"</string>
+    <string msgid="3478748990613108725" name="abc_searchview_description_voice">"Дуут хайлт"</string>
+    <string msgid="2650565705514630347" name="abc_shareactionprovider_share_with">"Дараахтай хуваалцах"</string>
+    <string msgid="9009661856846212431" name="abc_shareactionprovider_share_with_application">"<ns1:g id="APPLICATION_NAME">%s</ns1:g>-тай хуваалцах"</string>
+    <string msgid="6389460216547290468" name="abc_toolbar_collapse_description">"Буулгах"</string>
+    <string msgid="8585111718777012708" name="common_google_play_services_enable_button">"Идэвхжүүлэх"</string>
+    <string msgid="7045129128108380659" name="common_google_play_services_enable_text">"<ns1:g id="APP_NAME">%1$s</ns1:g> нь Google Play үйлчилгээг идэвхжүүлэх хүртэл ажиллахгүй."</string>
+    <string msgid="3147157405986503375" name="common_google_play_services_enable_title">"Google Play үйлчилгээг идэвхжүүлэх"</string>
+    <string msgid="9115728400623041681" name="common_google_play_services_install_button">"Суулгах"</string>
+    <string msgid="8179894293032530091" name="common_google_play_services_install_text">"Таны төхөөрөмжид Google Play үйлчилгээ байхгүй тул <ns1:g id="APP_NAME">%1$s</ns1:g> ажиллахгүй."</string>
+    <string msgid="7442193194585196676" name="common_google_play_services_install_title">"Google Play үйлчилгээг авах"</string>
+    <string msgid="4293541511340436975" name="common_google_play_services_notification_channel_name">"Google Play-н үйлчилгээнүүдийн боломжит байдал"</string>
+    <string msgid="180394615667698242" name="common_google_play_services_notification_ticker">"Google Наадаан үйлчилгээний алдаа"</string>
+    <string msgid="2518680582564677258" name="common_google_play_services_unknown_issue">"<ns1:g id="APP_NAME">%1$s</ns1:g>-г Google Play-н үйлчилгээгээр ашиглахад асуудал гарлаа. Дахин оролдоно уу."</string>
+    <string msgid="5501187292256987189" name="common_google_play_services_unsupported_text">"Таны төхөөрөмж Google Play үйлчилгээг дэмждэггүй учир <ns1:g id="APP_NAME">%1$s</ns1:g> ажиллахгүй."</string>
+    <string msgid="8172070149091615356" name="common_google_play_services_update_button">"Шинэчлэх"</string>
+    <string msgid="7773943415006962566" name="common_google_play_services_update_text">"<ns1:g id="APP_NAME">%1$s</ns1:g> нь таныг Google Play үйлчилгээнүүдийг шинэчлэхээс нааш ажиллахгүй."</string>
+    <string msgid="8706675115216073244" name="common_google_play_services_update_title">"Google Play үйлчилгээг шинэчлэх"</string>
+    <string msgid="7894275749778928941" name="common_google_play_services_updating_text">"<ns1:g id="APP_NAME">%1$s</ns1:g> нь одоогоор шинэчилж буй Google Play үйлчилгээгүйгээр ажиллахгүй."</string>
+    <string msgid="2804989272736383918" name="common_google_play_services_wear_update_text">"Google Play үйлчилгээний шинэ хувилбар хэрэгтэй. Энэ нь удахгүй өөрөө өөрийгөө шинэчлэх болно."</string>
+    <string msgid="5201977337835724196" name="common_open_on_phone">"Утсаар нээх"</string>
+    <string msgid="3441753203274453993" name="common_signin_button_text">"Нэвтрэх"</string>
+    <string msgid="669893613918351210" name="common_signin_button_text_long">"Google-р нэвтрэх:"</string>
+    <string msgid="3260749812566568062" name="copy_toast_msg">"Холбоосыг түр санах ойд хуулсан"</string>
+    <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"Холбоосыг хуулах"</string>
+    <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"Хөтчид нээх"</string>
+    <string msgid="7145444925855055364" name="fallback_menu_item_share_link">"Холбоосыг хуваалцах"</string>
+    <string msgid="4133737464567140336" name="fcm_fallback_notification_channel_label">"Бусад"</string>
+    <string msgid="730395136688082741" name="search_menu_title">"Хайх"</string>
+    <string msgid="8106346172024741305" name="status_bar_notification_info_overflow">"999+"</string>
+</resources>
