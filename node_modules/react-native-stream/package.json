@@ -1,0 +1,23 @@
+{
+  "name": "react-native-stream",
+  "version": "0.1.9",
+  "description": "",
+  "main": "src/stream.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/kodefox/react-native-stream.git"
+  },
+  "author": "devteam@kodefox.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kodefox/react-native-stream/issues"
+  },
+  "homepage": "https://github.com/kodefox/react-native-stream#readme",
+  "dependencies": {
+    "base64-js": "^1.2.0",
+    "ieee754": "^1.1.8"
+  }
+}

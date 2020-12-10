@@ -1,0 +1,57 @@
+{
+  "name": "react-native-progress",
+  "version": "4.1.2",
+  "description": "Progress indicators and spinners for React Native using ReactART",
+  "main": "index.js",
+  "scripts": {
+    "test": "eslint *.js Shapes",
+    "format": "./node_modules/.bin/prettier --write {,Shapes/,Example/}*.js README.md *.ts"
+  },
+  "keywords": [
+    "react-native",
+    "react-component",
+    "react-native-component",
+    "react",
+    "mobile",
+    "ios",
+    "ui",
+    "progress",
+    "progressindicator",
+    "circle",
+    "pie",
+    "bar",
+    "progressbar",
+    "indeterminate",
+    "spinner",
+    "animation"
+  ],
+  "author": {
+    "name": "Joel Arvidsson",
+    "email": "joel@oblador.se"
+  },
+  "homepage": "https://github.com/oblador/react-native-progress",
+  "bugs": {
+    "url": "https://github.com/oblador/react-native-progress/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/oblador/react-native-progress.git"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "eslint": "5.3.0",
+    "eslint-config-airbnb": "17.1.0",
+    "eslint-config-prettier": "^4.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-react": "^7.11.0",
+    "prettier": "^1.16.4"
+  },
+  "dependencies": {
+    "prop-types": "^15.7.2",
+    "@react-native-community/art": "^1.1.2"
+  },
+  "typings": "index.d.ts"
+}

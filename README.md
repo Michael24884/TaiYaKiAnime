@@ -2,7 +2,7 @@
 # Taiyaki
 
 <p align="center">
-<img src="Assets/img/banner.svg" height="400">
+<img src="ExtAssets/img/banner.svg" height="400">
 </p>
 
 ---
@@ -10,17 +10,17 @@
 ## Here are a few key features / previews of the Taiyaki app
 
 
-|                           Home Screen                           |     Detailed view with Anilist integrations           |
+|                           Home Screen                           |     Dark Version           |
 | :---------------------------------------------------------------: | :-------------------------------------------------: |
-| <img src="Assets/img/detail7.PNG" width="300">          |  <img src="Assets/img/detail4.PNG" width="300">|
-|       Dark Version Support                                      |      See your third party tracker profile             |
-|<img src="Assets/img/detail2.PNG" width="300">           |  <img src="Assets/img/detail6.PNG" width="300">|
-|       See your third party tracker stats                        |     Spoiler-free support to prevent accidental reveals |
-|<img src="Assets/img/detail5.PNG" width="300">           |  <img src="Assets/img/detail11.PNG" width="300">  |
-|       Episodes Dark Version                             |     Queue Player support to binge your anime  |
-|<img src="Assets/img/detail3.PNG" width="300">           |  <img src="Assets/img/detail10.PNG" width="300"> |
+| <img src="ExtAssets/img/detail9.png" width="300">          |  <img src="ExtAssets/img/detail4.png" width="300">|
+|       Light Version                                      |      Queue Player support to binge all your anime in one sitting             |
+|<img src="ExtAssets/img/detail3.png" width="300">           |  <img src="ExtAssets/img/detail6.png" width="300">|
+|       See multiple recommendations                        |     Spoiler-free support to prevent accidental reveals |
+|<img src="ExtAssets/img/detail10.png" width="300">           |  <img src="ExtAssets/img/detail5.png" width="300">  |
+|       Multiple third party tracker support                                           |     Update all your data in one place  |
+|<img src="ExtAssets/img/detail7.png" width="300">           |  <img src="ExtAssets/img/detail8.png" width="300"> |
 |       In App video player                                       |     In App video player + Up Next                   |
-|<img src="Assets/img/detail8.PNG"  width="500">          | <img src="Assets/img/detail9.PNG" width="500">|
+|<img src="ExtAssets/img/detail1.png"  width="500">          | <img src="ExtAssets/img/detail2.png" width="500">|
 
 (Images are on an iPhone but are the same for Android)
 
