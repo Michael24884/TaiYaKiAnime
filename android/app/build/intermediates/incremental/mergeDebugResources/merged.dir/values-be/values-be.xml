@@ -27,6 +27,49 @@
     <string msgid="2650565705514630347" name="abc_shareactionprovider_share_with">"Абагуліць праз"</string>
     <string msgid="9009661856846212431" name="abc_shareactionprovider_share_with_application">"Абагуліць праз праграму \"<ns1:g id="APPLICATION_NAME">%s</ns1:g>\""</string>
     <string msgid="6389460216547290468" name="abc_toolbar_collapse_description">"Згарнуць"</string>
+    <string msgid="4778414446709286370" name="cast_ad_label">"Рэклама"</string>
+    <string msgid="366047012176970604" name="cast_casting_to_device">"Трансляцыя на %1$s"</string>
+    <string msgid="2888745622334830481" name="cast_closed_captions">"Схаваныя цітры"</string>
+    <string msgid="4476421850100851087" name="cast_closed_captions_unavailable">"Схаваныя цітры недаступныя"</string>
+    <string msgid="6769392312239056170" name="cast_connecting_to_device">"Падключэнне да прылады <ns1:g id="NAME">%1$s</ns1:g>"</string>
+    <string msgid="4431992200264667209" name="cast_disconnect">"Адключыць"</string>
+    <string msgid="3452184090057710557" name="cast_dynamic_group_name_format">"<ns1:g id="DYNAMIC_GROUP_LEADER_DEVICE_NAME">%1$s</ns1:g> + <ns1:g id="DYNAMIC_GROUP_DEVICES_COUNT">%2$d</ns1:g>"</string>
+    <string msgid="5668979866539349222" name="cast_expanded_controller_ad_image_description">"Відарыс, які адлюстроўваецца ў той час, калі на прыёмніку Cast прайграецца рэклама"</string>
+    <string msgid="9069517964239146855" name="cast_expanded_controller_ad_in_progress">"Паказваецца рэклама…"</string>
+    <string msgid="8886260998635257149" name="cast_expanded_controller_background_image">"Вокладка альбома"</string>
+    <string msgid="8879956505757481681" name="cast_expanded_controller_live_head_description">"Жывая трансляцыя пачынаецца"</string>
+    <string msgid="1316611227831672183" name="cast_expanded_controller_live_stream_indicator">"Жывая трансляцыя"</string>
+    <string msgid="7334411994450681286" name="cast_expanded_controller_loading">"Загрузка…"</string>
+    <string msgid="8524154027649233400" name="cast_expanded_controller_skip_ad_label">"Прапусціць рэкламу"</string>
+    <string msgid="1171005989073753111" name="cast_expanded_controller_skip_ad_text">"Рэкламу можна прапусціць праз %1$d…"</string>
+    <string msgid="7884080323096468593" name="cast_forward">"Наперад"</string>
+    <string msgid="6424889955881797947" name="cast_forward_10">"Дзесяць секунд наперад"</string>
+    <string msgid="7868672855975238403" name="cast_forward_30">"Трыццаць секунд наперад"</string>
+    <string msgid="6885943100773268783" name="cast_intro_overlay_button_text">"@android:string/ok"</string>
+    <string msgid="2177473333963666559" name="cast_live_label">"У ЖЫВЫМ ЭФІРЫ"</string>
+    <string msgid="5637297909372905371" name="cast_mute">"Адключыць гук"</string>
+    <string msgid="5319032370587661362" name="cast_notification_connected_message">"Падключэнне да <ns1:g id="NAME">%1$s</ns1:g> выканана"</string>
+    <string msgid="2758865089947797888" name="cast_notification_connecting_message">"Падключэнне да <ns1:g id="NAME">%1$s</ns1:g>"</string>
+    <string msgid="2568179715202151240" name="cast_notification_default_channel_name">"Cast"</string>
+    <string msgid="5232008641593292969" name="cast_notification_disconnect">"Адключыць"</string>
+    <string msgid="5308503786390460607" name="cast_pause">"Паўза"</string>
+    <string msgid="5906987965619702702" name="cast_play">"Прайграць"</string>
+    <string msgid="1739665135565985480" name="cast_rewind">"Перамотка назад"</string>
+    <string msgid="6432793028560778843" name="cast_rewind_10">"Перамотка на дзесяць секунд назад"</string>
+    <string msgid="4677199707225681325" name="cast_rewind_30">"Перамотка на трыццаць секунд назад"</string>
+    <string msgid="9078075166993780241" name="cast_seek_bar">"Элемент прайгравання"</string>
+    <string msgid="3991548379225047363" name="cast_skip_next">"Пераход да наступнага элемента"</string>
+    <string msgid="8369073097776576935" name="cast_skip_prev">"Пераход да папярэдняга элемента"</string>
+    <string msgid="9191388946729723891" name="cast_stop">"Спыніць"</string>
+    <string msgid="1219622777438777099" name="cast_stop_live_stream">"Спыніць перадачу плынню ў рэальным часе"</string>
+    <string msgid="4250321332248956563" name="cast_tracks_chooser_dialog_audio">"Аўдыя"</string>
+    <string msgid="1162380934229249476" name="cast_tracks_chooser_dialog_cancel">"Скасаваць"</string>
+    <string msgid="1779359505126875127" name="cast_tracks_chooser_dialog_closed_captions">"Схаваныя цітры"</string>
+    <string msgid="3012268736704635952" name="cast_tracks_chooser_dialog_default_track_name">"Трэк <ns1:g id="POSITION">%1$d</ns1:g>"</string>
+    <string msgid="1176688358580178396" name="cast_tracks_chooser_dialog_none">"Няма"</string>
+    <string msgid="3804878371876790270" name="cast_tracks_chooser_dialog_ok">"ОК"</string>
+    <string msgid="2454147715032376208" name="cast_tracks_chooser_dialog_subtitles">"Субцітры"</string>
+    <string msgid="2913461521603516868" name="cast_unmute">"Уключыць гук"</string>
     <string msgid="8585111718777012708" name="common_google_play_services_enable_button">"Уключыць"</string>
     <string msgid="7045129128108380659" name="common_google_play_services_enable_text">"<ns1:g id="APP_NAME">%1$s</ns1:g> не будзе працаваць, пакуль вы не ўключыце службы Google Play."</string>
     <string msgid="3147157405986503375" name="common_google_play_services_enable_title">"Уключыць службы Google Play"</string>
@@ -50,6 +93,27 @@
     <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"Адкрыць у браўзеры"</string>
     <string msgid="7145444925855055364" name="fallback_menu_item_share_link">"Абагуліць спасылку"</string>
     <string msgid="4133737464567140336" name="fcm_fallback_notification_channel_label">"Рознае"</string>
+    <string msgid="1685185767093348095" name="mr_button_content_description">"Кнопка трансляцыі"</string>
+    <string msgid="1350095112462806159" name="mr_cast_button_connected">"Кнопка трансляцыі. Прылада злучана"</string>
+    <string msgid="8959304318293841992" name="mr_cast_button_connecting">"Кнопка трансляцыі. Прылада злучаецца"</string>
+    <string msgid="5501231066847739632" name="mr_cast_button_disconnected">"Кнопка трансляцыі. Прылада адлучана"</string>
+    <string msgid="5504553798429329689" name="mr_chooser_searching">"Пошук прылад"</string>
+    <string msgid="7548226170787476564" name="mr_chooser_title">"Трансліраваць на прыладу"</string>
+    <string msgid="5813284753012893250" name="mr_controller_album_art">"Вокладка альбома"</string>
+    <string msgid="5286734709674025661" name="mr_controller_casting_screen">"Трансліруецца змесціва экрана"</string>
+    <string msgid="5468775621814500662" name="mr_controller_close_description">"Закрыць"</string>
+    <string msgid="5518911192681928413" name="mr_controller_collapse_group">"Згарнуць"</string>
+    <string msgid="1370654436555555647" name="mr_controller_disconnect">"Адлучыць"</string>
+    <string msgid="2422682304043876468" name="mr_controller_expand_group">"Разгарнуць"</string>
+    <string msgid="7299368841849988218" name="mr_controller_no_info_available">"Інфармацыя адсутнічае"</string>
+    <string msgid="4342878516155861006" name="mr_controller_no_media_selected">"Мультымедыя не выбрана"</string>
+    <string msgid="4701315813294065305" name="mr_controller_pause">"Прыпыніць"</string>
+    <string msgid="4443315438268112801" name="mr_controller_play">"Прайграць"</string>
+    <string msgid="5106056093749454009" name="mr_controller_stop">"Спыніць"</string>
+    <string msgid="7617024847862349259" name="mr_controller_stop_casting">"Спыніць трансляцыю"</string>
+    <string msgid="691656961160498512" name="mr_controller_volume_slider">"Рэгулятар гучнасці"</string>
+    <string msgid="3117964881088969586" name="mr_system_route_name">"Сістэма"</string>
+    <string msgid="8236416097133080726" name="mr_user_route_category_name">"Прылады"</string>
     <string msgid="730395136688082741" name="search_menu_title">"Пошук"</string>
     <string msgid="8106346172024741305" name="status_bar_notification_info_overflow">"999+"</string>
 </resources>

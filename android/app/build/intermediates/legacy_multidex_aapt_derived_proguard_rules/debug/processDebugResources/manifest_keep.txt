@@ -1,4 +1,4 @@
-# Referenced at /Users/michaelgarcia/Documents/Github/Taiyaki_Typed/android/app/build/intermediates/merged_manifests/debug/AndroidManifest.xml:41
+# Referenced at /Users/michaelgarcia/Documents/Github/TaiYakiAnime/android/app/build/intermediates/merged_manifests/debug/AndroidManifest.xml:44
 -keep class androidx.core.app.CoreComponentFactory { <init>(); }
-# Referenced at /Users/michaelgarcia/Documents/Github/Taiyaki_Typed/android/app/build/intermediates/merged_manifests/debug/AndroidManifest.xml:41
+# Referenced at /Users/michaelgarcia/Documents/Github/TaiYakiAnime/android/app/build/intermediates/merged_manifests/debug/AndroidManifest.xml:44
 -keep class com.taiyaki_typed.MainApplication { <init>(); }

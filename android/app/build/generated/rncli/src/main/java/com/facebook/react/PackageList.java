@@ -21,20 +21,28 @@ import com.reactcommunity.rndatetimepicker.RNDateTimePickerPackage;
 import org.reactnative.maskedview.RNCMaskedViewPackage;
 // @react-native-community/picker
 import com.reactnativecommunity.picker.RNCPickerPackage;
+// @react-native-community/slider
+import com.reactnativecommunity.slider.ReactSliderPackage;
 // @react-native-community/viewpager
 import com.reactnativecommunity.viewpager.RNCViewPagerPackage;
+// react-native-background-fetch
+import com.transistorsoft.rnbackgroundfetch.RNBackgroundFetchPackage;
+// react-native-bootsplash
+import com.zoontek.rnbootsplash.RNBootSplashPackage;
 // react-native-device-info
 import com.learnium.RNDeviceInfo.RNDeviceInfo;
 // react-native-fast-image
 import com.dylanvann.fastimage.FastImageViewPackage;
 // react-native-gesture-handler
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
+// react-native-google-cast
+import com.reactnative.googlecast.GoogleCastPackage;
 // react-native-inappbrowser-reborn
 import com.proyecto26.inappbrowser.RNInAppBrowserPackage;
 // react-native-linear-gradient
 import com.BV.LinearGradient.LinearGradientPackage;
-// react-native-orientation
-import com.github.yamill.orientation.OrientationPackage;
+// react-native-orientation-locker
+import org.wonday.orientation.OrientationPackage;
 // react-native-push-notification
 import com.dieam.reactnativepushnotification.ReactNativePushNotificationPackage;
 // react-native-reanimated
@@ -97,10 +105,14 @@ public class PackageList {
       new RNDateTimePickerPackage(),
       new RNCMaskedViewPackage(),
       new RNCPickerPackage(),
+      new ReactSliderPackage(),
       new RNCViewPagerPackage(),
+      new RNBackgroundFetchPackage(),
+      new RNBootSplashPackage(),
       new RNDeviceInfo(),
       new FastImageViewPackage(),
       new RNGestureHandlerPackage(),
+      new GoogleCastPackage(),
       new RNInAppBrowserPackage(),
       new LinearGradientPackage(),
       new OrientationPackage(),

@@ -50,10 +50,9 @@ export class SourceBase {
   async scrapeTitle(
     title: string,
   ): Promise<{loading: boolean; results: TaiyakiScrapedTitleModel[]}> {
-    const func = new Function(this.source.searchTitles);
     let loading = true;
-    //	if (this.source.name === "AniWatch") console.log(this.source.searchTitles)
-    const titles: TaiyakiScrapedTitleModel[] = await func
+    //SyntaxError: 1:23:async functions are unsupported after this
+    const titles: TaiyakiScrapedTitleModel[] = await new Function(this.source.searchTitles)
       .call(null)
       .call(
         null,

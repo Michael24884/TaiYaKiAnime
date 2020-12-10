@@ -1,0 +1,9 @@
+R_DEF: Internal format may change without notice
+local
+attr? blurRadius
+attr? downsampleFactor
+attr? overlayColor
+color default_overlay_color
+integer default_blur_radius
+integer default_downsample_factor
+styleable BlurringView blurRadius downsampleFactor overlayColor
