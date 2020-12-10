@@ -12,15 +12,15 @@
 
 |                           Home Screen                           |     Dark Version           |
 | :---------------------------------------------------------------: | :-------------------------------------------------: |
-| <img src="ExtAssets/img/detail9.PNG" width="300">          |  <img src="ExtAssets/img/detail4.PNG" width="300">|
+| <img src="ExtAssets/img/detail9.png" width="300">          |  <img src="ExtAssets/img/detail4.png" width="300">|
 |       Light Version                                      |      Queue Player support to binge all your anime in one sitting             |
-|<img src="ExtAssets/img/detail3.PNG" width="300">           |  <img src="ExtAssets/img/detail6.PNG" width="300">|
+|<img src="ExtAssets/img/detail3.png" width="300">           |  <img src="ExtAssets/img/detail6.png" width="300">|
 |       See your third party tracker stats                        |     Spoiler-free support to prevent accidental reveals |
-|<img src="ExtAssets/img/detail5.PNG" width="300">           |  <img src="ExtAssets/img/detail5.PNG" width="300">  |
+|<img src="ExtAssets/img/detail5.png" width="300">           |  <img src="ExtAssets/img/detail5.png" width="300">  |
 |       Multiple third party tracker support                                           |     Update all your data in one place  |
-|<img src="ExtAssets/img/detail7.PNG" width="300">           |  <img src="ExtAssets/img/detail8.PNG" width="300"> |
+|<img src="ExtAssets/img/detail7.png" width="300">           |  <img src="ExtAssets/img/detail8.png" width="300"> |
 |       In App video player                                       |     In App video player + Up Next                   |
-|<img src="ExtAssets/img/detail1.PNG"  width="500">          | <img src="ExtAssets/img/detail2.PNG" width="500">|
+|<img src="ExtAssets/img/detail1.png"  width="500">          | <img src="ExtAssets/img/detail2.png" width="500">|
 
 (Images are on an iPhone but are the same for Android)
 
