@@ -15,7 +15,7 @@ import {ThemedButton, ThemedSurface, ThemedText} from '../../Components';
 import Slider from '@react-native-community/slider';
 import {minutesToHours} from '../../../Util';
 import {Modalize} from 'react-native-modalize';
-import GoogleCast, {CastButton} from 'react-native-google-cast';
+// import GoogleCast, {CastButton} from 'react-native-google-cast';
 
 //NOTE: Its possible to reuse the same components for different settings. But would probably result in an ugly looking tree.
 
@@ -220,7 +220,7 @@ export const VideoSettingsPage = () => {
   const videoSettings = useSettingsStore((_) => _.settings.general.video);
 
   useEffect(() => {
-    GoogleCast.showIntroductoryOverlay();
+    //GoogleCast.showIntroductoryOverlay();
   }, []);
 
   return (

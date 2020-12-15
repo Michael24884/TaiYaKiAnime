@@ -13,7 +13,6 @@ import java.lang.reflect.InvocationTargetException;
 import com.facebook.react.bridge.JSIModulePackage;
 import com.swmansion.reanimated.ReanimatedJSIModulePackage;
 import java.util.List;
-import com.reactnative.googlecast.GoogleCastPackage;
 
 public class MainApplication extends Application implements ReactApplication {
 

@@ -1,6 +1,7 @@
 import {useCallback, useEffect, useRef, useState} from 'react';
 import {LayoutAnimation} from 'react-native';
 import {SourceBase} from '../Classes/SourceBase';
+import { MapSourceTypesToAbstract, Vidstreaming } from '../Classes/Sources';
 import {SimklEpisodes} from '../Models/SIMKL';
 import {DetailedDatabaseModel} from '../Models/taiyaki';
 import {useSimklRequests} from './useRequest';
@@ -36,7 +37,7 @@ export function useDetailedHook(
       const raw = rawLinks[i];
       if (episode) {
         episode.link = raw;
-        episode.sourceName = database!.source.name;
+        episode.sourceName = database!.source.options.name;
         items.push(episode);
       } else {
         const episode: SimklEpisodes = {
@@ -46,7 +47,7 @@ export function useDetailedHook(
           ids: {simkl_id: 0},
           aired: true,
           img: undefined,
-          sourceName: database!.source.name,
+          sourceName: database!.source.options.name,
         };
         items.push(episode);
       }
@@ -68,6 +69,7 @@ export function useDetailedHook(
     }
   }, [SimklEpisodeData, rawLinks]);
 
+
   useEffect(() => {
     return () => controller.abort();
   }, []);
@@ -88,8 +90,7 @@ export function useDetailedHook(
   };
 
   if (!database || !database.link) return null;
-
-  const source = new SourceBase(database.source);
+ 
 
   const retry = () => {
     setError(undefined);
@@ -98,10 +99,15 @@ export function useDetailedHook(
 
   const findTitles = async () => {
     setIsLoading(true);
-    source.scrapeAvailableEpisodes(database.link!).then((results) => {
+     const result = new SourceBase(database.source.source);
+    //const map = MapSourceTypesToAbstract.get(database.source.source)!
+
+    result.scrapeAvailableEpisodes(database.link!)
+    .then((results) => {
       setIsLoading(false);
       setLinks(results);
-    });
+    })
+
   };
   return {
     isLoading,

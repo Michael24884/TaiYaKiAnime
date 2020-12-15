@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/michaelgarcia/Documents/Github/Taiyaki_Typed/android/app/build/intermediates/incremental/mergeReleaseResources/merged.dir/values-ta/values-ta.xml",
+            "outputFile": "/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/build/intermediates/incremental/mergeReleaseResources/merged.dir/values-ta/values-ta.xml",
             "map": [
                 {
                     "source": "/Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/fc8046cb9a5df9499609a5f7f8270b1b/play-services-base-17.0.0/res/values-ta/values.xml",
@@ -18,23 +18,6 @@
                         "startOffsets": "2871,2978,3162,3291,3399,3610,3740,3883,4238,4480,4589,4773,4910,5123,5309,5401,5494",
                         "endColumns": "106,183,128,107,210,129,142,129,241,108,183,136,212,185,91,92,109",
                         "endOffsets": "2973,3157,3286,3394,3605,3735,3878,4008,4475,4584,4768,4905,5118,5304,5396,5489,5599"
-                    }
-                },
-                {
-                    "source": "/Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/2477c3457d8d96bfe506ec618ee70d61/browser-1.3.0-rc01/res/values-ta/values-ta.xml",
-                    "from": {
-                        "startLines": "2,3,4,5",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "55,172,274,381",
-                        "endColumns": "116,101,106,103",
-                        "endOffsets": "167,269,376,480"
-                    },
-                    "to": {
-                        "startLines": "47,48,49,50",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "5604,5721,5823,5930",
-                        "endColumns": "116,101,106,103",
-                        "endOffsets": "5716,5818,5925,6029"
                     }
                 },
                 {
@@ -72,7 +55,7 @@
                     }
                 },
                 {
-                    "source": "/Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/9d56ba2874ab95c29651944ad91cfd9d/jetified-play-services-basement-17.0.0/res/values-ta/values.xml",
+                    "source": "/Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/655d0b8d538f42cf378a47c98869b24b/jetified-play-services-basement-17.0.0/res/values-ta/values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -89,7 +72,7 @@
                     }
                 },
                 {
-                    "source": "/Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/617019466158e459a1470d556b9de9fb/jetified-firebase-messaging-21.0.0/res/values-ta/values.xml",
+                    "source": "/Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/098d11b50f3b3d6af751cd078835c643/jetified-firebase-messaging-21.0.0/res/values-ta/values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -103,6 +86,23 @@
                         "startOffsets": "6034",
                         "endColumns": "104",
                         "endOffsets": "6134"
+                    }
+                },
+                {
+                    "source": "/Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/ec208c392f1d51844b05fc658452bcef/browser-1.3.0/res/values-ta/values-ta.xml",
+                    "from": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,172,274,381",
+                        "endColumns": "116,101,106,103",
+                        "endOffsets": "167,269,376,480"
+                    },
+                    "to": {
+                        "startLines": "47,48,49,50",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "5604,5721,5823,5930",
+                        "endColumns": "116,101,106,103",
+                        "endOffsets": "5716,5818,5925,6029"
                     }
                 }
             ]

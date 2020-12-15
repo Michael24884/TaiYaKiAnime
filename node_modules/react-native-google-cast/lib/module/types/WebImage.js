@@ -1,2 +1,0 @@
-
-//# sourceMappingURL=WebImage.js.map

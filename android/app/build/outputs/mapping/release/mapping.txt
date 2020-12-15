@@ -1,7 +1,7 @@
 # compiler: R8
 # compiler_version: 1.5.69
-# min_api: 18
-# pg_map_id: 18589c2
+# min_api: 21
+# pg_map_id: 64e9083
 androidx.activity.Cancellable -> androidx.activity.a:
 androidx.activity.ComponentActivity -> androidx.activity.ComponentActivity:
     androidx.activity.OnBackPressedDispatcher mOnBackPressedDispatcher -> f
@@ -14606,11 +14606,11 @@ com.facebook.drawee.backends.pipeline.PipelineDraweeController -> c.c.h.a.a.d:
     java.lang.Object getImageInfo(java.lang.Object) -> d
     void releaseImage(com.facebook.common.references.CloseableReference) -> d
     void releaseImage(java.lang.Object) -> e
-    com.facebook.common.references.CloseableReference getCachedImage() -> g
-    java.lang.Object getCachedImage() -> g
-    com.facebook.datasource.DataSource getDataSource() -> j
-    void clearImageOriginListeners() -> p
-    com.facebook.imagepipeline.listener.RequestListener getRequestListener() -> q
+    com.facebook.common.references.CloseableReference getCachedImage() -> f
+    java.lang.Object getCachedImage() -> f
+    com.facebook.datasource.DataSource getDataSource() -> i
+    void clearImageOriginListeners() -> o
+    com.facebook.imagepipeline.listener.RequestListener getRequestListener() -> p
 com.facebook.drawee.backends.pipeline.PipelineDraweeControllerBuilder -> c.c.h.a.a.e:
     com.facebook.common.internal.ImmutableList mCustomDrawableFactories -> u
     com.facebook.drawee.backends.pipeline.info.ImageOriginListener mImageOriginListener -> v
@@ -14773,7 +14773,6 @@ com.facebook.drawee.components.DeferredReleaser -> c.c.h.b.a:
 com.facebook.drawee.components.DeferredReleaser$1 -> c.c.h.b.a$a:
     com.facebook.drawee.components.DeferredReleaser this$0 -> b
 com.facebook.drawee.components.DeferredReleaser$Releasable -> c.c.h.b.a$b:
-    void release() -> a
 com.facebook.drawee.components.DraweeEventTracker -> c.c.h.b.b:
     java.util.Queue mEventQueue -> a
     com.facebook.drawee.components.DraweeEventTracker sInstance -> b
@@ -14844,42 +14843,41 @@ com.facebook.drawee.controller.AbstractDraweeController -> c.c.h.c.a:
     void initialize(java.lang.String,java.lang.Object) -> a
     boolean isExpectedDataSource(java.lang.String,com.facebook.datasource.DataSource) -> a
     void logMessageAndFailure(java.lang.String,java.lang.Throwable) -> a
+    void onDetach() -> a
     void onFailureInternal(java.lang.String,com.facebook.datasource.DataSource,java.lang.Throwable,boolean) -> a
     void onNewResultInternal(java.lang.String,com.facebook.datasource.DataSource,java.lang.Object,float,boolean,boolean,boolean) -> a
     void onProgressUpdateInternal(java.lang.String,com.facebook.datasource.DataSource,float,boolean) -> a
     boolean onTouchEvent(android.view.MotionEvent) -> a
-    void release() -> a
     void releaseDrawable(android.graphics.drawable.Drawable) -> a
     void setContentDescription(java.lang.String) -> a
     void setControllerViewportVisibilityListener(com.facebook.drawee.controller.ControllerViewportVisibilityListener) -> a
     void setGestureDetector(com.facebook.drawee.gestures.GestureDetector) -> a
     void setHierarchy(com.facebook.drawee.interfaces.DraweeHierarchy) -> a
     void setRetainImageOnFailure(boolean) -> a
+    com.facebook.drawee.interfaces.DraweeHierarchy getHierarchy() -> b
     java.lang.String getImageClass(java.lang.Object) -> b
-    void onDetach() -> b
     void onImageLoadedFromCacheImmediately(java.lang.String,java.lang.Object) -> b
     void removeControllerListener(com.facebook.drawee.controller.ControllerListener) -> b
     void setControllerOverlay(android.graphics.drawable.Drawable) -> b
-    com.facebook.drawee.interfaces.DraweeHierarchy getHierarchy() -> c
     int getImageHash(java.lang.Object) -> c
     void init(java.lang.String,java.lang.Object) -> c
+    void onAttach() -> c
     java.lang.Object getImageInfo(java.lang.Object) -> d
     void logMessageAndImage(java.lang.String,java.lang.Object) -> d
-    void onAttach() -> d
-    boolean onClick() -> e
+    boolean onClick() -> d
+    android.graphics.drawable.Animatable getAnimatable() -> e
     void releaseImage(java.lang.Object) -> e
-    android.graphics.drawable.Animatable getAnimatable() -> f
-    java.lang.Object getCachedImage() -> g
-    com.facebook.drawee.controller.ControllerListener getControllerListener() -> h
-    android.graphics.drawable.Drawable getControllerOverlay() -> i
-    com.facebook.datasource.DataSource getDataSource() -> j
-    com.facebook.drawee.gestures.GestureDetector getGestureDetector() -> k
-    java.lang.String getId() -> l
-    com.facebook.drawee.components.RetryManager getRetryManager() -> m
-    boolean shouldHandleGesture() -> n
-    void submitRequest() -> o
-    void releaseFetch() -> p
-    boolean shouldRetryOnTap() -> q
+    java.lang.Object getCachedImage() -> f
+    com.facebook.drawee.controller.ControllerListener getControllerListener() -> g
+    android.graphics.drawable.Drawable getControllerOverlay() -> h
+    com.facebook.datasource.DataSource getDataSource() -> i
+    com.facebook.drawee.gestures.GestureDetector getGestureDetector() -> j
+    java.lang.String getId() -> k
+    com.facebook.drawee.components.RetryManager getRetryManager() -> l
+    boolean shouldHandleGesture() -> m
+    void submitRequest() -> n
+    void releaseFetch() -> o
+    boolean shouldRetryOnTap() -> p
 com.facebook.drawee.controller.AbstractDraweeController$1 -> c.c.h.c.a$a:
     com.facebook.drawee.controller.AbstractDraweeController this$0 -> c
     java.lang.String val$id -> a
@@ -15444,13 +15442,13 @@ com.facebook.drawee.gestures.GestureDetector -> c.c.h.g.a:
     boolean isCapturingGesture() -> b
     void reset() -> c
 com.facebook.drawee.gestures.GestureDetector$ClickListener -> c.c.h.g.a$a:
-    boolean onClick() -> e
+    boolean onClick() -> d
 com.facebook.drawee.interfaces.DraweeController -> c.c.h.h.a:
+    void onDetach() -> a
     boolean onTouchEvent(android.view.MotionEvent) -> a
     void setHierarchy(com.facebook.drawee.interfaces.DraweeHierarchy) -> a
-    void onDetach() -> b
-    com.facebook.drawee.interfaces.DraweeHierarchy getHierarchy() -> c
-    void onAttach() -> d
+    com.facebook.drawee.interfaces.DraweeHierarchy getHierarchy() -> b
+    void onAttach() -> c
 com.facebook.drawee.interfaces.DraweeHierarchy -> c.c.h.h.b:
     android.graphics.drawable.Drawable getTopLevelDrawable() -> a
 com.facebook.drawee.interfaces.SettableDraweeHierarchy -> c.c.h.h.c:
@@ -19102,40 +19100,40 @@ com.facebook.react.jstasks.HeadlessJsTaskConfig -> com.facebook.react.b0.a:
     long getTimeout() -> d
     boolean isAllowedInForeground() -> e
 com.facebook.react.jstasks.HeadlessJsTaskContext -> com.facebook.react.b0.b:
-    android.os.Handler mHandler -> c
-    java.util.Set mActiveTasks -> d
-    java.util.WeakHashMap INSTANCES -> g
+    android.os.Handler mHandler -> d
+    java.util.WeakHashMap INSTANCES -> h
+    java.util.concurrent.atomic.AtomicInteger mLastTaskId -> c
+    java.util.Set mActiveTasks -> e
+    android.util.SparseArray mTaskTimeouts -> g
     java.lang.ref.WeakReference mReactContext -> a
     java.util.Set mHeadlessJsTaskEventListeners -> b
-    android.util.SparseArray mTaskTimeouts -> f
-    java.util.Map mActiveTaskConfigs -> e
-    void access$000(com.facebook.react.jstasks.HeadlessJsTaskContext,com.facebook.react.jstasks.HeadlessJsTaskConfig,int) -> a
+    java.util.Map mActiveTaskConfigs -> f
     java.util.Set access$100(com.facebook.react.jstasks.HeadlessJsTaskContext) -> a
     void addTaskEventListener(com.facebook.react.jstasks.HeadlessJsTaskEventListener) -> a
     void finishTask(int) -> a
     com.facebook.react.jstasks.HeadlessJsTaskContext getInstance(com.facebook.react.bridge.ReactContext) -> a
     boolean hasActiveTasks() -> a
     void scheduleTaskTimeout(int,long) -> a
+    int startTask(com.facebook.react.jstasks.HeadlessJsTaskConfig) -> a
     void startTask(com.facebook.react.jstasks.HeadlessJsTaskConfig,int) -> a
     boolean isTaskRunning(int) -> b
     void removeTaskEventListener(com.facebook.react.jstasks.HeadlessJsTaskEventListener) -> b
     boolean retryTask(int) -> c
     void removeTimeout(int) -> d
-com.facebook.react.jstasks.HeadlessJsTaskContext$1 -> com.facebook.react.b0.b$a:
-    com.facebook.react.jstasks.HeadlessJsTaskConfig val$taskConfig -> b
-    com.facebook.react.jstasks.HeadlessJsTaskContext this$0 -> d
-    int val$taskId -> c
-com.facebook.react.jstasks.HeadlessJsTaskContext$2 -> com.facebook.react.b0.b$b:
+com.facebook.react.jstasks.HeadlessJsTaskContext$2 -> com.facebook.react.b0.b$a:
     com.facebook.react.jstasks.HeadlessJsTaskContext this$0 -> c
     int val$taskId -> b
-com.facebook.react.jstasks.HeadlessJsTaskContext$3 -> com.facebook.react.b0.b$c:
+com.facebook.react.jstasks.HeadlessJsTaskContext$3 -> com.facebook.react.b0.b$b:
     com.facebook.react.jstasks.HeadlessJsTaskContext this$0 -> c
     int val$taskId -> b
 com.facebook.react.jstasks.HeadlessJsTaskEventListener -> com.facebook.react.b0.c:
 com.facebook.react.jstasks.HeadlessJsTaskRetryPolicy -> com.facebook.react.b0.d:
     com.facebook.react.jstasks.HeadlessJsTaskRetryPolicy update() -> a
     boolean canRetry() -> b
-    int getDelay() -> c
+com.facebook.react.jstasks.NoRetryPolicy -> com.facebook.react.b0.e:
+    com.facebook.react.jstasks.NoRetryPolicy INSTANCE -> a
+    com.facebook.react.jstasks.HeadlessJsTaskRetryPolicy update() -> a
+    boolean canRetry() -> b
 com.facebook.react.module.annotations.ReactModule -> com.facebook.react.c0.a.a:
 com.facebook.react.module.model.ReactModuleInfo -> com.facebook.react.module.model.ReactModuleInfo:
     java.lang.String mClassName -> f
@@ -22874,11 +22872,6 @@ com.facebook.yoga.YogaWrap -> com.facebook.yoga.w:
     com.facebook.yoga.YogaWrap WRAP -> d
     int mIntValue -> b
     int intValue() -> a
-com.github.yamill.orientation.OrientationModule$1 -> com.github.yamill.orientation.OrientationModule$a:
-    com.facebook.react.bridge.ReactApplicationContext val$ctx -> a
-com.github.yamill.orientation.OrientationPackage -> com.github.yamill.orientation.a:
-    java.util.List createNativeModules(com.facebook.react.bridge.ReactApplicationContext) -> a
-    java.util.List createViewManagers(com.facebook.react.bridge.ReactApplicationContext) -> b
 com.google.android.a.a -> c.d.a.a.a:
     android.os.Parcel a() -> d
 com.google.android.a.b -> c.d.a.a.b:
@@ -24307,7 +24300,6 @@ com.google.android.gms.common.api.PendingResult -> com.google.android.gms.common
 com.google.android.gms.common.api.PendingResult$StatusListener -> com.google.android.gms.common.api.h$a:
     void onComplete(com.google.android.gms.common.api.Status) -> a
 com.google.android.gms.common.api.Releasable -> com.google.android.gms.common.api.i:
-    void release() -> a
 com.google.android.gms.common.api.Result -> com.google.android.gms.common.api.j:
     com.google.android.gms.common.api.Status getStatus() -> a
 com.google.android.gms.common.api.ResultCallback -> com.google.android.gms.common.api.k:
@@ -29973,6 +29965,62 @@ com.reactnativecommunity.picker.ReactPickerManager$ReactPickerAdapter -> com.rea
     android.view.View getView(int,android.view.View,android.view.ViewGroup,boolean) -> a
     void setItems(com.facebook.react.bridge.ReadableArray) -> a
     void setPrimaryTextColor(java.lang.Integer) -> a
+com.reactnativecommunity.slider.ReactSlider -> com.reactnativecommunity.slider.a:
+    java.lang.String mAccessibilityUnits -> h
+    int DEFAULT_TOTAL_STEPS -> j
+    double mMinValue -> c
+    java.util.List mAccessibilityIncrements -> i
+    double mMaxValue -> d
+    double mValue -> e
+    double mStep -> f
+    double mStepCalculated -> g
+    void disableStateListAnimatorIfNeeded() -> a
+    android.graphics.drawable.BitmapDrawable getBitmapDrawable(java.lang.String) -> a
+    double toRealProgress(int) -> a
+    void setupAccessibility() -> b
+    void updateAll() -> c
+    void updateValue() -> d
+com.reactnativecommunity.slider.ReactSlider$1 -> com.reactnativecommunity.slider.a$a:
+    android.view.accessibility.AccessibilityManager val$manager -> b
+    android.view.accessibility.AccessibilityEvent val$e -> c
+com.reactnativecommunity.slider.ReactSlider$2 -> com.reactnativecommunity.slider.a$b:
+    com.reactnativecommunity.slider.ReactSlider this$0 -> b
+    java.lang.String val$uri -> a
+com.reactnativecommunity.slider.ReactSliderEvent -> com.reactnativecommunity.slider.b:
+    boolean mFromUser -> g
+    double mValue -> f
+    void dispatch(com.facebook.react.uimanager.events.RCTEventEmitter) -> a
+    short getCoalescingKey() -> c
+    java.lang.String getEventName() -> d
+    double getValue() -> j
+    boolean isFromUser() -> k
+    com.facebook.react.bridge.WritableMap serializeEventData() -> l
+com.reactnativecommunity.slider.ReactSliderManager$1 -> com.reactnativecommunity.slider.ReactSliderManager$a:
+com.reactnativecommunity.slider.ReactSliderManager$ReactSliderShadowNode -> com.reactnativecommunity.slider.ReactSliderManager$b:
+    int mHeight -> B
+    boolean mMeasured -> C
+    int mWidth -> A
+    void initMeasureFunction() -> R
+    long measure(com.facebook.yoga.YogaNode,float,com.facebook.yoga.YogaMeasureMode,float,com.facebook.yoga.YogaMeasureMode) -> a
+com.reactnativecommunity.slider.ReactSliderPackage -> com.reactnativecommunity.slider.c:
+    java.util.List createNativeModules(com.facebook.react.bridge.ReactApplicationContext) -> a
+    java.util.List createViewManagers(com.facebook.react.bridge.ReactApplicationContext) -> b
+com.reactnativecommunity.slider.ReactSlidingCompleteEvent -> com.reactnativecommunity.slider.d:
+    double mValue -> f
+    boolean canCoalesce() -> a
+    void dispatch(com.facebook.react.uimanager.events.RCTEventEmitter) -> a
+    short getCoalescingKey() -> c
+    java.lang.String getEventName() -> d
+    double getValue() -> j
+    com.facebook.react.bridge.WritableMap serializeEventData() -> k
+com.reactnativecommunity.slider.ReactSlidingStartEvent -> com.reactnativecommunity.slider.e:
+    double mValue -> f
+    boolean canCoalesce() -> a
+    void dispatch(com.facebook.react.uimanager.events.RCTEventEmitter) -> a
+    short getCoalescingKey() -> c
+    java.lang.String getEventName() -> d
+    double getValue() -> j
+    com.facebook.react.bridge.WritableMap serializeEventData() -> k
 com.reactnativecommunity.viewpager.PageScrollEvent -> com.reactnativecommunity.viewpager.a:
     float mOffset -> g
     int mPosition -> f
@@ -31271,6 +31319,161 @@ com.th3rdwave.safeareacontext.SerializationUtils -> com.th3rdwave.safeareacontex
     java.util.Map rectToJavaMap(com.th3rdwave.safeareacontext.Rect) -> a
     com.facebook.react.bridge.WritableMap edgeInsetsToJsMap(com.th3rdwave.safeareacontext.EdgeInsets) -> b
     com.facebook.react.bridge.WritableMap rectToJsMap(com.th3rdwave.safeareacontext.Rect) -> b
+com.transistorsoft.rnbackgroundfetch.HeadlessTask$1 -> com.transistorsoft.rnbackgroundfetch.HeadlessTask$a:
+    com.facebook.react.jstasks.HeadlessJsTaskConfig val$taskConfig -> a
+    com.facebook.react.ReactInstanceManager val$reactInstanceManager -> b
+    com.transistorsoft.rnbackgroundfetch.HeadlessTask this$0 -> c
+    void onReactContextInitialized(com.facebook.react.bridge.ReactContext) -> a
+com.transistorsoft.rnbackgroundfetch.HeadlessTask$1$1 -> com.transistorsoft.rnbackgroundfetch.HeadlessTask$a$a:
+    com.facebook.react.bridge.ReactContext val$reactContext -> b
+    com.transistorsoft.rnbackgroundfetch.HeadlessTask$1 this$1 -> c
+com.transistorsoft.rnbackgroundfetch.HeadlessTask$2 -> com.transistorsoft.rnbackgroundfetch.HeadlessTask$b:
+    com.facebook.react.jstasks.HeadlessJsTaskConfig val$taskConfig -> c
+    com.facebook.react.jstasks.HeadlessJsTaskContext val$headlessJsTaskContext -> b
+com.transistorsoft.rnbackgroundfetch.RNBackgroundFetchModule$1 -> com.transistorsoft.rnbackgroundfetch.RNBackgroundFetchModule$a:
+    com.transistorsoft.rnbackgroundfetch.RNBackgroundFetchModule this$0 -> a
+    void onFetch(java.lang.String) -> a
+com.transistorsoft.rnbackgroundfetch.RNBackgroundFetchPackage -> com.transistorsoft.rnbackgroundfetch.a:
+    java.util.List createNativeModules(com.facebook.react.bridge.ReactApplicationContext) -> a
+    java.util.List createViewManagers(com.facebook.react.bridge.ReactApplicationContext) -> b
+com.transistorsoft.tsbackgroundfetch.BGTask -> com.transistorsoft.tsbackgroundfetch.a:
+    java.util.List mTasks -> d
+    java.lang.String mTaskId -> b
+    int mJobId -> c
+    com.transistorsoft.tsbackgroundfetch.FetchJobService$CompletionHandler mCompletionHandler -> a
+    void addTask(com.transistorsoft.tsbackgroundfetch.BGTask) -> a
+    void cancel(android.content.Context,java.lang.String,int) -> a
+    void finish() -> a
+    void fireHeadlessEvent(android.content.Context,com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig) -> a
+    android.app.PendingIntent getAlarmPI(android.content.Context,java.lang.String) -> a
+    boolean hasTaskId(java.lang.String) -> a
+    int getJobId() -> b
+    com.transistorsoft.tsbackgroundfetch.BGTask getTask(java.lang.String) -> b
+    void schedule(android.content.Context,com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig) -> b
+    java.lang.String getTaskId() -> c
+    void removeTask(java.lang.String) -> c
+    void clear() -> d
+com.transistorsoft.tsbackgroundfetch.BGTask$Error -> com.transistorsoft.tsbackgroundfetch.a$a:
+com.transistorsoft.tsbackgroundfetch.BackgroundFetch -> com.transistorsoft.tsbackgroundfetch.b:
+    android.content.Context mContext -> a
+    android.os.Handler uiHandler -> f
+    com.transistorsoft.tsbackgroundfetch.BackgroundFetch$Callback mCallback -> b
+    java.util.Map mConfig -> c
+    java.util.concurrent.ExecutorService sThreadPool -> e
+    com.transistorsoft.tsbackgroundfetch.BackgroundFetch mInstance -> d
+    android.content.Context access$000(com.transistorsoft.tsbackgroundfetch.BackgroundFetch) -> a
+    void access$200(com.transistorsoft.tsbackgroundfetch.BackgroundFetch,com.transistorsoft.tsbackgroundfetch.BGTask) -> a
+    void configure(com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig,com.transistorsoft.tsbackgroundfetch.BackgroundFetch$Callback) -> a
+    void finish(java.lang.String) -> a
+    com.transistorsoft.tsbackgroundfetch.BackgroundFetch getInstance(android.content.Context) -> a
+    java.lang.Boolean isMainActivityActive() -> a
+    void onFetch(com.transistorsoft.tsbackgroundfetch.BGTask) -> a
+    void scheduleTask(com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig) -> a
+    java.util.Map access$100(com.transistorsoft.tsbackgroundfetch.BackgroundFetch) -> b
+    void doFetch(com.transistorsoft.tsbackgroundfetch.BGTask) -> b
+    com.transistorsoft.tsbackgroundfetch.BackgroundFetch getInstanceSynchronized(android.content.Context) -> b
+    void onBoot() -> b
+    void start(java.lang.String) -> b
+    int status() -> c
+    void stop(java.lang.String) -> c
+    com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig getConfig(java.lang.String) -> d
+    java.util.concurrent.ExecutorService getThreadPool() -> d
+    android.os.Handler getUiHandler() -> e
+    void registerTask(java.lang.String) -> e
+com.transistorsoft.tsbackgroundfetch.BackgroundFetch$1 -> com.transistorsoft.tsbackgroundfetch.b$a:
+    com.transistorsoft.tsbackgroundfetch.BackgroundFetch this$0 -> a
+    void onLoad(java.util.List) -> a
+com.transistorsoft.tsbackgroundfetch.BackgroundFetch$2 -> com.transistorsoft.tsbackgroundfetch.b$b:
+    com.transistorsoft.tsbackgroundfetch.BackgroundFetch this$0 -> b
+    com.transistorsoft.tsbackgroundfetch.BGTask val$task -> a
+    void onLoad(java.util.List) -> a
+com.transistorsoft.tsbackgroundfetch.BackgroundFetch$Callback -> com.transistorsoft.tsbackgroundfetch.b$c:
+    void onFetch(java.lang.String) -> a
+com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig -> com.transistorsoft.tsbackgroundfetch.c:
+    int FETCH_JOB_ID -> b
+    com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig$Builder config -> a
+    void destroy(android.content.Context) -> a
+    long getDelay() -> a
+    void load(android.content.Context,com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig$OnLoadCallback) -> a
+    boolean getForceAlarmManager() -> b
+    void save(android.content.Context) -> b
+    int getJobId() -> c
+    java.lang.String getJobService() -> d
+    int getMinimumFetchInterval() -> e
+    boolean getPeriodic() -> f
+    int getRequiredNetworkType() -> g
+    boolean getRequiresBatteryNotLow() -> h
+    boolean getRequiresCharging() -> i
+    boolean getRequiresDeviceIdle() -> j
+    boolean getRequiresStorageNotLow() -> k
+    boolean getStartOnBoot() -> l
+    boolean getStopOnTerminate() -> m
+    java.lang.String getTaskId() -> n
+    boolean isFetchTask() -> o
+com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig$1 -> com.transistorsoft.tsbackgroundfetch.c$a:
+    com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig$OnLoadCallback val$callback -> c
+    android.content.Context val$context -> b
+com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig$1$1 -> com.transistorsoft.tsbackgroundfetch.c$a$a:
+    java.util.List val$result -> b
+    com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig$1 this$0 -> c
+com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig$Builder -> com.transistorsoft.tsbackgroundfetch.c$b:
+    boolean isFetchTask -> m
+    boolean requiresBatteryNotLow -> i
+    boolean requiresCharging -> j
+    int requiredNetworkType -> h
+    boolean requiresDeviceIdle -> k
+    boolean requiresStorageNotLow -> l
+    java.lang.String jobService -> n
+    long delay -> c
+    int minimumFetchInterval -> b
+    boolean forceAlarmManager -> e
+    boolean stopOnTerminate -> f
+    java.lang.String taskId -> a
+    boolean startOnBoot -> g
+    boolean periodic -> d
+    java.lang.String access$100(com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig$Builder) -> a
+    com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig build() -> a
+    com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig load(android.content.Context,java.lang.String) -> a
+    com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig$Builder setDelay(long) -> a
+    com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig$Builder setForceAlarmManager(boolean) -> a
+    com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig$Builder setJobService(java.lang.String) -> a
+    com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig$Builder setMinimumFetchInterval(int) -> a
+    boolean access$1000(com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig$Builder) -> b
+    com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig$Builder setIsFetchTask(boolean) -> b
+    com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig$Builder setRequiredNetworkType(int) -> b
+    com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig$Builder setTaskId(java.lang.String) -> b
+    boolean access$1100(com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig$Builder) -> c
+    com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig$Builder setPeriodic(boolean) -> c
+    boolean access$1200(com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig$Builder) -> d
+    com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig$Builder setRequiresBatteryNotLow(boolean) -> d
+    boolean access$1300(com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig$Builder) -> e
+    com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig$Builder setRequiresCharging(boolean) -> e
+    long access$1400(com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig$Builder) -> f
+    com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig$Builder setRequiresDeviceIdle(boolean) -> f
+    boolean access$200(com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig$Builder) -> g
+    com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig$Builder setRequiresStorageNotLow(boolean) -> g
+    boolean access$300(com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig$Builder) -> h
+    com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig$Builder setStartOnBoot(boolean) -> h
+    java.lang.String access$400(com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig$Builder) -> i
+    com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig$Builder setStopOnTerminate(boolean) -> i
+    boolean access$500(com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig$Builder) -> j
+    int access$600(com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig$Builder) -> k
+    int access$700(com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig$Builder) -> l
+    boolean access$800(com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig$Builder) -> m
+    boolean access$900(com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig$Builder) -> n
+com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig$OnLoadCallback -> com.transistorsoft.tsbackgroundfetch.c$c:
+    void onLoad(java.util.List) -> a
+com.transistorsoft.tsbackgroundfetch.BootReceiver$1 -> com.transistorsoft.tsbackgroundfetch.BootReceiver$a:
+    android.content.Context val$context -> b
+com.transistorsoft.tsbackgroundfetch.FetchAlarmReceiver$1 -> com.transistorsoft.tsbackgroundfetch.FetchAlarmReceiver$a:
+    android.os.PowerManager$WakeLock val$wakeLock -> a
+    void finish() -> a
+com.transistorsoft.tsbackgroundfetch.FetchJobService$1 -> com.transistorsoft.tsbackgroundfetch.FetchJobService$a:
+    android.app.job.JobParameters val$params -> a
+    com.transistorsoft.tsbackgroundfetch.FetchJobService this$0 -> b
+    void finish() -> a
+com.transistorsoft.tsbackgroundfetch.FetchJobService$CompletionHandler -> com.transistorsoft.tsbackgroundfetch.FetchJobService$b:
+    void finish() -> a
 com.yqritc.scalablevideoview.PivotPoint -> c.f.a.a:
     com.yqritc.scalablevideoview.PivotPoint LEFT_TOP -> b
     com.yqritc.scalablevideoview.PivotPoint[] $VALUES -> k
@@ -31349,6 +31552,56 @@ com.yqritc.scalablevideoview.Size -> c.f.a.f:
     int mWidth -> a
     int getHeight() -> a
     int getWidth() -> b
+com.zoontek.rnbootsplash.R$id -> com.zoontek.rnbootsplash.a:
+com.zoontek.rnbootsplash.RNBootSplash -> com.zoontek.rnbootsplash.b:
+    void init(int,android.app.Activity) -> a
+com.zoontek.rnbootsplash.RNBootSplashActivity -> com.zoontek.rnbootsplash.RNBootSplashActivity:
+    void forwardIntentToMainActivity(android.content.Intent) -> c
+    java.lang.Class getMainActivityClass() -> o
+com.zoontek.rnbootsplash.RNBootSplashModule$1 -> com.zoontek.rnbootsplash.RNBootSplashModule$a:
+    android.app.Activity val$activity -> b
+com.zoontek.rnbootsplash.RNBootSplashModule$2 -> com.zoontek.rnbootsplash.RNBootSplashModule$b:
+    com.zoontek.rnbootsplash.RNBootSplashModule this$0 -> b
+com.zoontek.rnbootsplash.RNBootSplashModule$3 -> com.zoontek.rnbootsplash.RNBootSplashModule$c:
+    com.zoontek.rnbootsplash.RNBootSplashModule this$0 -> c
+    java.util.Timer val$timer -> b
+com.zoontek.rnbootsplash.RNBootSplashModule$4 -> com.zoontek.rnbootsplash.RNBootSplashModule$d:
+    com.zoontek.rnbootsplash.RNBootSplashModule this$0 -> c
+    com.zoontek.rnbootsplash.RNBootSplashTask val$task -> b
+com.zoontek.rnbootsplash.RNBootSplashModule$4$1 -> com.zoontek.rnbootsplash.RNBootSplashModule$d$a:
+    com.zoontek.rnbootsplash.RNBootSplashModule$4 this$1 -> b
+    com.facebook.react.bridge.Promise val$promise -> a
+com.zoontek.rnbootsplash.RNBootSplashModule$5 -> com.zoontek.rnbootsplash.RNBootSplashModule$e:
+    com.zoontek.rnbootsplash.RNBootSplashModule this$0 -> c
+    com.zoontek.rnbootsplash.RNBootSplashTask val$task -> b
+com.zoontek.rnbootsplash.RNBootSplashModule$5$1 -> com.zoontek.rnbootsplash.RNBootSplashModule$e$a:
+    android.widget.LinearLayout val$layout -> b
+    android.view.ViewGroup val$parent -> a
+    com.zoontek.rnbootsplash.RNBootSplashModule$5 this$1 -> d
+    com.facebook.react.bridge.Promise val$promise -> c
+com.zoontek.rnbootsplash.RNBootSplashModule$6 -> com.zoontek.rnbootsplash.RNBootSplashModule$f:
+    int[] $SwitchMap$com$zoontek$rnbootsplash$RNBootSplashModule$Status -> b
+    int[] $SwitchMap$com$zoontek$rnbootsplash$RNBootSplashTask$Type -> a
+com.zoontek.rnbootsplash.RNBootSplashModule$Status -> com.zoontek.rnbootsplash.RNBootSplashModule$g:
+    com.zoontek.rnbootsplash.RNBootSplashModule$Status[] $VALUES -> f
+    com.zoontek.rnbootsplash.RNBootSplashModule$Status HIDDEN -> c
+    com.zoontek.rnbootsplash.RNBootSplashModule$Status VISIBLE -> b
+    com.zoontek.rnbootsplash.RNBootSplashModule$Status TRANSITIONING_TO_HIDDEN -> e
+    com.zoontek.rnbootsplash.RNBootSplashModule$Status TRANSITIONING_TO_VISIBLE -> d
+com.zoontek.rnbootsplash.RNBootSplashPackage -> com.zoontek.rnbootsplash.c:
+    java.util.List createNativeModules(com.facebook.react.bridge.ReactApplicationContext) -> a
+    java.util.List createViewManagers(com.facebook.react.bridge.ReactApplicationContext) -> b
+com.zoontek.rnbootsplash.RNBootSplashTask -> com.zoontek.rnbootsplash.d:
+    com.zoontek.rnbootsplash.RNBootSplashTask$Type mType -> c
+    boolean mFade -> a
+    com.facebook.react.bridge.Promise mPromise -> b
+    boolean getFade() -> a
+    com.facebook.react.bridge.Promise getPromise() -> b
+    com.zoontek.rnbootsplash.RNBootSplashTask$Type getType() -> c
+com.zoontek.rnbootsplash.RNBootSplashTask$Type -> com.zoontek.rnbootsplash.d$a:
+    com.zoontek.rnbootsplash.RNBootSplashTask$Type HIDE -> c
+    com.zoontek.rnbootsplash.RNBootSplashTask$Type SHOW -> b
+    com.zoontek.rnbootsplash.RNBootSplashTask$Type[] $VALUES -> d
 dagger.Lazy -> d.a:
 dagger.internal.DoubleCheck -> d.b.a:
     javax.inject.Provider provider -> a
@@ -32004,5 +32257,19 @@ org.reactnative.maskedview.RNCMaskedView -> org.reactnative.maskedview.a:
     android.graphics.Bitmap getBitmapFromView(android.view.View) -> b
     void updateBitmapMask() -> e
 org.reactnative.maskedview.RNCMaskedViewPackage -> org.reactnative.maskedview.b:
+    java.util.List createNativeModules(com.facebook.react.bridge.ReactApplicationContext) -> a
+    java.util.List createViewManagers(com.facebook.react.bridge.ReactApplicationContext) -> b
+org.wonday.orientation.OrientationActivityLifecycle -> org.wonday.orientation.a:
+    org.wonday.orientation.OrientationListeners orientationListeners -> b
+    java.util.concurrent.atomic.AtomicInteger activeCount -> c
+    org.wonday.orientation.OrientationActivityLifecycle instance -> d
+    org.wonday.orientation.OrientationActivityLifecycle getInstance() -> a
+    void registerListeners(org.wonday.orientation.OrientationListeners) -> a
+org.wonday.orientation.OrientationListeners -> org.wonday.orientation.b:
+org.wonday.orientation.OrientationModule$1 -> org.wonday.orientation.OrientationModule$a:
+    org.wonday.orientation.OrientationModule this$0 -> a
+org.wonday.orientation.OrientationModule$2 -> org.wonday.orientation.OrientationModule$b:
+    org.wonday.orientation.OrientationModule this$0 -> a
+org.wonday.orientation.OrientationPackage -> org.wonday.orientation.c:
     java.util.List createNativeModules(com.facebook.react.bridge.ReactApplicationContext) -> a
     java.util.List createViewManagers(com.facebook.react.bridge.ReactApplicationContext) -> b

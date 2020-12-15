@@ -12,7 +12,7 @@
         errorLine1="    implementation &quot;androidx.swiperefreshlayout:swiperefreshlayout:1.0.0&quot;"
         errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="/Users/michaelgarcia/Documents/Github/Taiyaki_Typed/android/app/build.gradle"
+            file="/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/build.gradle"
             line="192"
             column="5"/>
     </issue>
@@ -26,7 +26,7 @@
         summary="Unused resources"
         explanation="Unused resources make applications larger and slow down builds.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true.">
         <location
-            file="/Users/michaelgarcia/Documents/Github/Taiyaki_Typed/android/app/build.gradle"/>
+            file="/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/build.gradle"/>
     </issue>
 
     <issue
@@ -38,7 +38,7 @@
         summary="Unused resources"
         explanation="Unused resources make applications larger and slow down builds.&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true.">
         <location
-            file="/Users/michaelgarcia/Documents/Github/Taiyaki_Typed/android/app/build.gradle"/>
+            file="/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/build.gradle"/>
     </issue>
 
     <issue
@@ -54,7 +54,7 @@
         errorLine1="    &lt;application"
         errorLine2="    ^">
         <location
-            file="/Users/michaelgarcia/Documents/Github/Taiyaki_Typed/android/app/src/main/AndroidManifest.xml"
+            file="/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml"
             line="6"
             column="5"/>
     </issue>

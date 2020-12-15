@@ -6,13 +6,12 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="18"
+        android:minSdkVersion="21"
         android:targetSdkVersion="29" />
 
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- This permission is required to start foreground services in Android P. -->
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" /> <!-- Although the *SdkVersion is captured in gradle build files, this is required for non gradle builds -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- Although the *SdkVersion is captured in gradle build files, this is required for non gradle builds -->
     <!-- <uses-sdk android:minSdkVersion="14"/> -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- Required by older versions of Google Play services to create IID tokens -->
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
@@ -52,16 +51,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true" >
-        <meta-data
-            android:name="com.google.android.gms.cast.framework.OPTIONS_PROVIDER_CLASS_NAME"
-            android:value="com.reactnative.googlecast.GoogleCastOptionsProvider" />
-
         <activity
             android:name="com.taiyaki_typed.MainActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|uiMode"
+            android:exported="true"
             android:label="@string/app_name"
             android:launchMode="singleTask"
             android:windowSoftInputMode="adjustResize" >
+        </activity>
+        <activity
+            android:name="com.zoontek.rnbootsplash.RNBootSplashActivity"
+            android:launchMode="singleTask"
+            android:theme="@style/BootTheme" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -82,17 +83,6 @@
 
         <activity android:name="com.proyecto26.inappbrowser.ChromeTabsManagerActivity" >
         </activity>
-
-        <receiver
-            android:name="com.google.android.gms.cast.framework.media.MediaIntentReceiver"
-            android:exported="false" />
-
-        <service
-            android:name="com.google.android.gms.cast.framework.media.MediaNotificationService"
-            android:exported="false" />
-        <service
-            android:name="com.google.android.gms.cast.framework.ReconnectionService"
-            android:exported="false" />
         <!--
              FirebaseMessagingService performs security checks at runtime,
              but set to not exported to explicitly avoid allowing another app to call it.

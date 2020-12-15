@@ -1,3 +1,4 @@
+import { SourceAbstract } from '../Classes/Sources';
 import {TrackerBase} from '../Classes/Trackers';
 import {SimklEpisodes} from './SIMKL';
 
@@ -50,7 +51,7 @@ export type DetailedDatabaseModel = {
   totalEpisodes: number;
   isFollowing: boolean;
   lastWatching: LastWatchingModel;
-  source: TaiyakiArchiveModel;
+  source: SourceAbstract;
   ids: DetailedDatabaseIDSModel;
 };
 

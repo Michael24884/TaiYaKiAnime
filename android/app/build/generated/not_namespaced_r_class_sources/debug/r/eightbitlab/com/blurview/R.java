@@ -12,12 +12,12 @@ public final class R {
     public static final class attr {
         private attr() {}
 
-        public static final int blurOverlayColor = 0x7f040051;
+        public static final int blurOverlayColor = 0x7f030051;
     }
     public static final class styleable {
         private styleable() {}
 
-        public static final int[] BlurView = { 0x7f040051 };
+        public static final int[] BlurView = { 0x7f030051 };
         public static final int BlurView_blurOverlayColor = 0;
     }
 }

@@ -27,49 +27,6 @@
     <string msgid="2650565705514630347" name="abc_shareactionprovider_share_with">"Jaga:"</string>
     <string msgid="9009661856846212431" name="abc_shareactionprovider_share_with_application">"Jagamine rakendusega <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
     <string msgid="6389460216547290468" name="abc_toolbar_collapse_description">"Ahendamine"</string>
-    <string msgid="4778414446709286370" name="cast_ad_label">"Reklaam"</string>
-    <string msgid="366047012176970604" name="cast_casting_to_device">"Ülekandmine seadmesse %1$s"</string>
-    <string msgid="2888745622334830481" name="cast_closed_captions">"Subtiitrid"</string>
-    <string msgid="4476421850100851087" name="cast_closed_captions_unavailable">"Subtiitrid pole saadaval"</string>
-    <string msgid="6769392312239056170" name="cast_connecting_to_device">"Ühendamine ekraaniga <ns1:g id="NAME">%1$s</ns1:g>"</string>
-    <string msgid="4431992200264667209" name="cast_disconnect">"Katkesta ühendus"</string>
-    <string msgid="3452184090057710557" name="cast_dynamic_group_name_format">"<ns1:g id="DYNAMIC_GROUP_LEADER_DEVICE_NAME">%1$s</ns1:g> + <ns1:g id="DYNAMIC_GROUP_DEVICES_COUNT">%2$d</ns1:g>"</string>
-    <string msgid="5668979866539349222" name="cast_expanded_controller_ad_image_description">"Samal ajal kui Cast\'i vastuvõtja esitab reklaami, kuvatakse kujutis"</string>
-    <string msgid="9069517964239146855" name="cast_expanded_controller_ad_in_progress">"Reklaam on pooleli …"</string>
-    <string msgid="8886260998635257149" name="cast_expanded_controller_background_image">"Albumi kujundus"</string>
-    <string msgid="8879956505757481681" name="cast_expanded_controller_live_head_description">"Praegune positsioon on reaalajas voo alguses"</string>
-    <string msgid="1316611227831672183" name="cast_expanded_controller_live_stream_indicator">"Reaalajas voog"</string>
-    <string msgid="7334411994450681286" name="cast_expanded_controller_loading">"Laadimine …"</string>
-    <string msgid="8524154027649233400" name="cast_expanded_controller_skip_ad_label">"Jäta reklaam vahele"</string>
-    <string msgid="1171005989073753111" name="cast_expanded_controller_skip_ad_text">"Reklaami saab vahele jätta %1$d pärast …"</string>
-    <string msgid="7884080323096468593" name="cast_forward">"Keri edasi"</string>
-    <string msgid="6424889955881797947" name="cast_forward_10">"Keri edasi kümme sekundit"</string>
-    <string msgid="7868672855975238403" name="cast_forward_30">"Keri edasi kolmkümmend sekundit"</string>
-    <string msgid="6885943100773268783" name="cast_intro_overlay_button_text">"@android:string/ok"</string>
-    <string msgid="2177473333963666559" name="cast_live_label">"REAALAJAS"</string>
-    <string msgid="5637297909372905371" name="cast_mute">"Vaigista"</string>
-    <string msgid="5319032370587661362" name="cast_notification_connected_message">"Ühendatud ekraaniga <ns1:g id="NAME">%1$s</ns1:g>"</string>
-    <string msgid="2758865089947797888" name="cast_notification_connecting_message">"Ühendamine ekraaniga <ns1:g id="NAME">%1$s</ns1:g>"</string>
-    <string msgid="2568179715202151240" name="cast_notification_default_channel_name">"Cast"</string>
-    <string msgid="5232008641593292969" name="cast_notification_disconnect">"Katkesta ühendus"</string>
-    <string msgid="5308503786390460607" name="cast_pause">"Peata"</string>
-    <string msgid="5906987965619702702" name="cast_play">"Esita"</string>
-    <string msgid="1739665135565985480" name="cast_rewind">"Keri tagasi"</string>
-    <string msgid="6432793028560778843" name="cast_rewind_10">"Keri tagasi kümme sekundit"</string>
-    <string msgid="4677199707225681325" name="cast_rewind_30">"Keri tagasi kolmkümmend sekundit"</string>
-    <string msgid="9078075166993780241" name="cast_seek_bar">"Taasesituse otsimise juhtnupp"</string>
-    <string msgid="3991548379225047363" name="cast_skip_next">"Liigu järgmise üksuse juurde"</string>
-    <string msgid="8369073097776576935" name="cast_skip_prev">"Liigu eelmise üksuse juurde"</string>
-    <string msgid="9191388946729723891" name="cast_stop">"Peata"</string>
-    <string msgid="1219622777438777099" name="cast_stop_live_stream">"Peata reaalajas voogesitus"</string>
-    <string msgid="4250321332248956563" name="cast_tracks_chooser_dialog_audio">"Heli"</string>
-    <string msgid="1162380934229249476" name="cast_tracks_chooser_dialog_cancel">"Tühista"</string>
-    <string msgid="1779359505126875127" name="cast_tracks_chooser_dialog_closed_captions">"Subtiitrid"</string>
-    <string msgid="3012268736704635952" name="cast_tracks_chooser_dialog_default_track_name">"Rada <ns1:g id="POSITION">%1$d</ns1:g>"</string>
-    <string msgid="1176688358580178396" name="cast_tracks_chooser_dialog_none">"Mitte ühtegi"</string>
-    <string msgid="3804878371876790270" name="cast_tracks_chooser_dialog_ok">"OK"</string>
-    <string msgid="2454147715032376208" name="cast_tracks_chooser_dialog_subtitles">"Subtiitrid"</string>
-    <string msgid="2913461521603516868" name="cast_unmute">"Tühista vaigistus"</string>
     <string msgid="8585111718777012708" name="common_google_play_services_enable_button">"Luba"</string>
     <string msgid="7045129128108380659" name="common_google_play_services_enable_text">"Rakendus <ns1:g id="APP_NAME">%1$s</ns1:g> töötab ainult siis, kui lubate Google Play teenused."</string>
     <string msgid="3147157405986503375" name="common_google_play_services_enable_title">"Google Play teenuste lubamine"</string>
@@ -93,27 +50,6 @@
     <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"Ava brauseris"</string>
     <string msgid="7145444925855055364" name="fallback_menu_item_share_link">"Jaga linki"</string>
     <string msgid="4133737464567140336" name="fcm_fallback_notification_channel_label">"Muu"</string>
-    <string msgid="1685185767093348095" name="mr_button_content_description">"Ülekandenupp"</string>
-    <string msgid="1350095112462806159" name="mr_cast_button_connected">"Ülekandenupp. Ühendatud"</string>
-    <string msgid="8959304318293841992" name="mr_cast_button_connecting">"Ülekandenupp. Ühendamine"</string>
-    <string msgid="5501231066847739632" name="mr_cast_button_disconnected">"Ülekandenupp. Ühendus on katkestatud"</string>
-    <string msgid="5504553798429329689" name="mr_chooser_searching">"Seadmete otsimine"</string>
-    <string msgid="7548226170787476564" name="mr_chooser_title">"Ülekandmine seadmesse"</string>
-    <string msgid="5813284753012893250" name="mr_controller_album_art">"Albumi kujundus"</string>
-    <string msgid="5286734709674025661" name="mr_controller_casting_screen">"Ekraanikuva ülekandmine"</string>
-    <string msgid="5468775621814500662" name="mr_controller_close_description">"Sule"</string>
-    <string msgid="5518911192681928413" name="mr_controller_collapse_group">"Ahenda"</string>
-    <string msgid="1370654436555555647" name="mr_controller_disconnect">"Katkesta ühendus"</string>
-    <string msgid="2422682304043876468" name="mr_controller_expand_group">"Laienda"</string>
-    <string msgid="7299368841849988218" name="mr_controller_no_info_available">"Teave pole saadaval"</string>
-    <string msgid="4342878516155861006" name="mr_controller_no_media_selected">"Meediat pole valitud"</string>
-    <string msgid="4701315813294065305" name="mr_controller_pause">"Peata"</string>
-    <string msgid="4443315438268112801" name="mr_controller_play">"Esita"</string>
-    <string msgid="5106056093749454009" name="mr_controller_stop">"Katkesta"</string>
-    <string msgid="7617024847862349259" name="mr_controller_stop_casting">"Katkesta ülekandmine"</string>
-    <string msgid="691656961160498512" name="mr_controller_volume_slider">"Helitugevuse liugur"</string>
-    <string msgid="3117964881088969586" name="mr_system_route_name">"Süsteem"</string>
-    <string msgid="8236416097133080726" name="mr_user_route_category_name">"Seadmed"</string>
     <string msgid="730395136688082741" name="search_menu_title">"Otsing"</string>
     <string msgid="8106346172024741305" name="status_bar_notification_info_overflow">"999+"</string>
 </resources>

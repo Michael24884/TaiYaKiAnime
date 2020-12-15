@@ -200,10 +200,10 @@ const SettingsScreen = () => {
 						onPress={() => navigation.navigate('Trackers')}
 					/>
 
-					<SettingsRow
+					{/* <SettingsRow
 						title={'View available sources'}
 						onPress={() => navigation.navigate('ArchivePage')}
-					/>
+					/> */}
 				</SettingsHead>
 
 				<SettingsHead title={'Sync'} iconName={'database'} community>

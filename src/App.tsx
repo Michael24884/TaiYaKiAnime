@@ -21,6 +21,7 @@ import { Platform } from 'react-native';
 import { useNotificationStore } from './Stores/notifications';
 import RNBootSplash from 'react-native-bootsplash';
 import Orientation from 'react-native-orientation-locker';
+import { Vidstreaming } from './Classes/Sources';
 
 const App = () => {
 	const initTrackers = useUserProfiles((_) => _.init);
@@ -32,6 +33,7 @@ const App = () => {
 	const settings = useSettingsStore((_) => _.settings);
 
 	useEffect(() => {
+		
 		Orientation.lockToPortrait();
 		initApp()
 			.catch((e) => console.log('error starting up app, ', e))
@@ -55,7 +57,6 @@ const App = () => {
 			if (Object.keys(queue).length > 0) initQueue(queue);
 		}
 	};
-
 	const _initNotifications = () => {
 		if (Platform.OS === 'ios')
 			PushNotificationIOS.setApplicationIconBadgeNumber(0);

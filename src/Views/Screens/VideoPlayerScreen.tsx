@@ -8,6 +8,7 @@ import {
   FlatList,
   LayoutAnimation,
   LogBox,
+  Platform,
   ScrollView,
   StatusBar,
   StyleSheet,
@@ -22,7 +23,7 @@ import {LoadError} from 'react-native-video';
 import {SourceBase} from '../../Classes/SourceBase';
 import {AnilistBase, MyAnimeList} from '../../Classes/Trackers';
 import {SimklEpisodes} from '../../Models/SIMKL';
-import GoogleCast, {CastState} from 'react-native-google-cast';
+// import GoogleCast, {CastState} from 'react-native-google-cast';
 import {
   EmbededResolvedModel,
   HistoryModel,
@@ -135,20 +136,20 @@ const VideoPlayerScreen: FC<Props> = (props) => {
     currentEpisode.episode.episode,
   );
 
-  const castListener = GoogleCast.onCastStateChanged((state) => {
-    if (state !== CastState.NO_DEVICES_AVAILABLE) {
-      setCastState('Devices Available');
-    } else setCastState('No Devices Available');
-  });
+  // const castListener = GoogleCast.onCastStateChanged((state) => {
+  //   if (state !== CastState.NO_DEVICES_AVAILABLE) {
+  //     setCastState('Devices Available');
+  //   } else setCastState('No Devices Available');
+  // });
 
   useEffect(() => {
     navigation.dangerouslyGetParent()?.setOptions({tabBarVisible: false});
-    GoogleCast.showIntroductoryOverlay();
+    //GoogleCast.showIntroductoryOverlay();
     return () => {
       OrientationLocker.lockToPortrait();
       navigation.dangerouslyGetParent()?.setOptions({tabBarVisible: true});
       removeUpNextItems();
-      castListener.remove();
+    //  castListener.remove();
     };
   }, []);
 
@@ -167,7 +168,8 @@ const VideoPlayerScreen: FC<Props> = (props) => {
   }, [isFullScreen]);
 
   //Step 1: Scrape Links, finds available servers and filters only ones with proper links
-  const sourceRequests = new SourceBase(currentEpisode.detail.source);
+  const sourceRequests = new SourceBase(currentEpisode.detail.source.source);
+  
   useEffect(() => {
     setScrapingProgress('SCRAPING');
     setDescExpanded(false);
@@ -698,6 +700,9 @@ const styles = StyleSheet.create({
   videoPlayer: {
     width,
     height: height * 0.3,
+    ...Platform.select({
+      android: {marginTop: - height * 0.041}
+    })
   },
   videoPlayerFullScreen: {
     width: '100%',

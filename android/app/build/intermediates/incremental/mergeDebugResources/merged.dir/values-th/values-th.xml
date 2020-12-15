@@ -27,49 +27,6 @@
     <string msgid="2650565705514630347" name="abc_shareactionprovider_share_with">"แชร์กับ"</string>
     <string msgid="9009661856846212431" name="abc_shareactionprovider_share_with_application">"แชร์ทาง <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
     <string msgid="6389460216547290468" name="abc_toolbar_collapse_description">"ยุบ"</string>
-    <string msgid="4778414446709286370" name="cast_ad_label">"โฆษณา"</string>
-    <string msgid="366047012176970604" name="cast_casting_to_device">"กำลังแคสต์ไปยัง %1$s"</string>
-    <string msgid="2888745622334830481" name="cast_closed_captions">"คำอธิบายภาพ"</string>
-    <string msgid="4476421850100851087" name="cast_closed_captions_unavailable">"คำบรรยายไม่พร้อมใช้งาน"</string>
-    <string msgid="6769392312239056170" name="cast_connecting_to_device">"กำลังเชื่อมต่อ <ns1:g id="NAME">%1$s</ns1:g>"</string>
-    <string msgid="4431992200264667209" name="cast_disconnect">"ยกเลิกการเชื่อมต่อ"</string>
-    <string msgid="3452184090057710557" name="cast_dynamic_group_name_format">"<ns1:g id="DYNAMIC_GROUP_LEADER_DEVICE_NAME">%1$s</ns1:g> + <ns1:g id="DYNAMIC_GROUP_DEVICES_COUNT">%2$d</ns1:g>"</string>
-    <string msgid="5668979866539349222" name="cast_expanded_controller_ad_image_description">"ภาพที่แสดงขณะที่เครื่องรับการแคสต์กำลังเล่นโฆษณา"</string>
-    <string msgid="9069517964239146855" name="cast_expanded_controller_ad_in_progress">"โฆษณาอยู่ระหว่างดำเนินการ..."</string>
-    <string msgid="8886260998635257149" name="cast_expanded_controller_background_image">"ปกอัลบั้ม"</string>
-    <string msgid="8879956505757481681" name="cast_expanded_controller_live_head_description">"ตำแหน่งปัจจุบันอยู่ที่ส่วนบนของสตรีมแบบสด"</string>
-    <string msgid="1316611227831672183" name="cast_expanded_controller_live_stream_indicator">"การสตรีมแบบสด"</string>
-    <string msgid="7334411994450681286" name="cast_expanded_controller_loading">"กำลังโหลด…"</string>
-    <string msgid="8524154027649233400" name="cast_expanded_controller_skip_ad_label">"ข้ามโฆษณา"</string>
-    <string msgid="1171005989073753111" name="cast_expanded_controller_skip_ad_text">"คุณข้ามโฆษณานี้ได้ใน %1$d…"</string>
-    <string msgid="7884080323096468593" name="cast_forward">"กรอไปข้างหน้า"</string>
-    <string msgid="6424889955881797947" name="cast_forward_10">"กรอไปข้างหน้า 10 วินาที"</string>
-    <string msgid="7868672855975238403" name="cast_forward_30">"กรอไปข้างหน้า 30 วินาที"</string>
-    <string msgid="6885943100773268783" name="cast_intro_overlay_button_text">"@android:string/ok"</string>
-    <string msgid="2177473333963666559" name="cast_live_label">"สด"</string>
-    <string msgid="5637297909372905371" name="cast_mute">"ปิดเสียง"</string>
-    <string msgid="5319032370587661362" name="cast_notification_connected_message">"เชื่อมต่อ <ns1:g id="NAME">%1$s</ns1:g> แล้ว"</string>
-    <string msgid="2758865089947797888" name="cast_notification_connecting_message">"กำลังเชื่อมต่อ <ns1:g id="NAME">%1$s</ns1:g>"</string>
-    <string msgid="2568179715202151240" name="cast_notification_default_channel_name">"แคสต์"</string>
-    <string msgid="5232008641593292969" name="cast_notification_disconnect">"ยกเลิกการเชื่อมต่อ"</string>
-    <string msgid="5308503786390460607" name="cast_pause">"หยุดชั่วคราว"</string>
-    <string msgid="5906987965619702702" name="cast_play">"เล่น"</string>
-    <string msgid="1739665135565985480" name="cast_rewind">"กรอกลับ"</string>
-    <string msgid="6432793028560778843" name="cast_rewind_10">"กรอกลับ 10 วินาที"</string>
-    <string msgid="4677199707225681325" name="cast_rewind_30">"กรอกลับ 30 วินาที"</string>
-    <string msgid="9078075166993780241" name="cast_seek_bar">"ตัวควบคุมการค้นหาในการเล่น"</string>
-    <string msgid="3991548379225047363" name="cast_skip_next">"ข้ามไปยังรายการถัดไป"</string>
-    <string msgid="8369073097776576935" name="cast_skip_prev">"ข้ามไปยังรายการก่อนหน้า"</string>
-    <string msgid="9191388946729723891" name="cast_stop">"หยุด"</string>
-    <string msgid="1219622777438777099" name="cast_stop_live_stream">"หยุดการสตรีมแบบสด"</string>
-    <string msgid="4250321332248956563" name="cast_tracks_chooser_dialog_audio">"เสียง"</string>
-    <string msgid="1162380934229249476" name="cast_tracks_chooser_dialog_cancel">"ยกเลิก"</string>
-    <string msgid="1779359505126875127" name="cast_tracks_chooser_dialog_closed_captions">"คำอธิบายภาพ"</string>
-    <string msgid="3012268736704635952" name="cast_tracks_chooser_dialog_default_track_name">"ติดตาม <ns1:g id="POSITION">%1$d</ns1:g>"</string>
-    <string msgid="1176688358580178396" name="cast_tracks_chooser_dialog_none">"ไม่มี"</string>
-    <string msgid="3804878371876790270" name="cast_tracks_chooser_dialog_ok">"ตกลง"</string>
-    <string msgid="2454147715032376208" name="cast_tracks_chooser_dialog_subtitles">"คำบรรยาย"</string>
-    <string msgid="2913461521603516868" name="cast_unmute">"เปิดเสียง"</string>
     <string msgid="8585111718777012708" name="common_google_play_services_enable_button">"เปิดใช้"</string>
     <string msgid="7045129128108380659" name="common_google_play_services_enable_text">"<ns1:g id="APP_NAME">%1$s</ns1:g> จะไม่ทำงานจนกว่าคุณจะเปิดใช้บริการ Google Play"</string>
     <string msgid="3147157405986503375" name="common_google_play_services_enable_title">"เปิดใช้บริการ Google Play"</string>
@@ -93,27 +50,6 @@
     <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"เปิดในเบราว์เซอร์"</string>
     <string msgid="7145444925855055364" name="fallback_menu_item_share_link">"แชร์ลิงก์"</string>
     <string msgid="4133737464567140336" name="fcm_fallback_notification_channel_label">"เบ็ดเตล็ด"</string>
-    <string msgid="1685185767093348095" name="mr_button_content_description">"ปุ่ม \"แคสต์\""</string>
-    <string msgid="1350095112462806159" name="mr_cast_button_connected">"ปุ่ม \"แคสต์\" เชื่อมต่อแล้ว"</string>
-    <string msgid="8959304318293841992" name="mr_cast_button_connecting">"ปุ่ม \"แคสต์\" กำลังเชื่อมต่อ"</string>
-    <string msgid="5501231066847739632" name="mr_cast_button_disconnected">"ปุ่ม \"แคสต์\" ยกเลิกการเชื่อมต่อแล้ว"</string>
-    <string msgid="5504553798429329689" name="mr_chooser_searching">"กำลังค้นหาอุปกรณ์"</string>
-    <string msgid="7548226170787476564" name="mr_chooser_title">"แคสต์ไปยัง"</string>
-    <string msgid="5813284753012893250" name="mr_controller_album_art">"ปกอัลบั้ม"</string>
-    <string msgid="5286734709674025661" name="mr_controller_casting_screen">"กำลังแคสต์หน้าจอ"</string>
-    <string msgid="5468775621814500662" name="mr_controller_close_description">"ปิด"</string>
-    <string msgid="5518911192681928413" name="mr_controller_collapse_group">"ยุบ"</string>
-    <string msgid="1370654436555555647" name="mr_controller_disconnect">"ยกเลิกการเชื่อมต่อ"</string>
-    <string msgid="2422682304043876468" name="mr_controller_expand_group">"ขยาย"</string>
-    <string msgid="7299368841849988218" name="mr_controller_no_info_available">"ไม่มีข้อมูล"</string>
-    <string msgid="4342878516155861006" name="mr_controller_no_media_selected">"ไม่ได้เลือกสื่อไว้"</string>
-    <string msgid="4701315813294065305" name="mr_controller_pause">"หยุดชั่วคราว"</string>
-    <string msgid="4443315438268112801" name="mr_controller_play">"เปิด"</string>
-    <string msgid="5106056093749454009" name="mr_controller_stop">"หยุด"</string>
-    <string msgid="7617024847862349259" name="mr_controller_stop_casting">"หยุดแคสต์"</string>
-    <string msgid="691656961160498512" name="mr_controller_volume_slider">"แถบเลื่อนปรับระดับเสียง"</string>
-    <string msgid="3117964881088969586" name="mr_system_route_name">"ระบบ"</string>
-    <string msgid="8236416097133080726" name="mr_user_route_category_name">"อุปกรณ์"</string>
     <string msgid="730395136688082741" name="search_menu_title">"ค้นหา"</string>
     <string msgid="8106346172024741305" name="status_bar_notification_info_overflow">"999+"</string>
 </resources>
