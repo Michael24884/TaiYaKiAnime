@@ -1,4 +1,4 @@
-import { TaiyakiSourceTypes } from ".";
+import { TaiyakiSourceLanguage, TaiyakiSourceTypes } from ".";
 import { SourceTypes, TaiyakiScrapedTitleModel } from "../../Models";
 
 type Options = {
@@ -9,13 +9,16 @@ type Options = {
 abstract class SourceAbstract {
   abstract baseUrl: string;
   abstract source: TaiyakiSourceTypes;
+  abstract language: TaiyakiSourceLanguage;
   abstract options: Options;
   abstract controller: AbortController;
 
   /**
    * Destroy method. Controller should be aborted here. Used at the end of the component's lifecycle
    */
-  abstract destroy(): void;
+  destroy(): void {
+    this.controller.abort();
+  };
 
   /**
    * SearchTitles is responsible for looking up the query/search results on the provided source. Used in binding anime

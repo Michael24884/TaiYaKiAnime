@@ -1,6 +1,6 @@
 import qs from 'qs';
 import cheerio from 'react-native-cheerio';
-import { TaiyakiSourceTypes } from '.';
+import { TaiyakiSourceLanguage, TaiyakiSourceTypes } from '.';
 import { TaiyakiScrapedTitleModel } from '../../Models';
 import SourceAbstract from './SourceAbstract';
 
@@ -10,6 +10,7 @@ class Vidstreaming implements SourceAbstract {
     
     controller: AbortController = new AbortController();
 
+    language: TaiyakiSourceLanguage = 'English';
     
     
     baseUrl = 'https://vidstreaming.io';

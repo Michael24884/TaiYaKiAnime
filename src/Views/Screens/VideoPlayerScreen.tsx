@@ -50,6 +50,7 @@ import {QueryCache} from 'react-query';
 import {Modalize} from 'react-native-modalize';
 import {SIMKL} from '../../Classes/Trackers/SIMKL';
 import {isTablet} from 'react-native-device-info';
+import { ProxyTypeProxyObject } from 'immer/dist/internal';
 
 LogBox.ignoreLogs(['Virtualized']);
 
@@ -143,6 +144,7 @@ const VideoPlayerScreen: FC<Props> = (props) => {
   // });
 
   useEffect(() => {
+    console.log('ttoa epi', currentEpisode.detail.totalEpisodes);
     navigation.dangerouslyGetParent()?.setOptions({tabBarVisible: false});
     //GoogleCast.showIntroductoryOverlay();
     return () => {
@@ -158,6 +160,7 @@ const VideoPlayerScreen: FC<Props> = (props) => {
       if (updateRequested.current)
         if (props.route.params?.updateRequested)
           props.route.params.updateRequested(nextIndex);
+        else props.route.params.updateRequested(currentEpisode.episode.episode)
     });
     return () => {};
   }, []);
@@ -168,7 +171,7 @@ const VideoPlayerScreen: FC<Props> = (props) => {
   }, [isFullScreen]);
 
   //Step 1: Scrape Links, finds available servers and filters only ones with proper links
-  const sourceRequests = new SourceBase(currentEpisode.detail.source.source);
+  const sourceRequests = new SourceBase(currentEpisode.detail.source);
   
   useEffect(() => {
     setScrapingProgress('SCRAPING');
@@ -269,6 +272,7 @@ const VideoPlayerScreen: FC<Props> = (props) => {
   };
 
   const updateToTrackers = () => {
+
     const {detail, episode} = currentEpisode;
     const {ids, totalEpisodes} = detail;
     const status = totalEpisodes === episode.episode ? 'Completed' : 'Watching';
@@ -297,7 +301,7 @@ const VideoPlayerScreen: FC<Props> = (props) => {
     }
     if (trackers.includes('MyAnimeList')) {
       new MyAnimeList()
-        .updateStatus(ids.myanimelist!, episode.episode, status, undefined)
+        .updateStatus(ids.myanimelist!, episode.episode, status, undefined, startedAt, completedAt)
         .finally(() =>
           queryCache.invalidateQueries('mal' + ids.myanimelist!, {
             refetchActive: true,

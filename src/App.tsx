@@ -17,7 +17,7 @@ import {
 import { SourceBase } from './Classes/SourceBase';
 import PushNotificationIOS from '@react-native-community/push-notification-ios';
 import PushNotification from 'react-native-push-notification';
-import { Platform } from 'react-native';
+import { Alert, Platform } from 'react-native';
 import { useNotificationStore } from './Stores/notifications';
 import RNBootSplash from 'react-native-bootsplash';
 import Orientation from 'react-native-orientation-locker';
@@ -35,6 +35,7 @@ const App = () => {
 	useEffect(() => {
 		
 		Orientation.lockToPortrait();
+		fixFiles();
 		initApp()
 			.catch((e) => console.log('error starting up app, ', e))
 			.finally(() => RNBootSplash.hide({ fade: true }));
@@ -161,6 +162,24 @@ const App = () => {
 			userInfo: ids, // (optional) default: {} (using null throws a JSON value '<null>' error)
 			soundName: 'default', // (optional) Sound to play when the notification is shown. Value of 'default' plays the default sound. It can be set to a custom sound such as 'android.resource://com.xyz/raw/my_sound'. It will look for the 'my_sound' audio file in 'res/raw' directory and play it. default: 'default' (default sound is played)
 		});
+
+	const fixFiles = async () => {
+		const file = (await AsyncStorage.getAllKeys()).filter((i) => Number(i));
+		for (let obj in file) {
+			const newFile = await AsyncStorage.getItem(obj);
+			if (!newFile) continue;
+			const json = JSON.parse(newFile) as DetailedDatabaseModel;
+			console.log(json.title)
+			if (typeof json.source !== 'string') {
+				Alert.alert('Fix filesystem', 'Taiyaki now uses a new way of saving sources. It is mandatory to clear up the files. You may need to re bind your anime.', [{text: 'Fix now', style: 'destructive', 
+				onPress: async () => {
+					await AsyncStorage.multiRemove(file);
+					Alert.alert('Done', undefined, [{text: 'Dismiss'}])
+				}}], {cancelable: false})
+				break;
+			}
+		}
+	}
 
 	return <Navigator />;
 };

@@ -17,6 +17,7 @@ export function useDetailedHook(
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [hasError, setError] = useState<string>();
 
+  
   const {
     query: {data: SimklEpisodeData},
     controller,
@@ -31,23 +32,25 @@ export function useDetailedHook(
   );
 
   const _mixer = () => {
+    
     let items: SimklEpisodes[] = [];
     for (let i = 0; i < rawLinks.length; i++) {
       const episode = SimklEpisodeData![i];
       const raw = rawLinks[i];
       if (episode) {
         episode.link = raw;
-        episode.sourceName = database!.source.options.name;
+        episode.sourceName = database!.source;
         items.push(episode);
       } else {
         const episode: SimklEpisodes = {
+          
           episode: i + 1,
           link: raw,
           title: 'Episode ' + (i + 1),
           ids: {simkl_id: 0},
           aired: true,
           img: undefined,
-          sourceName: database!.source.options.name,
+          sourceName: database!.source,
         };
         items.push(episode);
       }
@@ -99,8 +102,8 @@ export function useDetailedHook(
 
   const findTitles = async () => {
     setIsLoading(true);
-     const result = new SourceBase(database.source.source);
     //const map = MapSourceTypesToAbstract.get(database.source.source)!
+    const result = new SourceBase(database.source);
 
     result.scrapeAvailableEpisodes(database.link!)
     .then((results) => {

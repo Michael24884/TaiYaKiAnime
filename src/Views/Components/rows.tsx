@@ -1,12 +1,13 @@
 /* eslint-disable react-native/no-inline-styles */
 import { useNavigation } from '@react-navigation/native';
-import React, { createRef, FC, memo, useEffect, useState } from 'react';
+import React, { createRef, FC, memo, useEffect, useRef, useState } from 'react';
 import {
 	ActivityIndicator,
 	Alert,
 	Button,
 	Dimensions,
 	Image,
+	LayoutAnimation,
 	Platform,
 	StyleSheet,
 	View,
@@ -427,6 +428,8 @@ const _WatchTile: FC<{
 	const pagerController = createRef<ViewPager>();
 	const [index, setIndex] = useState<number>(0);
 
+	const [didFail, setDidFail] = useState<boolean>(false);
+
 	const inQueue = (): boolean => {
 		if (queue[detail.title]) {
 			const match = queue[detail.title].find(
@@ -437,6 +440,8 @@ const _WatchTile: FC<{
 		return false;
 	};
 
+	const expirationTimer = useRef<NodeJS.Timer>();
+
 	useEffect(() => {
 		if (detail) inQueue();
 	}, [queueLength, queue]);
@@ -444,6 +449,21 @@ const _WatchTile: FC<{
 	useEffect(() => {
 		pagerController.current?.setPage(0);
 	}, []);
+
+	useEffect(() => {
+		if (!props.episode)
+		expirationTimer.current = setTimeout(() => {
+			if (!props.episode)
+				LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut)
+				setDidFail(true);
+		}, 8000);
+		else {
+			if (expirationTimer.current) 
+				clearTimeout(expirationTimer.current);
+		}
+	}, [props.episode])
+
+
 
 	if (!props.episode)
 		return (
@@ -463,6 +483,11 @@ const _WatchTile: FC<{
 					}}>
 					Finding your next episode
 				</ThemedText>
+
+				{
+					didFail ? <ThemedButton onPress={props.onRemoveSavedLink} title={'Not responding? Clear saved link'} color={'red'} /> : null
+				}
+
 			</View>
 		);
 
@@ -612,20 +637,7 @@ const _WatchTile: FC<{
 					{OptionsView('Add all to Queue', props.onAddAllToQueue)}
 					{/* {OptionsView('Add unwatched to Queue', props.onAddUnwatchedToQueue)} */}
 					{OptionsView('Remove saved link', () => {
-						Alert.alert(
-							'Are you sure?',
-							'Removing saved link will allow you to select a new link. This will remove the current "continue watching" and notifications',
-							[
-								{
-									text: 'Cancel',
-								},
-								{
-									text: 'Remove',
-									onPress: props.onRemoveSavedLink,
-									style: 'destructive',
-								},
-							]
-						);
+						props.onRemoveSavedLink();
 					})}
 				</View>
 			</ViewPager>

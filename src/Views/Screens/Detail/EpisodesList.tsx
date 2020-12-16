@@ -12,7 +12,7 @@ import {FlatList} from 'react-native-gesture-handler';
 import {SimklEpisodes} from '../../../Models/SIMKL';
 import {DetailedDatabaseModel, MyQueueModel} from '../../../Models/taiyaki';
 import {useQueueStore, useTheme, useUpNextStore} from '../../../Stores';
-import {ThemedCard, ThemedSurface, ThemedText} from '../../Components';
+import {ThemedButton, ThemedCard, ThemedSurface, ThemedText} from '../../Components';
 import {EpisodeTiles} from '../../Components/list_cards';
 import {Modalize} from 'react-native-modalize';
 
@@ -152,6 +152,16 @@ const EpisodesList: FC<Props> = (props) => {
     );
   };
 
+  const JumpToBlock = () => {
+    return (
+      <View style={{height: height * 0.07, justifyContent: 'center', paddingHorizontal: 10}}>
+        <ThemedButton title={`Jump to Episode ${currentEpisode}`} onPress={() => {
+          controller.current?.scrollToIndex({index: currentEpisode - 1, animated: true})
+        }} color={'green'} style={{height: height * 0.05}}/>
+      </View>
+    )
+  }
+
   return (
     <ThemedSurface style={styles.view}>
       {filterBlocks.current.length > 1 ? (
@@ -164,6 +174,9 @@ const EpisodesList: FC<Props> = (props) => {
           </ThemedCard>
         </TouchableOpacity>
       ) : null}
+
+      {filterBlocks.current.length === 1 ? JumpToBlock() : null}
+
       <FlatList
         ref={controller}
         ListHeaderComponent={

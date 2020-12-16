@@ -9,8 +9,6 @@
 #import <UserNotifications/UserNotifications.h>
 #import <RNCPushNotificationIOS.h>
 #import "RNBootSplash.h"
-#import <GoogleCast/GoogleCast.h>
-
 
 #ifdef FB_SONARKIT_ENABLED
 #import <FlipperKit/FlipperClient.h>
@@ -46,10 +44,7 @@ bool started = NO;
                                                    moduleName:@"Taiyaki_Typed"
                                             initialProperties:nil];
   
-  GCKDiscoveryCriteria *criteria = [[GCKDiscoveryCriteria alloc] initWithApplicationID:kGCKDefaultMediaReceiverApplicationID];
-  GCKCastOptions* options = [[GCKCastOptions alloc] initWithDiscoveryCriteria:criteria];
-//  options.disableDiscoveryAutostart = true;
-  [GCKCastContext setSharedInstanceWithOptions:options];
+
 
   rootView.backgroundColor = [[UIColor alloc] initWithRed:1.0f green:1.0f blue:1.0f alpha:1];
 

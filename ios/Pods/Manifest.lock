@@ -69,14 +69,6 @@ PODS:
     - DoubleConversion
     - glog
   - glog (0.3.5)
-  - google-cast-sdk-no-bluetooth (4.5.2):
-    - google-cast-sdk-no-bluetooth/Core (= 4.5.2)
-    - GTMSessionFetcher/Core (~> 1.1)
-    - Protobuf (~> 3.13)
-  - google-cast-sdk-no-bluetooth/Core (4.5.2):
-    - GTMSessionFetcher/Core (~> 1.1)
-    - Protobuf (~> 3.13)
-  - GTMSessionFetcher/Core (1.5.0)
   - libwebp (1.1.0):
     - libwebp/demux (= 1.1.0)
     - libwebp/mux (= 1.1.0)
@@ -89,8 +81,6 @@ PODS:
   - OpenSSL-Universal (1.0.2.20):
     - OpenSSL-Universal/Static (= 1.0.2.20)
   - OpenSSL-Universal/Static (1.0.2.20)
-  - PromisesObjC (1.2.11)
-  - Protobuf (3.14.0)
   - RCTRequired (0.63.3)
   - RCTTypeSafety (0.63.3):
     - FBLazyVector (= 0.63.3)
@@ -258,16 +248,6 @@ PODS:
     - React-jsi (= 0.63.3)
   - React-jsinspector (0.63.3)
   - react-native-blur (0.8.0):
-    - React
-  - react-native-google-cast (4.0.0-beta.4):
-    - React
-    - react-native-google-cast/NoBluetooth (= 4.0.0-beta.4)
-  - react-native-google-cast/NoBluetooth (4.0.0-beta.4):
-    - google-cast-sdk-no-bluetooth
-    - React
-    - react-native-google-cast/RNGoogleCast
-  - react-native-google-cast/RNGoogleCast (4.0.0-beta.4):
-    - PromisesObjC
     - React
   - react-native-home-indicator (0.2.6):
     - React-Core
@@ -450,7 +430,6 @@ DEPENDENCIES:
   - React-jsiexecutor (from `../node_modules/react-native/ReactCommon/jsiexecutor`)
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
   - "react-native-blur (from `../node_modules/@react-native-community/blur`)"
-  - react-native-google-cast (from `../node_modules/react-native-google-cast/ios`)
   - react-native-home-indicator (from `../node_modules/react-native-home-indicator`)
   - react-native-orientation-locker (from `../node_modules/react-native-orientation-locker`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
@@ -495,12 +474,8 @@ SPEC REPOS:
     - Flipper-PeerTalk
     - Flipper-RSocket
     - FlipperKit
-    - google-cast-sdk-no-bluetooth
-    - GTMSessionFetcher
     - libwebp
     - OpenSSL-Universal
-    - PromisesObjC
-    - Protobuf
     - SDWebImage
     - SDWebImageWebPCoder
     - YogaKit
@@ -540,8 +515,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/jsinspector"
   react-native-blur:
     :path: "../node_modules/@react-native-community/blur"
-  react-native-google-cast:
-    :path: "../node_modules/react-native-google-cast/ios"
   react-native-home-indicator:
     :path: "../node_modules/react-native-home-indicator"
   react-native-orientation-locker:
@@ -622,12 +595,8 @@ SPEC CHECKSUMS:
   FlipperKit: ab353d41aea8aae2ea6daaf813e67496642f3d7d
   Folly: b73c3869541e86821df3c387eb0af5f65addfab4
   glog: 40a13f7840415b9a77023fbcae0f1e6f43192af3
-  google-cast-sdk-no-bluetooth: 622cfa34fc9a42ad87b9e009b72dbb02b08c1307
-  GTMSessionFetcher: b3503b20a988c4e20cc189aa798fd18220133f52
   libwebp: 946cb3063cea9236285f7e9a8505d806d30e07f3
   OpenSSL-Universal: ff34003318d5e1163e9529b08470708e389ffcdd
-  PromisesObjC: 8c196f5a328c2cba3e74624585467a557dcb482f
-  Protobuf: 0cde852566359049847168e51bd1c690e0f70056
   RCTRequired: 48884c74035a0b5b76dbb7a998bd93bcfc5f2047
   RCTTypeSafety: edf4b618033c2f1c5b7bc3d90d8e085ed95ba2ab
   React: f36e90f3ceb976546e97df3403e37d226f79d0e3
@@ -639,7 +608,6 @@ SPEC CHECKSUMS:
   React-jsiexecutor: b56c03e61c0dd5f5801255f2160a815f4a53d451
   React-jsinspector: 8e68ffbfe23880d3ee9bafa8be2777f60b25cbe2
   react-native-blur: cad4d93b364f91e7b7931b3fa935455487e5c33c
-  react-native-google-cast: 98dfed19a7fbb116aeae9813fb1a5d59c8c59a6b
   react-native-home-indicator: 92b86b0fbe85a50c9cba286ad7bae4a2c319238a
   react-native-orientation-locker: 47aaa55d59bfc1613804dc22f159e6bb1cca5f30
   react-native-safe-area-context: 79fea126c6830c85f65947c223a5e3058a666937
@@ -677,4 +645,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 9024da2722a210e7493b9163c5a6a0828fbb7698
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.10.0

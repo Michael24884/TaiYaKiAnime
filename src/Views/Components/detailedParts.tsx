@@ -77,7 +77,7 @@ const SearchBindPage: FC<Props> = (props) => {
 	const getItems = useCallback(async () => {
 		setCurrentArchive(sourceAbstractList[0]);
 		setLoading(true);
-		new SourceBase(sourceAbstractList[0]).scrapeTitle(query).then((results) => {
+		new SourceBase(sourceAbstractList[0].source).scrapeTitle(query).then((results) => {
 			setResults(results.results);
 			setLoading(false);
 		});
@@ -92,7 +92,7 @@ const SearchBindPage: FC<Props> = (props) => {
 	}, [currentArchive]);
 
 	const _findTitles = async () => {
-		const source = new SourceBase(currentArchive!);
+		const source = new SourceBase(currentArchive.source);
 		setLoading(true);
 		try {
 			const results = await source.scrapeTitle(query);
@@ -147,7 +147,7 @@ const SearchBindPage: FC<Props> = (props) => {
 						id.toString(),
 						JSON.stringify({
 							link: item.embedLink,
-							source: currentArchive!,
+							source: currentArchive.source,
 							ids,
 						})
 					);
