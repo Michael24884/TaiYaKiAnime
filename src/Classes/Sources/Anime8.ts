@@ -77,7 +77,7 @@ class Anime8 implements SourceAbstract {
                 $ = cheerio.load(response['value']);
                 entry = {
                     link: $('iframe').attr('src'),
-                    server: "Anime8-" + servers[i]
+                    server: "streamx"
                 }
                 sourcesFound.push(entry);
             }
