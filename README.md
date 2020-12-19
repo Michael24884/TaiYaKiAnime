@@ -74,7 +74,7 @@ Taiyaki is available on TestFlight and is compatible with iPhone and iPad. TestF
 
 Taiyaki is available on all Android devices. Support for more screen sizes are arriving later on(e.g Android TV, Tablets, etc). No limit for Android users
 
-[Download on Github](https://github.com/Michael24884/TaiYaKiAnime/releases, "Download through Github")
+[Download on Github](https://github.com/Michael24884/TaiYaKiAnime/releases "Download through Github")
 
 ## TODO
 
