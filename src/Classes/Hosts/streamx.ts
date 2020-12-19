@@ -20,6 +20,7 @@ export default class StreamX extends HostBase {
 						link: source["file"],
 					};
 				});
+				return sources
 			} else {
 				console.log("throwing");
 				throw new Error("Error 404: File not found")
