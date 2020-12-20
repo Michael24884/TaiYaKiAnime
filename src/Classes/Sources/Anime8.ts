@@ -1,16 +1,15 @@
 import qs from 'qs';
 import cheerio from 'react-native-cheerio';
-import { TaiyakiSourceTypes } from '.';
+import { TaiyakiSourceLanguage, TaiyakiSourceTypes } from '.';
 import { TaiyakiScrapedTitleModel } from '../../Models';
 import SourceAbstract from './SourceAbstract';
 
-class Anime8 implements SourceAbstract {
+class Anime8 extends SourceAbstract {
+    language: TaiyakiSourceLanguage = 'English';
     
     source: TaiyakiSourceTypes = 'Anime8';
     
     controller: AbortController = new AbortController();
-
-    
     
     baseUrl = 'https://anime8.ru/';
     
@@ -22,7 +21,7 @@ class Anime8 implements SourceAbstract {
     
     async searchTitles(title: string): Promise<TaiyakiScrapedTitleModel[]> {
         
-        const response = await (await fetch(source.baseUrl + "Search/?" + qs.stringify({s: title}))).text();
+        const response = await (await fetch(this.baseUrl + "Search/?" + qs.stringify({s: title}))).text();
         const $ = cheerio.load(response);
         return $('div.ml-item > a').toArray().map((e: any) => {
                         const newTitle = $(e).find("h2").text().trim();
@@ -39,13 +38,12 @@ class Anime8 implements SourceAbstract {
     async availableEpisodes(link: string): Promise<string[]> {
         var response = await (await fetch(link, {signal: this.controller.signal})).text();
         var $ = cheerio.load(response);
+        const newLink = $("div#mv-info").find('a').attr('href');
 
-        newLink = $("div#mv-info").find('a').attr('href');
-
-        _response = await (await fetch(newLink)).text();
+        const _response = await (await fetch(newLink)).text();
         $ = cheerio.load(_response);
 
-        var eps = $('a[href*="'+ episodeLink +'Episode-"]').toArray().map((e) => {
+        var eps = $('a[href*="'+ link +'Episode-"]').toArray().map((e) => {
             const link = $(e).attr("href");
             let episodeType = link.split('/');
             episodeType = episodeType[episodeType.length - 1].split('?')[0];
@@ -63,7 +61,7 @@ class Anime8 implements SourceAbstract {
         const ctk = _response.match(/ctk\s+=\s+'(.*)?';/)[0].replace('ctk = ', '').replace(/'/g, '').replace(';', '');
         const id = _response.match(/episode_id\s*=\s*([^;]*)/)[1];
         var $ = cheerio.load(_response);
-        postData = "episode_id="+id+"&ctk="+ctk;
+        const postData = "episode_id="+id+"&ctk="+ctk;
         const init = {
             "method": 'POST',
             "body": postData,
@@ -75,7 +73,7 @@ class Anime8 implements SourceAbstract {
             const response = await res.json();
             if (response['status'] && response['value'].includes('src=')) {
                 $ = cheerio.load(response['value']);
-                entry = {
+                const entry = {
                     link: $('iframe').attr('src'),
                     server: "streamx"
                 }
