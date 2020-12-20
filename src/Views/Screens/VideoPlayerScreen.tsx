@@ -68,6 +68,7 @@ const tempAvailableServer: string[] = [
   'hd',
   'fullhd',
   'custom',
+  'streamx',
 ];
 
 type ScrapingProgress = 'SCRAPING' | 'FINISHED' | 'ERROR';
@@ -210,10 +211,6 @@ const VideoPlayerScreen: FC<Props> = (props) => {
       //TODO: Look for previous references
       setCurrentServer(filteredList[0]);
     } else {
-      console.log(
-        'SUCCESS: Taiyaki finished preloading Episode',
-        refEpisode?.episode,
-      );
       preloadedVideoRef.current = {episode: refEpisode!, links: filteredList};
     }
   };
