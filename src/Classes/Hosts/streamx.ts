@@ -12,12 +12,10 @@ export default class StreamX extends HostBase {
 			headers: {"referer": "https://anime8.ru/"}
 		}
 		const html = await (await fetch(embedLink, init)).text();
-		console.log(html)
 		const matchGroup = html.match(/sources\: \[([^]*?)\]/m);
 		if (matchGroup) {
 			if (matchGroup.length >= 2) {
 				const sources = JSON.parse('[' + matchGroup[1] + ']').map((source) => {
-					console.log(source['file'])
 					return {
 						quality: source["label"],
 						link: source["file"],

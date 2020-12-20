@@ -8,16 +8,11 @@ class Anime8 extends SourceAbstract {
     language: TaiyakiSourceLanguage = 'English';
     
     source: TaiyakiSourceTypes = 'Anime8';
-    
-    controller: AbortController = new AbortController();
-    
+        
     baseUrl = 'https://anime8.ru/';
     
     options = { hasCloudflare: false, name: 'Anime8'};
     
-    destroy() {
-        this.controller.abort();
-    }
     
     async searchTitles(title: string): Promise<TaiyakiScrapedTitleModel[]> {
         
@@ -36,7 +31,7 @@ class Anime8 extends SourceAbstract {
     }
 
     async availableEpisodes(link: string): Promise<string[]> {
-        var response = await (await fetch(link, {signal: this.controller.signal})).text();
+        var response = await (await fetch(link, {signal: this.signal})).text();
         var $ = cheerio.load(response);
         const newLink = $("div#mv-info").find('a').attr('href');
 
