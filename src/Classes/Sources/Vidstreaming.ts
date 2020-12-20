@@ -4,7 +4,7 @@ import { TaiyakiSourceLanguage, TaiyakiSourceTypes } from '.';
 import { TaiyakiScrapedTitleModel } from '../../Models';
 import SourceAbstract from './SourceAbstract';
 
-class Vidstreaming implements SourceAbstract {
+class Vidstreaming extends SourceAbstract {
     
     source: TaiyakiSourceTypes = 'Vidstreaming';
     

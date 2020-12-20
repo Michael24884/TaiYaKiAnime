@@ -21,6 +21,7 @@ import {
 import {
 	AnilistPagedData,
 	AnilistRequestTypes,
+	AnilistStatusTypes,
 	Media,
 } from '../../Models/Anilist';
 import { SimklEpisodes } from '../../Models/SIMKL';
@@ -548,8 +549,16 @@ const _WatchTile: FC<{
 								setIndex(0);
 								pagerController.current.setPage(0);
 							} else {
-								setIndex(1);
-								pagerController.current.setPage(1);
+								if (detail.lastWatching &&
+									detail.lastWatching.progress &&
+									detail.lastWatching.progress !== 0) {
+										setIndex(2)
+										pagerController.current.setPage(1);
+									}
+								else {
+									setIndex(1)
+									pagerController.current.setPage(1);
+								}
 							}
 						}}
 					/>
@@ -682,8 +691,9 @@ export const FlavoredButtons: FC<{
 export const BindTitleBlock: FC<{
 	title: string;
 	id: number;
+	status: AnilistStatusTypes;
 }> = (props) => {
-	const { title, id } = props;
+	const { title, id, status } = props;
 	const navigation = useNavigation();
 
 	return (
@@ -695,7 +705,12 @@ export const BindTitleBlock: FC<{
 				</ThemedText>
 				<ThemedButton
 					title={'Bind An Anime!'}
-					onPress={() => navigation.navigate('BindPage', { title, id })}
+					onPress={() => {
+						if (status === 'NOT_YET_RELEASED') 
+							Alert.alert('Warning', 'This anime is marked as NOT YET RELEASED. It is possible there is no anime released yet', [{text: 'Cancel'}, {text: 'Continue', style: 'destructive', onPress: () => navigation.navigate('BindPage', { title, id })		}])
+						else 
+						navigation.navigate('BindPage', { title, id })
+					}}
 					style={{ alignSelf: 'center', marginVertical: height * 0.014 }}
 				/>
 			</View>

@@ -1,14 +1,17 @@
 {
   "name": "Taiyaki_Typed",
   "version": "0.0.1",
-  "build": 75,
+  "build": 83,
   "private": true,
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "clean-up": " rm -rf android/app/src/main/res/drawable-* && rm -rf ./android/app/src/main/res/raw",
+    "generate-apk": "cd android && ./gradlew assembleRelease && open ./app/build/outputs/apk/",
+    "bundle-android": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res && cd android && ./gradlew clean && ./gradlew assembleRelease -x bundleReleaseJsAndAssets && cd .."
   },
   "engines": {
     "node": "15.4.0"
@@ -33,6 +36,7 @@
     "react-native-background-fetch": "^3.1.0",
     "react-native-bootsplash": "^3.1.2",
     "react-native-cheerio": "^1.0.0-rc.4",
+    "react-native-code-push": "^6.4.1",
     "react-native-device-info": "^7.1.0",
     "react-native-dynamic-vector-icons": "^1.1.4",
     "react-native-fast-image": "^8.3.3",

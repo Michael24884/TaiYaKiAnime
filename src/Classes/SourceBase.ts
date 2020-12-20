@@ -12,6 +12,11 @@ export class SourceBase {
     this.source = source;
   }
 
+  destroy() {
+    const map = MapSourceTypesToAbstract.get(this.source)!
+    map.destroy();
+  }
+
   async scrapeTitle(
     title: string,
   ): Promise<{loading: boolean; results: TaiyakiScrapedTitleModel[]}> {

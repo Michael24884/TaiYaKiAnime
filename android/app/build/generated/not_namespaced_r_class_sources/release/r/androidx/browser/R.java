@@ -178,11 +178,11 @@ public final class R {
     public static final class string {
         private string() {}
 
-        public static final int copy_toast_msg = 0x7f0f0054;
-        public static final int fallback_menu_item_copy_link = 0x7f0f0059;
-        public static final int fallback_menu_item_open_in_browser = 0x7f0f005a;
-        public static final int fallback_menu_item_share_link = 0x7f0f005b;
-        public static final int status_bar_notification_info_overflow = 0x7f0f009a;
+        public static final int copy_toast_msg = 0x7f0f0056;
+        public static final int fallback_menu_item_copy_link = 0x7f0f005b;
+        public static final int fallback_menu_item_open_in_browser = 0x7f0f005c;
+        public static final int fallback_menu_item_share_link = 0x7f0f005d;
+        public static final int status_bar_notification_info_overflow = 0x7f0f009c;
     }
     public static final class style {
         private style() {}

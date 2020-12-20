@@ -921,15 +921,13 @@ const _TaiyakiVideoPlayer: FC<Props> = (props) => {
         <TouchableWithoutFeedback onPress={_toggleControls}>
           <View
             style={
-              settings.general.video.followAspectRatio &&
-              videoAspect &&
-              isFullScreen
-                ? {
-                    height: videoAspect.height,
-                    width: videoAspect.width,
-                    alignSelf: 'center',
+              {
+                    
+                    
+                    justifyContent: 'center',
+                    alignContent: 'center',
                   }
-                : undefined
+                
             }>
             {/* <VLCPlayer
 							style={{ height: "100%", width: "100%" }}
@@ -954,7 +952,16 @@ const _TaiyakiVideoPlayer: FC<Props> = (props) => {
 							}}
 						/> */}
             <Video
-              style={{height: '100%', width: '100%'}}
+              style={settings.general.video.followAspectRatio &&
+                videoAspect &&
+                isFullScreen
+                  ? {
+                      height: videoAspect.height,
+                      width: videoAspect.width,
+                      justifyContent: 'center',
+                      alignContent: 'center',
+                      alignSelf: 'center',
+                    } : {height: '100%', width: '100%'}}
               ignoreSilentSwitch={'ignore'}
               ref={videoPlayerController}
               pictureInPicture={settings.general.video.pip}

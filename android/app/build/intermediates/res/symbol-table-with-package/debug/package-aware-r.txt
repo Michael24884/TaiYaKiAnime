@@ -1901,8 +1901,9 @@ layout text_view_with_theme_line_height
 layout text_view_without_line_height
 mipmap bootsplash_logo
 mipmap ic_launcher
-mipmap ic_launcher_round
 plurals mtrl_badge_content_description
+string CODE_PUSH_APK_BUILD_TIME
+string CodePushDeploymentKey
 string abc_action_bar_home_description
 string abc_action_bar_up_description
 string abc_action_menu_overflow_description

@@ -14,6 +14,7 @@ MERGED from [:react-native-community_slider] /Users/michaelgarcia/Documents/GitH
 MERGED from [:react-native-community_viewpager] /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/node_modules/@react-native-community/viewpager/android/build/intermediates/library_manifest/release/AndroidManifest.xml:2:1-9:12
 MERGED from [:react-native-background-fetch] /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/node_modules/react-native-background-fetch/android/build/intermediates/library_manifest/release/AndroidManifest.xml:2:1-14:12
 MERGED from [:react-native-bootsplash] /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/node_modules/react-native-bootsplash/android/build/intermediates/library_manifest/release/AndroidManifest.xml:2:1-9:12
+MERGED from [:react-native-code-push] /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/node_modules/react-native-code-push/android/app/build/intermediates/library_manifest/release/AndroidManifest.xml:2:1-17:12
 MERGED from [:react-native-device-info] /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/node_modules/react-native-device-info/android/build/intermediates/library_manifest/release/AndroidManifest.xml:2:1-25:12
 MERGED from [:react-native-fast-image] /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/node_modules/react-native-fast-image/android/build/intermediates/library_manifest/release/AndroidManifest.xml:2:1-11:12
 MERGED from [:react-native-gesture-handler] /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/node_modules/react-native-gesture-handler/android/build/intermediates/library_manifest/release/AndroidManifest.xml:2:1-11:12
@@ -117,6 +118,8 @@ INJECTED from /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src
 		ADDED from /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:1:11-69
 uses-permission#android.permission.INTERNET
 ADDED from /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:4:5-67
+MERGED from [:react-native-code-push] /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/node_modules/react-native-code-push/android/app/build/intermediates/library_manifest/release/AndroidManifest.xml:11:5-67
+MERGED from [:react-native-code-push] /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/node_modules/react-native-code-push/android/app/build/intermediates/library_manifest/release/AndroidManifest.xml:11:5-67
 MERGED from [:react-native-inappbrowser-reborn] /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/node_modules/react-native-inappbrowser-reborn/android/build/intermediates/library_manifest/release/AndroidManifest.xml:11:5-67
 MERGED from [:react-native-inappbrowser-reborn] /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/node_modules/react-native-inappbrowser-reborn/android/build/intermediates/library_manifest/release/AndroidManifest.xml:11:5-67
 MERGED from [com.google.android.datatransport:transport-backend-cct:2.2.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/89a42a17bceb15a6b56920baa9a303ed/transport-backend-cct-2.2.0/AndroidManifest.xml:26:5-67
@@ -137,6 +140,8 @@ MERGED from [:react-native-community_datetimepicker] /Users/michaelgarcia/Docume
 MERGED from [:react-native-community_datetimepicker] /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/node_modules/@react-native-community/datetimepicker/android/build/intermediates/library_manifest/release/AndroidManifest.xml:11:5-20
 MERGED from [:react-native-background-fetch] /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/node_modules/react-native-background-fetch/android/build/intermediates/library_manifest/release/AndroidManifest.xml:11:5-12:19
 MERGED from [:react-native-background-fetch] /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/node_modules/react-native-background-fetch/android/build/intermediates/library_manifest/release/AndroidManifest.xml:11:5-12:19
+MERGED from [:react-native-code-push] /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/node_modules/react-native-code-push/android/app/build/intermediates/library_manifest/release/AndroidManifest.xml:13:5-15:19
+MERGED from [:react-native-code-push] /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/node_modules/react-native-code-push/android/app/build/intermediates/library_manifest/release/AndroidManifest.xml:13:5-15:19
 MERGED from [:react-native-device-info] /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/node_modules/react-native-device-info/android/build/intermediates/library_manifest/release/AndroidManifest.xml:12:5-23:19
 MERGED from [:react-native-device-info] /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/node_modules/react-native-device-info/android/build/intermediates/library_manifest/release/AndroidManifest.xml:12:5-23:19
 MERGED from [:react-native-inappbrowser-reborn] /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/node_modules/react-native-inappbrowser-reborn/android/build/intermediates/library_manifest/release/AndroidManifest.xml:13:5-16:19
@@ -197,8 +202,6 @@ MERGED from [com.facebook.soloader:annotation:0.8.2] /Users/michaelgarcia/.gradl
 		ADDED from [androidx.core:core:1.1.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/639e914bfc1efa21e36199d3ff2c5eef/core-1.1.0/AndroidManifest.xml:24:18-86
 	android:label
 		ADDED from /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:8:7-39
-	android:roundIcon
-		ADDED from /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:10:7-52
 	android:icon
 		ADDED from /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:9:7-41
 	android:allowBackup
@@ -241,6 +244,8 @@ ADDED from /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/ma
 		ADDED from /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:28:19-66
 activity#com.facebook.react.devsupport.DevSettingsActivity
 ADDED from /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:31:7-84
+MERGED from [:react-native-code-push] /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/node_modules/react-native-code-push/android/app/build/intermediates/library_manifest/release/AndroidManifest.xml:14:9-86
+MERGED from [:react-native-code-push] /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/node_modules/react-native-code-push/android/app/build/intermediates/library_manifest/release/AndroidManifest.xml:14:9-86
 	android:name
 		ADDED from /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:31:17-81
 uses-sdk
@@ -267,6 +272,8 @@ MERGED from [:react-native-background-fetch] /Users/michaelgarcia/Documents/GitH
 MERGED from [:react-native-background-fetch] /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/node_modules/react-native-background-fetch/android/build/intermediates/library_manifest/release/AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-bootsplash] /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/node_modules/react-native-bootsplash/android/build/intermediates/library_manifest/release/AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-bootsplash] /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/node_modules/react-native-bootsplash/android/build/intermediates/library_manifest/release/AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-code-push] /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/node_modules/react-native-code-push/android/app/build/intermediates/library_manifest/release/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-code-push] /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/node_modules/react-native-code-push/android/app/build/intermediates/library_manifest/release/AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-device-info] /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/node_modules/react-native-device-info/android/build/intermediates/library_manifest/release/AndroidManifest.xml:8:5-10:41
 MERGED from [:react-native-device-info] /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/node_modules/react-native-device-info/android/build/intermediates/library_manifest/release/AndroidManifest.xml:8:5-10:41
 MERGED from [:react-native-fast-image] /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/node_modules/react-native-fast-image/android/build/intermediates/library_manifest/release/AndroidManifest.xml:7:5-9:41

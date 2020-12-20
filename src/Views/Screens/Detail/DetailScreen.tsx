@@ -281,10 +281,6 @@ const DetailScreen: FC<Props> = (props) => {
 	//Save the simkl id if its missing from the database
 	useEffect(() => {
 		const saveIDS = async () => {
-			if (detailedHook && database && database.totalEpisodes === 0) {
-				//Update the total episodes, in case an airing anime has finally updated amount of episodes
-				await JSON.stringify({totalEpisodes: data?.data.Media.episodes ?? 0})
-			}
 			if (detailedHook && detailedHook.ids && database && !database.ids.simkl) {
 				await mergeItem(
 					JSON.stringify({
@@ -302,6 +298,16 @@ const DetailScreen: FC<Props> = (props) => {
 		};
 		saveIDS();
 	}, [detailedHook]);
+
+	useEffect(() => {
+		const saveTotalEpisodes = async () => {
+			if (detailedHook && database && (!database.totalEpisodes || database.totalEpisodes === 0)) {
+				//Update the total episodes, in case an airing anime has finally updated amount of episodes
+				await mergeItem(JSON.stringify({totalEpisodes: data?.data?.Media?.episodes ?? 0}));
+			}
+		}
+		saveTotalEpisodes();
+	}, [data])
 
 	if (!data || !id)
 		return (
@@ -469,7 +475,7 @@ const DetailScreen: FC<Props> = (props) => {
 				/>
 				{/* //Bind or Episode */}
 				{!database || !database.link ? (
-					<BindTitleBlock title={title.romaji} id={id} />
+					<BindTitleBlock title={title.romaji} id={id} status={status} />
 				) : detailedHook ? (
 					!detailedHook.error ? (
 						<WatchTile
@@ -557,6 +563,7 @@ const DetailScreen: FC<Props> = (props) => {
 											onPress: async () => {
 												await removeItem();
 												setDatabase(undefined);
+												detailedHook.clearLinks();
 											},
 											style: 'destructive',
 										},

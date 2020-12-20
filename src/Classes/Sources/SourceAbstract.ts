@@ -3,7 +3,7 @@ import { SourceTypes, TaiyakiScrapedTitleModel } from "../../Models";
 
 type Options = {
   hasCloudflare: boolean;
-  name: string;
+  name?: string;
 }
 
 abstract class SourceAbstract {
@@ -11,7 +11,15 @@ abstract class SourceAbstract {
   abstract source: TaiyakiSourceTypes;
   abstract language: TaiyakiSourceLanguage;
   abstract options: Options;
-  abstract controller: AbortController;
+  controller: AbortController = new AbortController();
+
+  
+  public get signal(): AbortSignal {
+    return this.controller.signal;
+  }
+  
+
+  headers?: Record<string, string>;
 
   /**
    * Destroy method. Controller should be aborted here. Used at the end of the component's lifecycle

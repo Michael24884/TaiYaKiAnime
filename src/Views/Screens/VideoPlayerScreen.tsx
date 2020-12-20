@@ -144,7 +144,6 @@ const VideoPlayerScreen: FC<Props> = (props) => {
   // });
 
   useEffect(() => {
-    console.log('ttoa epi', currentEpisode.detail.totalEpisodes);
     navigation.dangerouslyGetParent()?.setOptions({tabBarVisible: false});
     //GoogleCast.showIntroductoryOverlay();
     return () => {
@@ -172,6 +171,10 @@ const VideoPlayerScreen: FC<Props> = (props) => {
 
   //Step 1: Scrape Links, finds available servers and filters only ones with proper links
   const sourceRequests = new SourceBase(currentEpisode.detail.source);
+
+  useEffect(() => {
+    return () => sourceRequests.destroy();
+  }, []);
   
   useEffect(() => {
     setScrapingProgress('SCRAPING');

@@ -10,6 +10,7 @@ import {
 import { Navigator } from './Views/Components/navigator';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import BackgroundFetch from 'react-native-background-fetch';
+import codePush, {CodePushOptions, UpdateDialog} from 'react-native-code-push';
 import {
 	DetailedDatabaseIDSModel,
 	DetailedDatabaseModel,
@@ -183,5 +184,12 @@ const App = () => {
 
 	return <Navigator />;
 };
+let codePushOptions: CodePushOptions = { 
+	updateDialog: {
 
-export default App;
+	}, 
+	checkFrequency: codePush.CheckFrequency.ON_APP_RESUME,
+
+};
+
+export default codePush(codePushOptions)(App);

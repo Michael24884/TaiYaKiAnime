@@ -12,7 +12,7 @@ class FourAnime extends SourceAbstract {
     options: { hasCloudflare: boolean; name: string; } = {hasCloudflare: false, name: '4Anime'};
     controller: AbortController = new AbortController();
 
-    private headers = {
+     headers = {
         "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9;imag/webp,image/apng",
         "User-Agent": "Mozilla/5.0 (Macintosh; Intel Max OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36 OPR/69.0.3686.36"
     };

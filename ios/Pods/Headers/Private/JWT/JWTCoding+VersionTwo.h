@@ -1,0 +1,1 @@
+../../../JWT/Core/Coding/JWTCoding+VersionTwo.h
