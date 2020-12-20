@@ -5,5 +5,6 @@ import Mp4Upload from './mp4upload';
 import {HostBase} from './base';
 import VidstreamingHost from './vidstreaming';
 import Xstream from './xstream';
+import StreamX from './streamx';
 
-export {BP, Cloud9, Kwik, Mp4Upload, HostBase, VidstreamingHost, Xstream};
+export {BP, Cloud9, Kwik, Mp4Upload, HostBase, VidstreamingHost, Xstream, StreamX};
