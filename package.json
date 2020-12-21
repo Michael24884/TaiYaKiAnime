@@ -56,6 +56,7 @@
     "react-native-safe-area-context": "^3.1.8",
     "react-native-screens": "^2.14.0",
     "react-native-stretchy": "^4.0.0",
+    "react-native-switch-pro": "^1.0.5",
     "react-native-timeago": "^0.5.0",
     "react-native-vector-icons": "^7.1.0",
     "react-native-video": "^5.1.0-alpha8",

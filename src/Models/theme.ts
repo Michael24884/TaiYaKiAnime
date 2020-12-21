@@ -20,7 +20,7 @@ export const LightTheme: BaseTheme = {
     ...DefaultTheme.colors,
     primary: '#5D07B2',
     accent: '#F570C0',
-    backgroundColor: 'white',
+    backgroundColor: '#ffffff',
     surface: '#f0f0f0',
     text: 'black',
   },

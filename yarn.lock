@@ -6916,6 +6916,13 @@ react-native-stretchy@^4.0.0:
   resolved "https://registry.yarnpkg.com/react-native-stretchy/-/react-native-stretchy-4.0.0.tgz#b85d1c8f9bb04cf8d4485660b3c74dbad03954df"
   integrity sha512-7pN/54eVZntu/y/bcxWOm2Tq/U6JJw2zNceFK9QZYd0/w7b3oEwl64IPbfAJ6Zs8pPiAuMEsA2kjioYlTYss9w==
 
+react-native-switch-pro@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/react-native-switch-pro/-/react-native-switch-pro-1.0.5.tgz#9954e11f15a0ef4e8e92a4aba5019e6e29c9162f"
+  integrity sha512-ZkS7/mRsJsG7heE12Y8emv3jAS2waLhk+3fyqoxq8k/r4Q4Uzzm3Q3gSECOJd5COJZT1B48c+xXW80FOrQpYtQ==
+  dependencies:
+    prop-types "^15.5.10"
+
 react-native-timeago@^0.5.0:
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/react-native-timeago/-/react-native-timeago-0.5.0.tgz#1b08057e3473dbb5b6720ee5cde4e544a7c250f0"

@@ -10,7 +10,7 @@ import {
 	TouchableWithoutFeedback,
 	TouchableOpacity,
 } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
+import { ScrollView, Switch } from 'react-native-gesture-handler';
 import {
 	BaseTheme,
 	LightTheme,
@@ -36,7 +36,8 @@ const SettingsScreen = () => {
 	const setTheme = useTheme((_) => _.setTheme);
 	const setAccent = useTheme((_) => _.setAccent);
 	const theme = useTheme((_) => _.theme);
-	const { settings, set } = useSettingsStore();
+	const settings = useSettingsStore((_) => _.settings);
+	const setSettings = useSettingsStore((_) => _.setSettings);
 	const profiles = useUserProfiles((_) => _.profiles);
 	const [themeOpen, setThemeOpen] = useState<boolean>(false);
 	const { getItem, setItem } = useAsyncStorage('dev');
@@ -47,7 +48,8 @@ const SettingsScreen = () => {
 	const { general, customization, notifications, sync, queue } = settings;
 
 	const _accentRef = createRef<Modalize>();
-
+	const [persistQueue, setQueue] = useState<boolean>(queue.saveQueue);
+	const [blur, setBlur] = useState<boolea>(general.blurSpoilers);
 	// const modal = (visible: boolean, setHide: (arg0: boolean) => void,) => {
 	//   return (
 	//     <Modal>
@@ -170,27 +172,43 @@ const SettingsScreen = () => {
 						title={'Video'}
 						onPress={() => navigation.navigate('VideoSettingsPage')}
 					/>
-					<SettingsRow
+					{/* <SettingsRow
 						title={'Persist queue to storage'}
-						value={queue.saveQueue}
+						value={persistQueue}
 						hasSwitcher
 						onValueChange={(value) => {
-							set((state: any) => {
-								state.settings.queue.saveQueue = value;
-							});
+							setQueue(value);
+							// set((state: any) => {
+							// 	state.settings.queue.saveQueue = value;
+							// });
+							//setSettings((state) => ({settings: ...state.}))
+							setSettings({...settings, queue: {...settings.queue, saveQueue: value}});
 						}}
-					/>
-					<SettingsRow
-						title={'Blur unwatched episodes'}
-						value={general.blurSpoilers}
-						hasSwitcher
-						onValueChange={(value) => {
-							console.log('the new value', value);
-							set((state: any) => {
-								state.settings.general.blurSpoilers = value;
-							});
-						}}
-					/>
+					/> */}
+					<View style={{flexDirection: 'row', width: '100%', height: height * 0.08, paddingHorizontal: width * 0.05, justifyContent: 'space-between', alignItems: 'center'}}>
+						<ThemedText>Persist Queue to Storage</ThemedText>
+						
+					<Switch
+            style={{alignSelf: 'flex-end'}}
+            value={settings.queue.saveQueue}
+            onValueChange={(value) => {
+				setSettings({...settings, queue: {...settings.queue, saveQueue: value}});
+            }}
+          />
+		  
+		  </View>
+		  <View style={{flexDirection: 'row', width: '100%', height: height * 0.08, paddingHorizontal: width * 0.05, justifyContent: 'space-between', alignItems: 'center'}}>
+						<ThemedText>Blur unwatched episodes</ThemedText>
+						
+					<Switch
+            style={{alignSelf: 'flex-end'}}
+            value={settings.general.blurSpoilers}
+            onValueChange={(value) => {
+				setSettings({...settings, general: {...settings.general, blurSpoilers: value}});
+            }}
+          />
+		  
+		  </View>
 				</SettingsHead>
 
 				<SettingsHead title={'Sources'} iconName={'package'} community>

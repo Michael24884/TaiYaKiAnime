@@ -1,4 +1,4 @@
-#Wed Dec 16 22:03:12 PST 2020
+#Mon Dec 21 09:43:29 PST 2020
 base.10=/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/build/intermediates/dex/debug/mergeLibDexDebug/out/classes_16.dex
 base.9=/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/build/intermediates/dex/debug/mergeLibDexDebug/out/classes_15.dex
 base.8=/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/build/intermediates/dex/debug/mergeLibDexDebug/out/classes_14.dex

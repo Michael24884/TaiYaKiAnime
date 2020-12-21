@@ -1,6 +1,7 @@
-import React, {FC} from 'react';
+import React, {FC, useState} from 'react';
 import {Dimensions, Switch, Image, StyleSheet, View} from 'react-native';
 import Icon from 'react-native-dynamic-vector-icons';
+// import Switch from 'react-native-switch-pro';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {useTheme} from '../../../Stores';
 import {Divider, ThemedText} from '../base';
@@ -23,6 +24,8 @@ export const SettingsRow: FC<{
     return 'Disabled';
   };
 
+  const [boolValue, setValue] = useState<boolean>(value ?? false);
+
   return (
     <TouchableOpacity
       disabled={(typeof value === 'boolean' && hasSwitcher) || !onPress}
@@ -31,14 +34,18 @@ export const SettingsRow: FC<{
         <View>
           <ThemedText style={styles.settingRow.title}>{title}</ThemedText>
           <ThemedText style={styles.settingRow.desc}>
-            {typeof value === 'boolean' ? _enabled(value) : value}
+            {typeof value === 'boolean' ? _enabled(boolValue) : boolValue}
           </ThemedText>
         </View>
         {typeof value === 'boolean' && hasSwitcher ? (
           <Switch
-            value={value}
-            onValueChange={onValueChange}
-            trackColor={{true: 'green', false: 'grey'}}
+            value={boolValue}
+            key={title}
+            onValueChange={(value) => {
+              setValue(value)
+              onValueChange(value)
+            }}
+
           />
         ) : onPress ? (
           <Icon

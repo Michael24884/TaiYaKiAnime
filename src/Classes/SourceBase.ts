@@ -1,3 +1,4 @@
+import { Source } from 'react-native-fast-image';
 import {
   EmbededResolvedModel,
   TaiyakiScrapedTitleModel,
@@ -6,39 +7,40 @@ import {VidstreamingHost, BP, Kwik, Mp4Upload, Cloud9, Xstream, StreamX} from '.
 import { MapSourceTypesToAbstract, SourceAbstract, TaiyakiSourceTypes } from './Sources';
 
 export class SourceBase {
-  source: TaiyakiSourceTypes;
+  //source: TaiyakiSourceTypes;
+  map: SourceAbstract;
 
   constructor(source: TaiyakiSourceTypes) {
-    this.source = source;
+    //this.source = source;
+    this.map = MapSourceTypesToAbstract.get(source)!;
   }
 
   destroy() {
-    const map = MapSourceTypesToAbstract.get(this.source)!
-    map.destroy();
+    this.map.destroy();
   }
 
   async scrapeTitle(
     title: string,
   ): Promise<{loading: boolean; results: TaiyakiScrapedTitleModel[]}> {
-    const map = MapSourceTypesToAbstract.get(this.source)!
+   // const map = MapSourceTypesToAbstract.get(this.source)!
     let loading = true;
-    const titles = await map.searchTitles(title);
+    const titles = await this.map.searchTitles(title);
     loading = false;
     //TODO: Might remove the loading params as function constructors are no longer used
     return {loading, results: titles};
   }
 
   async scrapeAvailableEpisodes(link: string): Promise<string[]> {
-    const map = MapSourceTypesToAbstract.get(this.source)!
-    const links = await map.availableEpisodes(link);
+   // const map = MapSourceTypesToAbstract.get(this.source)!
+    const links = await this.map.availableEpisodes(link);
     return links
   }
 
   async scrapeLinks(
     episodeLink: string,
   ): Promise<{link: string; server: string}[]> {
-    const map = MapSourceTypesToAbstract.get(this.source)!
-    const links = await map.scrapeLinks(episodeLink);
+   // const map = MapSourceTypesToAbstract.get(this.source)!
+    const links = await this.map.scrapeLinks(episodeLink);
     //If it fails here but links is showing in console, you're probably not returning an array. Wrap it between a [] even if its' only one link
     return links.filter((i) => i);
   }
