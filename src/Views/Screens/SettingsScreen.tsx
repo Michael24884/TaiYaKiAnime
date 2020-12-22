@@ -29,7 +29,10 @@ import {
 } from '../Components/Settings';
 import { useAsyncStorage } from '@react-native-async-storage/async-storage';
 import { Modalize } from 'react-native-modalize';
+import { TaiyakiSourceLanguage } from '../../Classes/Sources';
+import Icon from 'react-native-dynamic-vector-icons';
 const { width, height } = Dimensions.get('window');
+
 
 const SettingsScreen = () => {
 	const navigation = useNavigation();
@@ -46,17 +49,9 @@ const SettingsScreen = () => {
 	const [devEnabled, setDevMode] = useState<boolean>(false);
 
 	const { general, customization, notifications, sync, queue } = settings;
-
+	
 	const _accentRef = createRef<Modalize>();
-	const [persistQueue, setQueue] = useState<boolean>(queue.saveQueue);
-	const [blur, setBlur] = useState<boolea>(general.blurSpoilers);
-	// const modal = (visible: boolean, setHide: (arg0: boolean) => void,) => {
-	//   return (
-	//     <Modal>
-
-	//     </Modal>
-	//   )
-	// }
+	const _sourceLanguageRef = createRef<Modalize>();
 
 	useEffect(() => {
 		getItem().then((value) => {
@@ -88,6 +83,26 @@ const SettingsScreen = () => {
 			</TouchableOpacity>
 		);
 	};
+
+	const _renderLanguages = ({item} : {item: TaiyakiSourceLanguage | 'All'}) => {
+		return (
+			<TouchableOpacity
+			onPress={() => {
+				_sourceLanguageRef.current?.close();
+				setTimeout(() => setSettings({...settings, general: {...settings.general, sourceLanguage: item}}), 500)
+				
+			}}
+			>
+				<View style={{margin: 12, height: height * 0.08, paddingHorizontal: height * 0.02, paddingTop: height * 0.01}}>
+					<View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between'}}>
+					<ThemedText style={styles.title}>{item}</ThemedText>
+					{settings.general.sourceLanguage === item && <Icon name={'check'} type={'MaterialCommunityIcons'} size={30} color={theme.colors.accent} />}
+					</View>
+				</View>
+			</TouchableOpacity>
+		)
+	}
+
 
 	const _colorView = (theme: BaseTheme) => {
 		return (
@@ -172,21 +187,8 @@ const SettingsScreen = () => {
 						title={'Video'}
 						onPress={() => navigation.navigate('VideoSettingsPage')}
 					/>
-					{/* <SettingsRow
-						title={'Persist queue to storage'}
-						value={persistQueue}
-						hasSwitcher
-						onValueChange={(value) => {
-							setQueue(value);
-							// set((state: any) => {
-							// 	state.settings.queue.saveQueue = value;
-							// });
-							//setSettings((state) => ({settings: ...state.}))
-							setSettings({...settings, queue: {...settings.queue, saveQueue: value}});
-						}}
-					/> */}
 					<View style={{flexDirection: 'row', width: '100%', height: height * 0.08, paddingHorizontal: width * 0.05, justifyContent: 'space-between', alignItems: 'center'}}>
-						<ThemedText>Persist Queue to Storage</ThemedText>
+						<ThemedText style={styles.subtitle}>Persist Queue to Storage</ThemedText>
 						
 					<Switch
             style={{alignSelf: 'flex-end'}}
@@ -198,7 +200,7 @@ const SettingsScreen = () => {
 		  
 		  </View>
 		  <View style={{flexDirection: 'row', width: '100%', height: height * 0.08, paddingHorizontal: width * 0.05, justifyContent: 'space-between', alignItems: 'center'}}>
-						<ThemedText>Blur unwatched episodes</ThemedText>
+						<ThemedText style={styles.subtitle}>Blur unwatched episodes</ThemedText>
 						
 					<Switch
             style={{alignSelf: 'flex-end'}}
@@ -212,6 +214,11 @@ const SettingsScreen = () => {
 				</SettingsHead>
 
 				<SettingsHead title={'Sources'} iconName={'package'} community>
+					<SettingsRow
+						title={'Filter source language'}
+						value={settings.general.sourceLanguage}
+						onPress={() => _sourceLanguageRef.current?.open()}
+					/>
 					<SettingsRow
 						title={'Third Party Trackers'}
 						value={'Signed into ' + profiles.length + ' services'}
@@ -286,6 +293,16 @@ const SettingsScreen = () => {
 				}}
 				modalStyle={{ backgroundColor: theme.colors.card }}
 			/>
+			<Modalize
+				ref={_sourceLanguageRef}
+				modalHeight={height * 0.45}
+				flatListProps={{
+					data: ['All', 'English', 'Spanish'],
+					renderItem: _renderLanguages,
+					keyExtractor: (item) => item,
+				}}
+				modalStyle={{ backgroundColor: theme.colors.card }}
+			/>
 		</>
 	);
 };
@@ -298,6 +315,10 @@ const styles = StyleSheet.create({
 		fontSize: 15,
 		fontWeight: '600',
 	},
+	subtitle: {
+		fontSize: 15,
+		fontWeight: '400',
+	  }
 });
 
 export default SettingsScreen;

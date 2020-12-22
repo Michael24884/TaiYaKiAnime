@@ -11,7 +11,6 @@ class TioAnime extends SourceAbstract {
     options: { hasCloudflare: boolean; name: string} = {hasCloudflare: false, name: 'Tio Anime'};
     async searchTitles(title: string): Promise<TaiyakiScrapedTitleModel[]> {
         const params = qs.stringify({q: title});
-
         const response = await (await fetch(this.baseUrl + '/directorio?' + params, {signal: this.signal})).text();
         const $ = cheerio.load(response);
         return $('article.anime')
@@ -67,8 +66,7 @@ class TioAnime extends SourceAbstract {
             const embed = [];
             for (let i = 0; i < items.length; i++) {
                 const server = items[i][1];
-                const link = unescape(links[i][1])
-                console.log('the links', server + ':' + link)
+                const link = links[i][1].replace(/\\/g, '');
                 embed.push({server, link});
             }
 

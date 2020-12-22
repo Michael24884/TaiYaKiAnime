@@ -69,6 +69,9 @@ const tempAvailableServer: string[] = [
   'fullhd',
   'custom',
   'streamx',
+  // 'umi',
+  // 'streamium',
+  'fembed'
 ];
 
 type ScrapingProgress = 'SCRAPING' | 'FINISHED' | 'ERROR';

@@ -56,11 +56,14 @@ const SearchBindPage: FC<Props> = (props) => {
 	const { title, id } = props.route.params;
 	const navigation = useNavigation();
 	const theme = useTheme((_) => _.theme);
+	const preferredLanguage = useSettingsStore((_) => _.settings.general.sourceLanguage);
+
+	const filteredAbstractList = sourceAbstractList.filter((i) => i.language === preferredLanguage);
 	const [query, setQuery] = useState<string>(title);
 
 	const [isLoading, setLoading] = useState<boolean>(false);
 
-	const [currentArchive, setCurrentArchive] = useState<SourceAbstract>(sourceAbstractList[0]);
+	const [currentArchive, setCurrentArchive] = useState<SourceAbstract>(filteredAbstractList[0]);
 
 	const [results, setResults] = useState<TaiyakiScrapedTitleModel[]>([]);
 
@@ -75,9 +78,9 @@ const SearchBindPage: FC<Props> = (props) => {
 	}, []);
 
 	const getItems = useCallback(async () => {
-		setCurrentArchive(sourceAbstractList[0]);
+		setCurrentArchive(filteredAbstractList[0]);
 		setLoading(true);
-		new SourceBase(sourceAbstractList[0].source).scrapeTitle(query).then((results) => {
+		new SourceBase(filteredAbstractList[0].source).scrapeTitle(query).then((results) => {
 			setResults(results.results);
 			setLoading(false);
 		});
@@ -253,7 +256,7 @@ const SearchBindPage: FC<Props> = (props) => {
 				modalHeight={height * 0.4}
 				modalStyle={{ backgroundColor: theme.colors.backgroundColor }}
 				flatListProps={{
-					data: sourceAbstractList,
+					data: filteredAbstractList,
 					renderItem: _renderArchives,
 					keyExtractor: (item) => item.name,
 				}}

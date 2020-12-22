@@ -8,7 +8,7 @@ class AnimeOwl extends SourceAbstract {
     baseUrl: string = 'https://animeowl.net';
     source: TaiyakiSourceTypes = 'AnimeOwl';
     language: TaiyakiSourceLanguage = 'English';
-    options: { hasCloudflare: boolean; name: string; } = {hasCloudflare: false, name: 'AnimeOwl'};
+    options: { hasCloudflare: boolean; name: string; } = {hasCloudflare: false, name: 'Anime Owl'};
     controller: AbortController = new AbortController();
     
     async searchTitles(title: string): Promise<TaiyakiScrapedTitleModel[]> {

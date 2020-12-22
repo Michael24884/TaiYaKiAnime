@@ -42,6 +42,9 @@ export const MapSourceTypesToAbstract = new Map<TaiyakiSourceTypes, SourceAbstra
     ['AnimeOwl', new AnimeOwl()],
     ['KimAnime', new KimAnime()],
     ['Anime8', new Anime8()],
+    ['TioAnime', new TioAnime()],
+    ['XSAnime', new XSAnime()],
+    ['AnimeRush', new AnimeRush()],
 ])
 
 //STEP 6: Finally add the imported class from STEP 1 (Place at the end)

@@ -3,7 +3,7 @@ import { SourceTypes, TaiyakiScrapedTitleModel } from "../../Models";
 
 type Options = {
   hasCloudflare: boolean;
-  name?: string;
+  name: string;
 }
 
 abstract class SourceAbstract {
