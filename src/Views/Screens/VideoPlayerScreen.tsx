@@ -230,6 +230,7 @@ const VideoPlayerScreen: FC<Props> = (props) => {
 
   //Step 2: Selects the first link(or if a ref exists uses a previous server) and sets to load
   useEffect(() => {
+    setError(undefined);
     setScrapingProgress('SCRAPING');
     const findServer = async () => {
       try {
