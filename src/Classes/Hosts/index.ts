@@ -8,5 +8,6 @@ import Xstream from './xstream';
 import StreamX from './streamx';
 import Umi from './umi';
 import Fembed from './fembed';
+import YourUpload from './yourupload';
 
-export {BP, Cloud9, Kwik, Mp4Upload, HostBase, VidstreamingHost, Xstream, StreamX, Umi, Fembed};
+export {BP, Cloud9, Kwik, Mp4Upload, HostBase, VidstreamingHost, Xstream, StreamX, Umi, Fembed, YourUpload};

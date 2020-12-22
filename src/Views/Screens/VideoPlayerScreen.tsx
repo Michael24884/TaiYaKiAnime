@@ -71,7 +71,8 @@ const tempAvailableServer: string[] = [
   'streamx',
   // 'umi',
   // 'streamium',
-  'fembed'
+  'fembed',
+  'yourupload'
 ];
 
 type ScrapingProgress = 'SCRAPING' | 'FINISHED' | 'ERROR';
@@ -176,6 +177,7 @@ const VideoPlayerScreen: FC<Props> = (props) => {
   useEffect(() => {
     if (error)
       OrientationLocker.lockToPortrait();
+    return () => setError(undefined)
   }, [error]);
 
   //Step 1: Scrape Links, finds available servers and filters only ones with proper links
@@ -224,6 +226,7 @@ const VideoPlayerScreen: FC<Props> = (props) => {
       preloadedVideoRef.current = {episode: refEpisode!, links: filteredList};
     }
   }  catch(e) {
+    console.log('error in scrape links', e)
     setError(e);
   };
 }
@@ -235,12 +238,21 @@ const VideoPlayerScreen: FC<Props> = (props) => {
     const findServer = async () => {
       try {
       const servers = await sourceRequests.scrapeEmbedLinks(currentServer!);
+      if (servers.length === 0) {
+        setError('No links found for this server')
+        return;
+      }
+
+      console.log('the servers', servers)
+
       setScrapedServers(servers);
       //TODO: Look for previous references
       setCurrentQuality(servers[0]);
       setScrapingProgress('FINISHED'); 
       } catch(e) {
-        setError(e);
+        console.log('error in scrape hosts', e)
+        setError(e.toString());
+        setScrapingProgress('ERROR')
       }
     };
     if (currentServer) {
@@ -530,7 +542,7 @@ const VideoPlayerScreen: FC<Props> = (props) => {
           style={
             isFullScreen ? styles.videoPlayerFullScreen : styles.videoPlayer
           }>
-          {scrapingProgress === 'ERROR' ? (
+          {scrapingProgress === 'ERROR' || error ? (
             <View style={styles.errorView}>
               <Icon
                 name={'error'}
@@ -541,7 +553,7 @@ const VideoPlayerScreen: FC<Props> = (props) => {
               <ThemedText style={styles.errorText}>
                 An error has occurred:
               </ThemedText>
-              <ThemedText>{(error ?? 'Reason unknown').toString()}</ThemedText>
+              <ThemedText>{(error?.toString() ?? 'Reason unknown').toString()}</ThemedText>
             </View>
           ) : scrapingProgress === 'SCRAPING' ? (
             <View style={styles.loadingView}>
@@ -738,9 +750,10 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   errorView: {
-    backgroundColor: 'yellow',
+    backgroundColor: 'red',
     alignItems: 'center',
     justifyContent: 'center',
+    flex: 1,
   },
   errorText: {
     fontWeight: '700',

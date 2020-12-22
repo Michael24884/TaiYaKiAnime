@@ -3,7 +3,7 @@ import {
   EmbededResolvedModel,
   TaiyakiScrapedTitleModel,
 } from '../Models/taiyaki';
-import {VidstreamingHost, BP, Kwik, Mp4Upload, Cloud9, Xstream, StreamX, Umi, Fembed} from './Hosts';
+import {VidstreamingHost, BP, Kwik, Mp4Upload, Cloud9, Xstream, StreamX, Umi, Fembed, YourUpload} from './Hosts';
 import { MapSourceTypesToAbstract, SourceAbstract, TaiyakiSourceTypes } from './Sources';
 
 export class SourceBase {
@@ -77,6 +77,7 @@ export class SourceBase {
       case 'streamx': return await new StreamX().grabAvailableHosts(data.link);
       case 'streamium':
       case 'umi': return await new Umi().grabAvailableHosts(data.link);
+      case 'yourupload': return await new YourUpload().grabAvailableHosts(data.link);
       case 'okru':
         throw '';
       // case 'ld':
