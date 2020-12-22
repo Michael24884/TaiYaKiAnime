@@ -70,7 +70,7 @@ const DiscoveryScreen = () => {
         foreground={<BigCoverFlowText id={discordID}/>}
         imageOverlay={<BigCoverFlow id={discordID} />}
         >
-        <View style={{backgroundColor: theme.colors.backgroundColor}}>
+        <View style={{backgroundColor: theme.colors.backgroundColor, marginTop: 10}}>
           <InstagramAvatars />
 
           {notifications.length > 0 && (

@@ -39,7 +39,6 @@ class TioAnime extends SourceAbstract {
             const info = script.match(/anime_info = (\[.+\])/);
         const episodes = script.match(/episodes = (\[.+\])/);
         if (info && episodes) {
-            
             const slug = (info[1].split(','))[1].match(/[A-Za-z0-9-]+/)![0];
             const links: number[] = (episodes[1]).substring(1, episodes[1].length -1).split(',').map((i) => Number(i));
             return links.map((i) => this.baseUrl + '/ver/' + slug + '-' + i).reverse();

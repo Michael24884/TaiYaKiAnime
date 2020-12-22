@@ -448,6 +448,7 @@ const _TaiyakiVideoPlayer: FC<Props> = (props) => {
                 name={'resize'}
                 type={'MaterialCommunityIcons'}
                 size={35}
+                style={{marginRight: 10}}
                 color={'white'}
                 onPress={() => {
                   setResizeCover((pre) => {
@@ -458,14 +459,16 @@ const _TaiyakiVideoPlayer: FC<Props> = (props) => {
                   });
                 }}
               />
-              <Icon
-                name={'cog'}
-                type={'MaterialCommunityIcons'}
-                size={35}
-                color={'white'}
-                onPress={onOptionsTapped}
-                style={{marginHorizontal: width * 0.04}}
-              />
+             {
+               isFullScreen ?  <Icon
+               name={'cog'}
+               type={'MaterialCommunityIcons'}
+               size={35}
+               color={'white'}
+               onPress={onOptionsTapped}
+               style={{marginHorizontal: width * 0.04}}
+             />: null
+             }
 
               <Icon
                 name={isFullScreen ? 'fullscreen-exit' : 'fullscreen'}

@@ -29,7 +29,7 @@ import {
 } from '../Components/Settings';
 import { useAsyncStorage } from '@react-native-async-storage/async-storage';
 import { Modalize } from 'react-native-modalize';
-import { TaiyakiSourceLanguage } from '../../Classes/Sources';
+import { sourceAbstractList, TaiyakiSourceLanguage } from '../../Classes/Sources';
 import Icon from 'react-native-dynamic-vector-icons';
 const { width, height } = Dimensions.get('window');
 
@@ -95,7 +95,10 @@ const SettingsScreen = () => {
 			>
 				<View style={{margin: 12, height: height * 0.08, paddingHorizontal: height * 0.02, paddingTop: height * 0.01}}>
 					<View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between'}}>
+					<View>
 					<ThemedText style={styles.title}>{item}</ThemedText>
+					<ThemedText style={styles.subtitle}>{item === 'All' ? sourceAbstractList.length :sourceAbstractList.filter((i) => i.language === item).length} available</ThemedText>
+					</View>
 					{settings.general.sourceLanguage === item && <Icon name={'check'} type={'MaterialCommunityIcons'} size={30} color={theme.colors.accent} />}
 					</View>
 				</View>

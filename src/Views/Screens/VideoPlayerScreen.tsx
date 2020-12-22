@@ -173,6 +173,11 @@ const VideoPlayerScreen: FC<Props> = (props) => {
     else OrientationLocker.lockToPortrait();
   }, [isFullScreen]);
 
+  useEffect(() => {
+    if (error)
+      OrientationLocker.lockToPortrait();
+  }, [error]);
+
   //Step 1: Scrape Links, finds available servers and filters only ones with proper links
   const sourceRequests = new SourceBase(currentEpisode.detail.source);
 
@@ -181,6 +186,7 @@ const VideoPlayerScreen: FC<Props> = (props) => {
   }, []);
   
   useEffect(() => {
+    setError(undefined);
     setScrapingProgress('SCRAPING');
     setDescExpanded(false);
     if (
@@ -199,6 +205,7 @@ const VideoPlayerScreen: FC<Props> = (props) => {
   ) => {
     const {link} = currentEpisode.episode;
 
+    try {
     const linkRequests = await sourceRequests.scrapeLinks(
       isRef && refEpisode ? refEpisode.link : link!,
     );
@@ -216,18 +223,24 @@ const VideoPlayerScreen: FC<Props> = (props) => {
     } else {
       preloadedVideoRef.current = {episode: refEpisode!, links: filteredList};
     }
+  }  catch(e) {
+    setError(e);
   };
+}
 
   //Step 2: Selects the first link(or if a ref exists uses a previous server) and sets to load
   useEffect(() => {
     setScrapingProgress('SCRAPING');
     const findServer = async () => {
+      try {
       const servers = await sourceRequests.scrapeEmbedLinks(currentServer!);
       setScrapedServers(servers);
-
       //TODO: Look for previous references
       setCurrentQuality(servers[0]);
-      setScrapingProgress('FINISHED');
+      setScrapingProgress('FINISHED'); 
+      } catch(e) {
+        setError(e);
+      }
     };
     if (currentServer) {
       findServer();
@@ -609,9 +622,17 @@ const VideoPlayerScreen: FC<Props> = (props) => {
             <ThemedText style={[styles.episode, {color: theme.colors.accent}]}>
               Episode {currentEpisode.episode.episode}
             </ThemedText>
+            
+                        <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+
             <ThemedText style={styles.episodeTitle}>
               {currentEpisode.episode.title}
             </ThemedText>
+            <Icon name={'cog'} type={'MaterialCommunityIcons'} size={35} color={theme.colors.text} onPress={() => {
+              optionsModal.current?.open();
+            }} /> 
+                        </View>
+ 
             <ThemedText style={{fontSize: 13, color: 'orange'}}>
               {currentEpisode.episode.sourceName}
             </ThemedText>
