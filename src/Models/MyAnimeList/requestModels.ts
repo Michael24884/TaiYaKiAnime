@@ -23,7 +23,7 @@ export type MALListStatus = {
   score: number;
   num_episodes_watched: number;
   start_date?: string;
-  end_date?: string;
+  finish_date?: string;
 };
 
 export type MyAnimeListUserListModel = {

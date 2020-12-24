@@ -1,13 +1,14 @@
-import React, {FC, useEffect, useState} from 'react';
+import React, {FC, useEffect, useRef, useState} from 'react';
 import {
   ActivityIndicator,
   Image,
   StyleProp,
   StyleSheet,
   View,
+  Animated,
 } from 'react-native';
 import FastImage, {ImageStyle} from 'react-native-fast-image';
-import Animated, {
+import {
   useAnimatedStyle,
   useSharedValue,
   withTiming,
@@ -23,24 +24,25 @@ interface FastImageProps {
 const DangoImage: FC<FastImageProps> = (props) => {
   const {url, style, resize} = props;
   const [loadingVisible, setLoadingVisisble] = useState<boolean>(true);
-  const opacity = useSharedValue(1);
-  const animatedStyle = useAnimatedStyle(() => ({opacity: opacity.value}));
-  useEffect(() => {
-    if (opacity.value === 0) setLoadingVisisble(false);
-  }, [opacity]);
+  const opacity = useRef(new Animated.Value(0)).current;
 
   return (
     <View style={[style]}>
       <FastImage
         style={styles.image.base}
-        source={{uri: url, cache: FastImage.cacheControl.web}}
+        source={{uri: url, cache: FastImage.cacheControl.web, }}
         resizeMode={resize ?? 'cover'}
         onLoad={() => {
-          opacity.value = withTiming(0, {duration: 650});
+          setLoadingVisisble(false)
+          Animated.timing(opacity, {
+            toValue: 1,
+            duration: 1500,
+            useNativeDriver: true,
+          }).start();
         }}
       />
       {loadingVisible ? (
-        <Animated.View style={[styles.image.floatingView, animatedStyle]}>
+        <Animated.View style={[styles.image.floatingView, {opacity}]}>
           <View style={styles.image.loadingView}>
             <ActivityIndicator />
           </View>

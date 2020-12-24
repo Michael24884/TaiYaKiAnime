@@ -100,7 +100,7 @@ export function useAnilistRequest<T = AnilistPagedData | Media>(
             start =
               startedAt.month + '/' + startedAt.day + '/' + startedAt.year;
           if (completedAt.day && completedAt.month && completedAt.year)
-            start =
+            end =
               completedAt.month +
               '/' +
               completedAt.day +
@@ -288,14 +288,14 @@ export function useMalRequests<T>(key: string, path: string) {
             const {
               num_episodes_watched,
               score,
-              end_date,
+              finish_date,
               status,
               start_date,
             } = media.my_list_status;
             media.mappedEntry = {
               progress: num_episodes_watched,
               totalEpisodes: media.num_episodes,
-              ended: end_date,
+              ended: finish_date,
               score: score,
               started: start_date,
               status: MapWatchingStatusToNative.get(status),

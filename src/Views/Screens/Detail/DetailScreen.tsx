@@ -13,6 +13,7 @@ import {
 	View,
 	Modal,
 	StatusBar,
+	Alert,
 } from 'react-native';
 import Icon from 'react-native-dynamic-vector-icons';
 import { FlatList } from 'react-native-gesture-handler';
@@ -284,7 +285,6 @@ const DetailScreen: FC<Props> = (props) => {
 				await mergeItem(
 					JSON.stringify({
 						ids: detailedHook.ids,
-						totalEpisodes: detailedHook.data.length,
 					})
 				);
 				setDatabase((database) => {
@@ -298,6 +298,16 @@ const DetailScreen: FC<Props> = (props) => {
 		};
 		saveIDS();
 	}, [detailedHook]);
+
+	useEffect(() => {
+		const saveTotalEpisodes = async () => {
+			if (detailedHook && database && (!database.totalEpisodes || database.totalEpisodes === 0)) {
+				//Update the total episodes, in case an airing anime has finally updated amount of episodes
+				await mergeItem(JSON.stringify({totalEpisodes: data?.data?.Media?.episodes ?? 0}));
+			}
+		}
+		saveTotalEpisodes();
+	}, [data])
 
 	if (!data || !id)
 		return (
@@ -465,7 +475,7 @@ const DetailScreen: FC<Props> = (props) => {
 				/>
 				{/* //Bind or Episode */}
 				{!database || !database.link ? (
-					<BindTitleBlock title={title.romaji} id={id} />
+					<BindTitleBlock title={title.romaji} id={id} status={status} />
 				) : detailedHook ? (
 					!detailedHook.error ? (
 						<WatchTile
@@ -541,8 +551,24 @@ const DetailScreen: FC<Props> = (props) => {
 								await mergeItem(JSON.stringify({ isFollowing: following }));
 							}}
 							onRemoveSavedLink={async () => {
-								await removeItem();
-								setDatabase(undefined);
+								Alert.alert(
+									'Are you sure?',
+									'Removing saved link will allow you to select a new link. This will remove the current "continue watching" and notifications',
+									[
+										{
+											text: 'Cancel',
+										},
+										{
+											text: 'Remove',
+											onPress: async () => {
+												await removeItem();
+												setDatabase(undefined);
+												detailedHook.clearLinks();
+											},
+											style: 'destructive',
+										},
+									]
+								);
 							}}
 							onAddAllToQueue={() => {
 								const queue: {

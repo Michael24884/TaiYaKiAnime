@@ -1,6 +1,7 @@
 import {useCallback, useEffect, useRef, useState} from 'react';
 import {LayoutAnimation} from 'react-native';
 import {SourceBase} from '../Classes/SourceBase';
+import { MapSourceTypesToAbstract, Vidstreaming } from '../Classes/Sources';
 import {SimklEpisodes} from '../Models/SIMKL';
 import {DetailedDatabaseModel} from '../Models/taiyaki';
 import {useSimklRequests} from './useRequest';
@@ -16,12 +17,13 @@ export function useDetailedHook(
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [hasError, setError] = useState<string>();
 
+  
   const {
     query: {data: SimklEpisodeData},
     controller,
     ids,
   } = useSimklRequests<SimklEpisodes[]>(
-    'simkl' + id,
+    'simkl' + id + database?.source,
     '/anime/episodes/',
     database?.ids?.simkl,
     idMal,
@@ -30,23 +32,25 @@ export function useDetailedHook(
   );
 
   const _mixer = () => {
+    
     let items: SimklEpisodes[] = [];
     for (let i = 0; i < rawLinks.length; i++) {
       const episode = SimklEpisodeData![i];
       const raw = rawLinks[i];
       if (episode) {
         episode.link = raw;
-        episode.sourceName = database!.source.name;
+        episode.sourceName = database!.source;
         items.push(episode);
       } else {
         const episode: SimklEpisodes = {
+          
           episode: i + 1,
           link: raw,
           title: 'Episode ' + (i + 1),
           ids: {simkl_id: 0},
           aired: true,
           img: undefined,
-          sourceName: database!.source.name,
+          sourceName: database!.source,
         };
         items.push(episode);
       }
@@ -56,6 +60,8 @@ export function useDetailedHook(
     setError(undefined);
     setFullData(items);
   };
+
+
 
   useEffect(() => {
     if (
@@ -68,46 +74,48 @@ export function useDetailedHook(
     }
   }, [SimklEpisodeData, rawLinks]);
 
+
   useEffect(() => {
     return () => controller.abort();
   }, []);
   useEffect(() => {
+    if (rawLinks.length > 0) setLinks([]);
     if (database && database.source && fullData.length === 0) {
-      effect();
+      findTitles();
     }
   }, [database, fullData]);
 
-  const effect = () => {
-    findTitles();
-    // timer.current = setTimeout(() => {
-    //   if (rawLinks.length === 0 && fullData.length === 0) {
-    //     console.log(rawLinks.length, fullData.length);
-    //     setError('Waited 12 seconds but did not obtain any results');
-    //   }
-    // }, 12000);
+  const findTitles = async () => {
+    setIsLoading(true);
+    console.log(database?.source);
+    const result = new SourceBase(database!.source);
+    result.scrapeAvailableEpisodes(database!.link!)
+    .then((results) => {
+      setIsLoading(false);
+      setLinks(results);
+    })
+
   };
 
   if (!database || !database.link) return null;
-
-  const source = new SourceBase(database.source);
+ 
 
   const retry = () => {
     setError(undefined);
-    if (database && database.source) effect();
+    if (database && database.source) findTitles();
   };
 
-  const findTitles = async () => {
-    setIsLoading(true);
-    source.scrapeAvailableEpisodes(database.link!).then((results) => {
-      setIsLoading(false);
-      setLinks(results);
-    });
-  };
+  const clearLinks = () => {
+    setLinks([])
+    setFullData([])
+  }
+ 
   return {
     isLoading,
     data: fullData,
     error: hasError,
     retry,
     ids,
+    clearLinks,
   };
 }

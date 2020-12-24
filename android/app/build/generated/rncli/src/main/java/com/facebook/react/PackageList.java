@@ -29,14 +29,14 @@ import com.reactnativecommunity.viewpager.RNCViewPagerPackage;
 import com.transistorsoft.rnbackgroundfetch.RNBackgroundFetchPackage;
 // react-native-bootsplash
 import com.zoontek.rnbootsplash.RNBootSplashPackage;
+// react-native-code-push
+import com.microsoft.codepush.react.CodePush;
 // react-native-device-info
 import com.learnium.RNDeviceInfo.RNDeviceInfo;
 // react-native-fast-image
 import com.dylanvann.fastimage.FastImageViewPackage;
 // react-native-gesture-handler
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
-// react-native-google-cast
-import com.reactnative.googlecast.GoogleCastPackage;
 // react-native-inappbrowser-reborn
 import com.proyecto26.inappbrowser.RNInAppBrowserPackage;
 // react-native-linear-gradient
@@ -109,10 +109,10 @@ public class PackageList {
       new RNCViewPagerPackage(),
       new RNBackgroundFetchPackage(),
       new RNBootSplashPackage(),
+      new CodePush(getResources().getString(com.taiyaki_typed.R.string.CodePushDeploymentKey), getApplicationContext(), com.taiyaki_typed.BuildConfig.DEBUG),
       new RNDeviceInfo(),
       new FastImageViewPackage(),
       new RNGestureHandlerPackage(),
-      new GoogleCastPackage(),
       new RNInAppBrowserPackage(),
       new LinearGradientPackage(),
       new OrientationPackage(),

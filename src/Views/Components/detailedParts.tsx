@@ -34,6 +34,7 @@ import { AnilistBase, MyAnimeList } from '../../Classes/Trackers';
 import { SIMKL } from '../../Classes/Trackers/SIMKL';
 import { Modalize } from 'react-native-modalize';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
+import { SourceAbstract, sourceAbstractList } from '../../Classes/Sources';
 
 const { height, width } = Dimensions.get('window');
 
@@ -54,13 +55,15 @@ interface Props {
 const SearchBindPage: FC<Props> = (props) => {
 	const { title, id } = props.route.params;
 	const navigation = useNavigation();
-	const [archives, setArchives] = useState<TaiyakiArchiveModel[]>([]);
 	const theme = useTheme((_) => _.theme);
+	const preferredLanguage = useSettingsStore((_) => _.settings.general.sourceLanguage);
+
+	const filteredAbstractList = sourceAbstractList.filter((i) => i.language === preferredLanguage);
 	const [query, setQuery] = useState<string>(title);
 
 	const [isLoading, setLoading] = useState<boolean>(false);
 
-	const [currentArchive, setCurrentArchive] = useState<TaiyakiArchiveModel>();
+	const [currentArchive, setCurrentArchive] = useState<SourceAbstract>(filteredAbstractList[0]);
 
 	const [results, setResults] = useState<TaiyakiScrapedTitleModel[]>([]);
 
@@ -70,30 +73,29 @@ const SearchBindPage: FC<Props> = (props) => {
 		navigation.setOptions({ title: 'Binding Anime...' });
 	}, [navigation]);
 
+	useEffect(() => {
+		return () => currentArchive?.destroy();
+	}, []);
+
 	const getItems = useCallback(async () => {
-		const file = await AsyncStorage.getItem('my_sources');
-		if (file) {
-			const archives = JSON.parse(file) as TaiyakiArchiveModel[];
-			setArchives(archives);
-			setCurrentArchive(archives[0]);
-			setLoading(true);
-			new SourceBase(archives[0]).scrapeTitle(query).then((results) => {
-				setResults(results.results);
-				setLoading(false);
-			});
-		}
+		setCurrentArchive(filteredAbstractList[0]);
+		setLoading(true);
+		new SourceBase(filteredAbstractList[0].source).scrapeTitle(query).then((results) => {
+			setResults(results.results);
+			setLoading(false);
+		});
 	}, []);
 
 	useEffect(() => {
 		getItems();
-	}, [getItems]);
+	}, []);
 
 	useEffect(() => {
 		if (currentArchive) _findTitles();
 	}, [currentArchive]);
 
 	const _findTitles = async () => {
-		const source = new SourceBase(currentArchive!);
+		const source = new SourceBase(currentArchive.source);
 		setLoading(true);
 		try {
 			const results = await source.scrapeTitle(query);
@@ -108,32 +110,32 @@ const SearchBindPage: FC<Props> = (props) => {
 		// 	console.log('error', error);
 	};
 
-	if (archives.length === 0 || !currentArchive)
-		return (
-			<View
-				style={[
-					styles.bindPage.view,
-					{ justifyContent: 'center', alignItems: 'center' },
-				]}>
-				<Icon
-					name={'newspaper'}
-					type={'MaterialCommunityIcons'}
-					size={50}
-					color='grey'
-				/>
-				<ThemedText
-					style={{ textAlign: 'center', fontWeight: 'bold', fontSize: 18 }}>
-					No sources installed. You can install them in the Settings
-				</ThemedText>
-				<ThemedButton
-					title={'Open Settings'}
-					onPress={() => {
-						navigation.goBack();
-						navigation.navigate('Settings', { screen: 'ArchivePage' });
-					}}
-				/>
-			</View>
-		);
+	// if (archives.length === 0 || !currentArchive)
+	// 	return (
+	// 		<View
+	// 			style={[
+	// 				styles.bindPage.view,
+	// 				{ justifyContent: 'center', alignItems: 'center' },
+	// 			]}>
+	// 			<Icon
+	// 				name={'newspaper'}
+	// 				type={'MaterialCommunityIcons'}
+	// 				size={50}
+	// 				color='grey'
+	// 			/>
+	// 			<ThemedText
+	// 				style={{ textAlign: 'center', fontWeight: 'bold', fontSize: 18 }}>
+	// 				No sources installed. You can install them in the Settings
+	// 			</ThemedText>
+	// 			<ThemedButton
+	// 				title={'Open Settings'}
+	// 				onPress={() => {
+	// 					navigation.goBack();
+	// 					navigation.navigate('Settings', { screen: 'ArchivePage' });
+	// 				}}
+	// 			/>
+	// 		</View>
+	// 	);
 
 	const _renderItem = ({ item }: { item: TaiyakiScrapedTitleModel }) => {
 		return (
@@ -148,7 +150,7 @@ const SearchBindPage: FC<Props> = (props) => {
 						id.toString(),
 						JSON.stringify({
 							link: item.embedLink,
-							source: currentArchive!,
+							source: currentArchive.source,
 							ids,
 						})
 					);
@@ -158,7 +160,7 @@ const SearchBindPage: FC<Props> = (props) => {
 		);
 	};
 
-	const _renderArchives = ({ item }: { item: TaiyakiArchiveModel }) => {
+	const _renderArchives = ({ item }: { item: SourceAbstract }) => {
 		return (
 			<TouchableOpacity
 				onPress={() => {
@@ -173,7 +175,7 @@ const SearchBindPage: FC<Props> = (props) => {
 					}}>
 					<ThemedText
 						style={{ textAlign: 'center', fontSize: 18, fontWeight: '600' }}>
-						{item.name}
+						{item.options.name}
 					</ThemedText>
 				</ThemedCard>
 			</TouchableOpacity>
@@ -204,7 +206,7 @@ const SearchBindPage: FC<Props> = (props) => {
 					Current source:
 				</ThemedText>
 				<Button
-					title={currentArchive.name}
+					title={currentArchive.options.name}
 					onPress={() => {
 						archiveRef.current?.open();
 					}}
@@ -254,7 +256,7 @@ const SearchBindPage: FC<Props> = (props) => {
 				modalHeight={height * 0.4}
 				modalStyle={{ backgroundColor: theme.colors.backgroundColor }}
 				flatListProps={{
-					data: archives,
+					data: filteredAbstractList,
 					renderItem: _renderArchives,
 					keyExtractor: (item) => item.name,
 				}}
@@ -573,7 +575,12 @@ export const UpdatingAnimeStatusPage: FC<{
 							</ThemedText>
 						</View>
 						<TouchableWithoutFeedback
-							onPress={() => setShowCompleted((v) => !v)}>
+							onPress={() => {
+								if (!completedDate) {
+									setCompletedDate(dateToString(new Date(Date.now())));
+								}
+								setShowCompleted((v) => !v)}
+								}>
 							<ThemedText
 								style={[
 									styles.updatePage.progressText,

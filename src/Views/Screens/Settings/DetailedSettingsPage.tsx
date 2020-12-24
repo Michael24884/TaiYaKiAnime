@@ -15,7 +15,7 @@ import {ThemedButton, ThemedSurface, ThemedText} from '../../Components';
 import Slider from '@react-native-community/slider';
 import {minutesToHours} from '../../../Util';
 import {Modalize} from 'react-native-modalize';
-import GoogleCast, {CastButton} from 'react-native-google-cast';
+// import GoogleCast, {CastButton} from 'react-native-google-cast';
 
 //NOTE: Its possible to reuse the same components for different settings. But would probably result in an ugly looking tree.
 
@@ -26,7 +26,7 @@ interface Props {
 }
 
 export const VideoCoverSettingsPage = () => {
-  const set = useSettingsStore((state) => state.set);
+  const setSettings = useSettingsStore((state) => state.setSettings);
   const autoPlaySettings = useSettingsStore((_) => _.settings);
   const [sliderValue, setSliderValue] = useState<string>(
     autoPlaySettings.customization.cover.delay.toString(),
@@ -34,6 +34,8 @@ export const VideoCoverSettingsPage = () => {
 
   const sliderTimer = useRef<NodeJS.Timer>();
 
+
+  const [value, setValue] = useState<boolean>(autoPlaySettings.customization.cover.showVideoCover);
   return (
     <ThemedSurface style={styles.view}>
       <ScrollView>
@@ -48,11 +50,14 @@ export const VideoCoverSettingsPage = () => {
           </ThemedText>
           <Switch
             style={styles.switch}
-            value={autoPlaySettings.customization.cover.showVideoCover}
-            onValueChange={(value) =>
-              set((state: any) => {
-                state.settings.customization.cover.showVideoCover = value;
-              })
+            value={value}
+            onValueChange={(value) => {
+              setValue(value);
+              setSettings({...autoPlaySettings, customization: {...autoPlaySettings.customization, cover: {...autoPlaySettings.customization.cover, showVideoCover: value}}})
+            }
+              // set((state: any) => {
+              //   state.settings.customization.cover.showVideoCover = value;
+              // })
             }
           />
         </View>
@@ -83,8 +88,9 @@ export const VideoCoverSettingsPage = () => {
 };
 
 export const AutoPlaySettingsPage = () => {
-  const set = useSettingsStore((state) => state.set);
-  const autoPlaySettings = useSettingsStore((_) => _.settings.general.autoPlay);
+  const set = useSettingsStore((state) => state.setSettings);
+  const autoPlaySettings = useSettingsStore((_) => _.settings);
+  const {autoPlay} = autoPlaySettings.general;
   return (
     <ThemedSurface style={styles.view}>
       <ScrollView>
@@ -97,11 +103,12 @@ export const AutoPlaySettingsPage = () => {
           </ThemedText>
           <Switch
             style={styles.switch}
-            value={autoPlaySettings.enabled}
+            value={autoPlay.enabled}
             onValueChange={(value) => {
-              set((state: any) => {
-                state.settings.general.autoPlay.enabled = value;
-              });
+              // set((state: any) => {
+              //   state.settings.general.autoPlay.enabled = value;
+              // });
+              set({...autoPlaySettings, general: {...autoPlaySettings.general, autoPlay: {...autoPlaySettings.general.autoPlay, enabled: value}}})
             }}
           />
         </View>
@@ -116,11 +123,13 @@ export const AutoPlaySettingsPage = () => {
           </ThemedText>
           <Switch
             style={styles.switch}
-            value={autoPlaySettings.timerAt94}
+            value={autoPlay.timerAt94}
             onValueChange={(value) =>
-              set((state: any) => {
-                state.settings.general.autoPlay.timerAt94 = value;
-              })
+              // set((state: any) => {
+              //   state.settings.general.autoPlay.timerAt94 = value;
+              // })
+              set({...autoPlaySettings, general: {...autoPlaySettings.general, autoPlay: {...autoPlaySettings.general.autoPlay, timerAt94: value}}})
+
             }
           />
         </View>
@@ -134,11 +143,9 @@ export const AutoPlaySettingsPage = () => {
           </ThemedText>
           <Switch
             style={styles.switch}
-            value={autoPlaySettings.changeAt100}
+            value={autoPlay.changeAt100}
             onValueChange={(value) =>
-              set((state: any) => {
-                state.settings.general.autoPlay.changeAt100 = value;
-              })
+              set({...autoPlaySettings, general: {...autoPlaySettings.general, autoPlay: {...autoPlaySettings.general.autoPlay, changeAt100: value}}})
             }
           />
         </View>
@@ -148,8 +155,10 @@ export const AutoPlaySettingsPage = () => {
 };
 
 export const SyncSettingsPage = () => {
-  const set = useSettingsStore((state) => state.set);
-  const syncSettings = useSettingsStore((_) => _.settings.sync);
+  const set = useSettingsStore((state) => state.setSettings);
+  const syncSettings = useSettingsStore((_) => _.settings);
+  const {sync} = syncSettings;
+  
 
   return (
     <ThemedSurface style={styles.view}>
@@ -162,11 +171,9 @@ export const SyncSettingsPage = () => {
           </ThemedText>
           <Switch
             style={styles.switch}
-            value={syncSettings.autoSync}
+            value={sync.autoSync}
             onValueChange={(value) => {
-              set((state: any) => {
-                state.settings.sync.autoSync = value;
-              });
+              set({...syncSettings, sync: {...syncSettings.sync, autoSync: value}})
             }}
           />
         </View>
@@ -181,12 +188,10 @@ export const SyncSettingsPage = () => {
           </ThemedText>
           <Switch
             style={styles.switch}
-            disabled={!syncSettings.autoSync}
-            value={syncSettings.autoSync && syncSettings.syncAt75}
+            disabled={!sync.autoSync}
+            value={sync.autoSync && sync.syncAt75}
             onValueChange={(value) =>
-              set((state: any) => {
-                state.settings.sync.syncAt75 = value;
-              })
+              set({...syncSettings, sync: {...syncSettings.sync, syncAt75: value}})
             }
           />
         </View>
@@ -216,11 +221,11 @@ export const SyncSettingsPage = () => {
 };
 
 export const VideoSettingsPage = () => {
-  const set = useSettingsStore((state) => state.set);
-  const videoSettings = useSettingsStore((_) => _.settings.general.video);
-
+  const set = useSettingsStore((state) => state.setSettings);
+  const videoSettings = useSettingsStore((_) => _.settings);
+  const {video} = videoSettings.general;
   useEffect(() => {
-    GoogleCast.showIntroductoryOverlay();
+    //GoogleCast.showIntroductoryOverlay();
   }, []);
 
   return (
@@ -235,12 +240,10 @@ export const VideoSettingsPage = () => {
           </ThemedText>
           <Switch
             style={styles.switch}
-            value={videoSettings.pip}
+            value={video.pip}
             disabled={Platform.OS !== 'ios'}
             onValueChange={(value) => {
-              set((state: any) => {
-                state.settings.general.video.pip = value;
-              });
+              set({...videoSettings, general: {...videoSettings.general, video: {...videoSettings.general.video, pip: value}}})
             }}
           />
         </View>
@@ -266,11 +269,9 @@ export const VideoSettingsPage = () => {
           </ThemedText>
           <Switch
             style={styles.switch}
-            value={videoSettings.preloadUpNext}
+            value={video.preloadUpNext}
             onValueChange={(value) =>
-              set((state: any) => {
-                state.settings.general.video.preloadUpNext = value;
-              })
+              set({...videoSettings, general: {...videoSettings.general, video: {...videoSettings.general.video, preloadUpNext: value}}})
             }
           />
         </View>
@@ -285,11 +286,9 @@ export const VideoSettingsPage = () => {
           </ThemedText>
           <Switch
             style={styles.switch}
-            value={videoSettings.followAspectRatio}
+            value={video.followAspectRatio}
             onValueChange={(value) =>
-              set((state: any) => {
-                state.settings.general.video.followAspectRatio = value;
-              })
+              set({...videoSettings, general: {...videoSettings.general, video: {...videoSettings.general.video, followAspectRatio: value}}})
             }
           />
         </View>
@@ -298,10 +297,11 @@ export const VideoSettingsPage = () => {
   );
 };
 export const NotificationsSettingsPage = () => {
-  const set = useSettingsStore((state) => state.set);
+  const set = useSettingsStore((state) => state.setSettings);
   const notificationSettings = useSettingsStore(
-    (_) => _.settings.notifications,
+    (_) => _.settings,
   );
+  const {frequency, allowOnLowPower, requiresCharging, canUseCellularNetwork} = notificationSettings.notifications;
   const theme = useTheme((_) => _.theme);
   const modalizeRef = createRef<Modalize>();
 
@@ -309,9 +309,7 @@ export const NotificationsSettingsPage = () => {
     return (
       <TouchableOpacity
         onPress={() => {
-          set((state: any) => {
-            state.settings.notifications.frequency = item;
-          });
+          set({...notificationSettings, notifications: {...notificationSettings.notifications, frequency: item}})
           modalizeRef.current?.close();
         }}>
         <View
@@ -320,7 +318,7 @@ export const NotificationsSettingsPage = () => {
             paddingVertical: height * 0.02,
             paddingLeft: 12,
             backgroundColor:
-              item === notificationSettings.frequency
+              item === frequency
                 ? theme.colors.accent
                 : undefined,
           }}>
@@ -329,7 +327,7 @@ export const NotificationsSettingsPage = () => {
               fontSize: 16,
               fontWeight: '500',
               color:
-                item === notificationSettings.frequency
+                item === frequency
                   ? 'white'
                   : theme.colors.text,
             }}>
@@ -355,7 +353,7 @@ export const NotificationsSettingsPage = () => {
               modalizeRef.current?.open();
             }}>
             <ThemedText style={[styles.desc, {textAlign: 'right'}]}>
-              {minutesToHours.get(notificationSettings.frequency)}
+              {minutesToHours.get(frequency)}
             </ThemedText>
           </TouchableOpacity>
         </View>
@@ -368,11 +366,9 @@ export const NotificationsSettingsPage = () => {
           </ThemedText>
           <Switch
             style={styles.switch}
-            value={notificationSettings.canUseCellularNetwork}
+            value={canUseCellularNetwork}
             onValueChange={(value) =>
-              set((state: any) => {
-                state.settings.notifications.canUseCellularNetwork = value;
-              })
+              set({...notificationSettings, notifications: {...notificationSettings.notifications, canUseCellularNetwork: value}})
             }
           />
         </View>
@@ -387,11 +383,9 @@ export const NotificationsSettingsPage = () => {
           </ThemedText>
           <Switch
             style={styles.switch}
-            value={notificationSettings.requiresCharging}
+            value={allowOnLowPower}
             onValueChange={(value) =>
-              set((state: any) => {
-                state.settings.notifications.requiresCharging = value;
-              })
+              set({...notificationSettings, notifications: {...notificationSettings.notifications, allowOnLowPower: value}})
             }
           />
         </View>
@@ -405,11 +399,9 @@ export const NotificationsSettingsPage = () => {
           </ThemedText>
           <Switch
             style={styles.switch}
-            value={notificationSettings.requiresCharging}
+            value={requiresCharging}
             onValueChange={(value) =>
-              set((state: any) => {
-                state.settings.notifications.requiresCharging = value;
-              })
+              set({...notificationSettings, notifications: {...notificationSettings.notifications, requiresCharging: value}})
             }
           />
         </View>
@@ -429,8 +421,9 @@ export const NotificationsSettingsPage = () => {
 };
 
 export const VideoBufferSettingsPage = () => {
-  const set = useSettingsStore((state) => state.set);
-  const devSettings = useSettingsStore((_) => _.settings.dev);
+  const set = useSettingsStore((state) => state.setSettings);
+  const devSettings = useSettingsStore((_) => _.settings);
+  const {dev} = devSettings;
   const theme = useTheme((_) => _.theme);
 
   const [one, setOne] = useState<number | undefined>();
@@ -473,10 +466,8 @@ export const VideoBufferSettingsPage = () => {
             consumption when multiple video streams are available for a
             playlist. 0 - (Default) means do not limit.
           </ThemedText>
-          {TapField(devSettings.maxBitRate ?? 0, (value) =>
-            set((state: any) => {
-              state.settings.dev.maxBitRate = value;
-            }),
+          {TapField(dev.maxBitRate ?? 0, (value) =>
+            set({...devSettings, dev: {...devSettings.dev, maxBitRate: value}})
           )}
         </View>
 
@@ -492,12 +483,10 @@ export const VideoBufferSettingsPage = () => {
             stalling
           </ThemedText>
           <Switch
-            value={devSettings.automaticallyWaitsToMinimizeStalling}
+            value={dev.automaticallyWaitsToMinimizeStalling}
             style={styles.switch}
             onValueChange={(v) => {
-              set((state: any) => {
-                state.settings.dev.automaticallyWaitsToMinimizeStalling = v;
-              });
+              set({...devSettings, dev: {...devSettings.dev, automaticallyWaitsToMinimizeStalling: v}})
             }}
           />
         </View>
@@ -510,7 +499,7 @@ export const VideoBufferSettingsPage = () => {
             The default minimum duration of media that the player will attempt
             to ensure is buffered at all times, in milliseconds.
           </ThemedText>
-          {TapField(devSettings.videoBuffer.minBufferMs ?? 0, (value) =>
+          {TapField(dev.videoBuffer.minBufferMs ?? 0, (value) =>
             setOne(value === 0 ? undefined : value),
           )}
 
@@ -522,7 +511,7 @@ export const VideoBufferSettingsPage = () => {
               The default maximum duration of media that the player will attempt
               to buffer, in milliseconds.
             </ThemedText>
-            {TapField(devSettings.videoBuffer.maxBufferMs ?? 0, (value) =>
+            {TapField(dev.videoBuffer.maxBufferMs ?? 0, (value) =>
               setTwo(value === 0 ? undefined : value),
             )}
           </View>
@@ -537,7 +526,7 @@ export const VideoBufferSettingsPage = () => {
               milliseconds.
             </ThemedText>
             {TapField(
-              devSettings.videoBuffer.bufferForPlaybackMs ?? 0,
+              dev.videoBuffer.bufferForPlaybackMs ?? 0,
               (value) => setThree(value === 0 ? undefined : value),
             )}
           </View>
@@ -552,7 +541,7 @@ export const VideoBufferSettingsPage = () => {
               to be caused by buffer depletion rather than a user action.
             </ThemedText>
             {TapField(
-              devSettings.videoBuffer.bufferForPlaybackAfterRebufferMs ?? 0,
+              dev.videoBuffer.bufferForPlaybackAfterRebufferMs ?? 0,
               (value) => setFour(value === 0 ? undefined : value),
             )}
           </View>
@@ -560,29 +549,24 @@ export const VideoBufferSettingsPage = () => {
           <ThemedButton
             title={'save'}
             onPress={() => {
-              set((state: any) => {
-                state.settings.dev.videoBuffer = {
-                  bufferForPlaybackAfterRebufferMs: four,
-                  bufferForPlaybackMs: three,
-                  maxBufferMs: two,
-                  minBufferMs: one,
-                };
-              });
+              set({...devSettings, dev: {...devSettings.dev, videoBuffer: {
+                bufferForPlaybackAfterRebufferMs: four,
+                bufferForPlaybackMs: three,
+                maxBufferMs: two,
+                minBufferMs: one,
+              }}})
             }}
           />
           <ThemedButton
             title={'reset'}
             color={'red'}
             onPress={() => {
-              set((state: any) => {
-                state.settings.dev.videoBuffer = {
-                  bufferForPlaybackAfterRebufferMs: undefined,
-                  bufferForPlaybackMs: undefined,
-                  maxBufferMs: undefined,
-                  minBufferMs: undefined,
-                };
-              });
-            }}
+            set({...devSettings, dev: {...devSettings.dev, videoBuffer: {
+              bufferForPlaybackAfterRebufferMs: undefined,
+              bufferForPlaybackMs: undefined,
+              maxBufferMs: undefined,
+              minBufferMs: undefined,
+            }}})}}
           />
         </View>
         {/*         

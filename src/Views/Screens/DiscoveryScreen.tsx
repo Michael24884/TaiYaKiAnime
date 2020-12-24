@@ -1,8 +1,9 @@
 import {useNavigation} from '@react-navigation/native';
 import React, {createRef, memo, useEffect, useState} from 'react';
-import {ScrollView, TouchableOpacity, View} from 'react-native';
+import {Platform, Dimensions, View} from 'react-native';
+import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import {Modalize} from 'react-native-modalize';
-import Dimension from '../../Classes/Dimensions';
+import { StretchyScrollView } from 'react-native-stretchy';
 import {useAnilistRequest} from '../../Hooks';
 import {
   AnilistPagedData,
@@ -17,14 +18,15 @@ import {useTheme} from '../../Stores/theme';
 import {MapKeyToPaths, MapRequestsToTitle} from '../../Util';
 import {BaseRows, BaseRowsSimple, ThemedSurface} from '../Components';
 import {InstagramAvatars} from '../Components/animated';
+import BigCoverFlow, { BigCoverFlowText } from '../Components/bigCoverFlow';
 import {RecCards} from '../Components/list_cards';
 
-const {height, width} = Dimension.size;
+const {height, width} = Dimensions.get('window');
 
 const DiscoveryScreen = () => {
   const navigation = useNavigation();
   const theme = useTheme((_) => _.theme);
-  const notifications = useNotificationStore((_) => _.notifications);
+  const notifications = useNotificationStore((_) => Object.values(_.notifications));
   const setNotifications = useNotificationStore((_) => _.setNotifications);
 
   const [data, setData] = useState<AnilistPagedData[]>([]);
@@ -53,55 +55,22 @@ const DiscoveryScreen = () => {
       setData((list) => list.concat(TrendingData));
     if (SeasonalData && canAdd('Seasonal'))
       setData((list) => list.concat(SeasonalData));
-    // if (Rec) {
-    //   const sheep: AnilistPagedData = {
-    //     type: 'User Rec',
-    //     data: {
-    //       Page: {
-    //         pageInfo: Rec.data.Page.pageInfo,
-    //         media: [{...Rec.data.Page.recommendations[0].media}],
-    //       },
-    //     },
-    //   };
-    //   setData((i) => )
-    // }
+
   }, [PopularData, TrendingData, SeasonalData]);
 
-  const _renderItem = ({item}: {item: AnilistPagedData; index: number}) => {
-    const {type} = item;
-
-    if (type === 'User Rec') {
-      const newItem: AnilistRecommendationPageEdgeModel = {
-        node: {mediaRecommendation: {...item.data.Page.media[0]}},
-      };
-      return <RecCards items={newItem} />;
-    }
-
-    const {title, subTitle} = MapRequestsToTitle.get(type)!;
-    return (
-      <BaseRows
-        title={title}
-        subtitle={subTitle}
-        data={item as AnilistPagedData}
-        type={type}
-        path={MapKeyToPaths.get(type)!}
-      />
-    );
-  };
+  const discordID = 21421
 
   return (
     <>
-      {/* {userProfiles.length > 0 ? (
-        <TransitionedProfilesSmall profiles={userProfiles} />
-      ) : null} */}
-      {/* <FlatList
-        style={{backgroundColor: theme.colors.backgroundColor}}
-        data={data}
-        renderItem={_renderItem}
-        keyExtractor={(item) => item.type}
-      /> */}
       <ThemedSurface style={{flex: 1}}>
-        <ScrollView>
+        <StretchyScrollView
+        imageResizeMode={'center'}
+        imageHeight={Platform.OS === 'ios' ? height * 0.45 : height * 0.47}
+        image={require('../../assets/images/icon_round.png')}
+        foreground={<BigCoverFlowText id={discordID}/>}
+        imageOverlay={<BigCoverFlow id={discordID} />}
+        >
+        <View style={{backgroundColor: theme.colors.backgroundColor, marginTop: 10}}>
           <InstagramAvatars />
 
           {notifications.length > 0 && (
@@ -124,7 +93,8 @@ const DiscoveryScreen = () => {
               />
             );
           })}
-        </ScrollView>
+          </View>
+        </StretchyScrollView>
       </ThemedSurface>
       <Modalize ref={profileModalize} modalHeight={height * 0.6}>
         <View style={{backgroundColor: 'orange'}} />

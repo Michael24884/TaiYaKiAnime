@@ -748,6 +748,7 @@ color background_floating_material_dark
 color background_floating_material_light
 color background_material_dark
 color background_material_light
+color bootsplash_background
 color bright_foreground_disabled_material_dark
 color bright_foreground_disabled_material_light
 color bright_foreground_inverse_material_dark
@@ -1342,6 +1343,7 @@ drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable avd_hide_password
 drawable avd_show_password
+drawable bootsplash
 drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
 drawable btn_checkbox_unchecked_mtrl
@@ -1500,6 +1502,7 @@ id async
 id auto
 id beginning
 id blocking
+id bootsplash_layout_id
 id bottom
 id browser_actions_header_text
 id browser_actions_menu_item_icon
@@ -1900,8 +1903,8 @@ layout text_view_with_line_height_from_layout
 layout text_view_with_line_height_from_style
 layout text_view_with_theme_line_height
 layout text_view_without_line_height
+mipmap bootsplash_logo
 mipmap ic_launcher
-mipmap ic_launcher_round
 plurals mtrl_badge_content_description
 raw app
 raw node_modules_cssselect_lib_procedure
@@ -1915,6 +1918,7 @@ raw node_modules_entities_maps_entities
 raw node_modules_entities_maps_legacy
 raw node_modules_entities_maps_xml
 raw node_modules_reactnativecheerio_package
+raw node_modules_reactnativecodepush_package
 raw node_modules_reactnativevectoricons_glyphmaps_antdesign
 raw node_modules_reactnativevectoricons_glyphmaps_entypo
 raw node_modules_reactnativevectoricons_glyphmaps_evilicons
@@ -1930,6 +1934,8 @@ raw node_modules_reactnativevectoricons_glyphmaps_materialicons
 raw node_modules_reactnativevectoricons_glyphmaps_octicons
 raw node_modules_reactnativevectoricons_glyphmaps_simplelineicons
 raw node_modules_reactnativevectoricons_glyphmaps_zocial
+string CODE_PUSH_APK_BUILD_TIME
+string CodePushDeploymentKey
 string abc_action_bar_home_description
 string abc_action_bar_up_description
 string abc_action_menu_overflow_description
@@ -2308,6 +2314,7 @@ style Base_Widget_MaterialComponents_PopupMenu_Overflow
 style Base_Widget_MaterialComponents_TextInputEditText
 style Base_Widget_MaterialComponents_TextInputLayout
 style Base_Widget_MaterialComponents_TextView
+style BootTheme
 style CalendarDatePickerDialog
 style CalendarDatePickerStyle
 style CardView

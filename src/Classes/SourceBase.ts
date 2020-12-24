@@ -1,112 +1,47 @@
-/* eslint-disable no-new-func */
-// import RNFetchBlob from "rn-fetch-blob";
-// import { loadConfig, scrapeEpisodes, scrapeLinks } from "../source_tests";
-// import qs from "qs";
-// //@ts-ignore
-// import cheerio from "react-native-cheerio";
-// import {
-// 	EmbededResolvedModel,
-// 	TaiyakiArchiveModel,
-// } from "../Models/Taiyaki/models";
-// import CloudNineHost from "./Hosts/cloud9";
-// import Mp4Upload from "./Hosts/mp4upload";
-// import Xstreamcdn from "./Hosts/xstream";
-// import VidstreamingHost from "./Hosts/vidstreaming";
-// import BP from "./Hosts/bp";
-// import Kwik from "./Hosts/kwik";
-// import { DynamicUserData } from "../Screens/archive_list";
-// import AsyncStorage from "@react-native-community/async-storage";
-// import CookieManager from "@react-native-community/cookies";
-// import { AniWatch } from "./DyamicSources/aniwatch";
-
-import qs from 'qs';
+import { Source } from 'react-native-fast-image';
 import {
   EmbededResolvedModel,
-  TaiyakiArchiveModel,
   TaiyakiScrapedTitleModel,
 } from '../Models/taiyaki';
-import cheerio from 'react-native-cheerio';
-import {VidstreamingHost, BP, Kwik, Mp4Upload, Cloud9, Xstream} from './Hosts';
-
-// type SourceBaseConfig = {
-// 	source: TaiyakiArchiveModel;
-// };
-
-// //
-// export type ScrapedTitlesModel = {
-// 	image?: string;
-// 	title: string;
-// 	embedLink: string;
-// };
+import {VidstreamingHost, BP, Kwik, Mp4Upload, Cloud9, Xstream, StreamX, Umi, Fembed, YourUpload} from './Hosts';
+import { MapSourceTypesToAbstract, SourceAbstract, TaiyakiSourceTypes } from './Sources';
 
 export class SourceBase {
-  source: TaiyakiArchiveModel;
-  controller = new AbortController();
+  //source: TaiyakiSourceTypes;
+  map: SourceAbstract;
 
-  constructor(source: TaiyakiArchiveModel) {
-    this.source = source;
+  constructor(source: TaiyakiSourceTypes) {
+    //this.source = source;
+    this.map = MapSourceTypesToAbstract.get(source)!;
+  }
+
+  destroy() {
+    this.map.destroy();
   }
 
   async scrapeTitle(
     title: string,
   ): Promise<{loading: boolean; results: TaiyakiScrapedTitleModel[]}> {
+   // const map = MapSourceTypesToAbstract.get(this.source)!
     let loading = true;
-    //SyntaxError: 1:23:async functions are unsupported after this
-    const titles: TaiyakiScrapedTitleModel[] = await new Function(this.source.searchTitles)
-      .call(null)
-      .call(
-        null,
-        title,
-        this.source,
-        qs,
-        this.source.extraDataTitles,
-        cheerio,
-        this.controller,
-      );
+    const titles = await this.map.searchTitles(title);
     loading = false;
+    //TODO: Might remove the loading params as function constructors are no longer used
     return {loading, results: titles};
   }
-  async scrapeAvailableEpisodes(link: string): Promise<string[]> {
-    // if (this.source.hasOptions && this.source.requiredOptions?.id) {
-    //   const dill = await AsyncStorage.getItem(this.source.requiredOptions.id);
-    //   if (dill) {
-    //     const json = JSON.parse(dill) as DynamicUserData;
 
-    //     //TODO: REMOVE DEFAULTED ANIWATCH
-    //     const aniWatch = new AniWatch();
-    //     const eps: string[] = await aniWatch.scrapeEpisodes(link, json);
-    //     return eps;
-    //   } else throw new Error('User is not signed in to service');
-    // } else {
-    const func = new Function(this.source.scrapeEpisodes);
-    const eps: string[] = await func.call(null).call(null, link, cheerio);
-    return eps;
-    //}
-    //const func = new Function(this.source.scrapeEpisodes);
+  async scrapeAvailableEpisodes(link: string): Promise<string[]> {
+   // const map = MapSourceTypesToAbstract.get(this.source)!
+    const links = await this.map.availableEpisodes(link);
+    return links
   }
 
   async scrapeLinks(
     episodeLink: string,
   ): Promise<{link: string; server: string}[]> {
-    // if (this.source.hasOptions && this.source.requiredOptions?.id) {
-    //   const dill = await AsyncStorage.getItem(this.source.requiredOptions.id);
-    //   if (dill) {
-    //     const json = JSON.parse(dill) as DynamicUserData;
-    //     const aniWatch = new AniWatch();
-    //     const links = await aniWatch.scrapeLinks(episodeLink, json);
-    //     // const links: { link: string; server: string }[] = await func
-    //     // .call(null)
-    //     // .call(null, episodeLink, json);
-    //     return links.filter((i) => i);
-    //     //If it fails here but links is showing, you're probably not returning an array. Wrap it between a [] even if its' only one link
-    //   } else throw new Error('User is not signed in to service');
-    // } else {
-    const func = new Function(this.source.scrapeLinks);
-    const links: {link: string; server: string}[] = await func
-      .call(null)
-      .call(null, episodeLink, cheerio);
-    console.log('the available links', links);
-    //If it fails here but links is showing, you're probably not returning an array. Wrap it between a [] even if its' only one link
+   // const map = MapSourceTypesToAbstract.get(this.source)!
+    const links = await this.map.scrapeLinks(episodeLink);
+    //If it fails here but links is showing in console, you're probably not returning an array. Wrap it between a [] even if its' only one link
     return links.filter((i) => i);
   }
 
@@ -115,7 +50,7 @@ export class SourceBase {
     server: string;
   }): Promise<EmbededResolvedModel[]> {
     const qualityString = data.server.match(RegExp(/([0-9]+)-(\w+)/));
-
+    
     if (qualityString) {
       const servermatch = qualityString[2];
       switch (servermatch) {
@@ -138,7 +73,11 @@ export class SourceBase {
 
       case 'bp':
         return await new BP().grabAvailableHosts(data.link);
-
+      case 'fembed': return new Fembed().grabAvailableHosts(data.link);
+      case 'streamx': return await new StreamX().grabAvailableHosts(data.link);
+      case 'streamium':
+      case 'umi': return await new Umi().grabAvailableHosts(data.link);
+      case 'yourupload': return await new YourUpload().grabAvailableHosts(data.link);
       case 'okru':
         throw '';
       // case 'ld':
@@ -160,7 +99,7 @@ export class SourceBase {
   }
 }
 
-//WARNING: ARCHIVED -> MAY BE REMOVED IN THE NEAR FUTURE
+//WARNING: ARCHIVED -> MAY BE REMOVED IN THE NEAR FUTURE. Kept for now for reference
 
 // export class SourceBase {
 // 	source: TaiyakiArchiveModel;

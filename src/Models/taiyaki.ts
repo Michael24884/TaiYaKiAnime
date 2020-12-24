@@ -1,3 +1,4 @@
+import { SourceAbstract, TaiyakiSourceLanguage, TaiyakiSourceTypes } from '../Classes/Sources';
 import {TrackerBase} from '../Classes/Trackers';
 import {SimklEpisodes} from './SIMKL';
 
@@ -50,7 +51,7 @@ export type DetailedDatabaseModel = {
   totalEpisodes: number;
   isFollowing: boolean;
   lastWatching: LastWatchingModel;
-  source: TaiyakiArchiveModel;
+  source: TaiyakiSourceTypes;
   ids: DetailedDatabaseIDSModel;
 };
 
@@ -63,6 +64,8 @@ export type HistoryModel = {
   data: MyQueueModel;
   lastModified: Date;
 };
+
+export type TaiyakiSourceLanguageWithAll = TaiyakiSourceLanguage | 'All';
 
 export type DetailedDatabaseIDSModel = Partial<{
   anilist: number;
@@ -117,6 +120,7 @@ export type TaiyakiSettingsModel = {
     matchPosterColor: boolean;
   };
   general: {
+    sourceLanguage: TaiyakiSourceLanguageWithAll;
     blurSpoilers: boolean;
     autoPlay: {
       enabled: boolean;
@@ -168,6 +172,7 @@ export const TaiyakiDefaultSettings: TaiyakiSettingsModel = {
     matchPosterColor: false,
   },
   general: {
+    sourceLanguage: 'All',
     blurSpoilers: true,
     autoPlay: {
       enabled: true,

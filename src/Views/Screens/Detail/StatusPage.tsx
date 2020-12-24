@@ -60,7 +60,7 @@ const StatusPage: FC<Props> = (props) => {
     'mal' + idMal,
     '/anime/' +
       idMal +
-      '?fields={my_list_status{start_date,end_date}},num_episodes',
+      '?fields={my_list_status{start_date,finish_date}},num_episodes',
   );
 
   //WARNING: UNSAFE

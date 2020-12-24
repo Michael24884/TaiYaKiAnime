@@ -8,6 +8,7 @@ import {
   FlatList,
   LayoutAnimation,
   LogBox,
+  Platform,
   ScrollView,
   StatusBar,
   StyleSheet,
@@ -22,7 +23,7 @@ import {LoadError} from 'react-native-video';
 import {SourceBase} from '../../Classes/SourceBase';
 import {AnilistBase, MyAnimeList} from '../../Classes/Trackers';
 import {SimklEpisodes} from '../../Models/SIMKL';
-import GoogleCast, {CastState} from 'react-native-google-cast';
+// import GoogleCast, {CastState} from 'react-native-google-cast';
 import {
   EmbededResolvedModel,
   HistoryModel,
@@ -49,6 +50,7 @@ import {QueryCache} from 'react-query';
 import {Modalize} from 'react-native-modalize';
 import {SIMKL} from '../../Classes/Trackers/SIMKL';
 import {isTablet} from 'react-native-device-info';
+import { ProxyTypeProxyObject } from 'immer/dist/internal';
 
 LogBox.ignoreLogs(['Virtualized']);
 
@@ -66,6 +68,11 @@ const tempAvailableServer: string[] = [
   'hd',
   'fullhd',
   'custom',
+  'streamx',
+  // 'umi',
+  // 'streamium',
+  'fembed',
+  'yourupload'
 ];
 
 type ScrapingProgress = 'SCRAPING' | 'FINISHED' | 'ERROR';
@@ -135,20 +142,20 @@ const VideoPlayerScreen: FC<Props> = (props) => {
     currentEpisode.episode.episode,
   );
 
-  const castListener = GoogleCast.onCastStateChanged((state) => {
-    if (state !== CastState.NO_DEVICES_AVAILABLE) {
-      setCastState('Devices Available');
-    } else setCastState('No Devices Available');
-  });
+  // const castListener = GoogleCast.onCastStateChanged((state) => {
+  //   if (state !== CastState.NO_DEVICES_AVAILABLE) {
+  //     setCastState('Devices Available');
+  //   } else setCastState('No Devices Available');
+  // });
 
   useEffect(() => {
     navigation.dangerouslyGetParent()?.setOptions({tabBarVisible: false});
-    GoogleCast.showIntroductoryOverlay();
+    //GoogleCast.showIntroductoryOverlay();
     return () => {
       OrientationLocker.lockToPortrait();
       navigation.dangerouslyGetParent()?.setOptions({tabBarVisible: true});
       removeUpNextItems();
-      castListener.remove();
+    //  castListener.remove();
     };
   }, []);
 
@@ -157,6 +164,7 @@ const VideoPlayerScreen: FC<Props> = (props) => {
       if (updateRequested.current)
         if (props.route.params?.updateRequested)
           props.route.params.updateRequested(nextIndex);
+        else props.route.params.updateRequested(currentEpisode.episode.episode)
     });
     return () => {};
   }, []);
@@ -166,9 +174,21 @@ const VideoPlayerScreen: FC<Props> = (props) => {
     else OrientationLocker.lockToPortrait();
   }, [isFullScreen]);
 
+  useEffect(() => {
+    if (error)
+      OrientationLocker.lockToPortrait();
+    return () => setError(undefined)
+  }, [error]);
+
   //Step 1: Scrape Links, finds available servers and filters only ones with proper links
   const sourceRequests = new SourceBase(currentEpisode.detail.source);
+
   useEffect(() => {
+    return () => sourceRequests.destroy();
+  }, []);
+  
+  useEffect(() => {
+    setError(undefined);
     setScrapingProgress('SCRAPING');
     setDescExpanded(false);
     if (
@@ -187,6 +207,7 @@ const VideoPlayerScreen: FC<Props> = (props) => {
   ) => {
     const {link} = currentEpisode.episode;
 
+    try {
     const linkRequests = await sourceRequests.scrapeLinks(
       isRef && refEpisode ? refEpisode.link : link!,
     );
@@ -202,24 +223,37 @@ const VideoPlayerScreen: FC<Props> = (props) => {
       //TODO: Look for previous references
       setCurrentServer(filteredList[0]);
     } else {
-      console.log(
-        'SUCCESS: Taiyaki finished preloading Episode',
-        refEpisode?.episode,
-      );
       preloadedVideoRef.current = {episode: refEpisode!, links: filteredList};
     }
+  }  catch(e) {
+    console.log('error in scrape links', e)
+    setError(e);
   };
+}
 
   //Step 2: Selects the first link(or if a ref exists uses a previous server) and sets to load
   useEffect(() => {
+    setError(undefined);
     setScrapingProgress('SCRAPING');
     const findServer = async () => {
+      try {
       const servers = await sourceRequests.scrapeEmbedLinks(currentServer!);
-      setScrapedServers(servers);
+      if (servers.length === 0) {
+        setError('No links found for this server')
+        return;
+      }
 
+      console.log('the servers', servers)
+
+      setScrapedServers(servers);
       //TODO: Look for previous references
       setCurrentQuality(servers[0]);
-      setScrapingProgress('FINISHED');
+      setScrapingProgress('FINISHED'); 
+      } catch(e) {
+        console.log('error in scrape hosts', e)
+        setError(e.toString());
+        setScrapingProgress('ERROR')
+      }
     };
     if (currentServer) {
       findServer();
@@ -267,6 +301,7 @@ const VideoPlayerScreen: FC<Props> = (props) => {
   };
 
   const updateToTrackers = () => {
+
     const {detail, episode} = currentEpisode;
     const {ids, totalEpisodes} = detail;
     const status = totalEpisodes === episode.episode ? 'Completed' : 'Watching';
@@ -295,7 +330,7 @@ const VideoPlayerScreen: FC<Props> = (props) => {
     }
     if (trackers.includes('MyAnimeList')) {
       new MyAnimeList()
-        .updateStatus(ids.myanimelist!, episode.episode, status, undefined)
+        .updateStatus(ids.myanimelist!, episode.episode, status, undefined, startedAt, completedAt)
         .finally(() =>
           queryCache.invalidateQueries('mal' + ids.myanimelist!, {
             refetchActive: true,
@@ -507,7 +542,7 @@ const VideoPlayerScreen: FC<Props> = (props) => {
           style={
             isFullScreen ? styles.videoPlayerFullScreen : styles.videoPlayer
           }>
-          {scrapingProgress === 'ERROR' ? (
+          {scrapingProgress === 'ERROR' || error ? (
             <View style={styles.errorView}>
               <Icon
                 name={'error'}
@@ -518,7 +553,7 @@ const VideoPlayerScreen: FC<Props> = (props) => {
               <ThemedText style={styles.errorText}>
                 An error has occurred:
               </ThemedText>
-              <ThemedText>{(error ?? 'Reason unknown').toString()}</ThemedText>
+              <ThemedText>{(error?.toString() ?? 'Reason unknown').toString()}</ThemedText>
             </View>
           ) : scrapingProgress === 'SCRAPING' ? (
             <View style={styles.loadingView}>
@@ -600,9 +635,17 @@ const VideoPlayerScreen: FC<Props> = (props) => {
             <ThemedText style={[styles.episode, {color: theme.colors.accent}]}>
               Episode {currentEpisode.episode.episode}
             </ThemedText>
+            
+                        <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+
             <ThemedText style={styles.episodeTitle}>
               {currentEpisode.episode.title}
             </ThemedText>
+            <Icon name={'cog'} type={'MaterialCommunityIcons'} size={35} color={theme.colors.text} onPress={() => {
+              optionsModal.current?.open();
+            }} /> 
+                        </View>
+ 
             <ThemedText style={{fontSize: 13, color: 'orange'}}>
               {currentEpisode.episode.sourceName}
             </ThemedText>
@@ -698,15 +741,19 @@ const styles = StyleSheet.create({
   videoPlayer: {
     width,
     height: height * 0.3,
+    ...Platform.select({
+      android: {marginTop: - height * 0.041}
+    })
   },
   videoPlayerFullScreen: {
     width: '100%',
     height: '100%',
   },
   errorView: {
-    backgroundColor: 'yellow',
+    backgroundColor: 'red',
     alignItems: 'center',
     justifyContent: 'center',
+    flex: 1,
   },
   errorText: {
     fontWeight: '700',

@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">Taiyaki_Typed</string>
+    <string name="app_name">Taiyaki</string>
+    <string moduleConfig="true" name="CodePushDeploymentKey">__nbbq0zoZhWYH1how6jx4SgHYegHO5R9v1LP</string>
 </resources>

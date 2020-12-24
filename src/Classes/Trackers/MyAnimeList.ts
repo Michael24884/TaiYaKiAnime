@@ -61,7 +61,7 @@ export class MyAnimeList implements TrackerBase {
       });
       const day = dateString.split('/');
       const formattedDate = day[2] + '-' + day[0] + '-' + day[1];
-      query.end_date = formattedDate;
+      query.finish_date = formattedDate;
     }
 
     const headers = {
