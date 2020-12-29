@@ -80,7 +80,7 @@ query {
       hasNextPage
       currentPage
     }
-  	media(season:FALL, seasonYear:2020, sort:POPULARITY_DESC type:ANIME, isAdult: false) {
+  	media(season:WINTER, seasonYear:2021, sort:POPULARITY_DESC type:ANIME, isAdult: false) {
       id
       idMal
       isAdult

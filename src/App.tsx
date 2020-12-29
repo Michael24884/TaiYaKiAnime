@@ -11,6 +11,7 @@ import { Navigator } from './Views/Components/navigator';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import BackgroundFetch from 'react-native-background-fetch';
 import codePush, {CodePushOptions, UpdateDialog} from 'react-native-code-push';
+import TestVideo from './testVideo';
 import {
 	DetailedDatabaseIDSModel,
 	DetailedDatabaseModel,
@@ -23,6 +24,7 @@ import { useNotificationStore } from './Stores/notifications';
 import RNBootSplash from 'react-native-bootsplash';
 import Orientation from 'react-native-orientation-locker';
 import { Vidstreaming } from './Classes/Sources';
+import OnboardScreen from './Views/Screens/Onboarding/OnboardScreen';
 
 const App = () => {
 	const initTrackers = useUserProfiles((_) => _.init);
@@ -182,7 +184,9 @@ const App = () => {
 		}
 	}
 
+	//return <TestVideo />;
 	return <Navigator />;
+	//return <OnboardScreen />
 };
 let codePushOptions: CodePushOptions = { 
 	updateDialog: {

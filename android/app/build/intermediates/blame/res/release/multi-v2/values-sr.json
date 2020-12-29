@@ -4,23 +4,6 @@
             "outputFile": "/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/build/intermediates/incremental/mergeReleaseResources/merged.dir/values-sr/values-sr.xml",
             "map": [
                 {
-                    "source": "/Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/098d11b50f3b3d6af751cd078835c643/jetified-firebase-messaging-21.0.0/res/values-sr/values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "207",
-                        "endColumns": "99",
-                        "endOffsets": "306"
-                    },
-                    "to": {
-                        "startLines": "51",
-                        "startColumns": "4",
-                        "startOffsets": "5914",
-                        "endColumns": "103",
-                        "endOffsets": "6013"
-                    }
-                },
-                {
                     "source": "/Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/fc8046cb9a5df9499609a5f7f8270b1b/play-services-base-17.0.0/res/values-sr/values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
@@ -103,6 +86,23 @@
                         "startOffsets": "105,212,313,419,505,609,731,815,897,988,1080,1175,1269,1370,1463,1558,1663,1754,1845,1930,2035,2141,2244,2350,2459,2566,2736,6018",
                         "endColumns": "106,100,105,85,103,121,83,81,90,91,94,93,100,92,94,104,90,90,84,104,105,102,105,108,106,169,96,85",
                         "endOffsets": "207,308,414,500,604,726,810,892,983,1075,1170,1264,1365,1458,1553,1658,1749,1840,1925,2030,2136,2239,2345,2454,2561,2731,2828,6099"
+                    }
+                },
+                {
+                    "source": "/Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/8f81c86d76d7374fea12be646b598e8a/jetified-firebase-messaging-21.0.1/res/values-sr/values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "207",
+                        "endColumns": "99",
+                        "endOffsets": "306"
+                    },
+                    "to": {
+                        "startLines": "51",
+                        "startColumns": "4",
+                        "startOffsets": "5914",
+                        "endColumns": "103",
+                        "endOffsets": "6013"
                     }
                 }
             ]

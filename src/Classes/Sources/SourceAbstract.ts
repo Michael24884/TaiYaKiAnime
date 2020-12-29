@@ -1,3 +1,4 @@
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { TaiyakiSourceLanguage, TaiyakiSourceTypes } from ".";
 import { SourceTypes, TaiyakiScrapedTitleModel } from "../../Models";
 
@@ -11,6 +12,11 @@ abstract class SourceAbstract {
   abstract source: TaiyakiSourceTypes;
   abstract language: TaiyakiSourceLanguage;
   abstract options: Options;
+  
+  usesWebViewAuthentication: boolean = false;
+  authenticationUrl: string | undefined;
+  storageID: string | undefined;
+
   controller: AbortController = new AbortController();
 
   
@@ -27,6 +33,13 @@ abstract class SourceAbstract {
   destroy(): void {
     this.controller.abort();
   };
+
+  async isSignedIn(): Promise<boolean> {
+    if (!this.storageID) return false;
+    const file = await AsyncStorage.getItem(this.storageID);
+    if (file) return true;
+    return false;
+  }
 
   /**
    * SearchTitles is responsible for looking up the query/search results on the provided source. Used in binding anime
