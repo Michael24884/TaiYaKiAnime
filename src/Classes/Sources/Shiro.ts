@@ -27,14 +27,14 @@ class Shiro extends SourceAbstract {
         const link = `https://ani.api-web.site/advanced?${params}`
         var searchResults = JSON.parse(await (await fetch(link)).text()).data.nav
         if (typeof searchResults != "undefined") {
-			searchResults = searchResults.currentPage.items
-			return searchResults.map(result => {
-				return {
-					title: result['name'],
-					image: 'https://ani-cdn.api-web.site/' + result['image'],
-					embedLink: 'https://shiro.is/anime/' + result['slug']
-				}
-			})
+        	searchResults = searchResults.currentPage.items
+        	return searchResults.map(result => {
+        		return {
+        			title: result['name'],
+        			image: 'https://ani-cdn.api-web.site/' + result['image'],
+        			embedLink: 'https://shiro.is/anime/' + result['slug']
+        		}
+        	})
     	} else {
         	return [] // returns [] as in "no results were found"
     	}
