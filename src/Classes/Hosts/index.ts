@@ -9,5 +9,6 @@ import StreamX from './streamx';
 import Umi from './umi';
 import Fembed from './fembed';
 import YourUpload from './yourupload';
+import Trollvid from './Trollvid';
 
-export {BP, Cloud9, Kwik, Mp4Upload, HostBase, VidstreamingHost, Xstream, StreamX, Umi, Fembed, YourUpload};
+export {BP, Cloud9, Kwik, Mp4Upload, HostBase, VidstreamingHost, Xstream, StreamX, Umi, Fembed, YourUpload, Trollvid};
