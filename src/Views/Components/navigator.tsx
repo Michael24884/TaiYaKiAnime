@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { createRef, useEffect } from 'react';
 import {NavigationContainer, useNavigation} from '@react-navigation/native';
 import {
   createStackNavigator,
@@ -33,9 +33,12 @@ import MyProfileScreen from '../Screens/Profiles/my_profile';
 import TrackerList from '../Screens/Profiles/tracker_list';
 import {MyProfileMal} from '../Screens/Profiles/my_profile_myanimelist';
 import {MyProfileSimkl} from '../Screens/Profiles/my_profile_simkl';
+import DropDownAlert from './dropDownAlert';
 
 export const Navigator = () => {
   const theme = useTheme((_) => _.theme);
+
+  const dropDown = createRef<DropDownAlert>();
 
   const Stack = createStackNavigator();
   const Tab = createBottomTabNavigator();
@@ -233,7 +236,7 @@ export const Navigator = () => {
               ),
             }}
           />
-          <Tab.Screen
+          {/* <Tab.Screen
             name={'Queue'}
             component={QueueStack}
             options={{
@@ -246,7 +249,7 @@ export const Navigator = () => {
                 />
               ),
             }}
-          />
+          /> */}
           <Tab.Screen
             name={'Settings'}
             component={SettingsStack}

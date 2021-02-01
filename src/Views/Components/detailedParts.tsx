@@ -12,6 +12,8 @@ import {
 	TextInput,
 	ScrollView,
 	FlatList,
+	Alert,
+	Modal,
 } from 'react-native';
 import Icon from 'react-native-dynamic-vector-icons';
 import DateTimePicker from '@react-native-community/datetimepicker';
@@ -35,6 +37,8 @@ import { SIMKL } from '../../Classes/Trackers/SIMKL';
 import { Modalize } from 'react-native-modalize';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import { SourceAbstract, sourceAbstractList } from '../../Classes/Sources';
+import WebView from 'react-native-webview';
+import CookieManager from '@react-native-community/cookies';
 
 const { height, width } = Dimensions.get('window');
 
@@ -57,17 +61,19 @@ const SearchBindPage: FC<Props> = (props) => {
 	const navigation = useNavigation();
 	const theme = useTheme((_) => _.theme);
 	const preferredLanguage = useSettingsStore((_) => _.settings.general.sourceLanguage);
-
+	
 	const filteredAbstractList = sourceAbstractList.filter((i) => i.language === preferredLanguage);
 	const [query, setQuery] = useState<string>(title);
 
 	const [isLoading, setLoading] = useState<boolean>(false);
 
-	const [currentArchive, setCurrentArchive] = useState<SourceAbstract>(filteredAbstractList[0]);
+	const [currentArchive, setCurrentArchive] = useState<SourceAbstract>(preferredLanguage === 'All' ? sourceAbstractList[0] : filteredAbstractList[0]);
+	const [currentArchiveInAuth, setCurrentArchiveInAuth] = useState<SourceAbstract>()
 
 	const [results, setResults] = useState<TaiyakiScrapedTitleModel[]>([]);
 
 	const archiveRef = createRef<Modalize>();
+	const webViewRef = createRef<Modalize>();
 
 	useEffect(() => {
 		navigation.setOptions({ title: 'Binding Anime...' });
@@ -78,9 +84,9 @@ const SearchBindPage: FC<Props> = (props) => {
 	}, []);
 
 	const getItems = useCallback(async () => {
-		setCurrentArchive(filteredAbstractList[0]);
+		//setCurrentArchive(currentArchive);
 		setLoading(true);
-		new SourceBase(filteredAbstractList[0].source).scrapeTitle(query).then((results) => {
+		new SourceBase(currentArchive.source).scrapeTitle(query).then((results) => {
 			setResults(results.results);
 			setLoading(false);
 		});
@@ -160,12 +166,60 @@ const SearchBindPage: FC<Props> = (props) => {
 		);
 	};
 
+	useEffect(() => {
+		if (currentArchiveInAuth)  {
+			console.log(currentArchiveInAuth.authenticationUrl)
+			webViewRef.current?.open();
+		}
+	}, [currentArchiveInAuth]);
+
+	const validateSource = async (item: SourceAbstract): Promise<void> => {
+
+		const signUserIn = async () => {
+			setCurrentArchiveInAuth(item);
+		}
+
+		if (item.usesWebViewAuthentication) {
+			const isSignedIn = await item.isSignedIn();
+			if (!isSignedIn)
+				Alert.alert('Further actions required', `In order to use this source, you will need to sign in to ${item.options.name} manually. By using this source you, the user, understands that the owners of ${item.options.name} can ban or/and delete your account if they ever know how the user is using their service.`, 
+				[
+					{text: 'Cancel', onPress: () => {return}},
+					{text: 'I Understand', style: 'destructive', onPress: signUserIn }
+				])
+				else setCurrentArchive(item);
+		} else 
+		setCurrentArchive(item);
+	}
+
+	const _onNavigationStateChanged = async (event: any) => {
+		if (!currentArchiveInAuth) return;
+		if (currentArchiveInAuth.source === 'AniWatch') {
+			if (event.url === 'https://aniwatch.me/home') {
+				const cookies = await CookieManager.get(currentArchiveInAuth!.baseUrl);
+				const cookie = Object.keys(cookies);
+				if (cookie.includes('SESSION')) {
+					AsyncStorage.setItem(currentArchiveInAuth.storageID!, 'true')
+					.then(() => {
+						Alert.alert('Success!', 'Taiyaki was able to sign you in, the webview will now close', [{text: 'Close',
+						onPress: () => {
+							webViewRef.current?.close();
+							setCurrentArchiveInAuth(undefined);
+						}
+					}])
+					})
+				}
+			}
+		}
+	}
+
 	const _renderArchives = ({ item }: { item: SourceAbstract }) => {
 		return (
 			<TouchableOpacity
 				onPress={() => {
 					archiveRef.current?.close();
-					setCurrentArchive(item);
+					validateSource(item)
+					
 				}}>
 				<ThemedCard
 					style={{
@@ -256,11 +310,23 @@ const SearchBindPage: FC<Props> = (props) => {
 				modalHeight={height * 0.4}
 				modalStyle={{ backgroundColor: theme.colors.backgroundColor }}
 				flatListProps={{
-					data: filteredAbstractList,
+					data: preferredLanguage === 'All' ? sourceAbstractList : filteredAbstractList,
 					renderItem: _renderArchives,
 					keyExtractor: (item) => item.name,
 				}}
 			/>
+			<Modalize
+				ref={webViewRef}
+				modalHeight={height * 0.8}
+			>
+				{currentArchiveInAuth ? <WebView
+				 style={{height: height * 0.8}}
+				 source={{uri: currentArchiveInAuth.authenticationUrl!}}
+				 sharedCookiesEnabled
+				 thirdPartyCookiesEnabled
+				 onNavigationStateChange={_onNavigationStateChanged}
+				 />: <View style={{flex: 1, backgroundColor: 'black'}}/>}
+				</Modalize>
 		</ThemedSurface>
 	);
 };

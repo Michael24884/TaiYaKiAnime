@@ -3,3 +3,4 @@ node_modules
 .eslintrc.json
 android/.gradle/6.2/executionHistory/executionHistory.bin
 *.node
+src/testVideo.tsx

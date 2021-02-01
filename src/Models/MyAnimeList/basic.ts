@@ -1,7 +1,7 @@
 import {LoginConfigModel} from '../taiyaki';
 
-export function randomCodeChallenge(): string {
-  const MAX_LENGTH = 88;
+export function randomCodeChallenge(maxLength?: number): string {
+  const MAX_LENGTH = maxLength ?? 88;
   let code = '';
   const codes =
     'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';

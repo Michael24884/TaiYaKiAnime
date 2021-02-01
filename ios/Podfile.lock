@@ -257,6 +257,8 @@ PODS:
   - React-jsinspector (0.63.3)
   - react-native-blur (0.8.0):
     - React
+  - react-native-cookies (5.0.1):
+    - React-Core
   - react-native-home-indicator (0.2.6):
     - React-Core
   - react-native-orientation-locker (1.2.0):
@@ -271,6 +273,8 @@ PODS:
   - react-native-video/Video (5.1.0-alpha8):
     - React
   - react-native-viewpager (4.2.0):
+    - React-Core
+  - react-native-webview (11.0.2):
     - React-Core
   - React-RCTActionSheet (0.63.3):
     - React-Core/RCTActionSheetHeaders (= 0.63.3)
@@ -440,12 +444,14 @@ DEPENDENCIES:
   - React-jsiexecutor (from `../node_modules/react-native/ReactCommon/jsiexecutor`)
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
   - "react-native-blur (from `../node_modules/@react-native-community/blur`)"
+  - "react-native-cookies (from `../node_modules/@react-native-community/cookies`)"
   - react-native-home-indicator (from `../node_modules/react-native-home-indicator`)
   - react-native-orientation-locker (from `../node_modules/react-native-orientation-locker`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
   - "react-native-slider (from `../node_modules/@react-native-community/slider`)"
   - react-native-video (from `../node_modules/react-native-video`)
   - "react-native-viewpager (from `../node_modules/@react-native-community/viewpager`)"
+  - react-native-webview (from `../node_modules/react-native-webview`)
   - React-RCTActionSheet (from `../node_modules/react-native/Libraries/ActionSheetIOS`)
   - React-RCTAnimation (from `../node_modules/react-native/Libraries/NativeAnimation`)
   - React-RCTBlob (from `../node_modules/react-native/Libraries/Blob`)
@@ -530,6 +536,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/jsinspector"
   react-native-blur:
     :path: "../node_modules/@react-native-community/blur"
+  react-native-cookies:
+    :path: "../node_modules/@react-native-community/cookies"
   react-native-home-indicator:
     :path: "../node_modules/react-native-home-indicator"
   react-native-orientation-locker:
@@ -542,6 +550,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-video"
   react-native-viewpager:
     :path: "../node_modules/@react-native-community/viewpager"
+  react-native-webview:
+    :path: "../node_modules/react-native-webview"
   React-RCTActionSheet:
     :path: "../node_modules/react-native/Libraries/ActionSheetIOS"
   React-RCTAnimation:
@@ -626,12 +636,14 @@ SPEC CHECKSUMS:
   React-jsiexecutor: b56c03e61c0dd5f5801255f2160a815f4a53d451
   React-jsinspector: 8e68ffbfe23880d3ee9bafa8be2777f60b25cbe2
   react-native-blur: cad4d93b364f91e7b7931b3fa935455487e5c33c
+  react-native-cookies: ce50e42ace7cf0dd47769260ca5bbe8eee607e4e
   react-native-home-indicator: 92b86b0fbe85a50c9cba286ad7bae4a2c319238a
   react-native-orientation-locker: 47aaa55d59bfc1613804dc22f159e6bb1cca5f30
   react-native-safe-area-context: 79fea126c6830c85f65947c223a5e3058a666937
   react-native-slider: e99fc201cefe81270fc9d81714a7a0f5e566b168
   react-native-video: dbb8df4f0bbdf80de6797c90fcad8bc12b19401d
   react-native-viewpager: c1a686e7b5e164a52387f1522358623c4f52070f
+  react-native-webview: dfd7202ff115c44d3ea401c2f36122fb3ac79f07
   React-RCTActionSheet: 53ea72699698b0b47a6421cb1c8b4ab215a774aa
   React-RCTAnimation: 1befece0b5183c22ae01b966f5583f42e69a83c2
   React-RCTBlob: 0b284339cbe4b15705a05e2313a51c6d8b51fa40

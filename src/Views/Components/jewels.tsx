@@ -202,6 +202,9 @@ const stylesPreview = StyleSheet.create({
   },
 });
 
+
+
+
 // export const JewelFriendsDetailed: FC<{
 //   anilistID: number;
 //   currentEpisode: number;

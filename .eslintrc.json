@@ -20,5 +20,6 @@
         "@typescript-eslint"
     ],
     "rules": {
-    }
+    },
+    "validate": ["javascript", "typescriptreact", "javascriptreact"]
 }
