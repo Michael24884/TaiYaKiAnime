@@ -12,6 +12,11 @@ export default class VidstreamingHost extends HostBase {
     const match = d.match(reg);
     if (match) {
       return [{link: match[1], quality: 'Adaptive'}];
+    } else {
+      const newLink = preLink.match(/data\-video\=\"(\/\/gogo.*?)\"/)[1]
+      const html = await (await fetch(newLink)).text()
+      const streamLink = html.match(/file\: ['|"](.*?)['|"]/)[1]
+      return [{link: streamLink, quality: 'Adaptive'}];
     }
     return [];
   }
