@@ -8,6 +8,8 @@ import AnimeRush from './AnimeRush';
 import TioAnime from './TioAnime';
 import Anime8 from './Anime8';
 import RyuAnime from './RyuAnime';
+import AniWatch from './Aniwatch';
+
 //STEP 1: Import the file above (Place at the end)
 
 //STEP 2: Add a unique name
@@ -20,7 +22,8 @@ export type TaiyakiSourceTypes=
 'AnimeRush' |
 'Anime8' |
 'TioAnime' |
-'RyuAnime';
+'RyuAnime' |
+'AniWatch';
 
 //STEP 3(OPTIONAL): If the source uses a language not added here put the proper language, if possible use Alphabetic order
 export type TaiyakiSourceLanguage = 'Arabic'| 'English' | 'French' | 'Spanish';
@@ -33,6 +36,7 @@ const sourceAbstractList: SourceAbstract[] = [
     new KimAnime(),
     new AnimeRush(),
     new TioAnime(),
+    new AniWatch(),
     // new XSAnime(),
     new Anime8(),
     new RyuAnime(),
@@ -49,6 +53,7 @@ export const MapSourceTypesToAbstract = new Map<TaiyakiSourceTypes, SourceAbstra
     ['XSAnime', new XSAnime()],
     ['AnimeRush', new AnimeRush()],
     ['RyuAnime', new RyuAnime()],
+    ['AniWatch', new AniWatch()],
 ])
 
 //STEP 6: Finally add the imported class from STEP 1 (Place at the end)
@@ -61,4 +66,5 @@ export {
     KimAnime,
     Anime8,
     RyuAnime,
+    AniWatch,
 }

@@ -1,5 +1,5 @@
 /* eslint-disable react-native/no-inline-styles */
-import React, {FC} from 'react';
+import React, {FC, useEffect, useState} from 'react';
 import {
   Alert,
   ScrollView,
@@ -22,11 +22,15 @@ import {
   InAppBrowserOptions,
 } from 'react-native-inappbrowser-reborn';
 import {AnilistLoginModel} from '../../../Models/Anilist';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import {AnilistBase, MyAnimeList} from '../../../Classes/Trackers';
 import {MyAnimeListLoginModel} from '../../../Models/MyAnimeList';
 import {SIMKLLoginConfigModel} from '../../../Models/SIMKL';
 import {SIMKL} from '../../../Classes/Trackers/SIMKL';
+import CookieManager from '@react-native-community/cookies';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { AniWatch, SourceAbstract } from '../../../Classes/Sources';
+import { Source } from 'react-native-fast-image';
+import Aniwatch from '../../../Classes/Sources/Aniwatch';
 
 const {height, width} = Dimensions.get('window');
 
@@ -37,6 +41,7 @@ export const TrackerPage = () => {
         <Card source={'Anilist'} />
         <Card source={'MyAnimeList'} />
         <Card source={'SIMKL'} />
+        <CardNoSource source={new Aniwatch()} />
       </ScrollView>
     </ThemedSurface>
   );
@@ -50,7 +55,6 @@ const Card: FC<{
   const isLoggedIn = useUserProfiles((_) => _.isLoggedIn);
   const addUser = useUserProfiles((_) => _.addToProfile);
   const removeUser = useUserProfiles((_) => _.removeProfile);
-  const profiles = useUserProfiles((_) => _.profiles);
 
   const onSignIn = () => {
     if (isLoggedIn(source)) {
@@ -188,6 +192,60 @@ const Card: FC<{
     </ThemedSurface>
   );
 };
+
+type CardNoSource = {
+source: SourceAbstract;
+}
+const CardNoSource: FC<CardNoSource> = (props) => {
+  const {source} = props;
+  const {name} = source.options;
+
+  const [loggedIn, setLoggedIn] = useState<boolean>(false);
+
+  useEffect(() => {
+    isLoggedIn();
+  }, [])
+
+  const isLoggedIn = async () => {
+    const loggedIn = await source.isSignedIn();
+    setLoggedIn(loggedIn);
+  }
+
+  return (
+    <ThemedSurface style={styles.card.view}>
+      <View
+        style={{
+          flexDirection: 'row',
+          flex: 1,
+        }}>
+        <View
+          style={{
+            paddingHorizontal: 10,
+            justifyContent: 'space-between',
+            width: '100%',
+            flex: 1,
+            alignItems: 'flex-end',
+          }}>
+          <View style={{width: '100%'}}>
+            <ThemedText style={styles.card.username}>
+              {name}
+            </ThemedText>
+            <ThemedText style={styles.card.source}>{loggedIn ? 'Logged In': 'Not Logged In'}</ThemedText>
+          </View>
+          <Button
+            title={loggedIn ? 'Sign Out' : ''}
+            onPress={ loggedIn ? () => {
+              CookieManager.clearByName(source.baseUrl, source.storageID!);
+              AsyncStorage.removeItem(source.storageID!)
+              .then(() => setLoggedIn(false));
+            } : null }
+            color={!loggedIn ? undefined : 'red'}
+          />
+        </View>
+      </View>
+    </ThemedSurface>
+  );
+}
 
 const styles = {
   card: StyleSheet.create({
