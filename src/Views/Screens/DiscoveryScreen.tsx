@@ -1,14 +1,12 @@
 import {useNavigation} from '@react-navigation/native';
 import React, {createRef, memo, useEffect, useState} from 'react';
 import {Platform, Dimensions, View} from 'react-native';
-import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import {Modalize} from 'react-native-modalize';
 import { StretchyScrollView } from 'react-native-stretchy';
 import {useAnilistRequest} from '../../Hooks';
 import {
   AnilistPagedData,
   AnilistPopularGraph,
-  AnilistRecommendationPageEdgeModel,
   AnilistRequestTypes,
   AnilistSeasonalGraph,
   AnilistTrendingGraph,
@@ -19,19 +17,18 @@ import {MapKeyToPaths, MapRequestsToTitle} from '../../Util';
 import {BaseRows, BaseRowsSimple, ThemedSurface} from '../Components';
 import {InstagramAvatars} from '../Components/animated';
 import BigCoverFlow, { BigCoverFlowText } from '../Components/bigCoverFlow';
-import {RecCards} from '../Components/list_cards';
+import QueueTiles from '../Components/queueTiles';
+import MyQueueScreen from './QueuePage';
 
 const {height, width} = Dimensions.get('window');
 
 const DiscoveryScreen = () => {
-  const navigation = useNavigation();
   const theme = useTheme((_) => _.theme);
   const notifications = useNotificationStore((_) => Object.values(_.notifications));
-  const setNotifications = useNotificationStore((_) => _.setNotifications);
 
   const [data, setData] = useState<AnilistPagedData[]>([]);
 
-  const profileModalize = createRef<Modalize>();
+  const queueModalize = createRef<Modalize>();
   const {
     query: {data: PopularData},
   } = useAnilistRequest<AnilistPagedData>('Popular', AnilistPopularGraph());
@@ -58,7 +55,7 @@ const DiscoveryScreen = () => {
 
   }, [PopularData, TrendingData, SeasonalData]);
 
-  const discordID = 21421
+  const discordID = 10721
 
   return (
     <>
@@ -80,7 +77,8 @@ const DiscoveryScreen = () => {
               data={notifications}
             />
           )}
-          {data.map((i) => {
+          <QueueTiles onPress={() => queueModalize.current?.open()}/>
+          {[...data].map((i) => {
             const {title, subTitle} = MapRequestsToTitle.get(i.type)!;
             return (
               <BaseRows
@@ -96,8 +94,10 @@ const DiscoveryScreen = () => {
           </View>
         </StretchyScrollView>
       </ThemedSurface>
-      <Modalize ref={profileModalize} modalHeight={height * 0.6}>
-        <View style={{backgroundColor: 'orange'}} />
+      <Modalize ref={queueModalize} modalHeight={height * 0.75} modalStyle={{backgroundColor: theme.colors.backgroundColor}}>
+        <View style={{flex: 1, overflow: 'hidden', borderTopRightRadius: 6, borderTopLeftRadius: 6}}>
+        <MyQueueScreen />
+        </View>
       </Modalize>
     </>
   );

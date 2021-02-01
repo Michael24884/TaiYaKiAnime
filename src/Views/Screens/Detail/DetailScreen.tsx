@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react-native/no-inline-styles */
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
-import React, { FC, useCallback, useEffect, useRef, useState } from 'react';
+import React, { createRef, FC, useCallback, useEffect, useRef, useState } from 'react';
 import {
 	ActivityIndicator,
 	Button,
@@ -50,6 +50,7 @@ import { useAsyncStorage } from '@react-native-async-storage/async-storage';
 import { DetailedDatabaseModel, MyQueueModel } from '../../../Models/taiyaki';
 import { useQueueStore, useUpNextStore } from '../../../Stores/queue';
 import { StatusCards } from '../../Components/detailedParts';
+import DropDownAlert from '../../Components/dropDownAlert';
 
 const { height, width } = Dimensions.get('window');
 const ITEM_HEIGHT = height * 0.26;
@@ -74,6 +75,7 @@ const DetailScreen: FC<Props> = (props) => {
 	const [statusPageVisible, setStatusPageVisibility] = useState<boolean>(false);
 	const navigation = useNavigation();
 	const scrollValue = useRef(new Animated.Value(0)).current;
+	const dropDownRef = createRef<DropDownAlert>();
 	const theme = useTheme((_) => _.theme);
 
 	const [id, setID] = useState<number>(props.route.params.id);
@@ -579,6 +581,11 @@ const DetailScreen: FC<Props> = (props) => {
 									data: { episode: i, detail: database },
 								}));
 								addAllToQueue(queue);
+								dropDownRef.current?.show({
+									title: 'Added to Queue',
+									message: title.romaji + ' was added successfully',
+									duration: 3200,
+								})
 							}}
 							onAddUnwatchedToQueue={() => {
 								const check = database.lastWatching.episode;
@@ -747,6 +754,7 @@ const DetailScreen: FC<Props> = (props) => {
 				backgroundColor={theme.colors.primary}
 				barStyle={'light-content'}
 			/>
+			<DropDownAlert ref={dropDownRef} />
 			<Modal
 				visible={statusPageVisible}
 				hardwareAccelerated

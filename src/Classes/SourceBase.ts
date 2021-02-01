@@ -4,7 +4,7 @@ import {
   TaiyakiScrapedTitleModel,
 } from '../Models/taiyaki';
 import {VidstreamingHost, BP, Kwik, Mp4Upload, Cloud9, Xstream, StreamX, Umi, Fembed, YourUpload} from './Hosts';
-import { MapSourceTypesToAbstract, SourceAbstract, TaiyakiSourceTypes } from './Sources';
+import { AniWatch, MapSourceTypesToAbstract, SourceAbstract, TaiyakiSourceTypes } from './Sources';
 
 export class SourceBase {
   //source: TaiyakiSourceTypes;
@@ -80,14 +80,14 @@ export class SourceBase {
       case 'yourupload': return await new YourUpload().grabAvailableHosts(data.link);
       case 'okru':
         throw '';
-      // case 'ld':
-      // case 'sd':
-      // case 'hd':
-      // case 'fullhd':
-      //   return await new AniWatch().buildWatchableLinks({
-      //     link: data.link,
-      //     quality: data.server.toLowerCase(),
-      //   });
+      case 'ld':
+      case 'sd':
+      case 'hd':
+      case 'fullhd':
+        return await new AniWatch().buildWatchableLinks(
+          data.link,
+          data.server.toLowerCase(),
+        );
       case 'custom':
         return [{link: data.link, quality: data.server}];
 

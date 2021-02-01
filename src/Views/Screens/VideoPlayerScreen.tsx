@@ -636,11 +636,12 @@ const VideoPlayerScreen: FC<Props> = (props) => {
               Episode {currentEpisode.episode.episode}
             </ThemedText>
             
-                        <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+                        <View style={{flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}}>
 
             <ThemedText style={styles.episodeTitle}>
               {currentEpisode.episode.title}
             </ThemedText>
+            <View style={{backgroundColor: 'grey', width: 2, height: '100%'}}/>
             <Icon name={'cog'} type={'MaterialCommunityIcons'} size={35} color={theme.colors.text} onPress={() => {
               optionsModal.current?.open();
             }} /> 
@@ -783,6 +784,7 @@ const styles = StyleSheet.create({
   episodeTitle: {
     fontWeight: '600',
     fontSize: 18,
+    maxWidth: '80%'
   },
   desc: {
     marginTop: 8,
