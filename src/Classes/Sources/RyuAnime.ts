@@ -43,7 +43,8 @@ class RyuAnime extends SourceAbstract {
             const hosts = {
                 'trollvid': `https://trollvid.net/embed/${id}`,
                 'mp4upload': `https://mp4upload.com/embed-${id}.html`,
-                'xstreamcdn': `https://xstreamcdn.com/v/${id}`
+                'xstreamcdn': `https://xstreamcdn.com/v/${id}`,
+                'vidstreaming': `https://gogo-play.net/streaming.php?id=${id}`
             }
             if (hosts.hasOwnProperty(host)) {
                 return hosts[host]
