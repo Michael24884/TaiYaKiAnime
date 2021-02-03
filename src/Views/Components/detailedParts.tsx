@@ -30,8 +30,8 @@ import {
 } from '../../Models/taiyaki';
 import { useSettingsStore, useTheme, useUserProfiles } from '../../Stores';
 import { ThemedButton, ThemedCard, ThemedSurface, ThemedText } from './base';
-import { ListRow } from './list_rows';
-import { FlavoredButtons } from './rows';
+import { ListRow } from './ListRows/list_rows';
+import { FlavoredButtons } from './BaseRows/rows';
 import { AnilistBase, MyAnimeList } from '../../Classes/Trackers';
 import { SIMKL } from '../../Classes/Trackers/SIMKL';
 import { Modalize } from 'react-native-modalize';
@@ -39,6 +39,13 @@ import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import { SourceAbstract, sourceAbstractList } from '../../Classes/Sources';
 import WebView from 'react-native-webview';
 import CookieManager from '@react-native-community/cookies';
+<<<<<<< Updated upstream
+=======
+import DangoImage from './image';
+import { AnilistRelationsPageEdgeModel, AnilistTags } from '../../Models/Anilist';
+import { moderateScale, ScaledSheet } from 'react-native-size-matters';
+import { isTablet } from 'react-native-device-info';
+>>>>>>> Stashed changes
 
 const { height, width } = Dimensions.get('window');
 
@@ -114,34 +121,7 @@ const SearchBindPage: FC<Props> = (props) => {
 		// })
 		// .catch((error) => {
 		// 	console.log('error', error);
-	};
-
-	// if (archives.length === 0 || !currentArchive)
-	// 	return (
-	// 		<View
-	// 			style={[
-	// 				styles.bindPage.view,
-	// 				{ justifyContent: 'center', alignItems: 'center' },
-	// 			]}>
-	// 			<Icon
-	// 				name={'newspaper'}
-	// 				type={'MaterialCommunityIcons'}
-	// 				size={50}
-	// 				color='grey'
-	// 			/>
-	// 			<ThemedText
-	// 				style={{ textAlign: 'center', fontWeight: 'bold', fontSize: 18 }}>
-	// 				No sources installed. You can install them in the Settings
-	// 			</ThemedText>
-	// 			<ThemedButton
-	// 				title={'Open Settings'}
-	// 				onPress={() => {
-	// 					navigation.goBack();
-	// 					navigation.navigate('Settings', { screen: 'ArchivePage' });
-	// 				}}
-	// 			/>
-	// 		</View>
-	// 	);
+	}
 
 	const _renderItem = ({ item }: { item: TaiyakiScrapedTitleModel }) => {
 		return (
@@ -223,12 +203,12 @@ const SearchBindPage: FC<Props> = (props) => {
 				}}>
 				<ThemedCard
 					style={{
-						paddingVertical: 15,
-						paddingHorizontal: 4,
+						paddingVertical: moderateScale(15),
+						paddingHorizontal: moderateScale(4),
 						justifyContent: 'center',
 					}}>
 					<ThemedText
-						style={{ textAlign: 'center', fontSize: 18, fontWeight: '600' }}>
+						style={{ textAlign: 'center', fontSize: moderateScale(18), fontWeight: '600' }}>
 						{item.options.name}
 					</ThemedText>
 				</ThemedCard>
@@ -695,7 +675,121 @@ export const UpdatingAnimeStatusPage: FC<{
 	);
 };
 
+<<<<<<< Updated upstream
 const styles = {
+=======
+
+export const RelationsCard: FC<{data: AnilistRelationsPageEdgeModel[], onTap: () => void}> = (props) => {
+	const {data, onTap} = props;
+	const theme = useTheme((_) => _.theme);
+	const nextSequel = data.filter((i) => i.relationType === 'SEQUEL');
+	return (
+		<TouchableOpacity
+		onPress={props.onTap}
+		>
+			<ThemedCard style={styles.relationsCard.view}>
+			<View style={{flexDirection: 'row'}}>
+				{nextSequel.length > 0 ? <View style={[styles.relationsCard.nextSequel, {height: undefined}]}>
+					<DangoImage url={nextSequel[0].node.coverImage.extraLarge} style={styles.relationsCard.nextSequel}/> 
+					<ThemedText numberOfLines={1} style={[styles.relationsCard.nextSequelTitle, {color: 'orange'}]}>Up Next</ThemedText>
+					<ThemedText numberOfLines={1} style={[styles.relationsCard.nextSequelTitle]}>{nextSequel[0].relationType}</ThemedText>
+				</View>: <View />}
+				<View style={{marginLeft: moderateScale(8), justifyContent: 'space-between', height: height * 0.18}}>
+				<ThemedText style={styles.relationsCard.relations}>Relations</ThemedText>
+				<View style={{flexDirection: 'row', width: '100%'}}>
+				{data.filter((i) => i.node.id !== (nextSequel.length > 0 ? nextSequel[0].node.id : [])).slice(0, 2).map((i) => (
+					<DangoImage url={i.node.coverImage.extraLarge} style={styles.relationsCard.smallImages} />
+				))}
+				{data.length > 3 ? <View style={[styles.relationsCard.smallImages, {backgroundColor: theme.colors.accent, justifyContent: 'center', alignItems: 'center'}]}>
+					<ThemedText style={styles.relationsCard.totalNumbers}>+{data.slice(3).length}</ThemedText>
+				</View> : null}
+				</View>
+				</View>
+			</View>
+		</ThemedCard>
+		</TouchableOpacity>
+	);
+}
+
+export const TagsCard: FC<{tags: AnilistTags[]}> = (props) => {
+	const {tags} = props;
+	const theme = useTheme((_) => _.theme);
+	return (
+		<ThemedCard style={{marginHorizontal: moderateScale(8), padding: moderateScale(8)}}>
+			<ThemedText style={{fontSize: moderateScale(21), fontWeight: '700', marginBottom: 8}}>Tags</ThemedText>
+			<View style={{flexWrap: 'wrap', flexDirection: 'row'}}>
+			{tags.map((i) => (
+				<TouchableOpacity
+				key={i.id.toString()}
+				onPress={() => 
+					Alert.alert(i.name, i.description, [{text: 'Dismiss'}])
+				}>
+					<View style={[styles.tags.view, {backgroundColor: theme.colors.accent}]}>
+					<View style={[styles.tags.nameView, {backgroundColor: theme.colors.accent}]}>
+					<ThemedText style={{fontSize: moderateScale(13), fontWeight: '600'}}>{i.name}</ThemedText>
+					</View>
+
+					<View style={{justifyContent: 'center', padding: moderateScale(4), backgroundColor: '#7f0799', height: '100%'}}>
+						<ThemedText style={{fontWeight: '700', color: 'white'}}>{i.rank}%</ThemedText>
+					</View>
+				</View>
+				</TouchableOpacity>
+			))}
+			</View>
+		</ThemedCard>
+	)
+}
+
+const styles = {
+	tags: ScaledSheet.create({
+		view: {
+			height: height * 0.045,
+			flexDirection: 'row',
+			marginHorizontal: '4@ms',
+			marginVertical: '4@ms',
+			borderRadius: '6@ms',
+			overflow: 'hidden',
+			alignItems: 'center'
+		},
+		text: {
+			fontWeight: '500'
+		},
+		nameView: {
+			padding: '4@ms',
+			
+		}
+	}),
+	relationsCard: ScaledSheet.create({
+		view: {
+			width: width * 0.95,
+			height: isTablet() ? '240@mvs' : height * 0.2,
+			alignSelf: 'center',
+			paddingHorizontal: '8@ms',
+			paddingVertical: '4@ms',
+		},
+		nextSequel: {
+			height: isTablet() ? '340@mvs' : height * 0.14,
+			width: isTablet() ? '250@ms' : width * 0.24,
+		},
+		nextSequelTitle: {
+			fontSize: '13@ms',
+			marginTop: 2,
+		},
+		relations: {
+			fontSize: '18@ms',
+			fontWeight: '700',
+		},
+		smallImages: {
+			width: width * 0.19,
+			height: height * 0.12,
+			marginHorizontal: 4,
+		},
+		totalNumbers: {
+			fontWeight: '800',
+			fontSize: 21,
+		}
+	}),
+>>>>>>> Stashed changes
 	updatePage: StyleSheet.create({
 		scoreButtons: {
 			marginHorizontal: width * 0.1,
@@ -771,30 +865,30 @@ const styles = {
 			flex: 1,
 		},
 	}),
-	bindPage: StyleSheet.create({
+	bindPage: ScaledSheet.create({
 		view: {
 			flex: 1,
 		},
 		text: {
-			fontSize: 15,
+			fontSize: '15@ms',
 			fontWeight: '600',
-			margin: 8,
+			margin: '8@ms',
 		},
 		input: {
-			height: height * 0.05,
+			height: isTablet() ? '75@mvs' : height * 0.05,
 			width: '90%',
 			alignSelf: 'center',
 			marginTop: 5,
 			borderRadius: 6,
 		},
 		emptyResultsText: {
-			fontSize: 21,
+			fontSize: '21@ms',
 			fontWeight: '400',
 		},
 		sourceName: {
 			textAlign: 'center',
 			marginTop: height * 0.015,
-			fontSize: 17,
+			fontSize: '17@ms',
 			fontWeight: '600',
 		},
 	}),

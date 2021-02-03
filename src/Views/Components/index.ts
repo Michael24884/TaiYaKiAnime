@@ -3,6 +3,6 @@ import DangoImage from './image';
 
 export {TaiyakiHeader, DangoImage};
 export * from './base';
-export * from './rows';
+export * from './BaseRows/rows';
 export * from './image';
-export * from './list_rows';
+export * from './ListRows/list_rows';

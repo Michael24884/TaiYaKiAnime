@@ -15,6 +15,16 @@ import {useQueueStore, useTheme, useUpNextStore} from '../../../Stores';
 import {ThemedButton, ThemedCard, ThemedSurface, ThemedText} from '../../Components';
 import {EpisodeTiles} from '../../Components/list_cards';
 import {Modalize} from 'react-native-modalize';
+<<<<<<< Updated upstream
+=======
+import { useWeebStore } from '../../../Stores/rootModal';
+import { SourceBase } from '../../../Classes/SourceBase';
+import firebaseDatabase from '@react-native-firebase/database';
+import { RoomsModelInnerData } from '../../WeebParty/AvailableRooms';
+import { convertArrayToObject } from '../../../Util';
+import { WeebRoomSetupWizard } from '../../WeebParty';
+import { ScaledSheet } from 'react-native-size-matters';
+>>>>>>> Stashed changes
 
 const {height, width} = Dimensions.get('window');
 
@@ -53,7 +63,15 @@ const EpisodesList: FC<Props> = (props) => {
   //const [filterBlocks, setFilterBlocks] = useState<FilterBlocks[]>([]);
   const filterBlocks = useRef<FilterBlocks[]>([]);
   const [currentFilter, setCurrentFilter] = useState<FilterBlocks>();
+<<<<<<< Updated upstream
 
+=======
+  
+  const playerIsMinimized = useWeebStore((_) => _.ref.current?.state.isMinimized);
+  const playerRef = useWeebStore((_) => _.ref);
+  // const setPartyData = useWeebStore((_) => _.ref.current?.setupRoomData); 
+  
+>>>>>>> Stashed changes
   useEffect(() => {
     navigation.setOptions({title: database.title});
     navigation.addListener('beforeRemove', () => {
@@ -202,7 +220,7 @@ const EpisodesList: FC<Props> = (props) => {
   );
 };
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
   view: {
     flex: 1,
   },
@@ -234,7 +252,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontWeight: '600',
-    fontSize: 12,
+    fontSize: '12@ms',
   },
 });
 

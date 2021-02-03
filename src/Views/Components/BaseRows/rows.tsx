@@ -1,5 +1,6 @@
 /* eslint-disable react-native/no-inline-styles */
 import { useNavigation } from '@react-navigation/native';
+import {styles} from './styles';
 import React, { createRef, FC, memo, useEffect, useRef, useState } from 'react';
 import {
 	ActivityIndicator,
@@ -9,7 +10,6 @@ import {
 	Image,
 	LayoutAnimation,
 	Platform,
-	StyleSheet,
 	View,
 } from 'react-native';
 import Icon from 'react-native-dynamic-vector-icons';
@@ -23,25 +23,26 @@ import {
 	AnilistRequestTypes,
 	AnilistStatusTypes,
 	Media,
-} from '../../Models/Anilist';
-import { SimklEpisodes } from '../../Models/SIMKL';
+} from '../../../Models/Anilist';
+import { SimklEpisodes } from '../../../Models/SIMKL';
 import {
 	DetailedDatabaseModel,
 	TrackingServiceTypes,
 	WatchingStatus,
-} from '../../Models/taiyaki';
-import { useQueueStore } from '../../Stores/queue';
-import { useTheme } from '../../Stores/theme';
+} from '../../../Models/taiyaki';
+import { useQueueStore } from '../../../Stores/queue';
+import { useTheme } from '../../../Stores/theme';
 import {
 	MapTrackingServiceToAssets,
 	MapTrackingServiceToColors,
-} from '../../Util';
-import { ThemedButton, ThemedCard, ThemedText } from './base';
-import DangoImage from './image';
+} from '../../../Util';
+import { ThemedButton, ThemedCard, ThemedText } from '../base';
+import DangoImage from '../image';
 import ViewPager from '@react-native-community/viewpager';
-import { ContinueWatchingTile } from '.';
-import Dimension from '../../Classes/Dimensions';
-import { useNotificationStore } from '../../Stores';
+import { ContinueWatchingTile } from '..';
+import Dimension from '../../../Classes/Dimensions';
+import { useNotificationStore } from '../../../Stores';
+import { isTablet } from 'react-native-device-info';
 
 const { height, width } = Dimensions.get('window');
 const ITEM_HEIGHT = Platform.OS === 'ios' ? height * 0.25 : height * 0.5;
@@ -133,11 +134,13 @@ export const BaseRows: FC<BaseRowProps> = (props) => {
 					<ThemedText style={styles.row.subTitle}>{subtitle}</ThemedText>
 				</View>
 				{!hideSeeAll ? (
-					<Button
+					<View style={styles.row.seeAllButton}>
+						<Button
 						title={'See All'}
 						onPress={() => navigation.navigate('See More', { key: type })}
 						color={theme.accent}
 					/>
+					</View>
 				) : null}
 			</View>
 			<FlatList
@@ -521,7 +524,7 @@ const _WatchTile: FC<{
 	};
 
 	return (
-		<View style={{ height: height * 0.38 }}>
+		<View style={{ height: isTablet() ? moderateVerticalScale(400) : height * 0.38 }}>
 			<View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
 				<ThemedText
 					style={[styles.card.subTitle, { marginLeft: width * 0.04 }]}>
@@ -565,7 +568,7 @@ const _WatchTile: FC<{
 				</View>
 			</View>
 			<ViewPager
-				style={{ height: height * 0.3 }}
+				style={{ height: isTablet() ? moderateVerticalScale(300) : height * 0.31 }}
 				showPageIndicator
 				initialPage={0}
 				ref={pagerController}>
@@ -598,7 +601,7 @@ const _WatchTile: FC<{
 								<DangoImage url={img} style={styles.watchTile.thumbnail} />
 							) : (
 								<Image
-									source={require('../../assets/images/icon_round.png')}
+									source={require('../../../assets/images/icon_round.png')}
 									style={styles.watchTile.thumbnail}
 								/>
 							)}
@@ -668,18 +671,18 @@ export const FlavoredButtons: FC<{
 			<View style={styles.tiles.shadowView}>
 				<View
 					style={{
-						height: size ?? height * 0.06,
+						height: size ? moderateScale(size) : isTablet() ? moderateVerticalScale(65) : height * 0.06,
 						aspectRatio: 1 / 1,
 						borderRadius: (size ?? height * 0.1) / 2,
 						backgroundColor: theme.colors.accent,
 						alignItems: 'center',
 						justifyContent: 'center',
-						marginRight: width * 0.04,
+						marginRight: moderateScale(20, 0.1),
 					}}>
 					<Icon
 						name={name}
 						type={'MaterialCommunityIcons'}
-						size={30}
+						size={moderateScale(30)}
 						color={'white'}
 					/>
 				</View>
@@ -698,9 +701,9 @@ export const BindTitleBlock: FC<{
 
 	return (
 		<ThemedCard style={{ marginVertical: width * 0.01, padding: 8 }}>
-			<View style={{ padding: 12 }}>
+			<View style={{ padding: moderateScale(12) }}>
 				<ThemedText
-					style={{ fontWeight: '700', fontSize: 15, textAlign: 'center' }}>
+					style={{ fontWeight: '700', fontSize: moderateScale(15), textAlign: 'center' }}>
 					Bind an anime from a source to Taiyaki to start watching
 				</ThemedText>
 				<ThemedButton
@@ -718,6 +721,7 @@ export const BindTitleBlock: FC<{
 	);
 };
 
+<<<<<<< Updated upstream:src/Views/Components/rows.tsx
 const styles = {
 	row: StyleSheet.create({
 		container: {
@@ -847,3 +851,5 @@ const styles = {
 		},
 	}),
 };
+=======
+>>>>>>> Stashed changes:src/Views/Components/BaseRows/rows.tsx

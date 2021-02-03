@@ -20,7 +20,7 @@ import RecommendationList from '../Screens/Detail/ViewMore/RecommendationListScr
 import MoreItemsScreen from '../Screens/MoreItemsScreen';
 import SearchPage from '../Screens/SearchPage';
 import VideoPlayerScreen from '../Screens/VideoPlayerScreen';
-import HistoryScreen from '../Screens/HistoryScreen';
+import HistoryScreen from '../Screens/History/HistoryScreen';
 import {
   AutoPlaySettingsPage,
   NotificationsSettingsPage,

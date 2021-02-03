@@ -1,4 +1,5 @@
 /* eslint-disable react-native/no-inline-styles */
+<<<<<<< Updated upstream:src/Views/Components/list_rows.tsx
 import React, { FC } from 'react';
 import { Dimensions, Image, Platform, StyleSheet, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
@@ -8,6 +9,20 @@ import { useTheme } from '../../Stores';
 import { ThemedButton, ThemedCard, ThemedText } from './base';
 import DangoImage from './image';
 import ProgressBar from 'react-native-progress/Bar';
+=======
+import React, { FC, useCallback, useEffect, useState } from 'react';
+import { ActivityIndicator, Dimensions, Image, InteractionManager, Platform, View } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import { ThemedSurface } from '..';
+import { DetailedDatabaseModel, MyQueueModel } from '../../../Models/taiyaki';
+import { MyQueueItems, useTheme } from '../../../Stores';
+import { ThemedButton, ThemedCard, ThemedText } from '../base';
+import DangoImage from '../image';
+import ProgressBar from 'react-native-progress/Bar';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useFocusEffect } from '@react-navigation/native';
+import {styles, queueStyle} from './styles';
+>>>>>>> Stashed changes:src/Views/Components/ListRows/list_rows.tsx
 
 const { height, width } = Dimensions.get('window');
 
@@ -33,7 +48,7 @@ export const ListRow: FC<ListRowProps> = (props) => {
 						<DangoImage url={image} style={styles.listRow.image} />
 					) : (
 						<Image
-							source={require('../../assets/images/icon_round.png')}
+							source={require('../../../assets/images/icon_round.png')}
 							style={styles.listRow.image}
 						/>
 					)}
@@ -74,7 +89,7 @@ export const EpisodeSliders: FC<{
 							source={
 								item.episode.img !== null
 									? { uri: item.episode.img }
-									: require('../../assets/images/icon_round.png')
+									: require('../../../assets/images/icon_round.png')
 							}
 							style={[
 								queueStyle.queueItemImage,
@@ -146,6 +161,7 @@ export const ContinueWatchingTile: FC<{
 	);
 };
 
+<<<<<<< Updated upstream:src/Views/Components/list_rows.tsx
 const styles = {
 	continueTile: StyleSheet.create({
 		view: {
@@ -247,21 +263,77 @@ const queueStyle = StyleSheet.create({
 		justifyContent: 'space-between',
 		paddingLeft: 15,
 	},
+=======
 
-	backRightBtn: {
-		alignItems: 'center',
-		bottom: 0,
-		justifyContent: 'center',
-		position: 'absolute',
-		top: 0,
-		width: 75,
-	},
-	backRightBtnLeft: {
-		backgroundColor: 'blue',
-		right: 75,
-	},
-	backRightBtnRight: {
-		backgroundColor: 'red',
-		right: 0,
-	},
-});
+//Prioritizes in collecting all items in a user's database with new episodes.
+export const AnimeBundleCard = () => {
+	const [isLoading, setIsLoading] = useState<boolean>(false);
+	const [box, setBox] = useState<MyQueueModel[]>([]);
+
+	const findItemsToCatch = async (): Promise<MyQueueItems> => {
+		setIsLoading(true);
+		const box: MyQueueItems = {};
+		const items = (await AsyncStorage.getAllKeys()).filter((i) => Number(i));
+		for (let item of items) {
+			const file = await AsyncStorage.getItem(item);
+			if (file) {
+				const detailModel = JSON.parse(file) as DetailedDatabaseModel;
+				if (detailModel.status && detailModel.lastWatching && detailModel.lastWatching.episode) {
+					if (detailModel.status === 'RELEASING' && detailModel.lastWatching.episode < detailModel.totalEpisodes && detailModel.lastWatching.data) {
+						box[detailModel.title].push({
+							episode: detailModel.lastWatching.data,
+							detail: detailModel,
+						})
+					}
+				}
+			}
+		}
+		setIsLoading(false);
+		return box;
+	}
+
+	useFocusEffect(useCallback(() => {
+		const task = InteractionManager.runAfterInteractions(() => {
+			findItemsToCatch()
+		.then((items) => {
+			if (items) {
+				
+			}
+		});
+		})
+		return () => task.cancel();
+	}, []))
+
+	const styles = StyleSheet.create({
+		view: {
+			height: isLoading ? height * 0.2 : height * 0.3,
+			margin: 8,
+			marginTop: 13
+		},
+		loadingView: {
+			flex: 1,
+			justifyContent: 'center',
+			alignItems: 'center'
+		},
+		loadingText: {
+			fontWeight: '600',
+		}
+	});
+
+	return (
+		<ThemedCard style={styles.view}>
+			{isLoading ? <View style={styles.loadingView}>
+				<ActivityIndicator />
+				<ThemedText style={styles.loadingText}>Queueing up your videos...</ThemedText>
+			</View> : <View>
+				<FlatList 
+				data={Object.values(box)}
+
+				/>
+				</View>}
+		</ThemedCard>
+	)
+}
+
+>>>>>>> Stashed changes:src/Views/Components/ListRows/list_rows.tsx
+

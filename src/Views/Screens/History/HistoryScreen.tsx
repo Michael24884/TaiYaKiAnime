@@ -1,13 +1,15 @@
 import {useAsyncStorage} from '@react-native-async-storage/async-storage';
 import {useFocusEffect, useNavigation} from '@react-navigation/native';
 import React, {useCallback, useEffect, useState} from 'react';
-import {Alert, FlatList, StyleSheet, View} from 'react-native';
+import {Alert, FlatList, View} from 'react-native';
+import {styles} from './styles';
 import Icon from 'react-native-dynamic-vector-icons';
-import {HistoryModel} from '../../Models/taiyaki';
-import {ListRow, ThemedSurface, ThemedText} from '../Components';
-import {EmptyScreen} from './empty_screen';
+import {HistoryModel} from '../../../Models/taiyaki';
+import {ListRow, ThemedSurface, ThemedText} from '../../Components';
+import {EmptyScreen} from '../empty_screen';
 import TimeAgo from 'react-native-timeago';
-import {useTheme} from '../../Stores';
+import {useTheme} from '../../../Stores';
+import { moderateScale } from 'react-native-size-matters';
 
 const HistoryScreen = () => {
   const [history, setHistory] = useState<HistoryModel[]>([]);
@@ -71,16 +73,16 @@ const HistoryScreen = () => {
         bottomComponent={
           <View style={styles.row}>
             <View>
-              <ThemedText style={{fontWeight: '500', fontSize: 13}}>
+              <ThemedText style={styles.episodeNumber}>
                 Episode {item.data.episode.episode}
               </ThemedText>
-              <ThemedText style={{color: theme.colors.accent, fontSize: 13}}>
+              <ThemedText style={{color: theme.colors.accent, fontSize: moderateScale(13)}}>
                 {item.data.episode.sourceName}
               </ThemedText>
             </View>
             <TimeAgo
               time={item.lastModified}
-              style={{color: 'grey', alignSelf: 'flex-end'}}
+              style={{color: 'grey', alignSelf: 'flex-end', fontSize: moderateScale(13)}}
             />
           </View>
         }
@@ -104,15 +106,6 @@ const HistoryScreen = () => {
   );
 };
 
-const styles = StyleSheet.create({
-  view: {
-    flex: 1,
-  },
-  row: {
-    width: '100%',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-});
+
 
 export default HistoryScreen;

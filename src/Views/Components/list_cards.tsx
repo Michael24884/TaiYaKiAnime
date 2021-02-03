@@ -20,7 +20,9 @@ import { useSettingsStore, useTheme } from '../../Stores';
 import { useQueueStore } from '../../Stores/queue';
 import { TaiyakiParsedText, ThemedCard, ThemedText } from './base';
 import DangoImage from './image';
-import { FlavoredButtons } from './rows';
+import { FlavoredButtons } from './BaseRows/rows';
+import { isTablet } from 'react-native-device-info';
+import { moderateScale, ScaledSheet } from 'react-native-size-matters';
 
 const { height, width } = Dimensions.get('window');
 
@@ -131,15 +133,21 @@ export const RecCards: FC<{ items: AnilistRecommendationPageEdgeModel }> = (
 	);
 };
 
-const _EpisodeTiles: FC<{
+interface EpisodeTileProps {
 	episode: SimklEpisodes;
 	onPlay: () => void;
 	title: string;
 	counter: number;
 	detail: DetailedDatabaseModel;
 	currentEpisode: number;
+<<<<<<< Updated upstream
 }> = (props) => {
 	const { episode, onPlay, detail, currentEpisode } = props;
+=======
+}
+const _EpisodeTiles: FC<EpisodeTileProps> = (props) => {
+	const { episode, onPlay, onParty, detail, currentEpisode } = props;
+>>>>>>> Stashed changes
 	const { title } = detail;
 	const isBlurred = useSettingsStore((_) => _.settings.general.blurSpoilers);
 
@@ -238,7 +246,7 @@ const _EpisodeTiles: FC<{
 						<View
 							style={{
 								flexDirection: 'row',
-								padding: 8,
+								padding: moderateScale(8),
 								justifyContent: 'space-between',
 								alignItems: 'flex-end',
 
@@ -246,7 +254,6 @@ const _EpisodeTiles: FC<{
 							}}>
 							{episode.description?.length ?? 0 > 650 ? (
 								<FlavoredButtons
-									size={40}
 									name={descExpanded ? 'arrow-up' : 'arrow-down'}
 									onPress={() => {
 										LayoutAnimation.configureNext(
@@ -282,13 +289,50 @@ const _EpisodeTiles: FC<{
 		</ThemedCard>
 	);
 };
+<<<<<<< Updated upstream
+=======
+export const EpisodeTiles = memo(_EpisodeTiles, (pp: EpisodeTileProps, np: EpisodeTileProps) => pp.currentEpisode === np.currentEpisode && pp.counter === np.counter );
+
+export const SpecialCards: FC<{icon: React.ReactNode; onPress: () => void; description?: string; title?: string}> = (props) => {
+	const {title, icon, description, onPress} = props;
+	const theme = useTheme((_) => _.theme);
+	const styles = ScaledSheet.create({
+		view: {
+			width: isTablet() ? '250@ms'  : width * 0.6,
+			marginHorizontal: '8@ms',
+			marginTop: '20@ms',
+			marginBottom: '12@ms',
+			height: height * 0.4,
+			justifyContent: 'space-around',
+			alignItems: 'center',
+		},
+		title: {
+			fontWeight: 'bold',
+			fontSize: '20@ms',
+			textAlign: 'center',
+		},
+		description: {
+			fontSize: '16@ms',
+			fontWeight: '600',
+			textAlign: 'center',
+		},
+		bubble: {
+			width: width * 0.3,
+			borderRadius: width * 0.3 / 2,
+			aspectRatio: 1 / 1,
+			alignItems: 'center',
+			justifyContent: 'center',
+			backgroundColor: theme.colors.accent
+		}
+	});
+>>>>>>> Stashed changes
 
 export const EpisodeTiles = memo(_EpisodeTiles);
 
 const styles = {
-	tiles: StyleSheet.create({
+	tiles: ScaledSheet.create({
 		view: {
-			width: width * 0.95,
+			width: '95%',
 			alignSelf: 'center',
 		},
 		absolute: {
@@ -301,42 +345,42 @@ const styles = {
 		queueMarker: {
 			color: 'green',
 			fontWeight: '700',
-			fontSize: 13,
+			fontSize: '13@ms',
 		},
 		image: {
-			height: height * 0.25,
+			height: '200@ms',
 			width: '100%',
 		},
 		episodeNumber: {
-			fontSize: 16,
+			fontSize: '16@ms',
 			fontWeight: '600',
 			textAlign: 'center',
 		},
 		textView: {
-			padding: 8,
+			padding: '8@ms',
 		},
 		episodeNumberReveal: {
-			fontSize: 15,
+			fontSize: '15@ms',
 			fontWeight: '400',
 		},
 		episodeTitle: {
-			fontSize: 19,
+			fontSize: '19@ms',
 			fontWeight: '600',
 		},
 		desc: {
 			color: 'grey',
-			fontSize: 14,
+			fontSize: '14@ms',
 			fontWeight: '400',
-			marginTop: 5,
+			marginTop: '5@ms',
 		},
 	}),
-	rec: StyleSheet.create({
+	rec: ScaledSheet.create({
 		view: {},
 		textView: {
 			flexDirection: 'row',
 		},
 		title: {
-			fontSize: 16,
+			fontSize: '16@ms',
 			fontWeight: '600',
 		},
 		absolute: {

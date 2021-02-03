@@ -1,4 +1,4 @@
-node_modules
+node_modules/
 *.txt
 .eslintrc.json
 android/.gradle/6.2/executionHistory/executionHistory.bin

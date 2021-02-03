@@ -2,13 +2,16 @@
 /* eslint-disable react-native/no-inline-styles */
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import React, { createRef, FC, useCallback, useEffect, useRef, useState } from 'react';
+<<<<<<< Updated upstream
+=======
+import {styles} from './styles';
+>>>>>>> Stashed changes
 import {
 	ActivityIndicator,
 	Button,
 	Dimensions,
 	LogBox,
 	Platform,
-	StyleSheet,
 	Animated,
 	View,
 	Modal,
@@ -51,6 +54,14 @@ import { DetailedDatabaseModel, MyQueueModel } from '../../../Models/taiyaki';
 import { useQueueStore, useUpNextStore } from '../../../Stores/queue';
 import { StatusCards } from '../../Components/detailedParts';
 import DropDownAlert from '../../Components/dropDownAlert';
+<<<<<<< Updated upstream
+=======
+import { Modalize } from 'react-native-modalize';
+import RelationsScreen from './Relations';
+import { useWeebStore } from '../../../Stores/rootModal';
+import { moderateScale, moderateVerticalScale } from 'react-native-size-matters';
+import { isTablet } from 'react-native-device-info';
+>>>>>>> Stashed changes
 
 const { height, width } = Dimensions.get('window');
 const ITEM_HEIGHT = height * 0.26;
@@ -131,6 +142,7 @@ const DetailScreen: FC<Props> = (props) => {
 
 	const AnimatedHeader = Animated.createAnimatedComponent(TaiyakiHeader);
 
+<<<<<<< Updated upstream
 	const styles = StyleSheet.create({
 		empty: {
 			flex: 1,
@@ -252,6 +264,9 @@ const DetailScreen: FC<Props> = (props) => {
 			marginTop: 8,
 		},
 	});
+=======
+
+>>>>>>> Stashed changes
 
 	const { getItem, mergeItem, removeItem } = useAsyncStorage(`${id}`);
 
@@ -326,7 +341,7 @@ const DetailScreen: FC<Props> = (props) => {
 		return (
 			<View style={{ justifyContent: 'space-between', alignItems: 'center' }}>
 				{typeof name === 'string' ? (
-					<Icon name={name} type={'MaterialIcons'} color={'grey'} size={30} />
+					<Icon name={name} type={'MaterialIcons'} color={'grey'} size={moderateScale(30)} />
 				) : (
 					<ThemedText
 						shouldShrink
@@ -349,15 +364,15 @@ const DetailScreen: FC<Props> = (props) => {
 					marginHorizontal: width * 0.01,
 					marginVertical: height * 0.016,
 				}}>
-				<ThemedText style={{ textAlign: 'center', fontSize: 13 }}>
+				<ThemedText style={{ textAlign: 'center', fontSize: moderateScale(13) }}>
 					{title}
 				</ThemedText>
 				<ThemedText
 					style={{
 						textAlign: 'center',
-						marginTop: 4,
+						marginTop: moderateVerticalScale(4),
 						color: 'grey',
-						fontSize: 13,
+						fontSize: moderateScale(13),
 					}}>
 					{data ?? 'N/A'}
 				</ThemedText>
@@ -643,11 +658,11 @@ const DetailScreen: FC<Props> = (props) => {
 
 				{/* //Genres */}
 				{genres.length > 0 ? (
-					<View style={styles.surface}>
+					<View style={[styles.surface, {backgroundColor: theme.colors.backgroundColor}]}>
 						<ThemedText style={styles.subTitle}>Genres</ThemedText>
 						<View style={styles.genresContainer}>
 							{genres.map((i) => (
-								<View key={i} style={styles.genrePills}>
+								<View key={i} style={[styles.genrePills, {backgroundColor: theme.colors.accent}]}>
 									<ThemedText style={styles.genreText}>{i}</ThemedText>
 								</View>
 							))}
@@ -656,7 +671,7 @@ const DetailScreen: FC<Props> = (props) => {
 				) : null}
 
 				{/* //More Info */}
-				<View style={styles.surface}>
+				<View style={[styles.surface, {backgroundColor: theme.colors.backgroundColor}]}>
 					<ThemedText style={styles.subTitle}>More Information</ThemedText>
 					<View style={[styles.rowView, styles.infoRowView]}>
 						{IconRow(Number((meanScore * 0.1).toFixed(1)), 'Mean')}
@@ -686,14 +701,21 @@ const DetailScreen: FC<Props> = (props) => {
 					</View>
 				</View>
 				{characters.nodes.length > 0 ? (
+<<<<<<< Updated upstream
 					<View style={[styles.surface]}>
 						<View style={[styles.rowView, { justifyContent: 'space-between' }]}>
+=======
+					<View style={[styles.surface, {backgroundColor: theme.colors.backgroundColor}]}>
+					<View style={[styles.rowView, { justifyContent: 'space-between', alignItems: 'center' }]}>
+>>>>>>> Stashed changes
 							<ThemedText style={styles.subTitle}>Characters</ThemedText>
+							<View style={{transform: [{scale: isTablet() ? 1.5 : 1}]}}>
 							<Button
 								title={'See All'}
 								color={theme.colors.accent}
 								onPress={() => navigation.push('Characters', { id })}
 							/>
+							</View>
 						</View>
 						<FlatList
 							data={characters.nodes}
@@ -701,7 +723,7 @@ const DetailScreen: FC<Props> = (props) => {
 							keyExtractor={(item) => item.id.toString()}
 							horizontal
 							contentContainerStyle={{
-								height: Platform.OS === 'ios' ? height * 0.26 : height * 0.3,
+								height: isTablet() ? moderateVerticalScale(350) : Platform.OS === 'ios' ? height * 0.26 : height * 0.3,
 							}}
 							getItemLayout={(data, index) => ({
 								length: ITEM_HEIGHT,
@@ -716,15 +738,21 @@ const DetailScreen: FC<Props> = (props) => {
 					<View
 						style={[
 							styles.surface,
+<<<<<<< Updated upstream
 							{ paddingBottom: 12, justifyContent: 'center', marginBottom: 18 },
+=======
+							{ paddingBottom: moderateVerticalScale(12), justifyContent: 'center', marginBottom: moderateScale(10), backgroundColor: theme.colors.backgroundColor },
+>>>>>>> Stashed changes
 						]}>
 						<View style={[styles.rowView, { justifyContent: 'space-between' }]}>
 							<ThemedText style={styles.subTitle}>Recommendations</ThemedText>
+							<View style={{transform: [{scale: isTablet() ? 1.5 : 1}]}}>
 							<Button
 								title={'See All'}
 								color={theme.colors.accent}
 								onPress={() => navigation.push('Recommendations', { id })}
 							/>
+							</View>
 						</View>
 						<FlatList
 							data={recommendations.edges.filter(
@@ -735,7 +763,11 @@ const DetailScreen: FC<Props> = (props) => {
 								item.node.mediaRecommendation.id.toString()
 							}
 							horizontal
+<<<<<<< Updated upstream
 							contentContainerStyle={{ height: ITEM_HEIGHT + height * 0.13 }}
+=======
+							contentContainerStyle={{ height: isTablet() ? moderateVerticalScale(425) :  moderateScale(ITEM_HEIGHT + height * 0.08) }}
+>>>>>>> Stashed changes
 							getItemLayout={(data, index) => ({
 								length: ITEM_HEIGHT,
 								offset: ITEM_HEIGHT * index,

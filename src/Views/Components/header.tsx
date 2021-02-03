@@ -16,6 +16,7 @@ import { useTheme } from '../../Stores';
 import { TaiyakiParsedText, ThemedText } from './base';
 import LinearGradient from 'react-native-linear-gradient';
 import { timeUntil } from '../../Util';
+import { isTablet } from 'react-native-device-info';
 
 const { height, width } = Dimensions.get('window');
 
@@ -40,7 +41,11 @@ class TaiyakiHeader extends Component<{
 									name={'arrow-back-ios'}
 									type={'MaterialIcons'}
 									color={'white'}
+<<<<<<< Updated upstream
 									size={width * 0.07}
+=======
+									size={ isTablet() ? moderateScale(30) : moderateScale(width * 0.07)}
+>>>>>>> Stashed changes
 								/>
 								<ThemedText style={[styles.backtext]}>Back</ThemedText>
 							</View>
@@ -116,9 +121,9 @@ export const SynopsisExpander: FC<{
 		},
 		button: {
 			backgroundColor: theme.colors.accent,
-			width: width * 0.11,
+			width: isTablet() ? moderateScale(45) : width * 0.11,
 			aspectRatio: 1 / 1,
-			borderRadius: (width * 0.11) / 2,
+			borderRadius: isTablet() ? moderateScale(45 / 2) : (width * 0.11) / 2,
 			alignItems: 'center',
 			justifyContent: 'center',
 		},
@@ -204,7 +209,7 @@ export const SynopsisExpander: FC<{
 	);
 };
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
 	view: {
 		position: 'absolute',
 		top: 0,
@@ -212,7 +217,11 @@ const styles = StyleSheet.create({
 		right: 0,
 		zIndex: 100,
 		width,
+<<<<<<< Updated upstream
 		height: Platform.OS === 'ios' ? height * 0.13 : height * 0.12,
+=======
+		height: isTablet() ? '150@mvs'  : Platform.OS === 'ios' ? moderateScale(height * 0.13) : moderateScale(height * 0.07),
+>>>>>>> Stashed changes
 		justifyContent: 'flex-end',
 		paddingBottom: height * 0.03,
 		paddingHorizontal: width * 0.04,
@@ -220,7 +229,11 @@ const styles = StyleSheet.create({
 	},
 
 	backtext: {
+<<<<<<< Updated upstream
 		fontSize: 17,
+=======
+		fontSize: moderateScale(17),
+>>>>>>> Stashed changes
 		fontWeight: '500',
 		color: 'white',
 	},

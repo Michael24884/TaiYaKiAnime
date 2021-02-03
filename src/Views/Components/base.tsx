@@ -13,6 +13,10 @@ import {
 import ParsedText from 'react-native-parsed-text';
 import {useTheme} from '../../Stores/theme';
 import {breakLine, italics, paragraph} from '../../Util';
+<<<<<<< Updated upstream
+=======
+import {moderateScale, moderateVerticalScale} from 'react-native-size-matters';
+>>>>>>> Stashed changes
 
 interface TextProps {
   style?: StyleProp<TextStyle>;
@@ -36,7 +40,7 @@ export const ThemedText: FC<TextProps> = (props) => {
 };
 
 export const Divider: FC<{color?: string}> = (props) => {
-  return <View style={{backgroundColor: props.color ?? 'grey', height: 0.4}} />;
+  return <View style={{backgroundColor: props.color ?? 'grey', height: moderateVerticalScale(0.4)}} />;
 };
 
 export const ThemedButton: FC<{
@@ -80,7 +84,7 @@ export const ThemedButton: FC<{
             : null,
         ]}>
         {props.title ? (
-          <Text style={[{color: 'white', fontWeight: 'bold'}]}>
+          <Text style={[{color: 'white', fontWeight: 'bold', fontSize: moderateScale(14)}]}>
             {props.title.toUpperCase()}
           </Text>
         ) : (

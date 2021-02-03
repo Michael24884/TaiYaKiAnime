@@ -1,24 +1,30 @@
 import {useNavigation} from '@react-navigation/native';
+import {styles} from './styles';
 import React, {createRef, memo, useEffect, useState} from 'react';
 import {Platform, Dimensions, View} from 'react-native';
 import {Modalize} from 'react-native-modalize';
 import { StretchyScrollView } from 'react-native-stretchy';
-import {useAnilistRequest} from '../../Hooks';
+import {useAnilistRequest} from '../../../Hooks';
+import database from '@react-native-firebase/database'
 import {
   AnilistPagedData,
   AnilistPopularGraph,
   AnilistRequestTypes,
   AnilistSeasonalGraph,
   AnilistTrendingGraph,
-} from '../../Models/Anilist';
-import {useNotificationStore} from '../../Stores/notifications';
-import {useTheme} from '../../Stores/theme';
-import {MapKeyToPaths, MapRequestsToTitle} from '../../Util';
-import {BaseRows, BaseRowsSimple, ThemedSurface} from '../Components';
-import {InstagramAvatars} from '../Components/animated';
-import BigCoverFlow, { BigCoverFlowText } from '../Components/bigCoverFlow';
-import QueueTiles from '../Components/queueTiles';
-import MyQueueScreen from './QueuePage';
+} from '../../../Models/Anilist';
+import { useFirebaseAuth } from '../../../Stores';
+import {useNotificationStore} from '../../../Stores/notifications';
+import {useTheme} from '../../../Stores/theme';
+import {MapKeyToPaths, MapRequestsToTitle} from '../../../Util';
+import {BaseRows, BaseRowsSimple, ThemedSurface} from '../../Components';
+import {InstagramAvatars} from '../../Components/animated';
+import BigCoverFlow, { BigCoverFlowText } from '../../Components/bigCoverFlow';
+import { SpecialCards } from '../../Components/list_cards';
+import QueueTiles from '../../Components/queueTiles';
+import { WeebPartyComponent } from '../../WeebParty';
+import MyQueueScreen from '../QueuePage';
+import { moderateScale } from 'react-native-size-matters';
 
 const {height, width} = Dimensions.get('window');
 
@@ -63,11 +69,11 @@ const DiscoveryScreen = () => {
         <StretchyScrollView
         imageResizeMode={'center'}
         imageHeight={Platform.OS === 'ios' ? height * 0.45 : height * 0.47}
-        image={require('../../assets/images/icon_round.png')}
+        image={require('../../..//assets/images/icon_round.png')}
         foreground={<BigCoverFlowText id={discordID}/>}
         imageOverlay={<BigCoverFlow id={discordID} />}
         >
-        <View style={{backgroundColor: theme.colors.backgroundColor, marginTop: 10}}>
+        <View style={[{backgroundColor: theme.colors.backgroundColor}, styles.scrollView]}>
           <InstagramAvatars />
 
           {notifications.length > 0 && (
@@ -91,11 +97,18 @@ const DiscoveryScreen = () => {
               />
             );
           })}
+          {/* <CalendarPreview /> */}
+          <SpecialCards 
+          icon={<Icon type={'EvilIcons'} name={'search'} size={moderateScale(75)} color={theme.colors.text} />}
+          title={'Sauce Finder'}
+          description={'Find the anime of an image. Powered by Trace.moe!'}
+          onPress={() => navigation.navigate('SauceFinderPage')}
+          />
           </View>
         </StretchyScrollView>
       </ThemedSurface>
       <Modalize ref={queueModalize} modalHeight={height * 0.75} modalStyle={{backgroundColor: theme.colors.backgroundColor}}>
-        <View style={{flex: 1, overflow: 'hidden', borderTopRightRadius: 6, borderTopLeftRadius: 6}}>
+        <View style={[{flex: 1}, styles.modal]}>
         <MyQueueScreen />
         </View>
       </Modalize>
