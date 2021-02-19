@@ -360,6 +360,8 @@ PODS:
     - React
   - RNInAppBrowser (3.5.1):
     - React-Core
+  - RNReactNativeSharedGroupPreferences (1.1.20):
+    - React
   - RNReanimated (2.0.0-alpha.8):
     - DoubleConversion
     - FBLazyVector
@@ -473,6 +475,7 @@ DEPENDENCIES:
   - RNFastImage (from `../node_modules/react-native-fast-image`)
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNInAppBrowser (from `../node_modules/react-native-inappbrowser-reborn`)
+  - RNReactNativeSharedGroupPreferences (from `../node_modules/react-native-shared-group-preferences`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
   - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
@@ -594,6 +597,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-gesture-handler"
   RNInAppBrowser:
     :path: "../node_modules/react-native-inappbrowser-reborn"
+  RNReactNativeSharedGroupPreferences:
+    :path: "../node_modules/react-native-shared-group-preferences"
   RNReanimated:
     :path: "../node_modules/react-native-reanimated"
   RNScreens:
@@ -665,6 +670,7 @@ SPEC CHECKSUMS:
   RNFastImage: ff7e055d085abe465b358ce5aa51e3c6d64b1efd
   RNGestureHandler: 7a5833d0f788dbd107fbb913e09aa0c1ff333c39
   RNInAppBrowser: 48b95ba7a4eaff5cc223bca338d3e319561dbd1b
+  RNReactNativeSharedGroupPreferences: 321d74500eb0ca380ee723f20650eeef63139a1f
   RNReanimated: 2041d58f790987a36052d777e34c1f82635c2ef3
   RNScreens: 2e278a90eb15092ed261d4f2271e3fc9b60d08d4
   RNVectorIcons: bc69e6a278b14842063605de32bec61f0b251a59
@@ -674,6 +680,6 @@ SPEC CHECKSUMS:
   Yoga: 7d13633d129fd179e01b8953d38d47be90db185a
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
-PODFILE CHECKSUM: 9024da2722a210e7493b9163c5a6a0828fbb7698
+PODFILE CHECKSUM: 5541a7b4e6661dea4fa81bfc93d8e60f039d90fc
 
 COCOAPODS: 1.10.0

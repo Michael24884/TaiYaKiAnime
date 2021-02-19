@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -23,6 +23,14 @@
 		3DE803C2F90D98B0015CB25F /* libPods-Taiyaki_Typed-Taiyaki_TypedTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 31CF3EA01AC7274D82F9F4EE /* libPods-Taiyaki_Typed-Taiyaki_TypedTests.a */; };
 		44FCD36A1C9A4C389653400D /* Poppins-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 393DDFD6571642FF80D6E847 /* Poppins-ExtraBoldItalic.ttf */; };
 		49C599FB51094FDD99555C9B /* Poppins-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09488E8E9D7F4DDAB0F71F6F /* Poppins-Italic.ttf */; };
+		523FD1E225CE67EB00AF9031 /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = 523FD1E125CE67EB00AF9031 /* URLImage */; };
+		525E4A5625CC9A5600F91ABB /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 525E4A5525CC9A5600F91ABB /* WidgetKit.framework */; };
+		525E4A5825CC9A5600F91ABB /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 525E4A5725CC9A5600F91ABB /* SwiftUI.framework */; };
+		525E4A5B25CC9A5600F91ABB /* TaiyakiLastWatched.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525E4A5A25CC9A5600F91ABB /* TaiyakiLastWatched.swift */; };
+		525E4A5E25CC9A7300F91ABB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 525E4A5D25CC9A7300F91ABB /* Assets.xcassets */; };
+		525E4A6025CC9A7300F91ABB /* TaiyakiLastWatched.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 525E4A5C25CC9A5800F91ABB /* TaiyakiLastWatched.intentdefinition */; };
+		525E4A6125CC9A7300F91ABB /* TaiyakiLastWatched.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 525E4A5C25CC9A5800F91ABB /* TaiyakiLastWatched.intentdefinition */; };
+		525E4A6425CC9A7300F91ABB /* TaiyakiLastWatchedExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 525E4A5425CC9A5600F91ABB /* TaiyakiLastWatchedExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		5283545D2575887C00C785F0 /* RNBackgroundFetch+AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5283545C2575887C00C785F0 /* RNBackgroundFetch+AppDelegate.m */; };
 		53C86C16B7DA42438C5EA6FE /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1A3716B54FF64E69B9490020 /* Poppins-Medium.ttf */; };
 		5C842299358442B098CF521D /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4372B14EE1E0432BACF0802F /* Poppins-SemiBold.ttf */; };
@@ -56,7 +64,28 @@
 			remoteGlobalIDString = 2D02E47A1E0B4A5D006451C7;
 			remoteInfo = "Taiyaki_Typed-tvOS";
 		};
+		525E4A6225CC9A7300F91ABB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 525E4A5325CC9A5600F91ABB;
+			remoteInfo = TaiyakiLastWatchedExtension;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		525E4A6525CC9A7300F91ABB /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				525E4A6425CC9A7300F91ABB /* TaiyakiLastWatchedExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		008F07F21AC5B25A0029DE68 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
@@ -88,6 +117,13 @@
 		393DDFD6571642FF80D6E847 /* Poppins-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-ExtraBoldItalic.ttf"; path = "../src/assets/fonts/Poppins-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
 		4042D735B95F7C2991323FE7 /* libPods-Taiyaki_Typed.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Taiyaki_Typed.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4372B14EE1E0432BACF0802F /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-SemiBold.ttf"; path = "../src/assets/fonts/Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
+		525E4A5425CC9A5600F91ABB /* TaiyakiLastWatchedExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TaiyakiLastWatchedExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		525E4A5525CC9A5600F91ABB /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		525E4A5725CC9A5600F91ABB /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		525E4A5A25CC9A5600F91ABB /* TaiyakiLastWatched.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaiyakiLastWatched.swift; sourceTree = "<group>"; };
+		525E4A5C25CC9A5800F91ABB /* TaiyakiLastWatched.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = TaiyakiLastWatched.intentdefinition; sourceTree = "<group>"; };
+		525E4A5D25CC9A7300F91ABB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		525E4A5F25CC9A7300F91ABB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5283545C2575887C00C785F0 /* RNBackgroundFetch+AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "RNBackgroundFetch+AppDelegate.m"; path = "../node_modules/react-native-background-fetch/ios/RNBackgroundFetch/RNBackgroundFetch+AppDelegate.m"; sourceTree = "<group>"; };
 		528357E525796EA800C785F0 /* Taiyaki_Typed.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = Taiyaki_Typed.entitlements; path = Taiyaki_Typed/Taiyaki_Typed.entitlements; sourceTree = "<group>"; };
 		535DE2A4878B4F4C95EE40DD /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
@@ -157,6 +193,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		525E4A5125CC9A5600F91ABB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				525E4A5825CC9A5600F91ABB /* SwiftUI.framework in Frameworks */,
+				523FD1E225CE67EB00AF9031 /* URLImage in Frameworks */,
+				525E4A5625CC9A5600F91ABB /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -202,8 +248,21 @@
 				31CF3EA01AC7274D82F9F4EE /* libPods-Taiyaki_Typed-Taiyaki_TypedTests.a */,
 				B29DE167362DD1A53A7B607A /* libPods-Taiyaki_Typed-tvOS.a */,
 				01B8168FEA9264585248D55E /* libPods-Taiyaki_Typed-tvOSTests.a */,
+				525E4A5525CC9A5600F91ABB /* WidgetKit.framework */,
+				525E4A5725CC9A5600F91ABB /* SwiftUI.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		525E4A5925CC9A5600F91ABB /* TaiyakiLastWatched */ = {
+			isa = PBXGroup;
+			children = (
+				525E4A5A25CC9A5600F91ABB /* TaiyakiLastWatched.swift */,
+				525E4A5C25CC9A5800F91ABB /* TaiyakiLastWatched.intentdefinition */,
+				525E4A5D25CC9A7300F91ABB /* Assets.xcassets */,
+				525E4A5F25CC9A7300F91ABB /* Info.plist */,
+			);
+			path = TaiyakiLastWatched;
 			sourceTree = "<group>";
 		};
 		7FC9D2C402894289B0363797 /* Resources */ = {
@@ -260,6 +319,7 @@
 				13B07FAE1A68108700A75B9A /* Taiyaki_Typed */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* Taiyaki_TypedTests */,
+				525E4A5925CC9A5600F91ABB /* TaiyakiLastWatched */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				85958B107A92A4EB06D733F3 /* Pods */,
@@ -277,6 +337,7 @@
 				00E356EE1AD99517003FC87E /* Taiyaki_TypedTests.xctest */,
 				2D02E47B1E0B4A5D006451C7 /* Taiyaki_Typed-tvOS.app */,
 				2D02E4901E0B4A5D006451C7 /* Taiyaki_Typed-tvOSTests.xctest */,
+				525E4A5425CC9A5600F91ABB /* TaiyakiLastWatchedExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -330,12 +391,16 @@
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				B5B216B081FEB672352829DC /* [CP] Copy Pods Resources */,
+				525E4A6525CC9A7300F91ABB /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				525E4A6325CC9A7300F91ABB /* PBXTargetDependency */,
 			);
 			name = Taiyaki_Typed;
+			packageProductDependencies = (
+			);
 			productName = Taiyaki_Typed;
 			productReference = 13B07F961A680F5B00A75B9A /* Taiyaki_Typed.app */;
 			productType = "com.apple.product-type.application";
@@ -379,12 +444,33 @@
 			productReference = 2D02E4901E0B4A5D006451C7 /* Taiyaki_Typed-tvOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		525E4A5325CC9A5600F91ABB /* TaiyakiLastWatchedExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 525E4A6825CC9A7300F91ABB /* Build configuration list for PBXNativeTarget "TaiyakiLastWatchedExtension" */;
+			buildPhases = (
+				525E4A5025CC9A5600F91ABB /* Sources */,
+				525E4A5125CC9A5600F91ABB /* Frameworks */,
+				525E4A5225CC9A5600F91ABB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TaiyakiLastWatchedExtension;
+			packageProductDependencies = (
+				523FD1E125CE67EB00AF9031 /* URLImage */,
+			);
+			productName = TaiyakiLastWatchedExtension;
+			productReference = 525E4A5425CC9A5600F91ABB /* TaiyakiLastWatchedExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 1240;
 				LastUpgradeCheck = 1130;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
@@ -404,6 +490,11 @@
 						ProvisioningStyle = Automatic;
 						TestTargetID = 2D02E47A1E0B4A5D006451C7;
 					};
+					525E4A5325CC9A5600F91ABB = {
+						CreatedOnToolsVersion = 12.4;
+						DevelopmentTeam = G457Y82KXN;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "Taiyaki_Typed" */;
@@ -415,6 +506,9 @@
 				Base,
 			);
 			mainGroup = 83CBB9F61A601CBA00E9B192;
+			packageReferences = (
+				523FD1E025CE67EB00AF9031 /* XCRemoteSwiftPackageReference "url-image" */,
+			);
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -423,6 +517,7 @@
 				00E356ED1AD99517003FC87E /* Taiyaki_TypedTests */,
 				2D02E47A1E0B4A5D006451C7 /* Taiyaki_Typed-tvOS */,
 				2D02E48F1E0B4A5D006451C7 /* Taiyaki_Typed-tvOSTests */,
+				525E4A5325CC9A5600F91ABB /* TaiyakiLastWatchedExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -474,6 +569,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		525E4A5225CC9A5600F91ABB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				525E4A5E25CC9A7300F91ABB /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -749,6 +852,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				525E4A6125CC9A7300F91ABB /* TaiyakiLastWatched.intentdefinition in Sources */,
 				5283545D2575887C00C785F0 /* RNBackgroundFetch+AppDelegate.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
@@ -772,6 +876,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		525E4A5025CC9A5600F91ABB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				525E4A6025CC9A7300F91ABB /* TaiyakiLastWatched.intentdefinition in Sources */,
+				525E4A5B25CC9A5600F91ABB /* TaiyakiLastWatched.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -784,6 +897,11 @@
 			isa = PBXTargetDependency;
 			target = 2D02E47A1E0B4A5D006451C7 /* Taiyaki_Typed-tvOS */;
 			targetProxy = 2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */;
+		};
+		525E4A6325CC9A7300F91ABB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 525E4A5325CC9A5600F91ABB /* TaiyakiLastWatchedExtension */;
+			targetProxy = 525E4A6225CC9A7300F91ABB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -799,7 +917,11 @@
 				);
 				INFOPLIST_FILE = Taiyaki_TypedTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -819,7 +941,11 @@
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = Taiyaki_TypedTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -835,6 +961,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 10E10FAF115D4C68ABA869C3 /* Pods-Taiyaki_Typed.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Taiyaki_Typed/Taiyaki_Typed.entitlements;
@@ -843,7 +970,10 @@
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Taiyaki_Typed/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -863,6 +993,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B84B46B9F0E1E40E25D646F9 /* Pods-Taiyaki_Typed.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Taiyaki_Typed/Taiyaki_Typed.entitlements;
@@ -870,7 +1001,10 @@
 				DEVELOPMENT_TEAM = G457Y82KXN;
 				INFOPLIST_FILE = Taiyaki_Typed/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -899,7 +1033,10 @@
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "Taiyaki_Typed-tvOS/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -927,7 +1064,10 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "Taiyaki_Typed-tvOS/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -954,7 +1094,11 @@
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "Taiyaki_Typed-tvOSTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -981,7 +1125,11 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "Taiyaki_Typed-tvOSTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -992,6 +1140,86 @@
 				SDKROOT = appletvos;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Taiyaki_Typed-tvOS.app/Taiyaki_Typed-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
+			};
+			name = Release;
+		};
+		525E4A6625CC9A7300F91ABB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = G457Y82KXN;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = TaiyakiLastWatched/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"\"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)\"",
+					"\"$(TOOLCHAIN_DIR)/usr/lib/swift-5.2/$(PLATFORM_NAME)\"",
+					"\"$(inherited)\"",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.izanamiNightz.taiyakiLegacy.TaiyakiLastWatched;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		525E4A6725CC9A7300F91ABB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = G457Y82KXN;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = TaiyakiLastWatched/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"\"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)\"",
+					"\"$(TOOLCHAIN_DIR)/usr/lib/swift-5.2/$(PLATFORM_NAME)\"",
+					"\"$(inherited)\"",
+				);
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.izanamiNightz.taiyakiLegacy.TaiyakiLastWatched;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -1043,7 +1271,10 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "/usr/lib/swift $(inherited)";
+				LD_RUNPATH_SEARCH_PATHS = (
+					/usr/lib/swift,
+					"$(inherited)",
+				);
 				LIBRARY_SEARCH_PATHS = (
 					"\"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)\"",
 					"\"$(TOOLCHAIN_DIR)/usr/lib/swift-5.0/$(PLATFORM_NAME)\"",
@@ -1096,7 +1327,10 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "/usr/lib/swift $(inherited)";
+				LD_RUNPATH_SEARCH_PATHS = (
+					/usr/lib/swift,
+					"$(inherited)",
+				);
 				LIBRARY_SEARCH_PATHS = (
 					"\"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)\"",
 					"\"$(TOOLCHAIN_DIR)/usr/lib/swift-5.0/$(PLATFORM_NAME)\"",
@@ -1147,6 +1381,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		525E4A6825CC9A7300F91ABB /* Build configuration list for PBXNativeTarget "TaiyakiLastWatchedExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				525E4A6625CC9A7300F91ABB /* Debug */,
+				525E4A6725CC9A7300F91ABB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "Taiyaki_Typed" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1157,6 +1400,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		523FD1E025CE67EB00AF9031 /* XCRemoteSwiftPackageReference "url-image" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dmytro-anokhin/url-image";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.2.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		523FD1E125CE67EB00AF9031 /* URLImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 523FD1E025CE67EB00AF9031 /* XCRemoteSwiftPackageReference "url-image" */;
+			productName = URLImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 83CBB9F71A601CBA00E9B192 /* Project object */;
 }

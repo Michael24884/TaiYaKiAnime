@@ -55,7 +55,7 @@ const HistoryScreen = () => {
   const _searchDatabase = async () => {
     const items = await getItem();
     if (items) {
-      const model = (await JSON.parse(items)) as HistoryModel[];
+      const model = (JSON.parse(items)) as HistoryModel[];
       setHistory(model);
     }
   };

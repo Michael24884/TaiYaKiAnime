@@ -1,5 +1,5 @@
-import { useNavigation } from '@react-navigation/native';
-import React, { FC, memo, useState } from 'react';
+import { useNavigation } from "@react-navigation/native";
+import React, { FC, memo, useState } from "react";
 import {
 	Dimensions,
 	Image,
@@ -7,22 +7,23 @@ import {
 	Platform,
 	StyleSheet,
 	View,
-} from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+} from "react-native";
+import { TouchableOpacity } from "react-native-gesture-handler";
 import {
 	AnilistCharacterPageEdgeModel,
 	AnilistRecommendationPageEdgeModel,
 	AnilistRecommendationPageModel,
-} from '../../Models/Anilist';
-import { SimklEpisodes } from '../../Models/SIMKL';
-import { DetailedDatabaseModel, MyQueueModel } from '../../Models/taiyaki';
-import { useSettingsStore, useTheme } from '../../Stores';
-import { useQueueStore } from '../../Stores/queue';
-import { TaiyakiParsedText, ThemedCard, ThemedText } from './base';
-import DangoImage from './image';
-import { FlavoredButtons } from './rows';
+} from "../../Models/Anilist";
+import { SimklEpisodes } from "../../Models/SIMKL";
+import { DetailedDatabaseModel, MyQueueModel } from "../../Models/taiyaki";
+import { useSettingsStore, useTheme } from "../../Stores";
+import { useQueueStore } from "../../Stores/queue";
+import { TaiyakiParsedText, ThemedCard, ThemedText } from "./base";
+import { Chip } from "./Chip";
+import DangoImage from "./image";
+import { FlavoredButtons } from "./rows";
 
-const { height, width } = Dimensions.get('window');
+const { height, width } = Dimensions.get("window");
 
 export const CharacterCard: FC<{ character: AnilistCharacterPageEdgeModel }> = (
 	props
@@ -65,23 +66,24 @@ export const RecCards: FC<{ items: AnilistRecommendationPageEdgeModel }> = (
 				height:
 					expanded || (description?.length ?? 0) < 85
 						? undefined
-						: Platform.OS === 'ios'
+						: Platform.OS === "ios"
 						? height * 0.46
 						: height * 0.56,
-			}}>
+			}}
+		>
 			<>
 				{bannerImage ? (
 					<DangoImage url={bannerImage} style={styles.rec.banner} />
 				) : (
 					<Image
-						source={require('../../assets/images/icon_round.png')}
+						source={require("../../assets/images/icon_round.png")}
 						style={styles.rec.banner}
 					/>
 				)}
 				<View
 					style={[
 						styles.rec.absolute,
-						{ backgroundColor: 'rgba(0,0,0, 0.25)' },
+						{ backgroundColor: "rgba(0,0,0, 0.25)" },
 					]}
 				/>
 			</>
@@ -99,26 +101,28 @@ export const RecCards: FC<{ items: AnilistRecommendationPageEdgeModel }> = (
 				<TaiyakiParsedText
 					color={theme.colors.text}
 					style={{}}
-					numberOfLines={expanded ? undefined : 4}>
-					{description ?? 'No description for this anime at this time'}
+					numberOfLines={expanded ? undefined : 4}
+				>
+					{description ?? "No description for this anime at this time"}
 				</TaiyakiParsedText>
 				<View
 					style={{
-						alignItems: 'flex-end',
+						alignItems: "flex-end",
 						flex: 1,
-						justifyContent: 'flex-end',
-						flexDirection: 'row',
+						justifyContent: "flex-end",
+						flexDirection: "row",
 						marginTop: 4,
-					}}>
+					}}
+				>
 					<FlavoredButtons
 						size={40}
-						name={'page-next'}
-						onPress={() => navigation.push('Detail', { id })}
+						name={"page-next"}
+						onPress={() => navigation.push("Detail", { id })}
 					/>
 					{(description?.length ?? 0) > 85 ? (
 						<FlavoredButtons
 							size={40}
-							name={expanded ? 'arrow-up' : 'arrow-down'}
+							name={expanded ? "arrow-up" : "arrow-down"}
 							onPress={() => {
 								LayoutAnimation.configureNext(LayoutAnimation.Presets.spring);
 								setExpanded((ex) => !ex);
@@ -164,33 +168,37 @@ const _EpisodeTiles: FC<{
 							LayoutAnimation.Presets.easeInEaseOut
 						);
 						setHidden(false);
-					}}>
+					}}
+				>
 					<View style={{ height: height * 0.25 }}>
 						<Image
-							source={require('../../assets/images/icon_round.png')}
+							source={require("../../assets/images/icon_round.png")}
 							style={styles.rec.image}
 							fadeDuration={1250}
 						/>
 						<View
 							style={[
 								styles.tiles.absolute,
-								{ backgroundColor: 'rgba(0,0,0,0.56)' },
+								{ backgroundColor: "rgba(0,0,0,0.56)" },
 							]}
 						/>
 						<View
 							style={[
 								styles.tiles.absolute,
-								{ justifyContent: 'center', alignItems: 'center' },
-							]}>
+								{ justifyContent: "center", alignItems: "center" },
+							]}
+						>
 							<ThemedText
 								style={[
 									styles.tiles.episodeNumber,
 									{ color: theme.colors.accent },
-								]}>
+								]}
+							>
 								Episode {episode.episode}
 							</ThemedText>
 							<ThemedText
-								style={[styles.tiles.episodeNumber, { color: 'white' }]}>
+								style={[styles.tiles.episodeNumber, { color: "white" }]}
+							>
 								Long press to reveal
 							</ThemedText>
 						</View>
@@ -209,7 +217,8 @@ const _EpisodeTiles: FC<{
 							style={[
 								styles.tiles.episodeNumberReveal,
 								{ color: theme.colors.accent },
-							]}>
+							]}
+						>
 							Episode {episode.episode}
 						</ThemedText>
 						<ThemedText
@@ -223,31 +232,40 @@ const _EpisodeTiles: FC<{
 							style={[
 								styles.tiles.episodeTitle,
 								{ color: theme.colors.primary },
-							]}>
+							]}
+						>
 							{episode.title}
 						</ThemedText>
 						{inList ? (
 							<ThemedText style={styles.tiles.queueMarker}>In Queue</ThemedText>
 						) : null}
+						{episode.filler || episode.recap ? (
+							<View style={{ flexDirection: "row" }}>
+								{episode.filler ? <Chip label={"Filler"} /> : null}
+								{episode.recap ? <Chip label={"Recap"} /> : null}
+							</View>
+						) : null}
 						<ThemedText
 							style={styles.tiles.desc}
-							numberOfLines={descExpanded ? undefined : 3}>
+							numberOfLines={descExpanded ? undefined : 3}
+						>
 							{episode.description ??
-								'No description provided for this episode at this time'}
+								"No description provided for this episode at this time"}
 						</ThemedText>
 						<View
 							style={{
-								flexDirection: 'row',
+								flexDirection: "row",
 								padding: 8,
-								justifyContent: 'space-between',
-								alignItems: 'flex-end',
+								justifyContent: "space-between",
+								alignItems: "flex-end",
 
 								flex: 1,
-							}}>
+							}}
+						>
 							{episode.description?.length ?? 0 > 650 ? (
 								<FlavoredButtons
 									size={40}
-									name={descExpanded ? 'arrow-up' : 'arrow-down'}
+									name={descExpanded ? "arrow-up" : "arrow-down"}
 									onPress={() => {
 										LayoutAnimation.configureNext(
 											LayoutAnimation.Presets.easeInEaseOut
@@ -260,12 +278,13 @@ const _EpisodeTiles: FC<{
 							)}
 							<View
 								style={{
-									justifyContent: 'space-between',
-									flexDirection: 'row',
-								}}>
-								<FlavoredButtons name={'play'} onPress={onPlay} />
+									justifyContent: "space-between",
+									flexDirection: "row",
+								}}
+							>
+								<FlavoredButtons name={"play"} onPress={onPlay} />
 								<FlavoredButtons
-									name={inList ? 'playlist-remove' : 'playlist-plus'}
+									name={inList ? "playlist-remove" : "playlist-plus"}
 									onPress={() => {
 										LayoutAnimation.configureNext(
 											LayoutAnimation.Presets.easeInEaseOut
@@ -289,58 +308,58 @@ const styles = {
 	tiles: StyleSheet.create({
 		view: {
 			width: width * 0.95,
-			alignSelf: 'center',
+			alignSelf: "center",
 		},
 		absolute: {
-			position: 'absolute',
+			position: "absolute",
 			top: 0,
 			left: 0,
 			right: 0,
 			bottom: 0,
 		},
 		queueMarker: {
-			color: 'green',
-			fontWeight: '700',
+			color: "green",
+			fontWeight: "700",
 			fontSize: 13,
 		},
 		image: {
 			height: height * 0.25,
-			width: '100%',
+			width: "100%",
 		},
 		episodeNumber: {
 			fontSize: 16,
-			fontWeight: '600',
-			textAlign: 'center',
+			fontWeight: "600",
+			textAlign: "center",
 		},
 		textView: {
 			padding: 8,
 		},
 		episodeNumberReveal: {
 			fontSize: 15,
-			fontWeight: '400',
+			fontWeight: "400",
 		},
 		episodeTitle: {
 			fontSize: 19,
-			fontWeight: '600',
+			fontWeight: "600",
 		},
 		desc: {
-			color: 'grey',
+			color: "grey",
 			fontSize: 14,
-			fontWeight: '400',
+			fontWeight: "400",
 			marginTop: 5,
 		},
 	}),
 	rec: StyleSheet.create({
 		view: {},
 		textView: {
-			flexDirection: 'row',
+			flexDirection: "row",
 		},
 		title: {
 			fontSize: 16,
-			fontWeight: '600',
+			fontWeight: "600",
 		},
 		absolute: {
-			position: 'absolute',
+			position: "absolute",
 			top: 0,
 			left: 0,
 			right: 0,
@@ -349,47 +368,47 @@ const styles = {
 		},
 		shadow: {
 			...Platform.select({
-				android: { elevation: 6, backgroundColor: 'transparent' },
+				android: { elevation: 6, backgroundColor: "transparent" },
 				ios: {
 					shadowOffset: { width: 0, height: 2 },
-					shadowColor: 'black',
+					shadowColor: "black",
 					shadowOpacity: 0.25,
 					shadowRadius: 5,
 				},
 			}),
 		},
 		banner: {
-			width: '100%',
-			height: Platform.OS === 'ios' ? height * 0.18 : height * 0.2,
+			width: "100%",
+			height: Platform.OS === "ios" ? height * 0.18 : height * 0.2,
 			borderTopRightRadius: 6,
 			borderTopLeftRadius: 6,
 		},
 		imageView: {
 			marginTop: -height * 0.08,
 			marginLeft: width * 0.02,
-			height: Platform.OS === 'ios' ? height * 0.17 : height * 0.23,
-			width: '30%',
+			height: Platform.OS === "ios" ? height * 0.17 : height * 0.23,
+			width: "30%",
 		},
 		image: {
-			height: '100%',
-			width: '100%',
+			height: "100%",
+			width: "100%",
 		},
 	}),
 	cards: StyleSheet.create({
 		empty: {
 			flex: 1,
-			justifyContent: 'center',
-			alignItems: 'center',
+			justifyContent: "center",
+			alignItems: "center",
 		},
 		role: {
-			color: 'grey',
-			fontWeight: '300',
+			color: "grey",
+			fontWeight: "300",
 			fontSize: 12,
 			marginTop: 4,
 		},
 		name: {
 			fontSize: 15,
-			fontWeight: '400',
+			fontWeight: "400",
 		},
 		view: {
 			height: height * 0.27,
@@ -402,17 +421,17 @@ const styles = {
 				android: { elevation: 4 },
 				ios: {
 					shadowOffset: { width: 0, height: 2 },
-					shadowColor: 'black',
+					shadowColor: "black",
 					shadowOpacity: 0.25,
 					shadowRadius: 5,
 				},
 			}),
-			height: '70%',
-			width: '100%',
+			height: "70%",
+			width: "100%",
 		},
 		image: {
-			height: '100%',
-			width: '100%',
+			height: "100%",
+			width: "100%",
 		},
 	}),
 };
