@@ -33,6 +33,7 @@ export type JikanEpisodesModel = {
 		title_romanji: string;
 		filler: boolean;
 		recap: boolean;
+		synopsis: string;
 	}[];
 };
 

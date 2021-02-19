@@ -467,9 +467,9 @@ const DetailScreen: FC<Props> = (props) => {
 		return (
 			<View
 				style={{
-					height: "75%",
+					height: "50%",
 					alignSelf: "center",
-					width: widthPercentageToDP(0.75),
+					width: widthPercentageToDP(0.25),
 					backgroundColor: "grey",
 					borderRadius: 6,
 				}}
@@ -569,7 +569,7 @@ const DetailScreen: FC<Props> = (props) => {
 						height: heightPercentageToDP(10),
 						justifyContent: "center",
 						marginBottom: heightPercentageToDP(1.4),
-						backgroundColor: "#484848",
+						backgroundColor: theme.colors.backgroundColor,
 						borderRadius: 6,
 						width: "95%",
 						alignSelf: "center",

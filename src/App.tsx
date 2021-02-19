@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect } from "react";
+import React, { useEffect, createContext, createRef } from "react";
 import {
 	MyQueueItems,
 	useQueueStore,
@@ -30,6 +30,13 @@ import { Vidstreaming } from "./Classes/Sources";
 import OnboardScreen from "./Views/Screens/Onboarding/OnboardScreen";
 import { widgetHandler } from "./Classes/Widgets/HistoryWidget";
 import WhatsNewScreen from "./Views/Screens/WhatsNewScreen";
+import { Modalize } from "react-native-modalize";
+
+export const GlobalContext = createContext({
+  whatsNewRef : createRef<Modalize>(),
+});
+
+
 
 const App = () => {
 	const initTrackers = useUserProfiles((_) => _.init);
@@ -202,8 +209,8 @@ const App = () => {
 
 	//return <TestVideo />;
 
-	//return <Navigator />;
-		return <WhatsNewScreen />;
+	return <Navigator />
+	//	return <WhatsNewScreen />;
 
 	//return <OnboardScreen />
 };

@@ -51,6 +51,7 @@ export function useDetailedHook(
 					const jikanEpisode = JikanEpisodeData!.data[i];
 					episode.filler = jikanEpisode.filler;
 					episode.recap = jikanEpisode.recap;
+					if (episode.description?.length ?? 0 < 5) episode.description = jikanEpisode.synopsis;
 				}
 
 				episode.link = raw;
@@ -72,6 +73,7 @@ export function useDetailedHook(
 					const jikanEpisode = JikanEpisodeData!.data[i];
 					episode.filler = jikanEpisode.filler;
 					episode.recap = jikanEpisode.recap;
+					if (episode.description?.length ?? 0 < 5) episode.description = jikanEpisode.synopsis;
 				}
 				items.push(episode);
 			}

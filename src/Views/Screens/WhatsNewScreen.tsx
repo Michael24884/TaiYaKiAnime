@@ -1,10 +1,11 @@
-import React, { createRef, useEffect } from "react";
+import React, { createRef, FC, useContext, useEffect } from "react";
 import { ImageSourcePropType, StyleSheet, View, Image } from "react-native";
 import { Modalize } from "react-native-modalize";
 import { heightPercentageToDP } from "react-native-responsive-screen";
 import Video from "react-native-video";
 import { useTheme } from "../../Stores";
 import { ThemedSurface, ThemedText } from "../Components";
+import {GlobalContext} from '../../App';
 
 type SectionTitle = "What's New" | "Bug Fixes" | "Other";
 
@@ -21,13 +22,19 @@ type SectionConstructor = {
 	data: SectionData[];
 };
 
-const WhatsNewScreen = () => {
-	const modalRef = createRef<Modalize>();
+interface Props {
+	open: boolean;
+	onClose: () => void;
+}
 
+const WhatsNewScreen: FC<Props> = (props) => {
+	const modalRef = useContext(GlobalContext).whatsNewRef;
+	const {open} = props;
 	const theme = useTheme((_) => _.theme);
+	
 	useEffect(() => {
-		modalRef.current?.open();
-	}, []);
+		if (open) modalRef.current?.open();
+	}, [open]);
 
 	const data: SectionConstructor[] = [
 		{
@@ -46,7 +53,10 @@ const WhatsNewScreen = () => {
 					image: require("../../assets/whatsNew/fillerPrev.png"),
 					comments:
 						"This is a beta feature. If it's incorrect well, you've been warned",
-				},
+				}, 
+				{
+					description: 'If an episode does not have a synopsis it, will use Jikan as a fallback',
+				}
 			],
 		},
 	];
@@ -86,6 +96,7 @@ const WhatsNewScreen = () => {
 				backgroundColor: theme.colors.backgroundColor,
 				padding: heightPercentageToDP(2),
 			}}
+			onClose={props.onClose}
 			rootStyle={styles.view}
 			sectionListProps={{
 				showsVerticalScrollIndicator: false,
