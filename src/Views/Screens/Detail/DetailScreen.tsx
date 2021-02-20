@@ -187,7 +187,7 @@ const DetailScreen: FC<Props> = (props) => {
 			marginBottom: height * 0.022,
 		},
 		subTitle: {
-			fontSize: 19,
+			fontSize: heightPercentageToDP(2.5),
 			fontWeight: "700",
 			marginTop: height * 0.01,
 			marginBottom: height * 0.02,
@@ -207,21 +207,21 @@ const DetailScreen: FC<Props> = (props) => {
 			marginLeft: width * 0.04,
 		},
 		image: {
-			width: width * 0.34,
-			height: Platform.OS === "ios" ? height * 0.21 : height * 0.26,
+			width: heightPercentageToDP(17),
+			height: Platform.OS === "ios" ? heightPercentageToDP(21) : height * 0.26,
 			marginBottom: Platform.OS === "ios" ? undefined : height * 0.03,
 		},
 		title: {
-			fontSize: 17,
+			fontSize: heightPercentageToDP(2.2),
 			fontWeight: "bold",
 		},
 		englishTitle: {
 			color: "grey",
-			fontSize: 13,
+			fontSize: heightPercentageToDP(1.6),
 			fontWeight: "400",
 		},
 		synopsis: {
-			fontSize: 13,
+			fontSize: heightPercentageToDP(1.6),
 		},
 		genresContainer: {
 			flexDirection: "row",
@@ -236,7 +236,7 @@ const DetailScreen: FC<Props> = (props) => {
 		},
 		genreText: {
 			color: "white",
-			fontSize: 13,
+			fontSize: heightPercentageToDP(1.7),
 			fontWeight: "600",
 		},
 		infoRowView: {
@@ -244,13 +244,13 @@ const DetailScreen: FC<Props> = (props) => {
 		},
 		infoRowTitle: {
 			textAlign: "center",
-			fontSize: 22,
+			fontSize: heightPercentageToDP(2.5),
 			fontWeight: "700",
 			color: "grey",
 		},
 		infoRowData: {
 			textAlign: "center",
-			fontSize: 14,
+			fontSize: heightPercentageToDP(1.76),
 			fontWeight: "400",
 			color: "grey",
 			marginVertical: 4,
@@ -262,13 +262,13 @@ const DetailScreen: FC<Props> = (props) => {
 			marginVertical: 15,
 		},
 		imageItems: {
-			height: Platform.OS === "ios" ? height * 0.25 : height * 0.3,
-			width: width * 0.34,
+			height: Platform.OS === "ios" ? heightPercentageToDP(25) : height * 0.3,
+			width: heightPercentageToDP(15),
 			marginHorizontal: width * 0.02,
 			marginBottom: 5,
 		},
 		titleItems: {
-			fontSize: 14,
+			fontSize: heightPercentageToDP(1.7),
 			marginTop: 8,
 		},
 	});
@@ -353,7 +353,7 @@ const DetailScreen: FC<Props> = (props) => {
 		return (
 			<View style={{ justifyContent: "space-between", alignItems: "center" }}>
 				{typeof name === "string" ? (
-					<Icon name={name} type={"MaterialIcons"} color={"grey"} size={30} />
+					<Icon name={name} type={"MaterialIcons"} color={"grey"} size={heightPercentageToDP(3)} />
 				) : (
 					<ThemedText
 						shouldShrink
@@ -378,7 +378,7 @@ const DetailScreen: FC<Props> = (props) => {
 					marginVertical: height * 0.016,
 				}}
 			>
-				<ThemedText style={{ textAlign: "center", fontSize: 13 }}>
+				<ThemedText style={{ textAlign: "center", fontSize: heightPercentageToDP(1.55) }}>
 					{title}
 				</ThemedText>
 				<ThemedText
@@ -386,7 +386,7 @@ const DetailScreen: FC<Props> = (props) => {
 						textAlign: "center",
 						marginTop: 4,
 						color: "grey",
-						fontSize: 13,
+						fontSize: heightPercentageToDP(1.55),
 					}}
 				>
 					{data ?? "N/A"}
@@ -416,7 +416,7 @@ const DetailScreen: FC<Props> = (props) => {
 	}) => {
 		const { title, coverImage, id } = item.node.mediaRecommendation;
 		return (
-			<View style={{ marginTop: 10 }}>
+			<View style={{ marginTop: heightPercentageToDP(1.2) }}>
 				<BaseCards image={coverImage.extraLarge} title={title.romaji} id={id} />
 			</View>
 		);
@@ -845,13 +845,15 @@ const DetailScreen: FC<Props> = (props) => {
 				</View>
 				{characters.nodes.length > 0 ? (
 					<View style={[styles.surface]}>
-						<View style={[styles.rowView, { justifyContent: "space-between" }]}>
+						<View style={[styles.rowView, { justifyContent: "space-between", alignItems: 'center' }]}>
 							<ThemedText style={styles.subTitle}>Characters</ThemedText>
+							<View style={{transform: [{scale: heightPercentageToDP(0.12)}]}}>
 							<Button
 								title={"See All"}
 								color={theme.colors.accent}
 								onPress={() => navigation.push("Characters", { id })}
 							/>
+							</View>
 						</View>
 						<FlatList
 							data={characters.nodes}
@@ -878,13 +880,15 @@ const DetailScreen: FC<Props> = (props) => {
 							{ paddingBottom: 12, justifyContent: "center", marginBottom: 18 },
 						]}
 					>
-						<View style={[styles.rowView, { justifyContent: "space-between" }]}>
+						<View style={[styles.rowView, { justifyContent: "space-between", alignItems: 'center' }]}>
 							<ThemedText style={styles.subTitle}>Recommendations</ThemedText>
+							<View style={{transform: [{scale: heightPercentageToDP(0.12)}]}}>
 							<Button
 								title={"See All"}
 								color={theme.colors.accent}
 								onPress={() => navigation.push("Recommendations", { id })}
 							/>
+							</View>
 						</View>
 						<FlatList
 							data={recommendations.edges.filter(

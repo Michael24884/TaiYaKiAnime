@@ -984,7 +984,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "Taiyaki_Typed-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -1014,7 +1014,7 @@
 				PRODUCT_NAME = Taiyaki_Typed;
 				SWIFT_OBJC_BRIDGING_HEADER = "Taiyaki_Typed-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;

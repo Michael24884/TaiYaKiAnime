@@ -12,6 +12,7 @@ import {
 	TextProps,
 } from "react-native";
 import ParsedText from "react-native-parsed-text";
+import { heightPercentageToDP } from "react-native-responsive-screen";
 import { useTheme } from "../../Stores/theme";
 import { breakLine, italics, paragraph } from "../../Util";
 
@@ -87,7 +88,7 @@ export const ThemedButton: FC<{
 				]}
 			>
 				{props.title ? (
-					<Text style={[{ color: "white", fontWeight: "bold" }]}>
+					<Text style={[{ color: "white", fontWeight: "bold", fontSize: heightPercentageToDP(1.9) }]}>
 						{props.title.toUpperCase()}
 					</Text>
 				) : (

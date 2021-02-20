@@ -55,7 +55,10 @@ const WhatsNewScreen: FC<Props> = (props) => {
 						"This is a beta feature. If it's incorrect well, you've been warned",
 				}, 
 				{
-					description: 'If an episode does not have a synopsis it, will use Jikan as a fallback',
+					description: 'If an episode does not have a synopsis it will use Jikan as a fallback',
+				},
+				{
+					description: 'Added age ratings to Detail Page',
 				}
 			],
 		},

@@ -1,4 +1,4 @@
-import React, { createRef, useEffect } from 'react';
+import React, { createRef, useContext, useEffect, useState } from 'react';
 import {NavigationContainer, useNavigation} from '@react-navigation/native';
 import {
   createStackNavigator,
@@ -34,9 +34,28 @@ import TrackerList from '../Screens/Profiles/tracker_list';
 import {MyProfileMal} from '../Screens/Profiles/my_profile_myanimelist';
 import {MyProfileSimkl} from '../Screens/Profiles/my_profile_simkl';
 import DropDownAlert from './dropDownAlert';
+import WhatsNewScreen from '../Screens/WhatsNewScreen';
+import { GlobalContext } from '../../App';
+import { Modalize } from 'react-native-modalize';
+import {build} from '../../../package.json';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+const InitialGlobalValue = {
+	whatsNewRef: createRef<Modalize>(),
+} 
 
 export const Navigator = () => {
   const theme = useTheme((_) => _.theme);
+  const [whatsNewOpen, setWhatsNewOpen] = useState<boolean>(false);
+
+  useEffect(() => {
+    AsyncStorage.getItem('version')
+    .then((file) => {
+      if (!file) setWhatsNewOpen(true);
+      const fileBuild = Number(file);
+      if (fileBuild < build) setWhatsNewOpen(true);
+    })
+  }, [])
 
   const dropDown = createRef<DropDownAlert>();
 
@@ -200,7 +219,7 @@ export const Navigator = () => {
   }
 
   return (
-    <>
+    <GlobalContext.Provider value={InitialGlobalValue}>
       <StatusBar
         barStyle={theme.dark ? 'light-content' : 'dark-content'}
         // barStyle={'light-content'}
@@ -266,6 +285,10 @@ export const Navigator = () => {
           />
         </Tab.Navigator>
       </NavigationContainer>
-    </>
+      <WhatsNewScreen open={whatsNewOpen} onClose={() => {
+        setWhatsNewOpen(false);
+        AsyncStorage.setItem('version', `${build}`);
+      }}/>
+    </GlobalContext.Provider>
   );
 };
