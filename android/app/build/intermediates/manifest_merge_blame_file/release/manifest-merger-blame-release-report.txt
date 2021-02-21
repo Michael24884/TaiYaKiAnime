@@ -1,7 +1,7 @@
 1<?xml version="1.0" encoding="utf-8"?>
 2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
 3    package="com.taiyaki_typed"
-4    android:versionCode="1"
+4    android:versionCode="4194305"
 5    android:versionName="1.0" >
 6
 7    <uses-sdk
@@ -17,14 +17,14 @@
 13    <!-- Although the *SdkVersion is captured in gradle build files, this is required for non gradle builds -->
 14    <!-- <uses-sdk android:minSdkVersion="14"/> -->
 15    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- Required by older versions of Google Play services to create IID tokens -->
-15-->[com.google.android.datatransport:transport-backend-cct:2.2.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/89a42a17bceb15a6b56920baa9a303ed/transport-backend-cct-2.2.0/AndroidManifest.xml:25:5-79
-15-->[com.google.android.datatransport:transport-backend-cct:2.2.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/89a42a17bceb15a6b56920baa9a303ed/transport-backend-cct-2.2.0/AndroidManifest.xml:25:22-76
+15-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/202002c2292616aca9881669fc772183/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:25:5-79
+15-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/202002c2292616aca9881669fc772183/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:25:22-76
 16    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 16-->[com.google.android.gms:play-services-iid:17.0.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/61e3e279020c351517b511e7d56d43f0/play-services-iid-17.0.0/AndroidManifest.xml:23:5-82
 16-->[com.google.android.gms:play-services-iid:17.0.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/61e3e279020c351517b511e7d56d43f0/play-services-iid-17.0.0/AndroidManifest.xml:23:22-79
 17    <uses-permission android:name="android.permission.WAKE_LOCK" />
-17-->[com.google.firebase:firebase-iid:21.0.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/2feddd337437f50aaf011f7fba40ea28/firebase-iid-21.0.0/AndroidManifest.xml:24:5-68
-17-->[com.google.firebase:firebase-iid:21.0.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/2feddd337437f50aaf011f7fba40ea28/firebase-iid-21.0.0/AndroidManifest.xml:24:22-65
+17-->[com.google.firebase:firebase-iid:21.0.1] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/2ac81d7ce360ab554b900cae5b96612d/firebase-iid-21.0.1/AndroidManifest.xml:24:5-68
+17-->[com.google.firebase:firebase-iid:21.0.1] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/2ac81d7ce360ab554b900cae5b96612d/firebase-iid-21.0.1/AndroidManifest.xml:24:22-65
 18    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 18-->[com.transistorsoft:tsbackgroundfetch:0.4.5] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/e0e9da1b73080c15e2eb0bcd8b2c0064/tsbackgroundfetch-0.4.5/AndroidManifest.xml:11:5-81
 18-->[com.transistorsoft:tsbackgroundfetch:0.4.5] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/e0e9da1b73080c15e2eb0bcd8b2c0064/tsbackgroundfetch-0.4.5/AndroidManifest.xml:11:22-78
@@ -89,7 +89,7 @@
 41-->[me.leolin:ShortcutBadger:1.1.22] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/d84c8b03d51d0277116a184f8255f4d2/ShortcutBadger-1.1.22/AndroidManifest.xml:50:22-86
 42
 43    <application
-43-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:6:5-32:19
+43-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:6:5-54:19
 44        android:name="com.taiyaki_typed.MainApplication"
 44-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:7:7-38
 45        android:allowBackup="false"
@@ -100,229 +100,305 @@
 47-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:9:7-41
 48        android:label="@string/app_name"
 48-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:8:7-39
-49        android:roundIcon="@mipmap/ic_launcher_round"
-49-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:10:7-52
-50        android:theme="@style/AppTheme" >
-50-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:12:7-38
-51        <activity
-51-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:14:7-21:18
-52            android:name="com.taiyaki_typed.MainActivity"
-52-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:15:9-37
-53            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|uiMode"
-53-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:17:9-86
-54            android:exported="true"
-54-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:19:9-32
-55            android:label="@string/app_name"
-55-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:16:9-41
-56            android:launchMode="singleTask"
-56-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:18:9-40
-57            android:windowSoftInputMode="adjustResize" >
-57-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:20:9-51
-58        </activity>
-59        <activity
-59-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:22:7-30:16
-60            android:name="com.zoontek.rnbootsplash.RNBootSplashActivity"
-60-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:23:7-67
-61            android:launchMode="singleTask"
-61-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:25:7-38
-62            android:theme="@style/BootTheme" >
-62-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:24:7-39
-63            <intent-filter>
-63-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:26:7-29:23
-64                <action android:name="android.intent.action.MAIN" />
-64-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:27:9-61
-64-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:27:17-58
-65
-66                <category android:name="android.intent.category.LAUNCHER" />
-66-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:28:9-69
-66-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:28:19-66
+49        android:theme="@style/AppTheme" >
+49-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:12:7-38
+50        <activity
+50-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:14:7-43:18
+51            android:name="com.taiyaki_typed.MainActivity"
+51-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:15:9-37
+52            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|uiMode"
+52-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:17:9-86
+53            android:exported="true"
+53-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:19:9-32
+54            android:label="@string/app_name"
+54-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:16:9-41
+55            android:launchMode="singleTask"
+55-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:18:9-40
+56            android:windowSoftInputMode="adjustResize" >
+56-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:20:9-51
+57            <intent-filter>
+57-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:22:7-27:23
+58                <action android:name="android.intent.action.VIEW" />
+58-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:23:8-60
+58-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:23:16-57
+59
+60                <category android:name="android.intent.category.DEFAULT" />
+60-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:24:8-67
+60-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:24:18-64
+61                <category android:name="android.intent.category.BROWSABLE" />
+61-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:25:8-69
+61-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:25:18-66
+62
+63                <data
+63-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:26:8-86
+64                    android:host="anilist"
+64-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:26:39-61
+65                    android:pathPrefix=""
+65-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:26:62-83
+66                    android:scheme="taiyaki" />
+66-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:26:14-38
 67            </intent-filter>
-68        </activity>
-69        <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
-69-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:31:7-84
-69-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:31:17-81
+68            <intent-filter>
+68-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:29:7-34:23
+69                <action android:name="android.intent.action.VIEW" />
+69-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:23:8-60
+69-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:23:16-57
 70
-71        <receiver
-71-->[:react-native-device-info] /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/node_modules/react-native-device-info/android/build/intermediates/library_manifest/release/AndroidManifest.xml:13:9-22:20
-72            android:name="com.learnium.RNDeviceInfo.RNDeviceReceiver"
-72-->[:react-native-device-info] /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/node_modules/react-native-device-info/android/build/intermediates/library_manifest/release/AndroidManifest.xml:14:13-70
-73            android:enabled="true"
-73-->[:react-native-device-info] /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/node_modules/react-native-device-info/android/build/intermediates/library_manifest/release/AndroidManifest.xml:15:13-35
-74            android:exported="true"
-74-->[:react-native-device-info] /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/node_modules/react-native-device-info/android/build/intermediates/library_manifest/release/AndroidManifest.xml:16:13-36
-75            android:permission="android.permission.INSTALL_PACKAGES" >
-75-->[:react-native-device-info] /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/node_modules/react-native-device-info/android/build/intermediates/library_manifest/release/AndroidManifest.xml:17:13-69
-76            <intent-filter>
-76-->[:react-native-device-info] /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/node_modules/react-native-device-info/android/build/intermediates/library_manifest/release/AndroidManifest.xml:19:13-21:29
-77                <action android:name="com.android.vending.INSTALL_REFERRER" />
-77-->[:react-native-device-info] /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/node_modules/react-native-device-info/android/build/intermediates/library_manifest/release/AndroidManifest.xml:20:17-79
-77-->[:react-native-device-info] /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/node_modules/react-native-device-info/android/build/intermediates/library_manifest/release/AndroidManifest.xml:20:25-76
+71                <category android:name="android.intent.category.DEFAULT" />
+71-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:24:8-67
+71-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:24:18-64
+72                <category android:name="android.intent.category.BROWSABLE" />
+72-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:25:8-69
+72-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:25:18-66
+73
+74                <data
+74-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:26:8-86
+75                    android:host="myanimelist"
+75-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:26:39-61
+76                    android:pathPrefix=""
+76-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:26:62-83
+77                    android:scheme="taiyaki" />
+77-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:26:14-38
 78            </intent-filter>
-79        </receiver>
-80
-81        <activity android:name="com.proyecto26.inappbrowser.ChromeTabsManagerActivity" >
-81-->[:react-native-inappbrowser-reborn] /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/node_modules/react-native-inappbrowser-reborn/android/build/intermediates/library_manifest/release/AndroidManifest.xml:14:9-15:20
-81-->[:react-native-inappbrowser-reborn] /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/node_modules/react-native-inappbrowser-reborn/android/build/intermediates/library_manifest/release/AndroidManifest.xml:14:19-87
-82        </activity>
-83        <!--
-84             FirebaseMessagingService performs security checks at runtime,
-85             but set to not exported to explicitly avoid allowing another app to call it.
-86        -->
-87        <service
-87-->[com.google.firebase:firebase-messaging:21.0.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/098d11b50f3b3d6af751cd078835c643/jetified-firebase-messaging-21.0.0/AndroidManifest.xml:28:9-35:19
-88            android:name="com.google.firebase.messaging.FirebaseMessagingService"
-88-->[com.google.firebase:firebase-messaging:21.0.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/098d11b50f3b3d6af751cd078835c643/jetified-firebase-messaging-21.0.0/AndroidManifest.xml:29:13-82
-89            android:directBootAware="true"
-89-->[com.google.firebase:firebase-messaging:21.0.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/098d11b50f3b3d6af751cd078835c643/jetified-firebase-messaging-21.0.0/AndroidManifest.xml:30:13-43
-90            android:exported="false" >
-90-->[com.google.firebase:firebase-messaging:21.0.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/098d11b50f3b3d6af751cd078835c643/jetified-firebase-messaging-21.0.0/AndroidManifest.xml:31:13-37
-91            <intent-filter android:priority="-500" >
-91-->[com.google.firebase:firebase-messaging:21.0.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/098d11b50f3b3d6af751cd078835c643/jetified-firebase-messaging-21.0.0/AndroidManifest.xml:32:13-34:29
-91-->[com.google.firebase:firebase-messaging:21.0.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/098d11b50f3b3d6af751cd078835c643/jetified-firebase-messaging-21.0.0/AndroidManifest.xml:32:28-51
-92                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-92-->[com.google.firebase:firebase-messaging:21.0.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/098d11b50f3b3d6af751cd078835c643/jetified-firebase-messaging-21.0.0/AndroidManifest.xml:33:17-78
-92-->[com.google.firebase:firebase-messaging:21.0.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/098d11b50f3b3d6af751cd078835c643/jetified-firebase-messaging-21.0.0/AndroidManifest.xml:33:25-75
-93            </intent-filter>
-94        </service>
-95        <service
-95-->[com.google.firebase:firebase-messaging:21.0.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/098d11b50f3b3d6af751cd078835c643/jetified-firebase-messaging-21.0.0/AndroidManifest.xml:36:9-42:19
-96            android:name="com.google.firebase.components.ComponentDiscoveryService"
-96-->[com.google.firebase:firebase-messaging:21.0.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/098d11b50f3b3d6af751cd078835c643/jetified-firebase-messaging-21.0.0/AndroidManifest.xml:37:13-84
-97            android:directBootAware="true"
-97-->[com.google.firebase:firebase-common:19.3.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/ee7b4402399892e97dbb4362b245dae7/jetified-firebase-common-19.3.0/AndroidManifest.xml:34:13-43
-98            android:exported="false" >
-98-->[com.google.firebase:firebase-messaging:21.0.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/098d11b50f3b3d6af751cd078835c643/jetified-firebase-messaging-21.0.0/AndroidManifest.xml:38:13-37
-99            <meta-data
-99-->[com.google.firebase:firebase-messaging:21.0.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/098d11b50f3b3d6af751cd078835c643/jetified-firebase-messaging-21.0.0/AndroidManifest.xml:39:13-41:85
-100                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar"
-100-->[com.google.firebase:firebase-messaging:21.0.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/098d11b50f3b3d6af751cd078835c643/jetified-firebase-messaging-21.0.0/AndroidManifest.xml:40:17-119
-101                android:value="com.google.firebase.components.ComponentRegistrar" />
-101-->[com.google.firebase:firebase-messaging:21.0.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/098d11b50f3b3d6af751cd078835c643/jetified-firebase-messaging-21.0.0/AndroidManifest.xml:41:17-82
-102            <meta-data
-102-->[com.google.firebase:firebase-datatransport:17.0.3] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/3b1ff57592697a98393cd0fe02e9582b/firebase-datatransport-17.0.3/AndroidManifest.xml:28:13-30:85
-103                android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar"
-103-->[com.google.firebase:firebase-datatransport:17.0.3] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/3b1ff57592697a98393cd0fe02e9582b/firebase-datatransport-17.0.3/AndroidManifest.xml:29:17-115
-104                android:value="com.google.firebase.components.ComponentRegistrar" />
-104-->[com.google.firebase:firebase-datatransport:17.0.3] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/3b1ff57592697a98393cd0fe02e9582b/firebase-datatransport-17.0.3/AndroidManifest.xml:30:17-82
-105            <meta-data
-105-->[com.google.firebase:firebase-iid:21.0.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/2feddd337437f50aaf011f7fba40ea28/firebase-iid-21.0.0/AndroidManifest.xml:32:13-34:85
-106                android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
-106-->[com.google.firebase:firebase-iid:21.0.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/2feddd337437f50aaf011f7fba40ea28/firebase-iid-21.0.0/AndroidManifest.xml:33:17-96
-107                android:value="com.google.firebase.components.ComponentRegistrar" />
-107-->[com.google.firebase:firebase-iid:21.0.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/2feddd337437f50aaf011f7fba40ea28/firebase-iid-21.0.0/AndroidManifest.xml:34:17-82
-108            <meta-data
-108-->[com.google.firebase:firebase-installations:16.3.3] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/2c97c52c0f86c2302fb2c467e2ddf2d5/firebase-installations-16.3.3/AndroidManifest.xml:17:13-19:85
-109                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
-109-->[com.google.firebase:firebase-installations:16.3.3] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/2c97c52c0f86c2302fb2c467e2ddf2d5/firebase-installations-16.3.3/AndroidManifest.xml:18:17-127
-110                android:value="com.google.firebase.components.ComponentRegistrar" />
-110-->[com.google.firebase:firebase-installations:16.3.3] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/2c97c52c0f86c2302fb2c467e2ddf2d5/firebase-installations-16.3.3/AndroidManifest.xml:19:17-82
-111        </service>
-112        <service
-112-->[com.google.android.datatransport:transport-backend-cct:2.2.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/89a42a17bceb15a6b56920baa9a303ed/transport-backend-cct-2.2.0/AndroidManifest.xml:29:9-35:19
-113            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
-113-->[com.google.android.datatransport:transport-backend-cct:2.2.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/89a42a17bceb15a6b56920baa9a303ed/transport-backend-cct-2.2.0/AndroidManifest.xml:30:13-103
-114            android:exported="false" >
-114-->[com.google.android.datatransport:transport-backend-cct:2.2.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/89a42a17bceb15a6b56920baa9a303ed/transport-backend-cct-2.2.0/AndroidManifest.xml:31:13-37
-115            <meta-data
-115-->[com.google.android.datatransport:transport-backend-cct:2.2.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/89a42a17bceb15a6b56920baa9a303ed/transport-backend-cct-2.2.0/AndroidManifest.xml:32:13-34:39
-116                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
-116-->[com.google.android.datatransport:transport-backend-cct:2.2.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/89a42a17bceb15a6b56920baa9a303ed/transport-backend-cct-2.2.0/AndroidManifest.xml:33:17-94
-117                android:value="cct" />
-117-->[com.google.android.datatransport:transport-backend-cct:2.2.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/89a42a17bceb15a6b56920baa9a303ed/transport-backend-cct-2.2.0/AndroidManifest.xml:34:17-36
-118        </service>
+79            <intent-filter>
+79-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:36:7-41:23
+80                <action android:name="android.intent.action.VIEW" />
+80-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:23:8-60
+80-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:23:16-57
+81
+82                <category android:name="android.intent.category.DEFAULT" />
+82-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:24:8-67
+82-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:24:18-64
+83                <category android:name="android.intent.category.BROWSABLE" />
+83-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:25:8-69
+83-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:25:18-66
+84
+85                <data
+85-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:26:8-86
+86                    android:host="simkl"
+86-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:26:39-61
+87                    android:pathPrefix=""
+87-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:26:62-83
+88                    android:scheme="taiyaki" />
+88-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:26:14-38
+89            </intent-filter>
+90        </activity>
+91        <activity
+91-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:44:7-52:16
+92            android:name="com.zoontek.rnbootsplash.RNBootSplashActivity"
+92-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:45:7-67
+93            android:launchMode="singleTask"
+93-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:47:7-38
+94            android:theme="@style/BootTheme" >
+94-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:46:7-39
+95            <intent-filter>
+95-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:48:7-51:23
+96                <action android:name="android.intent.action.MAIN" />
+96-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:49:9-61
+96-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:49:17-58
+97
+98                <category android:name="android.intent.category.LAUNCHER" />
+98-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:50:9-69
+98-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:50:19-66
+99            </intent-filter>
+100        </activity>
+101        <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
+101-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:53:7-84
+101-->/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/src/main/AndroidManifest.xml:53:17-81
+102
+103        <receiver
+103-->[:react-native-device-info] /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/node_modules/react-native-device-info/android/build/intermediates/library_manifest/release/AndroidManifest.xml:13:9-22:20
+104            android:name="com.learnium.RNDeviceInfo.RNDeviceReceiver"
+104-->[:react-native-device-info] /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/node_modules/react-native-device-info/android/build/intermediates/library_manifest/release/AndroidManifest.xml:14:13-70
+105            android:enabled="true"
+105-->[:react-native-device-info] /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/node_modules/react-native-device-info/android/build/intermediates/library_manifest/release/AndroidManifest.xml:15:13-35
+106            android:exported="true"
+106-->[:react-native-device-info] /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/node_modules/react-native-device-info/android/build/intermediates/library_manifest/release/AndroidManifest.xml:16:13-36
+107            android:permission="android.permission.INSTALL_PACKAGES" >
+107-->[:react-native-device-info] /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/node_modules/react-native-device-info/android/build/intermediates/library_manifest/release/AndroidManifest.xml:17:13-69
+108            <intent-filter>
+108-->[:react-native-device-info] /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/node_modules/react-native-device-info/android/build/intermediates/library_manifest/release/AndroidManifest.xml:19:13-21:29
+109                <action android:name="com.android.vending.INSTALL_REFERRER" />
+109-->[:react-native-device-info] /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/node_modules/react-native-device-info/android/build/intermediates/library_manifest/release/AndroidManifest.xml:20:17-79
+109-->[:react-native-device-info] /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/node_modules/react-native-device-info/android/build/intermediates/library_manifest/release/AndroidManifest.xml:20:25-76
+110            </intent-filter>
+111        </receiver>
+112
+113        <activity android:name="com.proyecto26.inappbrowser.ChromeTabsManagerActivity" >
+113-->[:react-native-inappbrowser-reborn] /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/node_modules/react-native-inappbrowser-reborn/android/build/intermediates/library_manifest/release/AndroidManifest.xml:14:9-15:20
+113-->[:react-native-inappbrowser-reborn] /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/node_modules/react-native-inappbrowser-reborn/android/build/intermediates/library_manifest/release/AndroidManifest.xml:14:19-87
+114        </activity>
+115        <!--
+116             FirebaseMessagingService performs security checks at runtime,
+117             but set to not exported to explicitly avoid allowing another app to call it.
+118        -->
 119        <service
-119-->[com.google.android.datatransport:transport-runtime:2.2.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/07c4d8693df29619e2544e6a1af31ce8/transport-runtime-2.2.0/AndroidManifest.xml:26:9-30:19
-120            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
-120-->[com.google.android.datatransport:transport-runtime:2.2.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/07c4d8693df29619e2544e6a1af31ce8/transport-runtime-2.2.0/AndroidManifest.xml:27:13-117
-121            android:exported="false"
-121-->[com.google.android.datatransport:transport-runtime:2.2.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/07c4d8693df29619e2544e6a1af31ce8/transport-runtime-2.2.0/AndroidManifest.xml:28:13-37
-122            android:permission="android.permission.BIND_JOB_SERVICE" >
-122-->[com.google.android.datatransport:transport-runtime:2.2.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/07c4d8693df29619e2544e6a1af31ce8/transport-runtime-2.2.0/AndroidManifest.xml:29:13-69
-123        </service>
-124
-125        <receiver
-125-->[com.google.android.datatransport:transport-runtime:2.2.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/07c4d8693df29619e2544e6a1af31ce8/transport-runtime-2.2.0/AndroidManifest.xml:32:9-34:40
-126            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
-126-->[com.google.android.datatransport:transport-runtime:2.2.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/07c4d8693df29619e2544e6a1af31ce8/transport-runtime-2.2.0/AndroidManifest.xml:33:13-132
-127            android:exported="false" />
-127-->[com.google.android.datatransport:transport-runtime:2.2.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/07c4d8693df29619e2544e6a1af31ce8/transport-runtime-2.2.0/AndroidManifest.xml:34:13-37
-128
-129        <meta-data
-129-->[com.github.bumptech.glide:okhttp3-integration:4.11.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/58a0708f7cc58d169e3a733a55bec454/okhttp3-integration-4.11.0/AndroidManifest.xml:11:9-13:43
-130            android:name="com.bumptech.glide.integration.okhttp3.OkHttpGlideModule"
-130-->[com.github.bumptech.glide:okhttp3-integration:4.11.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/58a0708f7cc58d169e3a733a55bec454/okhttp3-integration-4.11.0/AndroidManifest.xml:12:13-84
-131            android:value="GlideModule" />
-131-->[com.github.bumptech.glide:okhttp3-integration:4.11.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/58a0708f7cc58d169e3a733a55bec454/okhttp3-integration-4.11.0/AndroidManifest.xml:13:13-40
-132
-133        <receiver
-133-->[com.google.firebase:firebase-iid:21.0.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/2feddd337437f50aaf011f7fba40ea28/firebase-iid-21.0.0/AndroidManifest.xml:37:9-44:20
-134            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
-134-->[com.google.firebase:firebase-iid:21.0.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/2feddd337437f50aaf011f7fba40ea28/firebase-iid-21.0.0/AndroidManifest.xml:38:13-78
-135            android:exported="true"
-135-->[com.google.firebase:firebase-iid:21.0.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/2feddd337437f50aaf011f7fba40ea28/firebase-iid-21.0.0/AndroidManifest.xml:39:13-36
-136            android:permission="com.google.android.c2dm.permission.SEND" >
-136-->[com.google.firebase:firebase-iid:21.0.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/2feddd337437f50aaf011f7fba40ea28/firebase-iid-21.0.0/AndroidManifest.xml:40:13-73
-137            <intent-filter>
-137-->[com.google.firebase:firebase-iid:21.0.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/2feddd337437f50aaf011f7fba40ea28/firebase-iid-21.0.0/AndroidManifest.xml:41:13-43:29
-138                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-138-->[com.google.firebase:firebase-iid:21.0.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/2feddd337437f50aaf011f7fba40ea28/firebase-iid-21.0.0/AndroidManifest.xml:42:17-81
-138-->[com.google.firebase:firebase-iid:21.0.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/2feddd337437f50aaf011f7fba40ea28/firebase-iid-21.0.0/AndroidManifest.xml:42:25-78
-139            </intent-filter>
-140        </receiver>
-141
-142        <activity
-142-->[com.google.android.gms:play-services-base:17.0.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/fc8046cb9a5df9499609a5f7f8270b1b/play-services-base-17.0.0/AndroidManifest.xml:23:9-26:75
-143            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-143-->[com.google.android.gms:play-services-base:17.0.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/fc8046cb9a5df9499609a5f7f8270b1b/play-services-base-17.0.0/AndroidManifest.xml:24:13-79
-144            android:exported="false"
-144-->[com.google.android.gms:play-services-base:17.0.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/fc8046cb9a5df9499609a5f7f8270b1b/play-services-base-17.0.0/AndroidManifest.xml:25:13-37
-145            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-145-->[com.google.android.gms:play-services-base:17.0.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/fc8046cb9a5df9499609a5f7f8270b1b/play-services-base-17.0.0/AndroidManifest.xml:26:13-72
-146
-147        <provider
-147-->[com.google.firebase:firebase-common:19.3.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/ee7b4402399892e97dbb4362b245dae7/jetified-firebase-common-19.3.0/AndroidManifest.xml:26:9-30:39
-148            android:name="com.google.firebase.provider.FirebaseInitProvider"
-148-->[com.google.firebase:firebase-common:19.3.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/ee7b4402399892e97dbb4362b245dae7/jetified-firebase-common-19.3.0/AndroidManifest.xml:27:13-77
-149            android:authorities="com.taiyaki_typed.firebaseinitprovider"
-149-->[com.google.firebase:firebase-common:19.3.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/ee7b4402399892e97dbb4362b245dae7/jetified-firebase-common-19.3.0/AndroidManifest.xml:28:13-72
-150            android:exported="false"
-150-->[com.google.firebase:firebase-common:19.3.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/ee7b4402399892e97dbb4362b245dae7/jetified-firebase-common-19.3.0/AndroidManifest.xml:29:13-37
-151            android:initOrder="100" />
-151-->[com.google.firebase:firebase-common:19.3.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/ee7b4402399892e97dbb4362b245dae7/jetified-firebase-common-19.3.0/AndroidManifest.xml:30:13-36
-152
-153        <meta-data
-153-->[com.google.android.gms:play-services-basement:17.0.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/655d0b8d538f42cf378a47c98869b24b/jetified-play-services-basement-17.0.0/AndroidManifest.xml:23:9-25:69
-154            android:name="com.google.android.gms.version"
-154-->[com.google.android.gms:play-services-basement:17.0.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/655d0b8d538f42cf378a47c98869b24b/jetified-play-services-basement-17.0.0/AndroidManifest.xml:24:13-58
-155            android:value="@integer/google_play_services_version" />
-155-->[com.google.android.gms:play-services-basement:17.0.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/655d0b8d538f42cf378a47c98869b24b/jetified-play-services-basement-17.0.0/AndroidManifest.xml:25:13-66
-156
-157        <receiver android:name="com.transistorsoft.tsbackgroundfetch.FetchAlarmReceiver" />
-157-->[com.transistorsoft:tsbackgroundfetch:0.4.5] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/e0e9da1b73080c15e2eb0bcd8b2c0064/tsbackgroundfetch-0.4.5/AndroidManifest.xml:16:9-92
-157-->[com.transistorsoft:tsbackgroundfetch:0.4.5] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/e0e9da1b73080c15e2eb0bcd8b2c0064/tsbackgroundfetch-0.4.5/AndroidManifest.xml:16:19-89
-158
-159        <service
-159-->[com.transistorsoft:tsbackgroundfetch:0.4.5] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/e0e9da1b73080c15e2eb0bcd8b2c0064/tsbackgroundfetch-0.4.5/AndroidManifest.xml:18:9-21:72
-160            android:name="com.transistorsoft.tsbackgroundfetch.FetchJobService"
-160-->[com.transistorsoft:tsbackgroundfetch:0.4.5] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/e0e9da1b73080c15e2eb0bcd8b2c0064/tsbackgroundfetch-0.4.5/AndroidManifest.xml:19:13-80
-161            android:exported="true"
-161-->[com.transistorsoft:tsbackgroundfetch:0.4.5] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/e0e9da1b73080c15e2eb0bcd8b2c0064/tsbackgroundfetch-0.4.5/AndroidManifest.xml:20:13-36
-162            android:permission="android.permission.BIND_JOB_SERVICE" />
-162-->[com.transistorsoft:tsbackgroundfetch:0.4.5] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/e0e9da1b73080c15e2eb0bcd8b2c0064/tsbackgroundfetch-0.4.5/AndroidManifest.xml:21:13-69
+119-->[com.google.firebase:firebase-messaging:21.0.1] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/8f81c86d76d7374fea12be646b598e8a/jetified-firebase-messaging-21.0.1/AndroidManifest.xml:28:9-35:19
+120            android:name="com.google.firebase.messaging.FirebaseMessagingService"
+120-->[com.google.firebase:firebase-messaging:21.0.1] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/8f81c86d76d7374fea12be646b598e8a/jetified-firebase-messaging-21.0.1/AndroidManifest.xml:29:13-82
+121            android:directBootAware="true"
+121-->[com.google.firebase:firebase-messaging:21.0.1] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/8f81c86d76d7374fea12be646b598e8a/jetified-firebase-messaging-21.0.1/AndroidManifest.xml:30:13-43
+122            android:exported="false" >
+122-->[com.google.firebase:firebase-messaging:21.0.1] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/8f81c86d76d7374fea12be646b598e8a/jetified-firebase-messaging-21.0.1/AndroidManifest.xml:31:13-37
+123            <intent-filter android:priority="-500" >
+123-->[com.google.firebase:firebase-messaging:21.0.1] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/8f81c86d76d7374fea12be646b598e8a/jetified-firebase-messaging-21.0.1/AndroidManifest.xml:32:13-34:29
+123-->[com.google.firebase:firebase-messaging:21.0.1] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/8f81c86d76d7374fea12be646b598e8a/jetified-firebase-messaging-21.0.1/AndroidManifest.xml:32:28-51
+124                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+124-->[com.google.firebase:firebase-messaging:21.0.1] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/8f81c86d76d7374fea12be646b598e8a/jetified-firebase-messaging-21.0.1/AndroidManifest.xml:33:17-78
+124-->[com.google.firebase:firebase-messaging:21.0.1] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/8f81c86d76d7374fea12be646b598e8a/jetified-firebase-messaging-21.0.1/AndroidManifest.xml:33:25-75
+125            </intent-filter>
+126        </service>
+127        <service
+127-->[com.google.firebase:firebase-messaging:21.0.1] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/8f81c86d76d7374fea12be646b598e8a/jetified-firebase-messaging-21.0.1/AndroidManifest.xml:36:9-42:19
+128            android:name="com.google.firebase.components.ComponentDiscoveryService"
+128-->[com.google.firebase:firebase-messaging:21.0.1] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/8f81c86d76d7374fea12be646b598e8a/jetified-firebase-messaging-21.0.1/AndroidManifest.xml:37:13-84
+129            android:directBootAware="true"
+129-->[com.google.firebase:firebase-common:19.5.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/b2efee4bb4abddaa906df961b5faa814/jetified-firebase-common-19.5.0/AndroidManifest.xml:35:13-43
+130            android:exported="false" >
+130-->[com.google.firebase:firebase-messaging:21.0.1] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/8f81c86d76d7374fea12be646b598e8a/jetified-firebase-messaging-21.0.1/AndroidManifest.xml:38:13-37
+131            <meta-data
+131-->[com.google.firebase:firebase-messaging:21.0.1] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/8f81c86d76d7374fea12be646b598e8a/jetified-firebase-messaging-21.0.1/AndroidManifest.xml:39:13-41:85
+132                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar"
+132-->[com.google.firebase:firebase-messaging:21.0.1] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/8f81c86d76d7374fea12be646b598e8a/jetified-firebase-messaging-21.0.1/AndroidManifest.xml:40:17-119
+133                android:value="com.google.firebase.components.ComponentRegistrar" />
+133-->[com.google.firebase:firebase-messaging:21.0.1] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/8f81c86d76d7374fea12be646b598e8a/jetified-firebase-messaging-21.0.1/AndroidManifest.xml:41:17-82
+134            <meta-data
+134-->[com.google.firebase:firebase-datatransport:17.0.10] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/b403f53b475397337b03a4649f850ab1/firebase-datatransport-17.0.10/AndroidManifest.xml:28:13-30:85
+135                android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar"
+135-->[com.google.firebase:firebase-datatransport:17.0.10] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/b403f53b475397337b03a4649f850ab1/firebase-datatransport-17.0.10/AndroidManifest.xml:29:17-115
+136                android:value="com.google.firebase.components.ComponentRegistrar" />
+136-->[com.google.firebase:firebase-datatransport:17.0.10] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/b403f53b475397337b03a4649f850ab1/firebase-datatransport-17.0.10/AndroidManifest.xml:30:17-82
+137            <meta-data
+137-->[com.google.firebase:firebase-iid:21.0.1] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/2ac81d7ce360ab554b900cae5b96612d/firebase-iid-21.0.1/AndroidManifest.xml:32:13-34:85
+138                android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
+138-->[com.google.firebase:firebase-iid:21.0.1] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/2ac81d7ce360ab554b900cae5b96612d/firebase-iid-21.0.1/AndroidManifest.xml:33:17-96
+139                android:value="com.google.firebase.components.ComponentRegistrar" />
+139-->[com.google.firebase:firebase-iid:21.0.1] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/2ac81d7ce360ab554b900cae5b96612d/firebase-iid-21.0.1/AndroidManifest.xml:34:17-82
+140            <meta-data
+140-->[com.google.firebase:firebase-installations:16.3.5] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/cb2c46af1b59aaeb22d02f341eec81ce/firebase-installations-16.3.5/AndroidManifest.xml:18:13-20:85
+141                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
+141-->[com.google.firebase:firebase-installations:16.3.5] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/cb2c46af1b59aaeb22d02f341eec81ce/firebase-installations-16.3.5/AndroidManifest.xml:19:17-127
+142                android:value="com.google.firebase.components.ComponentRegistrar" />
+142-->[com.google.firebase:firebase-installations:16.3.5] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/cb2c46af1b59aaeb22d02f341eec81ce/firebase-installations-16.3.5/AndroidManifest.xml:20:17-82
+143            <!--
+144                This registrar is not defined in the dynamic-module-support sdk itself to allow non-firebase
+145                clients to use it as well, by defining this registrar in their own core/common library.
+146            -->
+147            <meta-data
+147-->[com.google.firebase:firebase-common:19.5.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/b2efee4bb4abddaa906df961b5faa814/jetified-firebase-common-19.5.0/AndroidManifest.xml:43:13-45:85
+148                android:name="com.google.firebase.components:com.google.firebase.dynamicloading.DynamicLoadingRegistrar"
+148-->[com.google.firebase:firebase-common:19.5.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/b2efee4bb4abddaa906df961b5faa814/jetified-firebase-common-19.5.0/AndroidManifest.xml:44:17-121
+149                android:value="com.google.firebase.components.ComponentRegistrar" />
+149-->[com.google.firebase:firebase-common:19.5.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/b2efee4bb4abddaa906df961b5faa814/jetified-firebase-common-19.5.0/AndroidManifest.xml:45:17-82
+150        </service>
+151        <service
+151-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/202002c2292616aca9881669fc772183/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:29:9-35:19
+152            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
+152-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/202002c2292616aca9881669fc772183/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:30:13-103
+153            android:exported="false" >
+153-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/202002c2292616aca9881669fc772183/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:31:13-37
+154            <meta-data
+154-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/202002c2292616aca9881669fc772183/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:32:13-34:39
+155                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
+155-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/202002c2292616aca9881669fc772183/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:33:17-94
+156                android:value="cct" />
+156-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/202002c2292616aca9881669fc772183/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:34:17-36
+157        </service>
+158        <service
+158-->[com.google.android.datatransport:transport-runtime:2.2.5] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/c90efaa1200b61ff98b32a9ba92d5093/jetified-transport-runtime-2.2.5/AndroidManifest.xml:26:9-30:19
+159            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
+159-->[com.google.android.datatransport:transport-runtime:2.2.5] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/c90efaa1200b61ff98b32a9ba92d5093/jetified-transport-runtime-2.2.5/AndroidManifest.xml:27:13-117
+160            android:exported="false"
+160-->[com.google.android.datatransport:transport-runtime:2.2.5] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/c90efaa1200b61ff98b32a9ba92d5093/jetified-transport-runtime-2.2.5/AndroidManifest.xml:28:13-37
+161            android:permission="android.permission.BIND_JOB_SERVICE" >
+161-->[com.google.android.datatransport:transport-runtime:2.2.5] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/c90efaa1200b61ff98b32a9ba92d5093/jetified-transport-runtime-2.2.5/AndroidManifest.xml:29:13-69
+162        </service>
 163
-164        <receiver android:name="com.transistorsoft.tsbackgroundfetch.BootReceiver" >
-164-->[com.transistorsoft:tsbackgroundfetch:0.4.5] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/e0e9da1b73080c15e2eb0bcd8b2c0064/tsbackgroundfetch-0.4.5/AndroidManifest.xml:23:9-28:20
-164-->[com.transistorsoft:tsbackgroundfetch:0.4.5] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/e0e9da1b73080c15e2eb0bcd8b2c0064/tsbackgroundfetch-0.4.5/AndroidManifest.xml:23:19-83
-165            <intent-filter>
-165-->[com.transistorsoft:tsbackgroundfetch:0.4.5] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/e0e9da1b73080c15e2eb0bcd8b2c0064/tsbackgroundfetch-0.4.5/AndroidManifest.xml:24:13-27:29
-166                <action android:name="android.intent.action.BOOT_COMPLETED" />
-166-->[com.transistorsoft:tsbackgroundfetch:0.4.5] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/e0e9da1b73080c15e2eb0bcd8b2c0064/tsbackgroundfetch-0.4.5/AndroidManifest.xml:25:17-79
-166-->[com.transistorsoft:tsbackgroundfetch:0.4.5] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/e0e9da1b73080c15e2eb0bcd8b2c0064/tsbackgroundfetch-0.4.5/AndroidManifest.xml:25:25-76
-167                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
-167-->[com.transistorsoft:tsbackgroundfetch:0.4.5] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/e0e9da1b73080c15e2eb0bcd8b2c0064/tsbackgroundfetch-0.4.5/AndroidManifest.xml:26:17-84
-167-->[com.transistorsoft:tsbackgroundfetch:0.4.5] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/e0e9da1b73080c15e2eb0bcd8b2c0064/tsbackgroundfetch-0.4.5/AndroidManifest.xml:26:25-81
-168            </intent-filter>
-169        </receiver>
-170    </application>
+164        <receiver
+164-->[com.google.android.datatransport:transport-runtime:2.2.5] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/c90efaa1200b61ff98b32a9ba92d5093/jetified-transport-runtime-2.2.5/AndroidManifest.xml:32:9-34:40
+165            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+165-->[com.google.android.datatransport:transport-runtime:2.2.5] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/c90efaa1200b61ff98b32a9ba92d5093/jetified-transport-runtime-2.2.5/AndroidManifest.xml:33:13-132
+166            android:exported="false" />
+166-->[com.google.android.datatransport:transport-runtime:2.2.5] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/c90efaa1200b61ff98b32a9ba92d5093/jetified-transport-runtime-2.2.5/AndroidManifest.xml:34:13-37
+167
+168        <meta-data
+168-->[com.github.bumptech.glide:okhttp3-integration:4.11.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/58a0708f7cc58d169e3a733a55bec454/okhttp3-integration-4.11.0/AndroidManifest.xml:11:9-13:43
+169            android:name="com.bumptech.glide.integration.okhttp3.OkHttpGlideModule"
+169-->[com.github.bumptech.glide:okhttp3-integration:4.11.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/58a0708f7cc58d169e3a733a55bec454/okhttp3-integration-4.11.0/AndroidManifest.xml:12:13-84
+170            android:value="GlideModule" />
+170-->[com.github.bumptech.glide:okhttp3-integration:4.11.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/58a0708f7cc58d169e3a733a55bec454/okhttp3-integration-4.11.0/AndroidManifest.xml:13:13-40
 171
-172</manifest>
+172        <receiver
+172-->[com.google.firebase:firebase-iid:21.0.1] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/2ac81d7ce360ab554b900cae5b96612d/firebase-iid-21.0.1/AndroidManifest.xml:37:9-44:20
+173            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+173-->[com.google.firebase:firebase-iid:21.0.1] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/2ac81d7ce360ab554b900cae5b96612d/firebase-iid-21.0.1/AndroidManifest.xml:38:13-78
+174            android:exported="true"
+174-->[com.google.firebase:firebase-iid:21.0.1] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/2ac81d7ce360ab554b900cae5b96612d/firebase-iid-21.0.1/AndroidManifest.xml:39:13-36
+175            android:permission="com.google.android.c2dm.permission.SEND" >
+175-->[com.google.firebase:firebase-iid:21.0.1] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/2ac81d7ce360ab554b900cae5b96612d/firebase-iid-21.0.1/AndroidManifest.xml:40:13-73
+176            <intent-filter>
+176-->[com.google.firebase:firebase-iid:21.0.1] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/2ac81d7ce360ab554b900cae5b96612d/firebase-iid-21.0.1/AndroidManifest.xml:41:13-43:29
+177                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+177-->[com.google.firebase:firebase-iid:21.0.1] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/2ac81d7ce360ab554b900cae5b96612d/firebase-iid-21.0.1/AndroidManifest.xml:42:17-81
+177-->[com.google.firebase:firebase-iid:21.0.1] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/2ac81d7ce360ab554b900cae5b96612d/firebase-iid-21.0.1/AndroidManifest.xml:42:25-78
+178            </intent-filter>
+179        </receiver>
+180
+181        <activity
+181-->[com.google.android.gms:play-services-base:17.0.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/fc8046cb9a5df9499609a5f7f8270b1b/play-services-base-17.0.0/AndroidManifest.xml:23:9-26:75
+182            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+182-->[com.google.android.gms:play-services-base:17.0.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/fc8046cb9a5df9499609a5f7f8270b1b/play-services-base-17.0.0/AndroidManifest.xml:24:13-79
+183            android:exported="false"
+183-->[com.google.android.gms:play-services-base:17.0.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/fc8046cb9a5df9499609a5f7f8270b1b/play-services-base-17.0.0/AndroidManifest.xml:25:13-37
+184            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+184-->[com.google.android.gms:play-services-base:17.0.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/fc8046cb9a5df9499609a5f7f8270b1b/play-services-base-17.0.0/AndroidManifest.xml:26:13-72
+185
+186        <provider
+186-->[com.google.firebase:firebase-common:19.5.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/b2efee4bb4abddaa906df961b5faa814/jetified-firebase-common-19.5.0/AndroidManifest.xml:26:9-31:39
+187            android:name="com.google.firebase.provider.FirebaseInitProvider"
+187-->[com.google.firebase:firebase-common:19.5.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/b2efee4bb4abddaa906df961b5faa814/jetified-firebase-common-19.5.0/AndroidManifest.xml:27:13-77
+188            android:authorities="com.taiyaki_typed.firebaseinitprovider"
+188-->[com.google.firebase:firebase-common:19.5.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/b2efee4bb4abddaa906df961b5faa814/jetified-firebase-common-19.5.0/AndroidManifest.xml:28:13-72
+189            android:directBootAware="true"
+189-->[com.google.firebase:firebase-common:19.5.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/b2efee4bb4abddaa906df961b5faa814/jetified-firebase-common-19.5.0/AndroidManifest.xml:29:13-43
+190            android:exported="false"
+190-->[com.google.firebase:firebase-common:19.5.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/b2efee4bb4abddaa906df961b5faa814/jetified-firebase-common-19.5.0/AndroidManifest.xml:30:13-37
+191            android:initOrder="100" />
+191-->[com.google.firebase:firebase-common:19.5.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/b2efee4bb4abddaa906df961b5faa814/jetified-firebase-common-19.5.0/AndroidManifest.xml:31:13-36
+192
+193        <meta-data
+193-->[com.google.android.gms:play-services-basement:17.0.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/655d0b8d538f42cf378a47c98869b24b/jetified-play-services-basement-17.0.0/AndroidManifest.xml:23:9-25:69
+194            android:name="com.google.android.gms.version"
+194-->[com.google.android.gms:play-services-basement:17.0.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/655d0b8d538f42cf378a47c98869b24b/jetified-play-services-basement-17.0.0/AndroidManifest.xml:24:13-58
+195            android:value="@integer/google_play_services_version" />
+195-->[com.google.android.gms:play-services-basement:17.0.0] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/655d0b8d538f42cf378a47c98869b24b/jetified-play-services-basement-17.0.0/AndroidManifest.xml:25:13-66
+196
+197        <receiver android:name="com.transistorsoft.tsbackgroundfetch.FetchAlarmReceiver" />
+197-->[com.transistorsoft:tsbackgroundfetch:0.4.5] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/e0e9da1b73080c15e2eb0bcd8b2c0064/tsbackgroundfetch-0.4.5/AndroidManifest.xml:16:9-92
+197-->[com.transistorsoft:tsbackgroundfetch:0.4.5] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/e0e9da1b73080c15e2eb0bcd8b2c0064/tsbackgroundfetch-0.4.5/AndroidManifest.xml:16:19-89
+198
+199        <service
+199-->[com.transistorsoft:tsbackgroundfetch:0.4.5] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/e0e9da1b73080c15e2eb0bcd8b2c0064/tsbackgroundfetch-0.4.5/AndroidManifest.xml:18:9-21:72
+200            android:name="com.transistorsoft.tsbackgroundfetch.FetchJobService"
+200-->[com.transistorsoft:tsbackgroundfetch:0.4.5] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/e0e9da1b73080c15e2eb0bcd8b2c0064/tsbackgroundfetch-0.4.5/AndroidManifest.xml:19:13-80
+201            android:exported="true"
+201-->[com.transistorsoft:tsbackgroundfetch:0.4.5] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/e0e9da1b73080c15e2eb0bcd8b2c0064/tsbackgroundfetch-0.4.5/AndroidManifest.xml:20:13-36
+202            android:permission="android.permission.BIND_JOB_SERVICE" />
+202-->[com.transistorsoft:tsbackgroundfetch:0.4.5] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/e0e9da1b73080c15e2eb0bcd8b2c0064/tsbackgroundfetch-0.4.5/AndroidManifest.xml:21:13-69
+203
+204        <receiver android:name="com.transistorsoft.tsbackgroundfetch.BootReceiver" >
+204-->[com.transistorsoft:tsbackgroundfetch:0.4.5] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/e0e9da1b73080c15e2eb0bcd8b2c0064/tsbackgroundfetch-0.4.5/AndroidManifest.xml:23:9-28:20
+204-->[com.transistorsoft:tsbackgroundfetch:0.4.5] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/e0e9da1b73080c15e2eb0bcd8b2c0064/tsbackgroundfetch-0.4.5/AndroidManifest.xml:23:19-83
+205            <intent-filter>
+205-->[com.transistorsoft:tsbackgroundfetch:0.4.5] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/e0e9da1b73080c15e2eb0bcd8b2c0064/tsbackgroundfetch-0.4.5/AndroidManifest.xml:24:13-27:29
+206                <action android:name="android.intent.action.BOOT_COMPLETED" />
+206-->[com.transistorsoft:tsbackgroundfetch:0.4.5] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/e0e9da1b73080c15e2eb0bcd8b2c0064/tsbackgroundfetch-0.4.5/AndroidManifest.xml:25:17-79
+206-->[com.transistorsoft:tsbackgroundfetch:0.4.5] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/e0e9da1b73080c15e2eb0bcd8b2c0064/tsbackgroundfetch-0.4.5/AndroidManifest.xml:25:25-76
+207                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+207-->[com.transistorsoft:tsbackgroundfetch:0.4.5] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/e0e9da1b73080c15e2eb0bcd8b2c0064/tsbackgroundfetch-0.4.5/AndroidManifest.xml:26:17-84
+207-->[com.transistorsoft:tsbackgroundfetch:0.4.5] /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/e0e9da1b73080c15e2eb0bcd8b2c0064/tsbackgroundfetch-0.4.5/AndroidManifest.xml:26:25-81
+208            </intent-filter>
+209        </receiver>
+210    </application>
+211
+212</manifest>

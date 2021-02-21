@@ -16,6 +16,7 @@ import { useTheme } from '../../Stores';
 import { TaiyakiParsedText, ThemedText } from './base';
 import LinearGradient from 'react-native-linear-gradient';
 import { timeUntil } from '../../Util';
+import { heightPercentageToDP } from 'react-native-responsive-screen';
 
 const { height, width } = Dimensions.get('window');
 
@@ -92,12 +93,12 @@ export const SynopsisExpander: FC<{
 			marginBottom: height * 0.02,
 		},
 		subTitle: {
-			fontSize: 19,
+			fontSize: heightPercentageToDP(2.5),
 			fontWeight: '700',
 			marginTop: height * 0.01,
 			marginBottom: height * 0.01,
 		},
-		synopsis: { fontSize: 13, marginBottom: height * 0.01 },
+		synopsis: { fontSize: heightPercentageToDP(1.6), marginBottom: height * 0.01 },
 		floatingButton: {
 			alignSelf: 'flex-end',
 			marginRight: width * 0.03,
@@ -116,7 +117,7 @@ export const SynopsisExpander: FC<{
 		},
 		button: {
 			backgroundColor: theme.colors.accent,
-			width: width * 0.11,
+			width: heightPercentageToDP(5.25),
 			aspectRatio: 1 / 1,
 			borderRadius: (width * 0.11) / 2,
 			alignItems: 'center',
@@ -139,7 +140,7 @@ export const SynopsisExpander: FC<{
 			borderTopRightRadius: 4,
 		},
 		airingText: {
-			fontSize: 14,
+			fontSize: heightPercentageToDP(1.8),
 			fontWeight: '600',
 			textAlign: 'center',
 			color: 'white',

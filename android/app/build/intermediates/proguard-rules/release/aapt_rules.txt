@@ -1,38 +1,38 @@
-# Referenced at /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/build/intermediates/merged_manifests/release/AndroidManifest.xml:43
+# Referenced at /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/build/intermediates/merged_manifests/release/arm64-v8a/AndroidManifest.xml:43
 -keep class androidx.core.app.CoreComponentFactory { <init>(); }
-# Referenced at /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/build/intermediates/merged_manifests/release/AndroidManifest.xml:69
+# Referenced at /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/build/intermediates/merged_manifests/release/arm64-v8a/AndroidManifest.xml:101
 -keep class com.facebook.react.devsupport.DevSettingsActivity { <init>(); }
-# Referenced at /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/build/intermediates/merged_manifests/release/AndroidManifest.xml:112
+# Referenced at /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/build/intermediates/merged_manifests/release/arm64-v8a/AndroidManifest.xml:151
 -keep class com.google.android.datatransport.runtime.backends.TransportBackendDiscovery { <init>(); }
-# Referenced at /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/build/intermediates/merged_manifests/release/AndroidManifest.xml:125
+# Referenced at /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/build/intermediates/merged_manifests/release/arm64-v8a/AndroidManifest.xml:164
 -keep class com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver { <init>(); }
-# Referenced at /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/build/intermediates/merged_manifests/release/AndroidManifest.xml:119
+# Referenced at /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/build/intermediates/merged_manifests/release/arm64-v8a/AndroidManifest.xml:158
 -keep class com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService { <init>(); }
-# Referenced at /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/build/intermediates/merged_manifests/release/AndroidManifest.xml:142
+# Referenced at /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/build/intermediates/merged_manifests/release/arm64-v8a/AndroidManifest.xml:181
 -keep class com.google.android.gms.common.api.GoogleApiActivity { <init>(); }
-# Referenced at /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/build/intermediates/merged_manifests/release/AndroidManifest.xml:95
+# Referenced at /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/build/intermediates/merged_manifests/release/arm64-v8a/AndroidManifest.xml:127
 -keep class com.google.firebase.components.ComponentDiscoveryService { <init>(); }
-# Referenced at /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/build/intermediates/merged_manifests/release/AndroidManifest.xml:133
+# Referenced at /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/build/intermediates/merged_manifests/release/arm64-v8a/AndroidManifest.xml:172
 -keep class com.google.firebase.iid.FirebaseInstanceIdReceiver { <init>(); }
-# Referenced at /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/build/intermediates/merged_manifests/release/AndroidManifest.xml:87
+# Referenced at /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/build/intermediates/merged_manifests/release/arm64-v8a/AndroidManifest.xml:119
 -keep class com.google.firebase.messaging.FirebaseMessagingService { <init>(); }
-# Referenced at /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/build/intermediates/merged_manifests/release/AndroidManifest.xml:147
+# Referenced at /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/build/intermediates/merged_manifests/release/arm64-v8a/AndroidManifest.xml:186
 -keep class com.google.firebase.provider.FirebaseInitProvider { <init>(); }
-# Referenced at /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/build/intermediates/merged_manifests/release/AndroidManifest.xml:71
+# Referenced at /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/build/intermediates/merged_manifests/release/arm64-v8a/AndroidManifest.xml:103
 -keep class com.learnium.RNDeviceInfo.RNDeviceReceiver { <init>(); }
-# Referenced at /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/build/intermediates/merged_manifests/release/AndroidManifest.xml:81
+# Referenced at /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/build/intermediates/merged_manifests/release/arm64-v8a/AndroidManifest.xml:113
 -keep class com.proyecto26.inappbrowser.ChromeTabsManagerActivity { <init>(); }
-# Referenced at /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/build/intermediates/merged_manifests/release/AndroidManifest.xml:51
+# Referenced at /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/build/intermediates/merged_manifests/release/arm64-v8a/AndroidManifest.xml:50
 -keep class com.taiyaki_typed.MainActivity { <init>(); }
-# Referenced at /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/build/intermediates/merged_manifests/release/AndroidManifest.xml:43
+# Referenced at /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/build/intermediates/merged_manifests/release/arm64-v8a/AndroidManifest.xml:43
 -keep class com.taiyaki_typed.MainApplication { <init>(); }
-# Referenced at /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/build/intermediates/merged_manifests/release/AndroidManifest.xml:164
+# Referenced at /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/build/intermediates/merged_manifests/release/arm64-v8a/AndroidManifest.xml:204
 -keep class com.transistorsoft.tsbackgroundfetch.BootReceiver { <init>(); }
-# Referenced at /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/build/intermediates/merged_manifests/release/AndroidManifest.xml:157
+# Referenced at /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/build/intermediates/merged_manifests/release/arm64-v8a/AndroidManifest.xml:197
 -keep class com.transistorsoft.tsbackgroundfetch.FetchAlarmReceiver { <init>(); }
-# Referenced at /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/build/intermediates/merged_manifests/release/AndroidManifest.xml:159
+# Referenced at /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/build/intermediates/merged_manifests/release/arm64-v8a/AndroidManifest.xml:199
 -keep class com.transistorsoft.tsbackgroundfetch.FetchJobService { <init>(); }
-# Referenced at /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/build/intermediates/merged_manifests/release/AndroidManifest.xml:59
+# Referenced at /Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/build/intermediates/merged_manifests/release/arm64-v8a/AndroidManifest.xml:91
 -keep class com.zoontek.rnbootsplash.RNBootSplashActivity { <init>(); }
 # Referenced at /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/1cb9b9ea592aa2ea85233be252327dcf/appcompat-1.1.0/res/layout-watch-v20/abc_alert_dialog_title_material.xml:53
 # Referenced at /Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/863e0c3c6716935cd3657ad638fd992d/material-1.1.0/res/layout/mtrl_alert_dialog_title.xml:41

@@ -1,27 +1,42 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect } from 'react';
+import React, { useEffect, createContext, createRef } from "react";
 import {
 	MyQueueItems,
 	useQueueStore,
 	useSettingsStore,
 	useTheme,
 	useUserProfiles,
-} from './Stores';
-import { Navigator } from './Views/Components/navigator';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import BackgroundFetch from 'react-native-background-fetch';
+} from "./Stores";
+import { Navigator } from "./Views/Components/navigator";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import BackgroundFetch from "react-native-background-fetch";
+import codePush, {
+	CodePushOptions,
+	UpdateDialog,
+} from "react-native-code-push";
+import TestVideo from "./testVideo";
 import {
 	DetailedDatabaseIDSModel,
 	DetailedDatabaseModel,
-} from './Models/taiyaki';
-import { SourceBase } from './Classes/SourceBase';
-import PushNotificationIOS from '@react-native-community/push-notification-ios';
-import PushNotification from 'react-native-push-notification';
-import { Alert, Platform } from 'react-native';
-import { useNotificationStore } from './Stores/notifications';
-import RNBootSplash from 'react-native-bootsplash';
-import Orientation from 'react-native-orientation-locker';
-import { Vidstreaming } from './Classes/Sources';
+} from "./Models/taiyaki";
+import { SourceBase } from "./Classes/SourceBase";
+import PushNotificationIOS from "@react-native-community/push-notification-ios";
+import PushNotification from "react-native-push-notification";
+import { Alert, Platform } from "react-native";
+import { useNotificationStore } from "./Stores/notifications";
+import RNBootSplash from "react-native-bootsplash";
+import Orientation from "react-native-orientation-locker";
+import { Vidstreaming } from "./Classes/Sources";
+import OnboardScreen from "./Views/Screens/Onboarding/OnboardScreen";
+import { widgetHandler } from "./Classes/Widgets/HistoryWidget";
+import WhatsNewScreen from "./Views/Screens/WhatsNewScreen";
+import { Modalize } from "react-native-modalize";
+
+export const GlobalContext = createContext({
+  whatsNewRef : createRef<Modalize>(),
+});
+
+
 
 const App = () => {
 	const initTrackers = useUserProfiles((_) => _.init);
@@ -33,11 +48,10 @@ const App = () => {
 	const settings = useSettingsStore((_) => _.settings);
 
 	useEffect(() => {
-		
 		Orientation.lockToPortrait();
 		fixFiles();
 		initApp()
-			.catch((e) => console.log('error starting up app, ', e))
+			.catch((e) => console.log("error starting up app, ", e))
 			.finally(() => RNBootSplash.hide({ fade: true }));
 		//AsyncStorage.removeItem('notifications');
 	}, []);
@@ -49,17 +63,19 @@ const App = () => {
 		await initSettings();
 		await initNotifications();
 		await _getQueue();
+
+		widgetHandler.getLatestHistory();
 	}
 
 	const _getQueue = async () => {
-		const file = await AsyncStorage.getItem('my_queue_storage');
+		const file = await AsyncStorage.getItem("my_queue_storage");
 		if (file) {
 			const queue = JSON.parse(file) as MyQueueItems;
 			if (Object.keys(queue).length > 0) initQueue(queue);
 		}
 	};
 	const _initNotifications = () => {
-		if (Platform.OS === 'ios')
+		if (Platform.OS === "ios")
 			PushNotificationIOS.setApplicationIconBadgeNumber(0);
 		const {
 			frequency,
@@ -83,14 +99,14 @@ const App = () => {
 			},
 			async (taskId) => {
 				await _fetchFollowingAnime();
-				console.log('[js] Background Task Finished: ', taskId);
+				console.log("[js] Background Task Finished: ", taskId);
 				// Required: Signal completion of your task to native code
 				// If you fail to do this, the OS can terminate your app
 				// or assign battery-blame for consuming too much background-time
 				BackgroundFetch.finish(taskId);
 			},
 			(error) => {
-				console.log('[js] RNBackgroundFetch failed to start. Error: ', error);
+				console.log("[js] RNBackgroundFetch failed to start. Error: ", error);
 			}
 		);
 	};
@@ -104,10 +120,10 @@ const App = () => {
 			const database = await AsyncStorage.getItem(file.toString());
 			if (!database) return;
 			const anime = JSON.parse(database) as DetailedDatabaseModel;
-			console.log('anime:', anime.title, ' isfollowing: ', anime.isFollowing);
+			console.log("anime:", anime.title, " isfollowing: ", anime.isFollowing);
 			if (anime.isFollowing && anime.title) {
 				const { source, link, totalEpisodes, title, ids } = anime;
-				console.log('looking for', title);
+				console.log("looking for", title);
 				if (!link) return;
 				const sourceBase = new SourceBase(source);
 				const newEpisode = (await sourceBase.scrapeAvailableEpisodes(link))
@@ -120,7 +136,7 @@ const App = () => {
 					);
 					//Queue a Local Notification
 					LocalNotification(title, newEpisode, ids);
-					if (Platform.OS === 'ios')
+					if (Platform.OS === "ios")
 						PushNotificationIOS.setApplicationIconBadgeNumber(number++);
 					await setNotifications(anime);
 				}
@@ -131,7 +147,7 @@ const App = () => {
 	PushNotification.configure({
 		// (required) Called when a remote is received or opened, or local notification is opened
 		onNotification: function (notification) {
-			console.log('NOTIFICATION:', notification);
+			console.log("NOTIFICATION:", notification);
 
 			// (required) Called when a remote is received or opened, or local notification is opened
 			notification.finish(PushNotificationIOS.FetchResult.NoData);
@@ -147,7 +163,7 @@ const App = () => {
 		// default: true
 		popInitialNotification: true,
 
-		requestPermissions: Platform.OS === 'ios',
+		requestPermissions: Platform.OS === "ios",
 	});
 
 	const LocalNotification = (
@@ -158,9 +174,9 @@ const App = () => {
 		PushNotification.localNotification({
 			/* iOS and Android properties */
 			title, // (optional)
-			message: 'Episode ' + episode + ' is now ready to watch', // (required)
+			message: "Episode " + episode + " is now ready to watch", // (required)
 			userInfo: ids, // (optional) default: {} (using null throws a JSON value '<null>' error)
-			soundName: 'default', // (optional) Sound to play when the notification is shown. Value of 'default' plays the default sound. It can be set to a custom sound such as 'android.resource://com.xyz/raw/my_sound'. It will look for the 'my_sound' audio file in 'res/raw' directory and play it. default: 'default' (default sound is played)
+			soundName: "default", // (optional) Sound to play when the notification is shown. Value of 'default' plays the default sound. It can be set to a custom sound such as 'android.resource://com.xyz/raw/my_sound'. It will look for the 'my_sound' audio file in 'res/raw' directory and play it. default: 'default' (default sound is played)
 		});
 
 	const fixFiles = async () => {
@@ -169,19 +185,38 @@ const App = () => {
 			const newFile = await AsyncStorage.getItem(obj);
 			if (!newFile) continue;
 			const json = JSON.parse(newFile) as DetailedDatabaseModel;
-			console.log(json.title)
-			if (typeof json.source !== 'string') {
-				Alert.alert('Fix filesystem', 'Taiyaki now uses a new way of saving sources. It is mandatory to clear up the files. You may need to re bind your anime.', [{text: 'Fix now', style: 'destructive', 
-				onPress: async () => {
-					await AsyncStorage.multiRemove(file);
-					Alert.alert('Done', undefined, [{text: 'Dismiss'}])
-				}}], {cancelable: false})
+			console.log(json.title);
+			if (typeof json.source !== "string") {
+				Alert.alert(
+					"Fix filesystem",
+					"Taiyaki now uses a new way of saving sources. It is mandatory to clear up the files. You may need to re bind your anime.",
+					[
+						{
+							text: "Fix now",
+							style: "destructive",
+							onPress: async () => {
+								await AsyncStorage.multiRemove(file);
+								Alert.alert("Done", undefined, [{ text: "Dismiss" }]);
+							},
+						},
+					],
+					{ cancelable: false }
+				);
 				break;
 			}
 		}
-	}
+	};
 
-	return <Navigator />;
+	//return <TestVideo />;
+
+	return <Navigator />
+	//	return <WhatsNewScreen />;
+
+	//return <OnboardScreen />
+};
+let codePushOptions: CodePushOptions = {
+	updateDialog: {},
+	checkFrequency: codePush.CheckFrequency.ON_APP_RESUME,
 };
 
-export default App;
+export default codePush(codePushOptions)(App);

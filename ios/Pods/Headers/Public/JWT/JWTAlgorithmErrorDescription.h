@@ -1,0 +1,1 @@
+../../../JWT/Core/Algorithms/Base/JWTAlgorithmErrorDescription.h

@@ -1,16 +1,34 @@
-import  SourceAbstract from './SourceAbstract';
+import SourceAbstract from './SourceAbstract';
 import Vidstreaming from './Vidstreaming';
 import FourAnime from './FourAnime';
 import AnimeOwl from './AnimeOwl';
 import KimAnime from './KimAnime';
+import XSAnime from './Xsanime';
+import AnimeRush from './AnimeRush';
+import TioAnime from './TioAnime';
+import Anime8 from './Anime8';
+import Shiro from './Shiro';
+import AniWatch from './Aniwatch';
 import AnimePahe from '/AnimePahe';
 //STEP 1: Import the file above (Place at the end)
 
 //STEP 2: Add a unique name
-export type TaiyakiSourceTypes= 'Vidstreaming' | 'FourAnime' | 'AnimeOwl' | 'KimAnime' | 'AnimePahe';
+export type TaiyakiSourceTypes= 
+'Vidstreaming' | 
+'FourAnime' | 
+'AnimeOwl' | 
+'KimAnime' | 
+'XSAnime' | 
+'AnimeRush' |
+'Anime8' |
+'TioAnime' |
+'Shiro' |
+'AniWatch' |
+'AnimePahe';
 
-//STEP 3(OPTIONAL): If the source uses a language not added here put the proper language
-export type TaiyakiSourceLanguage = 'English';
+
+//STEP 3(OPTIONAL): If the source uses a language not added here put the proper language, if possible use Alphabetic order
+export type TaiyakiSourceLanguage = 'Arabic'| 'English' | 'French' | 'Spanish';
 
 //STEP 4: Add the class constructor here (Place at the end)
 const sourceAbstractList: SourceAbstract[] = [
@@ -18,6 +36,12 @@ const sourceAbstractList: SourceAbstract[] = [
     new FourAnime(),
     new AnimeOwl(),
     new KimAnime(),
+    new AnimeRush(),
+    new TioAnime(),
+    new AniWatch(),
+    // new XSAnime(),
+    new Anime8(),
+    new Shiro(),
     new AnimePahe(),
 ].sort((a, b) => a.options.name.localeCompare(b.options.name));
 
@@ -27,6 +51,12 @@ export const MapSourceTypesToAbstract = new Map<TaiyakiSourceTypes, SourceAbstra
     ['FourAnime', new FourAnime()],
     ['AnimeOwl', new AnimeOwl()],
     ['KimAnime', new KimAnime()],
+    ['Anime8', new Anime8()],
+    ['TioAnime', new TioAnime()],
+    ['XSAnime', new XSAnime()],
+    ['AnimeRush', new AnimeRush()],
+    ['Shiro', new Shiro()],
+    ['AniWatch', new AniWatch()],
     ['AnimePahe', new AnimePahe()],
 ])
 
@@ -38,5 +68,8 @@ export {
     FourAnime,
     AnimeOwl,
     KimAnime,
+    Anime8,
+    Shiro,
+    AniWatch,
     AnimePahe,
 }

@@ -1,0 +1,5 @@
+#Android
+appcenter codepush release-react -a michaelgarcia24884-gmail.com/Taiyaki-1 -d Production
+
+#iOS
+appcenter codepush release-react -a michaelgarcia24884-gmail.com/Taiyaki -d Production

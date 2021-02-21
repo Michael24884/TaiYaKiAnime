@@ -1,0 +1,1 @@
+../../../JWT/Core/ClaimSet/JWTClaimsSetSerializer.h

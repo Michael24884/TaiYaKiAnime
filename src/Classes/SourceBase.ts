@@ -1,39 +1,46 @@
+import { Source } from 'react-native-fast-image';
 import {
   EmbededResolvedModel,
   TaiyakiScrapedTitleModel,
 } from '../Models/taiyaki';
-import {VidstreamingHost, BP, Kwik, Mp4Upload, Cloud9, Xstream} from './Hosts';
-import { MapSourceTypesToAbstract, SourceAbstract, TaiyakiSourceTypes } from './Sources';
+import {VidstreamingHost, BP, Kwik, Mp4Upload, Cloud9, Xstream, StreamX, Umi, Fembed, YourUpload} from './Hosts';
+import { AniWatch, MapSourceTypesToAbstract, SourceAbstract, TaiyakiSourceTypes } from './Sources';
 
 export class SourceBase {
-  source: TaiyakiSourceTypes;
+  //source: TaiyakiSourceTypes;
+  map: SourceAbstract;
 
   constructor(source: TaiyakiSourceTypes) {
-    this.source = source;
+    //this.source = source;
+    this.map = MapSourceTypesToAbstract.get(source)!;
+  }
+
+  destroy() {
+    this.map.destroy();
   }
 
   async scrapeTitle(
     title: string,
   ): Promise<{loading: boolean; results: TaiyakiScrapedTitleModel[]}> {
-    const map = MapSourceTypesToAbstract.get(this.source)!
+   // const map = MapSourceTypesToAbstract.get(this.source)!
     let loading = true;
-    const titles = await map.searchTitles(title);
+    const titles = await this.map.searchTitles(title);
     loading = false;
     //TODO: Might remove the loading params as function constructors are no longer used
     return {loading, results: titles};
   }
 
   async scrapeAvailableEpisodes(link: string): Promise<string[]> {
-    const map = MapSourceTypesToAbstract.get(this.source)!
-    const links = await map.availableEpisodes(link);
+   // const map = MapSourceTypesToAbstract.get(this.source)!
+    const links = await this.map.availableEpisodes(link);
     return links
   }
 
   async scrapeLinks(
     episodeLink: string,
   ): Promise<{link: string; server: string}[]> {
-    const map = MapSourceTypesToAbstract.get(this.source)!
-    const links = await map.scrapeLinks(episodeLink);
+   // const map = MapSourceTypesToAbstract.get(this.source)!
+    const links = await this.map.scrapeLinks(episodeLink);
     //If it fails here but links is showing in console, you're probably not returning an array. Wrap it between a [] even if its' only one link
     return links.filter((i) => i);
   }
@@ -43,7 +50,7 @@ export class SourceBase {
     server: string;
   }): Promise<EmbededResolvedModel[]> {
     const qualityString = data.server.match(RegExp(/([0-9]+)-(\w+)/));
-
+    
     if (qualityString) {
       const servermatch = qualityString[2];
       switch (servermatch) {
@@ -66,17 +73,21 @@ export class SourceBase {
 
       case 'bp':
         return await new BP().grabAvailableHosts(data.link);
-
+      case 'fembed': return new Fembed().grabAvailableHosts(data.link);
+      case 'streamx': return await new StreamX().grabAvailableHosts(data.link);
+      case 'streamium':
+      case 'umi': return await new Umi().grabAvailableHosts(data.link);
+      case 'yourupload': return await new YourUpload().grabAvailableHosts(data.link);
       case 'okru':
         throw '';
-      // case 'ld':
-      // case 'sd':
-      // case 'hd':
-      // case 'fullhd':
-      //   return await new AniWatch().buildWatchableLinks({
-      //     link: data.link,
-      //     quality: data.server.toLowerCase(),
-      //   });
+      case 'ld':
+      case 'sd':
+      case 'hd':
+      case 'fullhd':
+        return await new AniWatch().buildWatchableLinks(
+          data.link,
+          data.server.toLowerCase(),
+        );
       case 'custom':
         return [{link: data.link, quality: data.server}];
 

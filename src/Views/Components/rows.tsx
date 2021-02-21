@@ -21,6 +21,7 @@ import {
 import {
 	AnilistPagedData,
 	AnilistRequestTypes,
+	AnilistStatusTypes,
 	Media,
 } from '../../Models/Anilist';
 import { SimklEpisodes } from '../../Models/SIMKL';
@@ -41,9 +42,10 @@ import ViewPager from '@react-native-community/viewpager';
 import { ContinueWatchingTile } from '.';
 import Dimension from '../../Classes/Dimensions';
 import { useNotificationStore } from '../../Stores';
+import { heightPercentageToDP, widthPercentageToDP } from 'react-native-responsive-screen';
 
 const { height, width } = Dimensions.get('window');
-const ITEM_HEIGHT = Platform.OS === 'ios' ? height * 0.25 : height * 0.5;
+const ITEM_HEIGHT = Platform.OS === 'ios' ? heightPercentageToDP(25) : height * 0.5;
 
 interface BaseCardProps {
 	image: string;
@@ -132,11 +134,13 @@ export const BaseRows: FC<BaseRowProps> = (props) => {
 					<ThemedText style={styles.row.subTitle}>{subtitle}</ThemedText>
 				</View>
 				{!hideSeeAll ? (
-					<Button
+					<View style={{transform: [{scale: heightPercentageToDP(0.12)}]}}>
+						<Button
 						title={'See All'}
 						onPress={() => navigation.navigate('See More', { key: type })}
 						color={theme.accent}
 					/>
+					</View>
 				) : null}
 			</View>
 			<FlatList
@@ -548,8 +552,16 @@ const _WatchTile: FC<{
 								setIndex(0);
 								pagerController.current.setPage(0);
 							} else {
-								setIndex(1);
-								pagerController.current.setPage(1);
+								if (detail.lastWatching &&
+									detail.lastWatching.progress &&
+									detail.lastWatching.progress !== 0) {
+										setIndex(2)
+										pagerController.current.setPage(1);
+									}
+								else {
+									setIndex(1)
+									pagerController.current.setPage(1);
+								}
 							}
 						}}
 					/>
@@ -682,20 +694,26 @@ export const FlavoredButtons: FC<{
 export const BindTitleBlock: FC<{
 	title: string;
 	id: number;
+	status: AnilistStatusTypes;
 }> = (props) => {
-	const { title, id } = props;
+	const { title, id, status } = props;
 	const navigation = useNavigation();
 
 	return (
 		<ThemedCard style={{ marginVertical: width * 0.01, padding: 8 }}>
 			<View style={{ padding: 12 }}>
 				<ThemedText
-					style={{ fontWeight: '700', fontSize: 15, textAlign: 'center' }}>
+					style={{ fontWeight: '700', fontSize: heightPercentageToDP(1.8), textAlign: 'center' }}>
 					Bind an anime from a source to Taiyaki to start watching
 				</ThemedText>
 				<ThemedButton
 					title={'Bind An Anime!'}
-					onPress={() => navigation.navigate('BindPage', { title, id })}
+					onPress={() => {
+						if (status === 'NOT_YET_RELEASED') 
+							Alert.alert('Warning', 'This anime is marked as NOT YET RELEASED. It is possible there is no anime released yet', [{text: 'Cancel'}, {text: 'Continue', style: 'destructive', onPress: () => navigation.navigate('BindPage', { title, id })		}])
+						else 
+						navigation.navigate('BindPage', { title, id })
+					}}
 					style={{ alignSelf: 'center', marginVertical: height * 0.014 }}
 				/>
 			</View>
@@ -718,11 +736,11 @@ const styles = {
 			alignItems: 'center',
 		},
 		title: {
-			fontSize: 21,
+			fontSize: heightPercentageToDP(2.75),
 			fontWeight: 'bold',
 		},
 		subTitle: {
-			fontSize: 14,
+			fontSize: heightPercentageToDP(1.80),
 			fontWeight: '400',
 			color: 'grey',
 		},
@@ -730,7 +748,7 @@ const styles = {
 	card: StyleSheet.create({
 		view: {
 			height: ITEM_HEIGHT,
-			width: width * 0.36,
+			width: heightPercentageToDP(18),
 			marginHorizontal: width * 0.02,
 		},
 		image: {
@@ -747,11 +765,11 @@ const styles = {
 			}),
 		},
 		title: {
-			fontSize: 14,
+			fontSize: heightPercentageToDP(1.75),
 			marginTop: 8,
 		},
 		subTitle: {
-			fontSize: 19,
+			fontSize: heightPercentageToDP(1.8),
 			fontWeight: '700',
 			marginTop: height * 0.01,
 			marginBottom: height * 0.01,
@@ -790,7 +808,7 @@ const styles = {
 			alignItems: 'center',
 		},
 		rowTitle: {
-			fontSize: 20,
+			fontSize: heightPercentageToDP(2),
 			fontWeight: '700',
 			marginHorizontal: width * 0.02,
 		},

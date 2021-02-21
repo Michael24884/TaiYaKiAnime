@@ -1,5 +1,4 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import produce from 'immer';
 import create from 'zustand';
 const _ = require('lodash');
 import {TaiyakiDefaultSettings, TaiyakiSettingsModel} from '../Models/taiyaki';
@@ -13,14 +12,15 @@ type SettingsStore = {
 
 export const useSettingsStore = create<SettingsStore>((set, get) => ({
   set: async (fn) => {
-    set(produce(fn));
+   // set(produce(fn));
     await AsyncStorage.mergeItem('settings', JSON.stringify(get().settings));
   },
   settings: TaiyakiDefaultSettings,
   setSettings: async (settings) => {
-    //set((state) => ({...state, settings}));
-
-    await AsyncStorage.mergeItem('settings', JSON.stringify(settings));
+   // set((state) => ({...state, settings}));
+    //set((state) => )
+    set((state) => ({...state, settings}))
+    await AsyncStorage.setItem('settings', JSON.stringify(settings));
   },
   initSettings: async () => {
     const file = await AsyncStorage.getItem('settings');

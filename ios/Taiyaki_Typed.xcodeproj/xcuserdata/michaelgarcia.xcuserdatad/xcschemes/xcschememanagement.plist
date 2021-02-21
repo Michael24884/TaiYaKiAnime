@@ -7,17 +7,22 @@
 		<key>Release Scheme.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>70</integer>
+			<integer>2</integer>
+		</dict>
+		<key>TaiyakiLastWatchedExtension.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>78</integer>
 		</dict>
 		<key>Taiyaki_Typed-tvOS.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>67</integer>
+			<integer>1</integer>
 		</dict>
 		<key>Taiyaki_Typed.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>66</integer>
+			<integer>0</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>

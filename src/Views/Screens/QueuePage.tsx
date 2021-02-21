@@ -65,13 +65,13 @@ const MyQueueScreen: FC<QueueProps> = (props) => {
 
   useEffect(() => {
     navigation.setOptions({
-      headerRight: ({tintColor}: {tintColor: string | undefined}) =>
+      headerLeft: ({tintColor}: {tintColor: string | undefined}) =>
         queueLength > 0 ? (
           <Icon
             name={'trash-can'}
             type={'MaterialCommunityIcons'}
             color={tintColor}
-            style={{marginRight: 20}}
+            style={{marginLeft: 20}}
             onPress={() =>
               Alert.alert(
                 'Remove Queue?',

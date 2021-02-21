@@ -1,7 +1,14 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react-native/no-inline-styles */
-import { useFocusEffect, useNavigation } from '@react-navigation/native';
-import React, { FC, useCallback, useEffect, useRef, useState } from 'react';
+import { useFocusEffect, useNavigation } from "@react-navigation/native";
+import React, {
+	createRef,
+	FC,
+	useCallback,
+	useEffect,
+	useRef,
+	useState,
+} from "react";
 import {
 	ActivityIndicator,
 	Button,
@@ -14,24 +21,28 @@ import {
 	Modal,
 	StatusBar,
 	Alert,
-} from 'react-native';
-import Icon from 'react-native-dynamic-vector-icons';
-import { FlatList } from 'react-native-gesture-handler';
-import { StretchyScrollView } from 'react-native-stretchy';
-import { useAnilistRequest, useDetailedHook } from '../../../Hooks';
+} from "react-native";
+import Icon from "react-native-dynamic-vector-icons";
+import { FlatList } from "react-native-gesture-handler";
+import { StretchyScrollView } from "react-native-stretchy";
+import { useAnilistRequest, useDetailedHook } from "../../../Hooks";
+import {
+	heightPercentageToDP,
+	widthPercentageToDP,
+} from "react-native-responsive-screen";
 import {
 	AnilistCharacterModel,
 	AnilistDetailedGraph,
 	AnilistRecommendationPageEdgeModel,
 	Media,
-} from '../../../Models/Anilist';
-import { useSettingsStore, useTheme, useUserProfiles } from '../../../Stores';
+} from "../../../Models/Anilist";
+import { useSettingsStore, useTheme, useUserProfiles } from "../../../Stores";
 import {
 	dateNumToString,
 	MapAnilistSeasonsToString,
 	MapAnilistSourceToString,
 	MapAnilistStatusToString,
-} from '../../../Util';
+} from "../../../Util";
 import {
 	BaseCards,
 	BindTitleBlock,
@@ -43,15 +54,22 @@ import {
 	ThemedSurface,
 	ThemedText,
 	WatchTile,
-} from '../../Components';
-import { SynopsisExpander } from '../../Components/header';
-import StatusPage from './StatusPage';
-import { useAsyncStorage } from '@react-native-async-storage/async-storage';
-import { DetailedDatabaseModel, MyQueueModel } from '../../../Models/taiyaki';
-import { useQueueStore, useUpNextStore } from '../../../Stores/queue';
-import { StatusCards } from '../../Components/detailedParts';
+} from "../../Components";
+import { SynopsisExpander } from "../../Components/header";
+import StatusPage from "./StatusPage";
+import { useAsyncStorage } from "@react-native-async-storage/async-storage";
+import { DetailedDatabaseModel, MyQueueModel } from "../../../Models/taiyaki";
+import { useQueueStore, useUpNextStore } from "../../../Stores/queue";
+import { StatusCards } from "../../Components/detailedParts";
+import DropDownAlert from "../../Components/dropDownAlert";
+import { useJikanRequest } from "../../../Hooks/useJikanRequest";
+import {
+	JikanDetailModel,
+	MapJikanRatingTypeToStringObj,
+} from "../../../Models/Jikan/JikanBasicModel";
+import { AnimatePresence, View as MotiView } from "moti";
 
-const { height, width } = Dimensions.get('window');
+const { height, width } = Dimensions.get("window");
 const ITEM_HEIGHT = height * 0.26;
 
 interface Props {
@@ -65,7 +83,7 @@ interface Props {
 	};
 }
 
-LogBox.ignoreLogs(['Aborted']);
+LogBox.ignoreLogs(["Aborted"]);
 
 const DetailScreen: FC<Props> = (props) => {
 	const { malID } = props.route.params;
@@ -74,9 +92,11 @@ const DetailScreen: FC<Props> = (props) => {
 	const [statusPageVisible, setStatusPageVisibility] = useState<boolean>(false);
 	const navigation = useNavigation();
 	const scrollValue = useRef(new Animated.Value(0)).current;
+	const dropDownRef = createRef<DropDownAlert>();
 	const theme = useTheme((_) => _.theme);
 
 	const [id, setID] = useState<number>(props.route.params.id);
+	const [malIDState, setMALIDState] = useState<number>(malID);
 
 	const [database, setDatabase] = useState<DetailedDatabaseModel>();
 
@@ -84,19 +104,20 @@ const DetailScreen: FC<Props> = (props) => {
 		query: { data },
 		controller,
 	} = useAnilistRequest<{ data: { Media: Media } }>(
-		'Detailed' + (malID ?? id.toString()),
+		"Detailed" + (malID ?? id.toString()),
 		AnilistDetailedGraph(id, malID)
 	);
 
-	// const {
-	//   query: {data: SimklEpisodeData},
-	//   controller: SimklEpisodeController,
-	// } = useSimklRequests<SimklEpisodes[]>(
-	//   'simkl' + id,
-	//   '/anime/episodes/',
-	//   data?.data.Media.idMal,
-	//   database !== undefined && database.link !== undefined,
-	// );
+	const {
+		query: {
+			data: jikanData,
+			isFetching: jikanDataIsFetching,
+			isError: jikanDataIsError,
+		},
+	} = useJikanRequest<JikanDetailModel>(
+		"jikan" + id.toString(),
+		`/${malIDState}`
+	);
 
 	const detailedHook = useDetailedHook(id, database, data?.data.Media.idMal);
 	const addUpNext = useUpNextStore((_) => _.addAll);
@@ -112,19 +133,20 @@ const DetailScreen: FC<Props> = (props) => {
 	useEffect(() => {
 		if (data) {
 			setID(data.data.Media.id);
+			setMALIDState(Number(data.data.Media.idMal));
 		}
 	}, [data]);
 
 	useEffect(() => {
 		navigation.setOptions({
-			title: data?.data.Media.title.romaji ?? ' ',
+			title: data?.data.Media.title.romaji ?? " ",
 		});
 	}, [navigation, data]);
 
 	const opacity = scrollValue.interpolate({
 		inputRange: [0, height * 0.4],
 		outputRange: [0, 1],
-		extrapolate: 'clamp',
+		extrapolate: "clamp",
 	});
 
 	const AnimatedHeader = Animated.createAnimatedComponent(TaiyakiHeader);
@@ -132,10 +154,10 @@ const DetailScreen: FC<Props> = (props) => {
 	const styles = StyleSheet.create({
 		empty: {
 			flex: 1,
-			justifyContent: 'center',
-			alignItems: 'center',
+			justifyContent: "center",
+			alignItems: "center",
 		},
-		rowView: { flexDirection: 'row' },
+		rowView: { flexDirection: "row" },
 		titleView: {
 			paddingHorizontal: width * 0.02,
 			paddingTop: 10,
@@ -155,7 +177,7 @@ const DetailScreen: FC<Props> = (props) => {
 			...Platform.select({
 				android: { elevation: 4 },
 				ios: {
-					shadowColor: 'black',
+					shadowColor: "black",
 					shadowOffset: { width: 0, height: 2 },
 					shadowOpacity: 0.2,
 					shadowRadius: 5,
@@ -165,8 +187,8 @@ const DetailScreen: FC<Props> = (props) => {
 			marginBottom: height * 0.022,
 		},
 		subTitle: {
-			fontSize: 19,
-			fontWeight: '700',
+			fontSize: heightPercentageToDP(2.5),
+			fontWeight: "700",
 			marginTop: height * 0.01,
 			marginBottom: height * 0.02,
 		},
@@ -174,7 +196,7 @@ const DetailScreen: FC<Props> = (props) => {
 			...Platform.select({
 				android: { elevation: 4 },
 				ios: {
-					shadowColor: 'black',
+					shadowColor: "black",
 					shadowOffset: { width: -1, height: 2 },
 					shadowOpacity: 0.3,
 					shadowRadius: 5,
@@ -185,68 +207,68 @@ const DetailScreen: FC<Props> = (props) => {
 			marginLeft: width * 0.04,
 		},
 		image: {
-			width: width * 0.34,
-			height: Platform.OS === 'ios' ? height * 0.21 : height * 0.26,
-			marginBottom: Platform.OS === 'ios' ? undefined : height * 0.03,
+			width: heightPercentageToDP(17),
+			height: Platform.OS === "ios" ? heightPercentageToDP(21) : height * 0.26,
+			marginBottom: Platform.OS === "ios" ? undefined : height * 0.03,
 		},
 		title: {
-			fontSize: 17,
-			fontWeight: 'bold',
+			fontSize: heightPercentageToDP(2.2),
+			fontWeight: "bold",
 		},
 		englishTitle: {
-			color: 'grey',
-			fontSize: 13,
-			fontWeight: '400',
+			color: "grey",
+			fontSize: heightPercentageToDP(1.6),
+			fontWeight: "400",
 		},
 		synopsis: {
-			fontSize: 13,
+			fontSize: heightPercentageToDP(1.6),
 		},
 		genresContainer: {
-			flexDirection: 'row',
-			flexWrap: 'wrap',
+			flexDirection: "row",
+			flexWrap: "wrap",
 		},
 		genrePills: {
 			margin: 4,
 			backgroundColor: theme.colors.accent,
 			borderRadius: 4,
-			justifyContent: 'center',
+			justifyContent: "center",
 			padding: 8,
 		},
 		genreText: {
-			color: 'white',
-			fontSize: 13,
-			fontWeight: '600',
+			color: "white",
+			fontSize: heightPercentageToDP(1.7),
+			fontWeight: "600",
 		},
 		infoRowView: {
-			justifyContent: 'space-around',
+			justifyContent: "space-around",
 		},
 		infoRowTitle: {
-			textAlign: 'center',
-			fontSize: 22,
-			fontWeight: '700',
-			color: 'grey',
+			textAlign: "center",
+			fontSize: heightPercentageToDP(2.5),
+			fontWeight: "700",
+			color: "grey",
 		},
 		infoRowData: {
-			textAlign: 'center',
-			fontSize: 14,
-			fontWeight: '400',
-			color: 'grey',
+			textAlign: "center",
+			fontSize: heightPercentageToDP(1.76),
+			fontWeight: "400",
+			color: "grey",
 			marginVertical: 4,
 		},
 		infoParentChildWrap: {
-			flexWrap: 'wrap',
-			flexDirection: 'row',
-			justifyContent: 'space-around',
+			flexWrap: "wrap",
+			flexDirection: "row",
+			justifyContent: "space-around",
 			marginVertical: 15,
 		},
 		imageItems: {
-			height: Platform.OS === 'ios' ? height * 0.25 : height * 0.3,
-			width: width * 0.34,
+			height: Platform.OS === "ios" ? heightPercentageToDP(25) : height * 0.3,
+			width: heightPercentageToDP(15),
 			marginHorizontal: width * 0.02,
 			marginBottom: 5,
 		},
 		titleItems: {
-			fontSize: 14,
+			fontSize: heightPercentageToDP(1.7),
 			marginTop: 8,
 		},
 	});
@@ -281,10 +303,6 @@ const DetailScreen: FC<Props> = (props) => {
 	//Save the simkl id if its missing from the database
 	useEffect(() => {
 		const saveIDS = async () => {
-			if (detailedHook && database && database.totalEpisodes === 0) {
-				//Update the total episodes, in case an airing anime has finally updated amount of episodes
-				await JSON.stringify({totalEpisodes: data?.data.Media.episodes ?? 0})
-			}
 			if (detailedHook && detailedHook.ids && database && !database.ids.simkl) {
 				await mergeItem(
 					JSON.stringify({
@@ -303,28 +321,46 @@ const DetailScreen: FC<Props> = (props) => {
 		saveIDS();
 	}, [detailedHook]);
 
+	useEffect(() => {
+		const saveTotalEpisodes = async () => {
+			if (
+				detailedHook &&
+				database &&
+				(!database.totalEpisodes || database.totalEpisodes === 0)
+			) {
+				//Update the total episodes, in case an airing anime has finally updated amount of episodes
+				await mergeItem(
+					JSON.stringify({ totalEpisodes: data?.data?.Media?.episodes ?? 0 })
+				);
+			}
+		};
+		saveTotalEpisodes();
+	}, [data]);
+
 	if (!data || !id)
 		return (
 			<ThemedSurface
 				style={[
 					styles.empty,
 					{ backgroundColor: theme.colors.backgroundColor },
-				]}>
+				]}
+			>
 				<ActivityIndicator />
 			</ThemedSurface>
 		);
 
 	const IconRow = (name: string | number, data: string) => {
 		return (
-			<View style={{ justifyContent: 'space-between', alignItems: 'center' }}>
-				{typeof name === 'string' ? (
-					<Icon name={name} type={'MaterialIcons'} color={'grey'} size={30} />
+			<View style={{ justifyContent: "space-between", alignItems: "center" }}>
+				{typeof name === "string" ? (
+					<Icon name={name} type={"MaterialIcons"} color={"grey"} size={heightPercentageToDP(3)} />
 				) : (
 					<ThemedText
 						shouldShrink
 						numberOfLines={1}
-						style={styles.infoRowTitle}>
-						{(name ?? 'N/A').toString()}
+						style={styles.infoRowTitle}
+					>
+						{(name ?? "N/A").toString()}
 					</ThemedText>
 				)}
 				<ThemedText style={styles.infoRowData}>{data}</ThemedText>
@@ -340,18 +376,20 @@ const DetailScreen: FC<Props> = (props) => {
 					height: height * 0.05,
 					marginHorizontal: width * 0.01,
 					marginVertical: height * 0.016,
-				}}>
-				<ThemedText style={{ textAlign: 'center', fontSize: 13 }}>
+				}}
+			>
+				<ThemedText style={{ textAlign: "center", fontSize: heightPercentageToDP(1.55) }}>
 					{title}
 				</ThemedText>
 				<ThemedText
 					style={{
-						textAlign: 'center',
+						textAlign: "center",
 						marginTop: 4,
-						color: 'grey',
-						fontSize: 13,
-					}}>
-					{data ?? 'N/A'}
+						color: "grey",
+						fontSize: heightPercentageToDP(1.55),
+					}}
+				>
+					{data ?? "N/A"}
 				</ThemedText>
 			</View>
 		);
@@ -363,7 +401,7 @@ const DetailScreen: FC<Props> = (props) => {
 			<View style={[styles.imageItems]}>
 				<DangoImage
 					url={image.large}
-					style={{ height: '74%', width: '100%' }}
+					style={{ height: "74%", width: "100%" }}
 				/>
 				<ThemedText style={styles.titleItems} numberOfLines={2}>
 					{name.full}
@@ -378,7 +416,7 @@ const DetailScreen: FC<Props> = (props) => {
 	}) => {
 		const { title, coverImage, id } = item.node.mediaRecommendation;
 		return (
-			<View style={{ marginTop: 10 }}>
+			<View style={{ marginTop: heightPercentageToDP(1.2) }}>
 				<BaseCards image={coverImage.extraLarge} title={title.romaji} id={id} />
 			</View>
 		);
@@ -425,6 +463,65 @@ const DetailScreen: FC<Props> = (props) => {
 		nextAiringEpisode,
 	} = data.data.Media;
 
+	const VerticalDivider = () => {
+		return (
+			<View
+				style={{
+					height: "50%",
+					alignSelf: "center",
+					width: widthPercentageToDP(0.25),
+					backgroundColor: "grey",
+					borderRadius: 6,
+				}}
+			/>
+		);
+	};
+
+	const RatingRowBlock = (
+		type: "RATING" | "SCORE" | "RANK"
+	): JSX.Element | null => {
+		if (!jikanData) return null;
+		const { rating, score, rank } = jikanData.data;
+		return (
+			<View
+				style={{
+					flex: 1 / 3,
+					paddingHorizontal: heightPercentageToDP(1),
+					alignItems: "center",
+					justifyContent: "space-around",
+				}}
+			>
+				<ThemedText
+					style={{
+						textAlign: "center",
+						fontWeight: "800",
+						fontSize: heightPercentageToDP(2.75),
+					}}
+				>
+					{type === "RATING"
+						? MapJikanRatingTypeToStringObj.get(rating)?.rating ?? "N/A"
+						: type === "SCORE"
+						? score
+						: "#" + rank}
+				</ThemedText>
+				<ThemedText
+					style={{
+						textAlign: "center",
+						fontSize: heightPercentageToDP(1.45),
+						fontWeight: "500",
+						color: "#bcbcbc",
+					}}
+				>
+					{type === "RATING"
+						? MapJikanRatingTypeToStringObj.get(rating)?.description ?? "N/A"
+						: type === "SCORE"
+						? "Mal Score"
+						: "Ranked"}
+				</ThemedText>
+			</View>
+		);
+	};
+
 	const PageOne = () => (
 		<StretchyScrollView
 			style={{ marginBottom: height * 0.1 }}
@@ -432,13 +529,14 @@ const DetailScreen: FC<Props> = (props) => {
 			image={
 				bannerImage
 					? { uri: bannerImage }
-					: require('../../../assets/images/icon_round.png')
+					: require("../../../assets/images/icon_round.png")
 			}
 			imageHeight={height * 0.3}
-			imageResizeMode={'cover'}
+			imageResizeMode={"cover"}
 			showsVerticalScrollIndicator={false}
 			scrollEventThrottle={16}
-			onScroll={(position) => scrollValue.setValue(position)}>
+			onScroll={(position) => scrollValue.setValue(position)}
+		>
 			<View>
 				<View style={styles.rowView}>
 					<View style={styles.shadowView}>
@@ -448,7 +546,8 @@ const DetailScreen: FC<Props> = (props) => {
 						style={[
 							styles.titleView,
 							// {backgroundColor: theme.colors.backgroundColor},
-						]}>
+						]}
+					>
 						<ThemedText shouldShrink numberOfLines={3} style={styles.title}>
 							{title.romaji}
 						</ThemedText>
@@ -456,11 +555,48 @@ const DetailScreen: FC<Props> = (props) => {
 							<ThemedText
 								shouldShrink
 								style={styles.englishTitle}
-								numberOfLines={3}>
+								numberOfLines={3}
+							>
 								{title.english}
 							</ThemedText>
 						) : null}
 					</View>
+				</View>
+
+				<View
+					style={{
+						flexDirection: "row",
+						height: heightPercentageToDP(10),
+						justifyContent: "center",
+						marginBottom: heightPercentageToDP(1.4),
+						backgroundColor: theme.colors.backgroundColor,
+						borderRadius: 6,
+						width: "95%",
+						alignSelf: "center",
+					}}
+				>
+					{jikanDataIsFetching ? (
+						<ActivityIndicator key={"indicator"} />
+					) : jikanDataIsError ? (
+						<>
+							<ThemedText
+								style={{
+									fontWeight: "800",
+									fontSize: heightPercentageToDP(1.3),
+								}}
+							>
+								Jikan could not fetch data for this anime
+							</ThemedText>
+						</>
+					) : (
+						<>
+							{RatingRowBlock("RATING")}
+							{VerticalDivider()}
+							{RatingRowBlock("SCORE")}
+							{VerticalDivider()}
+							{RatingRowBlock("RANK")}
+						</>
+					)}
 				</View>
 				{/* //Synopsis */}
 				<SynopsisExpander
@@ -469,7 +605,7 @@ const DetailScreen: FC<Props> = (props) => {
 				/>
 				{/* //Bind or Episode */}
 				{!database || !database.link ? (
-					<BindTitleBlock title={title.romaji} id={id} />
+					<BindTitleBlock title={title.romaji} id={id} status={status} />
 				) : detailedHook ? (
 					!detailedHook.error ? (
 						<WatchTile
@@ -493,7 +629,7 @@ const DetailScreen: FC<Props> = (props) => {
 							}
 							detail={database}
 							onPress={() => {
-								navigation.navigate('EpisodesList', {
+								navigation.navigate("EpisodesList", {
 									episodes: detailedHook.data,
 									database: database,
 									updateRequested: () => {
@@ -516,7 +652,7 @@ const DetailScreen: FC<Props> = (props) => {
 									episode: nowPlaying,
 								};
 								// MOVE TO VIDEO PAGE
-								navigation.navigate('Video', {
+								navigation.navigate("Video", {
 									episode,
 									updateRequested: () => {
 										//  getDatabase();
@@ -529,7 +665,7 @@ const DetailScreen: FC<Props> = (props) => {
 									detail: database,
 									episode: database.lastWatching.data,
 								};
-								navigation.navigate('Video', {
+								navigation.navigate("Video", {
 									episode,
 									updateRequested: () => {
 										// getDatabase();
@@ -538,7 +674,7 @@ const DetailScreen: FC<Props> = (props) => {
 							}}
 							isFollowing={database?.isFollowing}
 							onFollow={async (following) => {
-								console.log('following', following);
+								console.log("following", following);
 								setDatabase((database) => {
 									if (database) return { ...database, isFollowing: following };
 								});
@@ -546,19 +682,20 @@ const DetailScreen: FC<Props> = (props) => {
 							}}
 							onRemoveSavedLink={async () => {
 								Alert.alert(
-									'Are you sure?',
+									"Are you sure?",
 									'Removing saved link will allow you to select a new link. This will remove the current "continue watching" and notifications',
 									[
 										{
-											text: 'Cancel',
+											text: "Cancel",
 										},
 										{
-											text: 'Remove',
+											text: "Remove",
 											onPress: async () => {
 												await removeItem();
 												setDatabase(undefined);
+												detailedHook.clearLinks();
 											},
-											style: 'destructive',
+											style: "destructive",
 										},
 									]
 								);
@@ -572,6 +709,11 @@ const DetailScreen: FC<Props> = (props) => {
 									data: { episode: i, detail: database },
 								}));
 								addAllToQueue(queue);
+								dropDownRef.current?.show({
+									title: "Added to Queue",
+									message: title.romaji + " was added successfully",
+									duration: 3200,
+								});
 							}}
 							onAddUnwatchedToQueue={() => {
 								const check = database.lastWatching.episode;
@@ -600,27 +742,57 @@ const DetailScreen: FC<Props> = (props) => {
 						<ThemedCard style={{ padding: 8 }}>
 							<ThemedText
 								style={{
-									fontWeight: '700',
-									textAlign: 'center',
+									fontWeight: "700",
+									textAlign: "center",
 									fontSize: 18,
-								}}>
+								}}
+							>
 								An error has occured. Reason:
 							</ThemedText>
 							<ThemedText
 								style={{
-									fontWeight: '700',
-									textAlign: 'center',
+									fontWeight: "700",
+									textAlign: "center",
 									fontSize: 16,
-								}}>
+								}}
+							>
 								{detailedHook.error}
 							</ThemedText>
 							<ThemedButton
-								title={'Retry'}
+								title={"Retry"}
 								onPress={detailedHook.retry}
-								color={'red'}
+								color={"red"}
 							/>
 						</ThemedCard>
 					)
+				) : null}
+
+				{/** Detects amount of fillers */}
+				{detailedHook ? (
+					<View
+						style={{
+							borderRadius: 5,
+							alignSelf: "center",
+							backgroundColor:
+								detailedHook.fillerCount === 0 ? "green" : "#ff6b1f",
+							padding: widthPercentageToDP(2),
+							paddingHorizontal: widthPercentageToDP(5),
+							width: "95%",
+							marginBottom: heightPercentageToDP(2),
+						}}
+					>
+						<ThemedText
+							style={{
+								textAlign: "center",
+								fontWeight: "600",
+								fontSize: heightPercentageToDP(2.25),
+							}}
+						>
+							{detailedHook?.fillerCount === 0
+								? "This anime has no fillers".toLocaleUpperCase()
+								: `Found ${detailedHook?.fillerCount} filler episodes`.toLocaleUpperCase()}
+						</ThemedText>
+					</View>
 				) : null}
 
 				{profiles.length > 0 ? (
@@ -645,41 +817,43 @@ const DetailScreen: FC<Props> = (props) => {
 				<View style={styles.surface}>
 					<ThemedText style={styles.subTitle}>More Information</ThemedText>
 					<View style={[styles.rowView, styles.infoRowView]}>
-						{IconRow(Number((meanScore * 0.1).toFixed(1)), 'Mean')}
-						{IconRow('new-releases', MapAnilistStatusToString.get(status)!)}
-						{IconRow(episodes, episodes === 1 ? 'Episode' : 'Episodes')}
-						{IconRow('tv', format)}
+						{IconRow(Number((meanScore * 0.1).toFixed(1)), "Mean")}
+						{IconRow("new-releases", MapAnilistStatusToString.get(status)!)}
+						{IconRow(episodes, episodes === 1 ? "Episode" : "Episodes")}
+						{IconRow("tv", format)}
 					</View>
 					<Divider />
 					<View style={styles.infoParentChildWrap}>
-						{InfoParentChild('Origin Country', countryOfOrigin)}
-						{InfoParentChild('Hashtag', hashtag)}
+						{InfoParentChild("Origin Country", countryOfOrigin)}
+						{InfoParentChild("Hashtag", hashtag)}
 						{InfoParentChild(
-							'Source',
-							MapAnilistSourceToString.get(source) ?? '???'
+							"Source",
+							MapAnilistSourceToString.get(source) ?? "???"
 						)}
-						{InfoParentChild('Duration', `${duration} minutes`)}
-						{InfoParentChild('Anime ID', id.toString())}
-						{InfoParentChild('Popularity', popularity.toLocaleString())}
+						{InfoParentChild("Duration", `${duration} minutes`)}
+						{InfoParentChild("Anime ID", id.toString())}
+						{InfoParentChild("Popularity", popularity.toLocaleString())}
 						{InfoParentChild(
-							'Season',
-							(MapAnilistSeasonsToString.get(season) ?? '?') +
-								' ' +
-								(seasonYear ?? 'N/A').toString()
+							"Season",
+							(MapAnilistSeasonsToString.get(season) ?? "?") +
+								" " +
+								(seasonYear ?? "N/A").toString()
 						)}
-						{InfoParentChild('Start Date', dateNumToString(startDate))}
-						{InfoParentChild('End Date', dateNumToString(endDate))}
+						{InfoParentChild("Start Date", dateNumToString(startDate))}
+						{InfoParentChild("End Date", dateNumToString(endDate))}
 					</View>
 				</View>
 				{characters.nodes.length > 0 ? (
 					<View style={[styles.surface]}>
-						<View style={[styles.rowView, { justifyContent: 'space-between' }]}>
+						<View style={[styles.rowView, { justifyContent: "space-between", alignItems: 'center' }]}>
 							<ThemedText style={styles.subTitle}>Characters</ThemedText>
+							<View style={{transform: [{scale: heightPercentageToDP(0.12)}]}}>
 							<Button
-								title={'See All'}
+								title={"See All"}
 								color={theme.colors.accent}
-								onPress={() => navigation.push('Characters', { id })}
+								onPress={() => navigation.push("Characters", { id })}
 							/>
+							</View>
 						</View>
 						<FlatList
 							data={characters.nodes}
@@ -687,7 +861,7 @@ const DetailScreen: FC<Props> = (props) => {
 							keyExtractor={(item) => item.id.toString()}
 							horizontal
 							contentContainerStyle={{
-								height: Platform.OS === 'ios' ? height * 0.26 : height * 0.3,
+								height: Platform.OS === "ios" ? height * 0.26 : height * 0.3,
 							}}
 							getItemLayout={(data, index) => ({
 								length: ITEM_HEIGHT,
@@ -697,20 +871,24 @@ const DetailScreen: FC<Props> = (props) => {
 						/>
 					</View>
 				) : null}
+
 				{/* //Recommendations */}
 				{recommendations.edges.length > 0 ? (
 					<View
 						style={[
 							styles.surface,
-							{ paddingBottom: 12, justifyContent: 'center', marginBottom: 18 },
-						]}>
-						<View style={[styles.rowView, { justifyContent: 'space-between' }]}>
+							{ paddingBottom: 12, justifyContent: "center", marginBottom: 18 },
+						]}
+					>
+						<View style={[styles.rowView, { justifyContent: "space-between", alignItems: 'center' }]}>
 							<ThemedText style={styles.subTitle}>Recommendations</ThemedText>
+							<View style={{transform: [{scale: heightPercentageToDP(0.12)}]}}>
 							<Button
-								title={'See All'}
+								title={"See All"}
 								color={theme.colors.accent}
-								onPress={() => navigation.push('Recommendations', { id })}
+								onPress={() => navigation.push("Recommendations", { id })}
 							/>
+							</View>
 						</View>
 						<FlatList
 							data={recommendations.edges.filter(
@@ -738,18 +916,20 @@ const DetailScreen: FC<Props> = (props) => {
 		<>
 			<StatusBar
 				backgroundColor={theme.colors.primary}
-				barStyle={'light-content'}
+				barStyle={"light-content"}
 			/>
+			<DropDownAlert ref={dropDownRef} />
 			<Modal
 				visible={statusPageVisible}
 				hardwareAccelerated
-				presentationStyle={'formSheet'}
-				animationType={'slide'}>
+				presentationStyle={"formSheet"}
+				animationType={"slide"}
+			>
 				<StatusPage
 					totalEpisode={episodes}
 					onClose={() => setStatusPageVisibility(false)}
 					banner={bannerImage ?? coverImage.extraLarge}
-					key={'status'}
+					key={"status"}
 					idMal={idMal}
 					id={id}
 					title={title.romaji}
@@ -765,8 +945,9 @@ const DetailScreen: FC<Props> = (props) => {
 				style={{
 					height,
 					width,
-					marginTop: Platform.OS === 'ios' ? -height * 0.13 : -height * 0.16,
-				}}>
+					marginTop: Platform.OS === "ios" ? -height * 0.13 : -height * 0.16,
+				}}
+			>
 				{PageOne()}
 			</View>
 			{/* <StatusPage
