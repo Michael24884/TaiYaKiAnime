@@ -12,7 +12,7 @@ class AnimePahe extends SourceAbstract {
 
     async searchTitles(title: string): Promise<TaiyakiScrapedTitleModel[]> {
         const params = qs.stringify({
-        	'm': "search",
+            'm': "search",
             'l': 8,
             'q': title
     	})
