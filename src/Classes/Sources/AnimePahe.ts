@@ -38,50 +38,63 @@ class AnimePahe extends SourceAbstract {
 
     async availableEpisodes(link: string): Promise<string[]> {
 	const attr = link.split('/')
-        const session = attr[attr.length - 2], id = attr[attr.length - 1]
+        const id = attr[attr.length - 1]
         var page = 1
-        var apiUri = 'https://animepahe.com/api?m=release&id='+ id +'&sort=episode_asc&page='
-        var jsonResponse = await (await fetch(apiUri + page, {method: 'GET', headers: {'referer': 'https://animepahe.com/'}})).json()
-        var episodesList = [...jsonResponse['data']]
-        var current_page = jsonResponse['current_page']
+        const apiUri = 'https://animepahe.com/api?m=release&id='+ id +'&sort=episode_asc&page='
+        const jsonResponse = await (await fetch(apiUri + page, {method: 'GET', headers: {'referer': 'https://animepahe.com/'}})).json()
         const lastPage = jsonResponse['last_page']
+        const perPage = jsonResponse['per_page']
+        const total = jsonResponse['total']
+        var ep = 1
+        const episodes = []
 
-        while (current_page < lastPage) {
-            page++
-            jsonResponse = await (await fetch(apiUri + page, {method: 'GET', headers: {'referer': 'https://animepahe.com/'}})).json()
-            current_page = jsonResponse['current_page']
-            episodesList = [...episodesList, ...jsonResponse['data']]
+        if (lastPage == 1 && perPage > total) {
+            for (let epi of jsonResponse['data']) {
+                episodes.push(`https://animepahe.com/api?m=links&id=${epi.anime_id}&session=${epi.session}&p=kwik!!TRUE!!`)
+            }
+        } else {
+            for (let page=1; page<lastPage+1; page++) {
+                for (let i=0; i < perPage && ep <= total; i++) {
+                    episodes.push(`https://animepahe.com/api?m=release&id=${id}&sort=episode_asc&page=${page}&ep=${ep}!!FALSE!!`)
+                    ep++
+                }
+            }
         }
-
-        return episodesList.map(episode => {
-            return 'https://animepahe.com/api?m=links&id=' + episode.anime_id + '&session='+ episode.session +'&p=kwik'
-        })
+        return episodes
     }
 
     async scrapeLinks(episodeLink: string): Promise<{ link: string; server: string; }[]> {
-		const settings = {
+		if (episodeLink.includes('!!TRUE!!')) {
+            episodeLink = episodeLink.replace('!!TRUE!!', '')
+        } else {
+            const regex = /\&ep\=(.*?)\!\!FALSE\!\!/
+            const episodeNum = parseInt(episodeLink.match(regex)[1])
+            episodeLink = episodeLink.replace(regex, '')
+            const jsonResponse = await (await fetch(episodeLink, {method: 'GET', headers: {'referer': 'https://animepahe.com/'}})).json()
+            const ep = jsonResponse['data'].map(episode => {
+                if (episode.episode == episodeNum) {
+                    return episode
+                }
+            }).filter(i => i != undefined)[0]
+            episodeLink = `https://animepahe.com/api?m=links&id=${ep.anime_id}&session=${ep.session}&p=kwik`
+        }
+        const settings = {
             headers: {
                 Referer: 'https://animepahe.com/'
             }
         }
         const res = await (await fetch(episodeLink, settings)).json()
         const qualities = []
-        for (const video of res.data) {
-            if (video.hasOwnProperty('720')) {
+        for (let video of res.data) {
+            for (const [key, value] of Object.entries(video)) {
                 qualities.push({
-                    link: video['720'].kwik,
-                    label: '720p',
-                    server: 'kwik'
-                })
-            } else if (video.hasOwnProperty('1080')) {
-                qualities.push({
-                    link: video['1080'].kwik,
-                    label: '1080p',
+                    link: value.kwik,
+                    label: `${key}p`,
                     server: 'kwik'
                 })
             }
         }
-		return qualities
+        return qualities
     }
 }
 
