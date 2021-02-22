@@ -5,3 +5,4 @@ node_modules/
 android/.gradle/6.2/executionHistory/executionHistory.bin
 *.node
 src/testVideo.tsx
+node_modules

@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, createContext, createRef } from "react";
+import React, { useEffect, createContext, createRef, useReducer } from "react";
 import {
 	MyQueueItems,
 	useQueueStore,
@@ -31,6 +31,8 @@ import OnboardScreen from "./Views/Screens/Onboarding/OnboardScreen";
 import { widgetHandler } from "./Classes/Widgets/HistoryWidget";
 import WhatsNewScreen from "./Views/Screens/WhatsNewScreen";
 import { Modalize } from "react-native-modalize";
+import { SettingsProvider, TaiyakiContext, TaiyakiInitialState, TaiyakiReducer, ThemeProvider } from "./Stores/rootStore";
+import { LightTheme } from "./Models";
 
 export const GlobalContext = createContext({
   whatsNewRef : createRef<Modalize>(),
@@ -46,6 +48,8 @@ const App = () => {
 	const setNotifications = useNotificationStore((_) => _.setNotifications);
 	const initTheme = useTheme((_) => _.initTheme);
 	const settings = useSettingsStore((_) => _.settings);
+
+	const [state, dispatch] = useReducer(TaiyakiReducer, TaiyakiInitialState);
 
 	useEffect(() => {
 		Orientation.lockToPortrait();
@@ -209,7 +213,11 @@ const App = () => {
 
 	//return <TestVideo />;
 
-	return <Navigator />
+	return <ThemeProvider>
+	<SettingsProvider>
+		<Navigator />
+	</SettingsProvider>
+	</ThemeProvider>
 	//	return <WhatsNewScreen />;
 
 	//return <OnboardScreen />

@@ -32,7 +32,7 @@ import {
 import {
 	useQueueStore,
 	useSettingsStore,
-	useTheme,
+	// useTheme,
 	useUpNextStore,
 	useUserProfiles,
 } from "../../Stores";
@@ -50,6 +50,7 @@ import { QueryCache } from "react-query";
 import { Modalize } from "react-native-modalize";
 import { SIMKL } from "../../Classes/Trackers/SIMKL";
 import { widgetHandler } from "../../Classes/Widgets/HistoryWidget";
+import { useThemeComponentState } from "../Components/storeConnect";
 
 LogBox.ignoreLogs(["Virtualized"]);
 
@@ -89,7 +90,7 @@ interface Props {
 
 const VideoPlayerScreen: FC<Props> = (props) => {
 	const { episode } = props.route.params;
-	const theme = useTheme((_) => _.theme);
+	const {theme} = useThemeComponentState();
 	const { getItem, setItem } = useAsyncStorage("history");
 	const profiles = useUserProfiles((_) => _.profiles);
 	const upNextItems = useUpNextStore((_) => _.upNext);

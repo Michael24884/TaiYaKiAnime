@@ -7,12 +7,13 @@ import {
   AnilistSortTypes,
   AnilistSeasonsTypes,
 } from './requestModels';
+import {ANILIST_CLIENT_ID} from '@env';
 
 export const AnilistLoginModel: LoginConfigModel = {
-  clientId: '2415',
+  clientId: ANILIST_CLIENT_ID,
   redirectUri: 'taiyaki://anilist/redirect',
   authUrl:
-    'https://anilist.co/api/v2/oauth/authorize?client_id=2415&response_type=token',
+    `https://anilist.co/api/v2/oauth/authorize?client_id=${ANILIST_CLIENT_ID}&response_type=token`,
 };
 
 export type AnilistRequestTypes =

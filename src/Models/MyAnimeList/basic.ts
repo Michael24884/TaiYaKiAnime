@@ -1,5 +1,7 @@
 import {LoginConfigModel} from '../taiyaki';
 
+import {MYANIMELIST_CLIENT_ID} from '@env';
+
 export function randomCodeChallenge(maxLength?: number): string {
   const MAX_LENGTH = maxLength ?? 88;
   let code = '';
@@ -16,10 +18,10 @@ export function randomCodeChallenge(maxLength?: number): string {
 
 const randomCode = randomCodeChallenge();
 export const MyAnimeListLoginModel: LoginConfigModel = {
-  clientId: 'bf9c4651d0a0bd9d18c967dc29658f4f',
+  clientId: MYANIMELIST_CLIENT_ID,
   redirectUri: 'taiyaki://myanimelist/redirect',
   authUrl:
-    'https://myanimelist.net/v1/oauth2/authorize?response_type=code&client_id=bf9c4651d0a0bd9d18c967dc29658f4f&redirect_uri=taiyaki://myanimelist/redirect&code_challenge_method=plain&code_challenge=' +
+    `https://myanimelist.net/v1/oauth2/authorize?response_type=code&client_id=${MYANIMELIST_CLIENT_ID}&redirect_uri=taiyaki://myanimelist/redirect&code_challenge_method=plain&code_challenge='`+
     randomCode,
   tokenUrl: 'https://myanimelist.net/v1/oauth2/token',
   randomCode,

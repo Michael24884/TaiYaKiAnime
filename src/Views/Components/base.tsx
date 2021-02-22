@@ -13,8 +13,9 @@ import {
 } from "react-native";
 import ParsedText from "react-native-parsed-text";
 import { heightPercentageToDP } from "react-native-responsive-screen";
-import { useTheme } from "../../Stores/theme";
+//import { useTheme } from "../../Stores/theme";
 import { breakLine, italics, paragraph } from "../../Util";
+import { useThemeComponentState } from "./storeConnect";
 
 interface TextPropsLocal {
 	style?: StyleProp<TextStyle>;
@@ -26,7 +27,7 @@ const { height, width } = Dimensions.get("window");
 
 export const ThemedText: FC<TextPropsLocal> = (props) => {
 	const { style, textProps, numberOfLines, children, shouldShrink } = props;
-	const color = useTheme((_) => _.theme.colors.text);
+	const color = useThemeComponentState().text;
 	return (
 		<Text
 			{...textProps}
@@ -53,10 +54,11 @@ export const ThemedButton: FC<{
 	onPress: () => void;
 	disabled?: boolean;
 }> = (props) => {
-	const {
-		colors: { primary, accent },
-		dark,
-	} = useTheme((_) => _.theme);
+	// const {
+	// 	colors: { primary, accent },
+	// 	dark,
+	// } = useTheme((_) => _.theme);
+	const {dark, colors: {primary, accent}} = useThemeComponentState().theme;
 	return (
 		<TouchableOpacity onPress={() => (props.disabled ? null : props.onPress())}>
 			<View
@@ -105,13 +107,13 @@ interface ViewProps {
 
 export const ThemedSurface: FC<ViewProps> = (props) => {
 	const { style, children } = props;
-	const backgroundColor = useTheme((_) => _.theme.colors.backgroundColor);
+	const backgroundColor = useThemeComponentState().background;
 	return <View style={[{ backgroundColor }, style]}>{children}</View>;
 };
 
 export const ThemedCard: FC<ViewProps> = (props) => {
 	const { style, children } = props;
-	const backgroundColor = useTheme((_) => _.theme.colors.backgroundColor);
+	const backgroundColor = useThemeComponentState().background;
 	return (
 		<View
 			style={[

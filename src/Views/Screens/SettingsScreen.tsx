@@ -31,24 +31,56 @@ import { useAsyncStorage } from '@react-native-async-storage/async-storage';
 import { Modalize } from 'react-native-modalize';
 import { sourceAbstractList, TaiyakiSourceLanguage } from '../../Classes/Sources';
 import Icon from 'react-native-dynamic-vector-icons';
+import {useConnect} from 'remx';
+import {themeStore, ThemeActions} from '../../Stores/Theme/';
+import {settingsStore, SettingsActions} from '../../Stores/Settings/';
+import { useAccentComponentState, useThemeComponentState } from '../Components/storeConnect';
+
 const { width, height } = Dimensions.get('window');
 
+const useSettingsConnectComponent = () => useConnect(() => {
+		return {
+			theme: themeStore.getTheme(),
+			accent: themeStore.getTheme().colors.accent,
+			settings: settingsStore.getSettings(),
+			getGeneral: settingsStore.getGeneralSettings(),
+			getSync: settingsStore.getSyncSettings(),
+			getCustomization: settingsStore.getCustomizationSettings(),
+			getExperimental: settingsStore.getExperimentalSettings(),
+			getNotifications: settingsStore.getNotificationSettings(),
+			getDev: settingsStore.getDevSettings(),
+			getQueue: settingsStore.getQueueSettings(),
+			setTheme: ThemeActions.changeTheme,
+			setAccent: ThemeActions.changeAccent,
+			setSettings: SettingsActions.setSettings,
+			
+		}
+});
 
 const SettingsScreen = () => {
 	const navigation = useNavigation();
-	const setTheme = useTheme((_) => _.setTheme);
-	const setAccent = useTheme((_) => _.setAccent);
-	const theme = useTheme((_) => _.theme);
-	const settings = useSettingsStore((_) => _.settings);
-	const setSettings = useSettingsStore((_) => _.setSettings);
+	const {
+		settings, 
+		getCustomization,
+		getDev,
+		getExperimental,
+		getGeneral,
+		getNotifications,
+		getQueue,
+		getSync,
+		
+		setSettings, 
+	} = useSettingsConnectComponent();
+
+	const {accent, setAccent} = useAccentComponentState();
+	const {theme, setTheme} = useThemeComponentState();
+
 	const profiles = useUserProfiles((_) => _.profiles);
 	const [themeOpen, setThemeOpen] = useState<boolean>(false);
 	const { getItem, setItem } = useAsyncStorage('dev');
 
 	const [count, setCount] = useState<number | undefined>(0);
 	const [devEnabled, setDevMode] = useState<boolean>(false);
-
-	const { general, customization, notifications, sync, queue } = settings;
 	
 	const _accentRef = createRef<Modalize>();
 	const _sourceLanguageRef = createRef<Modalize>();
@@ -62,7 +94,6 @@ const SettingsScreen = () => {
 		if (count && count === 7) {
 			setCount(undefined);
 			setDevMode(true);
-			setItem('true');
 		}
 	}, [count]);
 
@@ -99,7 +130,7 @@ const SettingsScreen = () => {
 					<ThemedText style={styles.title}>{item}</ThemedText>
 					<ThemedText style={styles.subtitle}>{item === 'All' ? sourceAbstractList.length :sourceAbstractList.filter((i) => i.language === item).length} available</ThemedText>
 					</View>
-					{settings.general.sourceLanguage === item && <Icon name={'check'} type={'MaterialCommunityIcons'} size={30} color={theme.colors.accent} />}
+					{settings.general.sourceLanguage === item && <Icon name={'check'} type={'MaterialCommunityIcons'} size={30} color={accent} />}
 					</View>
 				</View>
 			</TouchableOpacity>
@@ -170,12 +201,13 @@ const SettingsScreen = () => {
 					/>
 					<SettingsRow
 						title={'Accent'}
-						value={theme.colors.accent}
+						value={accent}
 						onPress={() => _accentRef.current?.open()}
 					/>
+					<ThemedText>{accent}</ThemedText>
 					<SettingsRow
 						title={'Video cover'}
-						value={customization.cover.showVideoCover}
+						value={getCustomization.cover.showVideoCover}
 						onPress={() => navigation.navigate('VideoCoverSettingsPage')}
 					/>
 				</SettingsHead>
@@ -183,7 +215,7 @@ const SettingsScreen = () => {
 				<SettingsHead iconName={'cog'} title={'General'} community>
 					<SettingsRow
 						title={'Auto Play'}
-						value={general.autoPlay.enabled}
+						value={getGeneral.autoPlay.enabled}
 						onPress={() => navigation.navigate('AutoPlaySettingsPage')}
 					/>
 					<SettingsRow
@@ -207,7 +239,7 @@ const SettingsScreen = () => {
 						
 					<Switch
             style={{alignSelf: 'flex-end'}}
-            value={settings.general.blurSpoilers}
+            value={getGeneral.blurSpoilers}
             onValueChange={(value) => {
 				setSettings({...settings, general: {...settings.general, blurSpoilers: value}});
             }}
@@ -237,7 +269,7 @@ const SettingsScreen = () => {
 				<SettingsHead title={'Sync'} iconName={'database'} community>
 					<SettingsRow
 						title={'Auto Sync'}
-						value={sync.autoSync}
+						value={getSync.autoSync}
 						onPress={() => navigation.navigate('SyncSettingsPage')}
 					/>
 				</SettingsHead>
@@ -245,7 +277,7 @@ const SettingsScreen = () => {
 				<SettingsHead title={'Notifications'} iconName={'bell-alert'} community>
 					<SettingsRow
 						title={'Background fetch'}
-						value={minutesToHours.get(notifications.frequency)}
+						value={minutesToHours.get(getNotifications.frequency)}
 						onPress={() => navigation.navigate('NotificationsSettingsPage')}
 					/>
 				</SettingsHead>

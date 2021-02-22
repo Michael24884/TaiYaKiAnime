@@ -39,13 +39,14 @@ import { GlobalContext } from '../../App';
 import { Modalize } from 'react-native-modalize';
 import {build} from '../../../package.json';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useThemeComponentState } from './storeConnect';
 
 const InitialGlobalValue = {
 	whatsNewRef: createRef<Modalize>(),
 } 
 
 export const Navigator = () => {
-  const theme = useTheme((_) => _.theme);
+  const theme = useThemeComponentState().theme;
   const [whatsNewOpen, setWhatsNewOpen] = useState<boolean>(false);
 
   useEffect(() => {

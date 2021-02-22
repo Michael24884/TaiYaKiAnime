@@ -21,7 +21,7 @@ import {
 import {ListRow, ThemedButton, ThemedText} from '../Components';
 import {SearchBar} from '../Components/searchBar';
 import RNPickerSelect from 'react-native-picker-select';
-import {useTheme} from '../../Stores';
+import { useThemeComponentState } from '../Components/storeConnect';
 
 const sortArray: AnilistSortTypes[] = [
   'FAVOURITES_DESC',
@@ -77,7 +77,8 @@ const SearchPage = () => {
     filters: {sort, season, year, source, status},
   });
 
-  const theme = useTheme((_) => _.theme);
+  const {theme} = useThemeComponentState();
+  
   useEffect(() => {
     return () => controller.abort();
   }, []);

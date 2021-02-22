@@ -30,7 +30,7 @@
 		"@react-navigation/native": "^5.8.9",
 		"@react-navigation/stack": "^5.12.6",
 		"axios": "^0.21.1",
-		"immer": "^8.0.0",
+		"constate": "^3.1.0",
 		"lodash": "^4.17.20",
 		"moment": "^2.29.1",
 		"moti": "^0.4.1",
@@ -41,6 +41,7 @@
 		"react-native-cheerio": "^1.0.0-rc.4",
 		"react-native-code-push": "^6.4.1",
 		"react-native-device-info": "^7.1.0",
+		"react-native-dotenv": "^2.5.3",
 		"react-native-dynamic-vector-icons": "^1.1.4",
 		"react-native-fast-image": "^8.3.3",
 		"react-native-gesture-handler": "^1.8.0",
@@ -69,6 +70,7 @@
 		"react-query": "^2.26.2",
 		"react-redux": "^7.2.2",
 		"redux": "^4.0.5",
+		"remx": "^4.0.107-rc.3",
 		"zustand": "^3.1.4"
 	},
 	"devDependencies": {

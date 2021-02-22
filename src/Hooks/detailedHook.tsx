@@ -5,7 +5,7 @@ import { MapSourceTypesToAbstract, Vidstreaming } from "../Classes/Sources";
 import { JikanEpisodesModel } from "../Models/Jikan/JikanBasicModel";
 import { SimklEpisodes } from "../Models/SIMKL";
 import { DetailedDatabaseModel } from "../Models/taiyaki";
-import { useJikanRequest } from "./useJikanRequest";
+import { useJikanInifinityRequest, useJikanRequest } from "./useJikanRequest";
 import { useSimklRequests } from "./useRequest";
 
 export function useDetailedHook(
@@ -33,12 +33,27 @@ export function useDetailedHook(
 		id !== undefined && rawLinks.length > 0
 	);
 
-	const {
-		query: { data: JikanEpisodeData, isFetching: JikanIsFetching },
-	} = useJikanRequest<JikanEpisodesModel>(
-		"jikan_episodes" + idMal,
-		`/${idMal}/episodes`
-	);
+	// const {
+	// 	query: { data: JikanEpisodeData, isFetching: JikanIsFetching, canFetchMore: JikanCanFetchMore },
+	// } = useJikanRequest<JikanEpisodesModel>(
+	// 	"jikan_episodes" + idMal + '?page=' + _jikanPage,
+	// 	`/${idMal}/episodes`, 
+	// 	{keepPreviousData: true}
+	// );
+	const {query: {data: JikanEpisodeData, canFetchMore: JikanCanFetchMore, fetchMore: FetchMoreJikanData }} = useJikanInifinityRequest<JikanEpisodesModel>('jikan_episodes' + idMal, `/${idMal}/episodes`);
+	
+	const _JikanEpisodeData = (JikanEpisodeData ?? []).flatMap((i) => i.data);
+
+	useEffect(() => {
+		if (JikanCanFetchMore) {
+			console.log('can fetch more')
+			FetchMoreJikanData();
+		}
+		if (JikanEpisodeData) {
+			console.log(_JikanEpisodeData.length)
+		}
+		
+	}, [JikanEpisodeData])
 
 	const _mixer = () => {
 		let items: SimklEpisodes[] = [];
@@ -47,11 +62,11 @@ export function useDetailedHook(
 			const raw = rawLinks[i];
 
 			if (episode) {
-				if (JikanEpisodeData && i < JikanEpisodeData.data.length) {
-					const jikanEpisode = JikanEpisodeData!.data[i];
+				if (_JikanEpisodeData && i < _JikanEpisodeData.length) {
+					const jikanEpisode = _JikanEpisodeData![i];
 					episode.filler = jikanEpisode.filler;
 					episode.recap = jikanEpisode.recap;
-					if (episode.description?.length ?? 0 < 5) episode.description = jikanEpisode.synopsis;
+					if (!episode.description) episode.description = jikanEpisode.synopsis;
 				}
 
 				episode.link = raw;
@@ -69,11 +84,11 @@ export function useDetailedHook(
 					filler: false,
 					recap: false,
 				};
-				if (JikanEpisodeData && i < JikanEpisodeData.data.length) {
-					const jikanEpisode = JikanEpisodeData!.data[i];
+				if (_JikanEpisodeData && i < _JikanEpisodeData.length) {
+					const jikanEpisode = _JikanEpisodeData![i];
 					episode.filler = jikanEpisode.filler;
 					episode.recap = jikanEpisode.recap;
-					if (episode.description?.length ?? 0 < 5) episode.description = jikanEpisode.synopsis;
+					if (!episode.description) episode.description = jikanEpisode.synopsis;
 				}
 				items.push(episode);
 			}
@@ -88,14 +103,14 @@ export function useDetailedHook(
 		if (
 			SimklEpisodeData &&
 			SimklEpisodeData.length > 0 &&
-			rawLinks.length > 0 &&
-			JikanEpisodeData
+			rawLinks.length > 0 && !JikanCanFetchMore
 		) {
+			
 			if (timer.current) clearTimeout(timer.current);
 			_mixer();
 		}
-		if (JikanEpisodeData && JikanEpisodeData.data.length > 0) {
-			setFillerCount(JikanEpisodeData.data.filter((i) => i.filler).length);
+		if (_JikanEpisodeData && _JikanEpisodeData.length > 0) {
+			setFillerCount(_JikanEpisodeData.filter((i) => i.filler).length);
 		}
 	}, [SimklEpisodeData, rawLinks, JikanEpisodeData]);
 

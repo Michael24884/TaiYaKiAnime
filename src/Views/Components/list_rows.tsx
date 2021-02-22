@@ -8,6 +8,8 @@ import { useTheme } from '../../Stores';
 import { ThemedButton, ThemedCard, ThemedText } from './base';
 import DangoImage from './image';
 import ProgressBar from 'react-native-progress/Bar';
+import { heightPercentageToDP } from 'react-native-responsive-screen';
+import { useAccentComponentState, useThemeComponentState } from './storeConnect';
 
 const { height, width } = Dimensions.get('window');
 
@@ -52,7 +54,10 @@ export const EpisodeSliders: FC<{
 	item: MyQueueModel;
 }> = (props) => {
 	const { onPress, item } = props;
-	const theme = useTheme((_) => _.theme);
+	//const theme = useTheme((_) => _.theme);
+	const {theme} = useThemeComponentState();
+	const {accent} = useAccentComponentState();
+	
 	return (
 		<TouchableOpacity onPress={onPress}>
 			<ThemedCard>
@@ -92,7 +97,7 @@ export const EpisodeSliders: FC<{
 							<ThemedText
 								style={[
 									queueStyle.queueItemNumber,
-									{ color: theme.colors.accent },
+									{ color: accent },
 								]}>
 								Episode {item.episode.episode}
 							</ThemedText>
@@ -189,7 +194,7 @@ const styles = {
 			justifyContent: 'space-between',
 		},
 		title: {
-			fontSize: 15,
+			fontSize: heightPercentageToDP(1.6),
 			fontWeight: '500',
 		},
 	}),

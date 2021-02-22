@@ -28,6 +28,10 @@ type JikanStudiosModel = {
 };
 
 export type JikanEpisodesModel = {
+	pagination: {
+		has_next_page: boolean;
+	last_visible_page: number;
+	};
 	data: {
 		mal_id: number;
 		title_romanji: string;

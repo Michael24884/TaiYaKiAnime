@@ -39,6 +39,7 @@ import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import { SourceAbstract, sourceAbstractList } from '../../Classes/Sources';
 import WebView from 'react-native-webview';
 import CookieManager from '@react-native-community/cookies';
+import { heightPercentageToDP } from 'react-native-responsive-screen';
 
 const { height, width } = Dimensions.get('window');
 
@@ -259,12 +260,14 @@ const SearchBindPage: FC<Props> = (props) => {
 				<ThemedText style={styles.bindPage.sourceName}>
 					Current source:
 				</ThemedText>
+				<View style={{transform: [{scale: heightPercentageToDP(0.12)}]}}>
 				<Button
 					title={currentArchive.options.name}
 					onPress={() => {
 						archiveRef.current?.open();
 					}}
 				/>
+				</View>
 			</View>
 			{isLoading ? (
 				<View
@@ -776,7 +779,7 @@ const styles = {
 			flex: 1,
 		},
 		text: {
-			fontSize: 15,
+			fontSize: heightPercentageToDP(1.5),
 			fontWeight: '600',
 			margin: 8,
 		},
@@ -785,16 +788,17 @@ const styles = {
 			width: '90%',
 			alignSelf: 'center',
 			marginTop: 5,
+			fontSize: heightPercentageToDP(1.8),
 			borderRadius: 6,
 		},
 		emptyResultsText: {
-			fontSize: 21,
+			fontSize: heightPercentageToDP(2.5),
 			fontWeight: '400',
 		},
 		sourceName: {
 			textAlign: 'center',
 			marginTop: height * 0.015,
-			fontSize: 17,
+			fontSize: heightPercentageToDP(1.9),
 			fontWeight: '600',
 		},
 	}),

@@ -3,6 +3,7 @@ import React, { createRef, memo, useEffect, useState } from "react";
 import { Platform, Dimensions, View } from "react-native";
 import { Modalize } from "react-native-modalize";
 import { StretchyScrollView } from "react-native-stretchy";
+import { useConnect } from "remx";
 import { useAnilistRequest } from "../../Hooks";
 import {
 	AnilistPagedData,
@@ -12,7 +13,9 @@ import {
 	AnilistTrendingGraph,
 } from "../../Models/Anilist";
 import { useNotificationStore } from "../../Stores/notifications";
-import { useTheme } from "../../Stores/theme";
+import { useTaiyakiTheme } from "../../Stores/rootStore";
+import { themeStore } from "../../Stores/Theme/";
+//import { useTheme } from "../../Stores/theme";
 import { MapKeyToPaths, MapRequestsToTitle } from "../../Util";
 import { BaseRows, BaseRowsSimple, ThemedSurface } from "../Components";
 import { InstagramAvatars } from "../Components/animated";
@@ -21,9 +24,10 @@ import QueueTiles from "../Components/queueTiles";
 import MyQueueScreen from "./QueuePage";
 
 const { height, width } = Dimensions.get("window");
-
 const DiscoveryScreen = () => {
-	const theme = useTheme((_) => _.theme);
+	//const {theme} = useDiscoveryStateComponent();
+	const {backgroundColor} = useTaiyakiTheme().colors;
+
 	const notifications = useNotificationStore((_) =>
 		Object.values(_.notifications)
 	);
@@ -72,7 +76,7 @@ const DiscoveryScreen = () => {
 				>
 					<View
 						style={{
-							backgroundColor: theme.colors.backgroundColor,
+							backgroundColor,
 							marginTop: 10,
 						}}
 					>
@@ -105,7 +109,7 @@ const DiscoveryScreen = () => {
 			<Modalize
 				ref={queueModalize}
 				modalHeight={height * 0.75}
-				modalStyle={{ backgroundColor: theme.colors.backgroundColor }}
+				modalStyle={{ backgroundColor }}
 			>
 				<View
 					style={{

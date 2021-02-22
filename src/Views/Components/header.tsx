@@ -17,6 +17,8 @@ import { TaiyakiParsedText, ThemedText } from './base';
 import LinearGradient from 'react-native-linear-gradient';
 import { timeUntil } from '../../Util';
 import { heightPercentageToDP } from 'react-native-responsive-screen';
+import { isTablet } from 'react-native-device-info';
+import { useAccentComponentState, useThemeComponentState } from './storeConnect';
 
 const { height, width } = Dimensions.get('window');
 
@@ -36,12 +38,12 @@ class TaiyakiHeader extends Component<{
 				<View style={[styles.view]}>
 					<View style={[styles.view]}>
 						<TouchableWithoutFeedback onPress={this.props.onPress}>
-							<View style={[{ flexDirection: 'row' }]}>
+							<View style={[{ flexDirection: 'row', alignItems: 'center' }]}>
 								<Icon
 									name={'arrow-back-ios'}
 									type={'MaterialIcons'}
 									color={'white'}
-									size={width * 0.07}
+									size={heightPercentageToDP(3.2)}
 								/>
 								<ThemedText style={[styles.backtext]}>Back</ThemedText>
 							</View>
@@ -52,7 +54,7 @@ class TaiyakiHeader extends Component<{
 					style={[
 						{
 							backgroundColor: this.props.color,
-							height: Platform.OS === 'ios' ? height * 0.13 : height * 0.12,
+							height: Platform.OS === 'ios' ? isTablet() ? heightPercentageToDP(10) : height * 0.13 : height * 0.12,
 							position: 'absolute',
 							top: 0,
 							left: 0,
@@ -75,7 +77,8 @@ export const SynopsisExpander: FC<{
 }> = (props) => {
 	const [expand, setExpand] = useState<boolean>(false);
 	const { synopsis, nextAiringEpisode } = props;
-	const theme = useTheme((_) => _.theme);
+	const {theme} = useThemeComponentState();
+	const {accent} = useAccentComponentState();
 	const styles = StyleSheet.create({
 		surface: {
 			backgroundColor: theme.colors.backgroundColor,
@@ -116,7 +119,7 @@ export const SynopsisExpander: FC<{
 			}),
 		},
 		button: {
-			backgroundColor: theme.colors.accent,
+			backgroundColor: accent,
 			width: heightPercentageToDP(5.25),
 			aspectRatio: 1 / 1,
 			borderRadius: (width * 0.11) / 2,
@@ -213,7 +216,7 @@ const styles = StyleSheet.create({
 		right: 0,
 		zIndex: 100,
 		width,
-		height: Platform.OS === 'ios' ? height * 0.13 : height * 0.12,
+		height: Platform.OS === 'ios' ? isTablet() ? heightPercentageToDP(10): heightPercentageToDP(13) : height * 0.12,
 		justifyContent: 'flex-end',
 		paddingBottom: height * 0.03,
 		paddingHorizontal: width * 0.04,
@@ -221,7 +224,7 @@ const styles = StyleSheet.create({
 	},
 
 	backtext: {
-		fontSize: 17,
+		fontSize: heightPercentageToDP(1.9),
 		fontWeight: '500',
 		color: 'white',
 	},

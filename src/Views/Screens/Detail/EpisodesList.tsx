@@ -15,6 +15,7 @@ import {useQueueStore, useTheme, useUpNextStore} from '../../../Stores';
 import {ThemedButton, ThemedCard, ThemedSurface, ThemedText} from '../../Components';
 import {EpisodeTiles} from '../../Components/list_cards';
 import {Modalize} from 'react-native-modalize';
+import { heightPercentageToDP } from 'react-native-responsive-screen';
 
 const {height, width} = Dimensions.get('window');
 
@@ -234,7 +235,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontWeight: '600',
-    fontSize: 12,
+    fontSize: heightPercentageToDP(1.5),
   },
 });
 

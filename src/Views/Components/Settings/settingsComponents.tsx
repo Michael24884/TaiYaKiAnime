@@ -24,7 +24,7 @@ export const SettingsRow: FC<{
     return 'Disabled';
   };
 
-  const [boolValue, setValue] = useState<boolean>(value ?? false);
+  const [boolValue, setValue] = useState<boolean | number | string>(value || false);
 
   return (
     <TouchableOpacity
@@ -34,16 +34,16 @@ export const SettingsRow: FC<{
         <View>
           <ThemedText style={styles.settingRow.title}>{title}</ThemedText>
           <ThemedText style={styles.settingRow.desc}>
-            {typeof value === 'boolean' ? _enabled(boolValue) : boolValue}
+            {typeof value === 'boolean' ? _enabled(boolValue as boolean) : boolValue}
           </ThemedText>
         </View>
         {typeof value === 'boolean' && hasSwitcher ? (
           <Switch
-            value={boolValue}
+            value={boolValue as boolean}
             key={title}
             onValueChange={(value) => {
               setValue(value)
-              onValueChange(value)
+              onValueChange?.call(null, value as boolean)
             }}
 
           />

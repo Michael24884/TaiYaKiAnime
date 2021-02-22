@@ -31,7 +31,6 @@ import {
 	WatchingStatus,
 } from '../../Models/taiyaki';
 import { useQueueStore } from '../../Stores/queue';
-import { useTheme } from '../../Stores/theme';
 import {
 	MapTrackingServiceToAssets,
 	MapTrackingServiceToColors,
@@ -43,6 +42,9 @@ import { ContinueWatchingTile } from '.';
 import Dimension from '../../Classes/Dimensions';
 import { useNotificationStore } from '../../Stores';
 import { heightPercentageToDP, widthPercentageToDP } from 'react-native-responsive-screen';
+import { useConnect } from 'remx';
+import { themeStore } from '../../Stores/Theme';
+import { useAccentComponentState, useThemeComponentState } from './storeConnect';
 
 const { height, width } = Dimensions.get('window');
 const ITEM_HEIGHT = Platform.OS === 'ios' ? heightPercentageToDP(25) : height * 0.5;
@@ -113,8 +115,11 @@ interface BaseRowProps {
 	hideSeeAll?: boolean;
 }
 
+
+
 export const BaseRows: FC<BaseRowProps> = (props) => {
-	const theme = useTheme((_) => _.theme.colors);
+	const {theme} = useThemeComponentState();
+	const {accent} = useAccentComponentState();
 	const { title, subtitle, data, type, hideSeeAll } = props;
 	const navigation = useNavigation();
 	const renderItem = ({ item }: { item: Media }) => {
@@ -138,7 +143,7 @@ export const BaseRows: FC<BaseRowProps> = (props) => {
 						<Button
 						title={'See All'}
 						onPress={() => navigation.navigate('See More', { key: type })}
-						color={theme.accent}
+						color={accent}
 					/>
 					</View>
 				) : null}
@@ -220,7 +225,7 @@ const _StatusTiles: FC<{
 	tracker: TrackingServiceTypes;
 	onManualEdit: () => void;
 }> = (props) => {
-	const theme = useTheme((_) => _.theme);
+	const {theme} = useThemeComponentState();
 	const { tracker } = props;
 	const emptyResults = () => (
 		<View style={{ paddingTop: 10 }}>
@@ -426,7 +431,7 @@ const _WatchTile: FC<{
 	onAddUnwatchedToQueue: () => void;
 	onRemoveSavedLink: () => void;
 }> = (props) => {
-	const theme = useTheme((_) => _.theme);
+	const {theme} = useThemeComponentState();
 	const queue = useQueueStore((_) => _.myQueue);
 	const queueLength = useQueueStore((_) => _.queueLength);
 	const pagerController = createRef<ViewPager>();
@@ -618,7 +623,7 @@ const _WatchTile: FC<{
 									flexDirection: 'row',
 									justifyContent: 'space-between',
 								}}>
-								<ThemedText style={{ color: theme.colors.accent }}>
+								<ThemedText style={{ color: theme.colors.accent, fontSize: heightPercentageToDP(1.75) }}>
 									Episode {episode}
 								</ThemedText>
 								{inQueue() ? (
@@ -664,7 +669,7 @@ export const FlavoredButtons: FC<{
 	size?: number;
 }> = (props) => {
 	const { size, name, onPress } = props;
-	const theme = useTheme((_) => _.theme);
+	const {theme} = useThemeComponentState();
 
 	return (
 		<TouchableOpacity onPress={onPress}>
@@ -682,7 +687,7 @@ export const FlavoredButtons: FC<{
 					<Icon
 						name={name}
 						type={'MaterialCommunityIcons'}
-						size={30}
+						size={heightPercentageToDP(2.75)}
 						color={'white'}
 					/>
 				</View>
@@ -769,7 +774,7 @@ const styles = {
 			marginTop: 8,
 		},
 		subTitle: {
-			fontSize: heightPercentageToDP(1.8),
+			fontSize: heightPercentageToDP(2.5),
 			fontWeight: '700',
 			marginTop: height * 0.01,
 			marginBottom: height * 0.01,
@@ -842,11 +847,11 @@ const styles = {
 		},
 		title: {
 			fontWeight: '600',
-			fontSize: 16,
+			fontSize: heightPercentageToDP(1.85),
 		},
 		desc: {
 			color: 'grey',
-			fontSize: 12,
+			fontSize: heightPercentageToDP(1.5),
 		},
 	}),
 };

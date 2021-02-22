@@ -8,12 +8,15 @@ import {ListRow, ThemedSurface, ThemedText} from '../Components';
 import {EmptyScreen} from './empty_screen';
 import TimeAgo from 'react-native-timeago';
 import {useTheme} from '../../Stores';
+import { useThemeComponentState } from '../Components/storeConnect';
 
 const HistoryScreen = () => {
   const [history, setHistory] = useState<HistoryModel[]>([]);
   const {getItem, removeItem} = useAsyncStorage('history');
   const navigation = useNavigation();
-  const theme = useTheme((_) => _.theme);
+  //const theme = useTheme((_) => _.theme);
+
+  const {theme} = useThemeComponentState();
 
   useFocusEffect(
     useCallback(() => {

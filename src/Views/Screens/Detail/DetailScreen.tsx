@@ -36,7 +36,7 @@ import {
 	AnilistRecommendationPageEdgeModel,
 	Media,
 } from "../../../Models/Anilist";
-import { useSettingsStore, useTheme, useUserProfiles } from "../../../Stores";
+import { useSettingsStore, useUserProfiles } from "../../../Stores";
 import {
 	dateNumToString,
 	MapAnilistSeasonsToString,
@@ -68,6 +68,9 @@ import {
 	MapJikanRatingTypeToStringObj,
 } from "../../../Models/Jikan/JikanBasicModel";
 import { AnimatePresence, View as MotiView } from "moti";
+import { isTablet } from "react-native-device-info";
+import { useTaiyakiTheme } from "../../../Stores/rootStore";
+import { useAccentComponentState, useThemeComponentState } from "../../Components/storeConnect";
 
 const { height, width } = Dimensions.get("window");
 const ITEM_HEIGHT = height * 0.26;
@@ -93,8 +96,10 @@ const DetailScreen: FC<Props> = (props) => {
 	const navigation = useNavigation();
 	const scrollValue = useRef(new Animated.Value(0)).current;
 	const dropDownRef = createRef<DropDownAlert>();
-	const theme = useTheme((_) => _.theme);
-
+	//const theme = useTaiyakiTheme();
+	const {theme} = useThemeComponentState();
+	const {accent} = useAccentComponentState();
+	
 	const [id, setID] = useState<number>(props.route.params.id);
 	const [malIDState, setMALIDState] = useState<number>(malID);
 
@@ -212,12 +217,12 @@ const DetailScreen: FC<Props> = (props) => {
 			marginBottom: Platform.OS === "ios" ? undefined : height * 0.03,
 		},
 		title: {
-			fontSize: heightPercentageToDP(2.2),
+			fontSize: heightPercentageToDP(2),
 			fontWeight: "bold",
 		},
 		englishTitle: {
 			color: "grey",
-			fontSize: heightPercentageToDP(1.6),
+			fontSize: heightPercentageToDP(1.5),
 			fontWeight: "400",
 		},
 		synopsis: {
@@ -229,7 +234,7 @@ const DetailScreen: FC<Props> = (props) => {
 		},
 		genrePills: {
 			margin: 4,
-			backgroundColor: theme.colors.accent,
+			backgroundColor: accent,
 			borderRadius: 4,
 			justifyContent: "center",
 			padding: 8,
@@ -569,7 +574,7 @@ const DetailScreen: FC<Props> = (props) => {
 						height: heightPercentageToDP(10),
 						justifyContent: "center",
 						marginBottom: heightPercentageToDP(1.4),
-						backgroundColor: theme.colors.backgroundColor,
+						backgroundColor: theme.colors.secondaryBackgroundColor,
 						borderRadius: 6,
 						width: "95%",
 						alignSelf: "center",
@@ -771,14 +776,15 @@ const DetailScreen: FC<Props> = (props) => {
 				{detailedHook ? (
 					<View
 						style={{
-							borderRadius: 5,
+							flexDirection: 'row',
+							borderRadius: 2,
 							alignSelf: "center",
-							backgroundColor:
-								detailedHook.fillerCount === 0 ? "green" : "#ff6b1f",
-							padding: widthPercentageToDP(2),
+							backgroundColor: theme.colors.secondaryBackgroundColor,
+							padding: widthPercentageToDP(2.5),
 							paddingHorizontal: widthPercentageToDP(5),
 							width: "95%",
 							marginBottom: heightPercentageToDP(2),
+							justifyContent: 'center'
 						}}
 					>
 						<ThemedText
@@ -786,12 +792,22 @@ const DetailScreen: FC<Props> = (props) => {
 								textAlign: "center",
 								fontWeight: "600",
 								fontSize: heightPercentageToDP(2.25),
+								marginRight: 5
 							}}
 						>
 							{detailedHook?.fillerCount === 0
 								? "This anime has no fillers".toLocaleUpperCase()
-								: `Found ${detailedHook?.fillerCount} filler episodes`.toLocaleUpperCase()}
+								: `Found ${detailedHook?.fillerCount} filler episodes`.toLocaleUpperCase()}  
 						</ThemedText>
+						{detailedHook.fillerCount > 0 ? <ThemedText
+							style={{
+								textAlign: "center",
+								fontWeight: "600",
+								fontSize: heightPercentageToDP(2.25),
+							}}
+						>
+						 = {((detailedHook.fillerCount / detailedHook.data.length) * 100).toFixed(0)}%
+						</ThemedText>: null}
 					</View>
 				) : null}
 
@@ -943,9 +959,9 @@ const DetailScreen: FC<Props> = (props) => {
 			/>
 			<View
 				style={{
-					height,
-					width,
-					marginTop: Platform.OS === "ios" ? -height * 0.13 : -height * 0.16,
+					height: isTablet() ? (height + heightPercentageToDP(4)) : height,
+					marginTop: Platform.OS === "ios" ? isTablet() ? -heightPercentageToDP(13) : -height * 0.13 : -height * 0.16,
+					
 				}}
 			>
 				{PageOne()}

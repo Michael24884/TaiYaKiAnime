@@ -9,6 +9,7 @@ import {
 	View,
 } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import { heightPercentageToDP } from "react-native-responsive-screen";
 import {
 	AnilistCharacterPageEdgeModel,
 	AnilistRecommendationPageEdgeModel,
@@ -16,12 +17,13 @@ import {
 } from "../../Models/Anilist";
 import { SimklEpisodes } from "../../Models/SIMKL";
 import { DetailedDatabaseModel, MyQueueModel } from "../../Models/taiyaki";
-import { useSettingsStore, useTheme } from "../../Stores";
+import { useSettingsStore } from "../../Stores";
 import { useQueueStore } from "../../Stores/queue";
 import { TaiyakiParsedText, ThemedCard, ThemedText } from "./base";
 import { Chip } from "./Chip";
 import DangoImage from "./image";
 import { FlavoredButtons } from "./rows";
+import { useThemeComponentState } from "./storeConnect";
 
 const { height, width } = Dimensions.get("window");
 
@@ -48,7 +50,7 @@ export const CharacterCard: FC<{ character: AnilistCharacterPageEdgeModel }> = (
 export const RecCards: FC<{ items: AnilistRecommendationPageEdgeModel }> = (
 	props
 ) => {
-	const theme = useTheme((_) => _.theme);
+	const {theme} = useThemeComponentState();
 	const {
 		coverImage,
 		title,
@@ -149,7 +151,7 @@ const _EpisodeTiles: FC<{
 
 	const [hidden, setHidden] = useState<boolean>(isBlurred);
 	const [descExpanded, setExpanded] = useState<boolean>(false);
-	const theme = useTheme((_) => _.theme);
+	const {theme} = useThemeComponentState();
 
 	const { addToQueue } = useQueueStore((_) => _);
 
@@ -327,7 +329,7 @@ const styles = {
 			width: "100%",
 		},
 		episodeNumber: {
-			fontSize: 16,
+			fontSize: heightPercentageToDP(2.25),
 			fontWeight: "600",
 			textAlign: "center",
 		},
@@ -335,16 +337,16 @@ const styles = {
 			padding: 8,
 		},
 		episodeNumberReveal: {
-			fontSize: 15,
+			fontSize: heightPercentageToDP(1.85),
 			fontWeight: "400",
 		},
 		episodeTitle: {
-			fontSize: 19,
+			fontSize: heightPercentageToDP(2),
 			fontWeight: "600",
 		},
 		desc: {
 			color: "grey",
-			fontSize: 14,
+			fontSize: heightPercentageToDP(1.75),
 			fontWeight: "400",
 			marginTop: 5,
 		},
@@ -403,17 +405,17 @@ const styles = {
 		role: {
 			color: "grey",
 			fontWeight: "300",
-			fontSize: 12,
+			fontSize: heightPercentageToDP(1.5),
 			marginTop: 4,
 		},
 		name: {
-			fontSize: 15,
+			fontSize: heightPercentageToDP(1.8),
 			fontWeight: "400",
 		},
 		view: {
 			height: height * 0.27,
-			flex: 1 / 3,
-			marginHorizontal: width * 0.01,
+			flex: 1 /3,
+			marginHorizontal: heightPercentageToDP(1),
 			marginVertical: height * 0.01,
 		},
 		shadow: {
