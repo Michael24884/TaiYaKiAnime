@@ -53,10 +53,12 @@ class AnimePahe extends SourceAbstract {
                 episodes.push(`https://animepahe.com/api?m=links&id=${epi.anime_id}&session=${epi.session}&p=kwik!!TRUE!!`)
             })
         } else {
-            for (let page=1; page<lastPage+1; page++) {
-                for (let i=0; i < perPage && ep <= total; i++) {
-                    episodes.push(`https://animepahe.com/api?m=release&id=${id}&sort=episode_asc&page=${page}&ep=${ep}!!FALSE!!`)
-                    ep++
+            for (let page of [...Array(lastPage).keys()]) {
+                for (let i of [...Array(perPage).keys()]) {
+                    if (ep <= total) {
+                        episodes.push(`https://animepahe.com/api?m=release&id=${id}&sort=episode_asc&page=${page+1}&ep=${ep}!!FALSE!!`)
+                        ep++
+                    }
                 }
             }
         }
