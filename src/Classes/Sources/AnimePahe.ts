@@ -37,7 +37,7 @@ class AnimePahe extends SourceAbstract {
     }
 
     async availableEpisodes(link: string): Promise<string[]> {
-	const attr = link.split('/')
+        const attr = link.split('/')
         const id = attr[attr.length - 1]
         var page = 1
         const apiUri = 'https://animepahe.com/api?m=release&id='+ id +'&sort=episode_asc&page='
