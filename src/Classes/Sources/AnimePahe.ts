@@ -39,9 +39,8 @@ class AnimePahe extends SourceAbstract {
     async availableEpisodes(link: string): Promise<string[]> {
         const attr = link.split('/')
         const id = attr[attr.length - 1]
-        var page = 1
-        const apiUri = 'https://animepahe.com/api?m=release&id='+ id +'&sort=episode_asc&page='
-        const jsonResponse = await (await fetch(apiUri + page, {method: 'GET', headers: {'referer': 'https://animepahe.com/'}})).json()
+        const apiUri = 'https://animepahe.com/api?m=release&id='+ id +'&sort=episode_asc&page=1'
+        const jsonResponse = await (await fetch(apiUri, {method: 'GET', headers: {'referer': 'https://animepahe.com/'}})).json()
         const lastPage = jsonResponse['last_page']
         const perPage = jsonResponse['per_page']
         const total = jsonResponse['total']
