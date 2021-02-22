@@ -49,9 +49,9 @@ class AnimePahe extends SourceAbstract {
         const episodes = []
 
         if (lastPage == 1 && perPage > total) {
-            for (let epi of jsonResponse['data']) {
+            jsonResponse['data'].forEach(epi => {
                 episodes.push(`https://animepahe.com/api?m=links&id=${epi.anime_id}&session=${epi.session}&p=kwik!!TRUE!!`)
-            }
+            })
         } else {
             for (let page=1; page<lastPage+1; page++) {
                 for (let i=0; i < perPage && ep <= total; i++) {
