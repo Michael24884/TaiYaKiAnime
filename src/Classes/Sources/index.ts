@@ -9,7 +9,7 @@ import TioAnime from './TioAnime';
 import Anime8 from './Anime8';
 import Shiro from './Shiro';
 import AniWatch from './Aniwatch';
-import AnimePahe from '/AnimePahe';
+import AnimePahe from './AnimePahe';
 //STEP 1: Import the file above (Place at the end)
 
 //STEP 2: Add a unique name
