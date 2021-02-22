@@ -64,7 +64,7 @@ class AnimePahe extends SourceAbstract {
     }
 
     async scrapeLinks(episodeLink: string): Promise<{ link: string; server: string; }[]> {
-		if (episodeLink.includes('!!TRUE!!')) {
+	if (episodeLink.includes('!!TRUE!!')) {
             episodeLink = episodeLink.replace('!!TRUE!!', '')
         } else {
             const regex = /\&ep\=(.*?)\!\!FALSE\!\!/
