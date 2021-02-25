@@ -10,5 +10,6 @@ import Umi from './umi';
 import Fembed from './fembed';
 import YourUpload from './yourupload';
 import UserLoad from './userload';
+import StreamTape from './streamtape';
 
-export {BP, Cloud9, Kwik, Mp4Upload, HostBase, VidstreamingHost, Xstream, StreamX, Umi, Fembed, YourUpload, UserLoad};
+export {BP, Cloud9, Kwik, Mp4Upload, HostBase, VidstreamingHost, Xstream, StreamX, Umi, Fembed, YourUpload, UserLoad, StreamTape};
