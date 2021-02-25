@@ -59,7 +59,7 @@ class AnimeWorld extends SourceAbstract {
     async scrapeLinks(episodeLink: string): Promise<{ link: string; server: string; }[]> {
         const html = await (await fetch(episodeLink)).text()
         const $ = cheerio.load(html)
-        const servers = []
+        const servers = [{server: 'Custom', link: $('a#alternativeDownloadLink').attr('href')}]
         $('#external-downloads > center > a').toArray().map(s => {
             let server = $(s)
             servers.push({
