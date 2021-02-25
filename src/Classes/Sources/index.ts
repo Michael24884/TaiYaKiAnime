@@ -9,7 +9,7 @@ import TioAnime from './TioAnime';
 import Anime8 from './Anime8';
 import Shiro from './Shiro';
 import AniWatch from './Aniwatch';
-import AnimePahe from './AnimePahe';
+import AnimeWorld from './AnimeWorld';
 //STEP 1: Import the file above (Place at the end)
 
 //STEP 2: Add a unique name
@@ -24,11 +24,10 @@ export type TaiyakiSourceTypes=
 'TioAnime' |
 'Shiro' |
 'AniWatch' |
-'AnimePahe';
-
+'AnimeWorld';
 
 //STEP 3(OPTIONAL): If the source uses a language not added here put the proper language, if possible use Alphabetic order
-export type TaiyakiSourceLanguage = 'Arabic'| 'English' | 'French' | 'Spanish';
+export type TaiyakiSourceLanguage = 'Arabic'| 'English' | 'French' | 'Italian' | 'Spanish';
 
 export const TaiyakiSourceLanguageArray = ['All', 'English','French','Spanish'];
 
@@ -44,7 +43,7 @@ const sourceAbstractList: SourceAbstract[] = [
     // new XSAnime(),
     new Anime8(),
     new Shiro(),
-    // new AnimePahe(),
+    new AnimeWorld(),
 ].sort((a, b) => a.options.name.localeCompare(b.options.name));
 
 //STEP 5: Add a map using the unique name from STEP 2, to the proper class constructor
@@ -59,7 +58,7 @@ export const MapSourceTypesToAbstract = new Map<TaiyakiSourceTypes, SourceAbstra
     ['AnimeRush', new AnimeRush()],
     ['Shiro', new Shiro()],
     ['AniWatch', new AniWatch()],
-    ['AnimePahe', new AnimePahe()],
+    ['AnimeWorld', new AnimeWorld()],
 ])
 
 //STEP 6: Finally add the imported class from STEP 1 (Place at the end)
@@ -73,5 +72,5 @@ export {
     Anime8,
     Shiro,
     AniWatch,
-    AnimePahe,
+    AnimeWorld,
 }
