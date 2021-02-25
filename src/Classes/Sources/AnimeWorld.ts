@@ -60,6 +60,7 @@ class AnimeWorld extends SourceAbstract {
         const html = await (await fetch(episodeLink)).text()
         const $ = cheerio.load(html)
         const servers = [{server: 'Custom', link: $('a#alternativeDownloadLink').attr('href')}]
+        const filter_servers = ['streamsb', 'streamtape', 'userload', 'Custom']
         $('#external-downloads > center > a').toArray().map(s => {
             let server = $(s)
             servers.push({
@@ -67,6 +68,7 @@ class AnimeWorld extends SourceAbstract {
                 server: server.text().match(/Download (.*?) - Ep./)[1].trim().toLowerCase()
             })
         })
+        return servers.filter(server => filter_servers.includes(server.server))
     }
 }
 
