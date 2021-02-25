@@ -29,6 +29,8 @@ const DangoImage: FC<FastImageProps> = (props) => {
   return (
     <View style={[style]}>
       <FastImage
+      fallback
+        defaultSource={require('../../assets/images/icon_round.png')}
         style={styles.image.base}
         source={{uri: url, cache: FastImage.cacheControl.web, }}
         resizeMode={resize ?? 'cover'}

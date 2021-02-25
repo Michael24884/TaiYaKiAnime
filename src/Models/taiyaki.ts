@@ -112,44 +112,43 @@ export type TaiyakiScrapedTitleModel = {
 };
 
 export type TaiyakiSettingsModel = {
-  customization: {
-    cover: {
+  
+  
       showVideoCover: boolean;
       delay: number;
-    };
+  
     matchPosterColor: boolean;
-  };
-  general: {
+  
+  
     sourceLanguage: TaiyakiSourceLanguageWithAll;
     blurSpoilers: boolean;
-    autoPlay: {
+  
       enabled: boolean;
       timerAt94: boolean;
       changeAt100: boolean;
-    };
-    video: {
+  
+  
       pip: boolean;
       followAspectRatio: boolean;
       preloadUpNext: boolean;
-    };
-  };
-  sync: {
+  
+  
+  
     autoSync: boolean;
     syncAt75: boolean;
     overrideWatchNext: boolean;
-  };
-  notifications: {
-    frequency: number;
+  
+    frequency: 60 | 120 | 360 | 720;
     requiresCharging: boolean;
     allowOnLowPower: boolean;
     canUseCellularNetwork: boolean;
-  };
-  queue: {
+  
+  
     saveQueue: boolean;
-  };
-  experimental: {
+  
+  
     allowBugReports: boolean;
-  };
+  
   about: {};
   dev: {
     videoBuffer: {
@@ -164,44 +163,44 @@ export type TaiyakiSettingsModel = {
 };
 
 export const TaiyakiDefaultSettings: TaiyakiSettingsModel = {
-  customization: {
-    cover: {
+  
+  
       showVideoCover: true,
       delay: 8,
-    },
+  
     matchPosterColor: false,
-  },
-  general: {
+  
+  
     sourceLanguage: 'All',
     blurSpoilers: true,
-    autoPlay: {
+  
       enabled: true,
       timerAt94: true,
       changeAt100: true,
-    },
-    video: {
+  
+  
       pip: false,
       followAspectRatio: true,
       preloadUpNext: true,
-    },
-  },
-  sync: {
+  
+  
+  
     autoSync: false,
     syncAt75: false,
     overrideWatchNext: false,
-  },
-  notifications: {
+  
+  
     frequency: 60,
     allowOnLowPower: true,
     canUseCellularNetwork: true,
     requiresCharging: false,
-  },
-  queue: {
+  
+  
     saveQueue: true,
-  },
-  experimental: {
+  
+  
     allowBugReports: true,
-  },
+  
   about: {},
   dev: {
     videoBuffer: {

@@ -1,6 +1,6 @@
 import {DefaultTheme, DarkTheme} from '@react-navigation/native';
 
-export type BaseTheme = {
+export interface BaseTheme {
   name: string;
   dark: boolean;
   colors: {
@@ -15,6 +15,19 @@ export type BaseTheme = {
 };
 
 export const LightTheme: BaseTheme = {
+  name: 'Light',
+  dark: false,
+  colors: {
+    ...DefaultTheme.colors,
+    primary: '#5D07B2',
+    accent: '#F570C0',
+    backgroundColor: 'white',
+    secondaryBackgroundColor: '#ededed',
+    surface: '#f0f0f0',
+    text: 'black',
+  },
+};
+export const TaiyakiLightTheme: BaseTheme = {
   name: 'Light',
   dark: false,
   colors: {

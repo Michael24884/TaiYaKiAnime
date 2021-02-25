@@ -194,7 +194,7 @@ const styles = {
 			justifyContent: 'space-between',
 		},
 		title: {
-			fontSize: heightPercentageToDP(1.6),
+			fontSize: heightPercentageToDP(1.8),
 			fontWeight: '500',
 		},
 	}),
@@ -228,7 +228,7 @@ const queueStyle = StyleSheet.create({
 		fontSize: 15,
 	},
 	emptyMessage: {
-		fontSize: 21,
+		fontSize: heightPercentageToDP(2.3),
 		textAlign: 'center',
 		fontWeight: 'bold',
 	},
@@ -237,11 +237,11 @@ const queueStyle = StyleSheet.create({
 		marginLeft: -10,
 	},
 	queueItemTitle: {
-		fontSize: 15,
+		fontSize: heightPercentageToDP(1.6),
 		fontWeight: '400',
 	},
 	queueItemNumber: {
-		fontSize: 15,
+		fontSize: heightPercentageToDP(1.5),
 		marginBottom: 4,
 	},
 	rowBack: {

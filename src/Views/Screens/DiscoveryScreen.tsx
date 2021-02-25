@@ -1,6 +1,6 @@
 import { useNavigation } from "@react-navigation/native";
 import React, { createRef, memo, useEffect, useState } from "react";
-import { Platform, Dimensions, View } from "react-native";
+import { Platform, Dimensions, View, StatusBar } from "react-native";
 import { Modalize } from "react-native-modalize";
 import { StretchyScrollView } from "react-native-stretchy";
 import { useConnect } from "remx";
@@ -21,12 +21,13 @@ import { BaseRows, BaseRowsSimple, ThemedSurface } from "../Components";
 import { InstagramAvatars } from "../Components/animated";
 import BigCoverFlow, { BigCoverFlowText } from "../Components/bigCoverFlow";
 import QueueTiles from "../Components/queueTiles";
+import { useThemeComponentState } from "../Components/storeConnect";
 import MyQueueScreen from "./QueuePage";
 
 const { height, width } = Dimensions.get("window");
 const DiscoveryScreen = () => {
 	//const {theme} = useDiscoveryStateComponent();
-	const {backgroundColor} = useTaiyakiTheme().colors;
+	const {theme: {colors: {backgroundColor, card}, dark}} = useThemeComponentState();
 
 	const notifications = useNotificationStore((_) =>
 		Object.values(_.notifications)
@@ -62,10 +63,15 @@ const DiscoveryScreen = () => {
 		console.log(status);
 	}, [PopularData, TrendingData, SeasonalData]);
 
-	const discordID = 10721;
+	const discordID = 103572;
 
 	return (
 		<>
+		 <StatusBar
+        barStyle={dark ? 'light-content' : 'dark-content'}
+        // barStyle={'light-content'}
+        backgroundColor={card}
+      />
 			<ThemedSurface style={{ flex: 1 }}>
 				<StretchyScrollView
 					imageResizeMode={"center"}

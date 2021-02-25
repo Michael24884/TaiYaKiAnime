@@ -70,7 +70,8 @@ import {
 import { AnimatePresence, View as MotiView } from "moti";
 import { isTablet } from "react-native-device-info";
 import { useTaiyakiTheme } from "../../../Stores/rootStore";
-import { useAccentComponentState, useThemeComponentState } from "../../Components/storeConnect";
+import { useAccentComponentState, useThemeComponentState, useSettingsComponentState } from "../../Components/storeConnect";
+import { RatingDecBarChart } from "../../Components/charts";
 
 const { height, width } = Dimensions.get("window");
 const ITEM_HEIGHT = height * 0.26;
@@ -90,7 +91,8 @@ LogBox.ignoreLogs(["Aborted"]);
 
 const DetailScreen: FC<Props> = (props) => {
 	const { malID } = props.route.params;
-	const settings = useSettingsStore((_) => _.settings);
+	//const settings = useSettingsStore((_) => _.settings);
+	const settings = useSettingsComponentState().settings;
 	const profiles = useUserProfiles((_) => _.profiles);
 	const [statusPageVisible, setStatusPageVisibility] = useState<boolean>(false);
 	const navigation = useNavigation();
@@ -466,6 +468,8 @@ const DetailScreen: FC<Props> = (props) => {
 		startDate,
 		endDate,
 		nextAiringEpisode,
+		stats,
+		relations,
 	} = data.data.Media;
 
 	const VerticalDivider = () => {
@@ -485,7 +489,7 @@ const DetailScreen: FC<Props> = (props) => {
 	const RatingRowBlock = (
 		type: "RATING" | "SCORE" | "RANK"
 	): JSX.Element | null => {
-		if (!jikanData) return null;
+		if (!jikanData || !jikanData.data) return null;
 		const { rating, score, rank } = jikanData.data;
 		return (
 			<View
@@ -506,7 +510,7 @@ const DetailScreen: FC<Props> = (props) => {
 					{type === "RATING"
 						? MapJikanRatingTypeToStringObj.get(rating)?.rating ?? "N/A"
 						: type === "SCORE"
-						? score
+						? (score ?? 'N/A') 
 						: "#" + rank}
 				</ThemedText>
 				<ThemedText
@@ -518,7 +522,7 @@ const DetailScreen: FC<Props> = (props) => {
 					}}
 				>
 					{type === "RATING"
-						? MapJikanRatingTypeToStringObj.get(rating)?.description ?? "N/A"
+						? MapJikanRatingTypeToStringObj.get(rating)?.description ?? 'Rating Unavailable'
 						: type === "SCORE"
 						? "Mal Score"
 						: "Ranked"}
@@ -571,7 +575,7 @@ const DetailScreen: FC<Props> = (props) => {
 				<View
 					style={{
 						flexDirection: "row",
-						height: heightPercentageToDP(10),
+						height: jikanData && jikanData.data || jikanDataIsFetching ?  heightPercentageToDP(10) : 0, 
 						justifyContent: "center",
 						marginBottom: heightPercentageToDP(1.4),
 						backgroundColor: theme.colors.secondaryBackgroundColor,
@@ -594,13 +598,13 @@ const DetailScreen: FC<Props> = (props) => {
 							</ThemedText>
 						</>
 					) : (
-						<>
+						jikanData && jikanData.data ? <>
 							{RatingRowBlock("RATING")}
 							{VerticalDivider()}
 							{RatingRowBlock("SCORE")}
 							{VerticalDivider()}
 							{RatingRowBlock("RANK")}
-						</>
+						</> : null
 					)}
 				</View>
 				{/* //Synopsis */}
@@ -608,6 +612,9 @@ const DetailScreen: FC<Props> = (props) => {
 					synopsis={description}
 					nextAiringEpisode={nextAiringEpisode}
 				/>
+
+				<RatingDecBarChart data={stats.scoreDistribution} />
+
 				{/* //Bind or Episode */}
 				{!database || !database.link ? (
 					<BindTitleBlock title={title.romaji} id={id} status={status} />
@@ -616,7 +623,7 @@ const DetailScreen: FC<Props> = (props) => {
 						<WatchTile
 							episode={
 								detailedHook.data.find((i) => {
-									if (settings.sync.overrideWatchNext) {
+									if (settings?.sync?.overrideWatchNext) {
 										return (
 											i.episode ===
 											(database.lastWatching?.episode ??
@@ -887,6 +894,8 @@ const DetailScreen: FC<Props> = (props) => {
 						/>
 					</View>
 				) : null}
+
+				{relations.edges.filter((i) => i.relationType !== 'ALTERNATIVE').filter((i) => i.relationType !== 'ADAPTATION' ).length > 0 ? <ThemedButton onPress={() => navigation.push('Relations', {relations})} title={'Relations'} />: null} 
 
 				{/* //Recommendations */}
 				{recommendations.edges.length > 0 ? (

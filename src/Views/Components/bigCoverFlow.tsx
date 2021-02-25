@@ -3,12 +3,13 @@ import React, { FC, useEffect, useRef } from 'react';
 import { Animated, Easing, Dimensions, StyleSheet, View, ActivityIndicator, Platform } from 'react-native';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import LinearGradient from 'react-native-linear-gradient';
+import { heightPercentageToDP } from 'react-native-responsive-screen';
 import { useAnilistRequest } from '../../Hooks';
 import { AnilistDetailedGraph, Media } from '../../Models/Anilist';
-import { useTheme } from '../../Stores';
 import { hexToRGBA } from '../../Util';
 import { ThemedText } from './base';
 import DangoImage from './image';
+import { useThemeComponentState } from './storeConnect';
 
 const {height, width} = Dimensions.get('window');
 
@@ -20,7 +21,7 @@ const BigCoverFlow: FC<Props> = (props) => {
     //TODO: Create type
     const {query: {data: dataResult}} = useAnilistRequest<{data: {Media: Media}}>('discordPick', AnilistDetailedGraph(props.id));
 
-    const theme = useTheme((_) => _.theme);
+    const {theme} = useThemeComponentState();
     const controller = useRef(new Animated.Value(0)).current
     const scaleController = useRef(new Animated.Value(0.85)).current;
 
@@ -70,7 +71,7 @@ const BigCoverFlow: FC<Props> = (props) => {
 
 export const BigCoverFlowText: FC<Props> = (props) => {
     const navigation = useNavigation();
-    const theme = useTheme((_) => _.theme);
+    const {theme} = useThemeComponentState();
 
     const flyController1 = useRef(new Animated.Value(0)).current;
     const flyController2 = useRef(new Animated.Value(0)).current;
@@ -130,11 +131,11 @@ export const BigCoverFlowText: FC<Props> = (props) => {
 
             <View style={[styles.absolute, {top: null, bottom: 20, paddingHorizontal: 8}]}>
                     <Animated.View style={{transform: [{translateX: transformX}]}}>
-                        <ThemedText style={styles.discord}>Highest on Discord</ThemedText>
+                        <ThemedText style={styles.discord}>Random Anime Pick</ThemedText>
                         <ThemedText style={styles.title} numberOfLines={2} >{title.romaji}</ThemedText>
                     </Animated.View>
                     <Animated.View style={{transform: [{translateX: transformX2}]}}>
-                    <ThemedText numberOfLines={2} shouldShrink >Episode {currentEpisode} • Mean {meanScore}% • {currentStatus}</ThemedText>
+                    <ThemedText numberOfLines={2} shouldShrink style={{fontSize: heightPercentageToDP(1.6)}}>Episode {currentEpisode} • Mean {meanScore}% • {currentStatus}</ThemedText>
                     </Animated.View>
                 </View>
         </View>
@@ -165,11 +166,11 @@ const styles = StyleSheet.create({
     },
     discord: {
         color: '#7289d9',
-        fontSize: 11,
+        fontSize: heightPercentageToDP(1.45),
         fontWeight: '600'
     },
     title: {
-        fontSize: 21,
+        fontSize: heightPercentageToDP(2.3),
         fontWeight: '800',
     }
 });

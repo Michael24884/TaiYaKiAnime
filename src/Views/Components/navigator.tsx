@@ -23,7 +23,6 @@ import VideoPlayerScreen from '../Screens/VideoPlayerScreen';
 import HistoryScreen from '../Screens/HistoryScreen';
 import {
   AutoPlaySettingsPage,
-  NotificationsSettingsPage,
   SyncSettingsPage,
   VideoBufferSettingsPage,
   VideoCoverSettingsPage,
@@ -40,6 +39,8 @@ import { Modalize } from 'react-native-modalize';
 import {build} from '../../../package.json';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useThemeComponentState } from './storeConnect';
+import RelationsPage from '../Screens/Detail/RelationsPage';
+import { CustomizationSettingsPage, ExperimentalSettingsPage, GeneralSettings, NotificationsSettingsPage, QueueSettingsPage, SyncSettingsPage as SyncSettingsPageNav } from '../Screens/Settings';
 
 const InitialGlobalValue = {
 	whatsNewRef: createRef<Modalize>(),
@@ -126,6 +127,9 @@ export const Navigator = () => {
           options={{title: 'SIMKL'}}
         />
         <Stack.Screen name={'TrackerList'} component={TrackerList} />
+        <Stack.Screen name={'Relations'} component={RelationsPage} />
+
+
       </Stack.Navigator>
     );
   }
@@ -147,6 +151,7 @@ export const Navigator = () => {
           component={DetailScreen}
           options={{headerShown: false}}
         />
+        <Stack.Screen name={'Relations'} component={RelationsPage} />
         <Stack.Screen
           name={'Video'}
           component={VideoPlayerScreen}
@@ -205,27 +210,56 @@ export const Navigator = () => {
           component={VideoBufferSettingsPage}
           options={options}
         />
-        <Stack.Screen
+        {/* <Stack.Screen
           name={'GeneralPage'}
           component={GeneralPage}
           options={{title: 'General'}}
-        />
-        <Stack.Screen
+        /> */}
+        {/* <Stack.Screen
           name={'ArchivePage'}
           component={ArchiveListScreen}
           options={{title: 'Sources'}}
+        /> */}
+        
+        <Stack.Screen
+          name={'General'}
+          component={GeneralSettings}
         />
+        
+        <Stack.Screen
+          name={'Customization'}
+          component={CustomizationSettingsPage}
+        />
+       
+        <Stack.Screen
+          name={'Notifications'}
+          component={NotificationsSettingsPage}
+        />
+       
+        <Stack.Screen
+          name={'Sync'}
+          component={SyncSettingsPageNav}
+        />
+        
+        <Stack.Screen
+          name={'Queue'}
+          component={QueueSettingsPage}
+        />
+       
+        <Stack.Screen
+          name={'Experimental'}
+          component={ExperimentalSettingsPage}
+        />
+
+
+
+
       </Stack.Navigator>
     );
   }
 
   return (
     <GlobalContext.Provider value={InitialGlobalValue}>
-      <StatusBar
-        barStyle={theme.dark ? 'light-content' : 'dark-content'}
-        // barStyle={'light-content'}
-        backgroundColor={theme.colors.card}
-      />
       <NavigationContainer theme={theme}>
         <Tab.Navigator initialRouteName={'Discover'}>
           <Tab.Screen

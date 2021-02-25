@@ -3,7 +3,6 @@ import React, { useEffect, createContext, createRef, useReducer } from "react";
 import {
 	MyQueueItems,
 	useQueueStore,
-	useSettingsStore,
 	useTheme,
 	useUserProfiles,
 } from "./Stores";
@@ -14,7 +13,6 @@ import codePush, {
 	CodePushOptions,
 	UpdateDialog,
 } from "react-native-code-push";
-import TestVideo from "./testVideo";
 import {
 	DetailedDatabaseIDSModel,
 	DetailedDatabaseModel,
@@ -22,7 +20,7 @@ import {
 import { SourceBase } from "./Classes/SourceBase";
 import PushNotificationIOS from "@react-native-community/push-notification-ios";
 import PushNotification from "react-native-push-notification";
-import { Alert, Platform } from "react-native";
+import { Alert, Platform, StatusBar } from "react-native";
 import { useNotificationStore } from "./Stores/notifications";
 import RNBootSplash from "react-native-bootsplash";
 import Orientation from "react-native-orientation-locker";
@@ -31,8 +29,9 @@ import OnboardScreen from "./Views/Screens/Onboarding/OnboardScreen";
 import { widgetHandler } from "./Classes/Widgets/HistoryWidget";
 import WhatsNewScreen from "./Views/Screens/WhatsNewScreen";
 import { Modalize } from "react-native-modalize";
-import { SettingsProvider, TaiyakiContext, TaiyakiInitialState, TaiyakiReducer, ThemeProvider } from "./Stores/rootStore";
+import { ThemeProvider } from "./Stores/rootStore";
 import { LightTheme } from "./Models";
+import { useSettingsComponentState, useThemeComponentState } from "./Views/Components/storeConnect";
 
 export const GlobalContext = createContext({
   whatsNewRef : createRef<Modalize>(),
@@ -43,13 +42,15 @@ export const GlobalContext = createContext({
 const App = () => {
 	const initTrackers = useUserProfiles((_) => _.init);
 	const initQueue = useQueueStore((_) => _.addDirectQueue);
-	const initSettings = useSettingsStore((_) => _.initSettings);
+	// const initSettings = useSettingsStore((_) => _.initSettings);
+	const initSettings = useSettingsComponentState().initSettigs;
 	const initNotifications = useNotificationStore((_) => _.initNotifications);
 	const setNotifications = useNotificationStore((_) => _.setNotifications);
-	const initTheme = useTheme((_) => _.initTheme);
-	const settings = useSettingsStore((_) => _.settings);
+	// const initTheme = useTheme((_) => _.initTheme);
+	const {initTheme} = useThemeComponentState();
+	//const settings = useSettingsStore((_) => _.settings);
+	const settings = useSettingsComponentState().settings;
 
-	const [state, dispatch] = useReducer(TaiyakiReducer, TaiyakiInitialState);
 
 	useEffect(() => {
 		Orientation.lockToPortrait();
@@ -57,13 +58,13 @@ const App = () => {
 		initApp()
 			.catch((e) => console.log("error starting up app, ", e))
 			.finally(() => RNBootSplash.hide({ fade: true }));
-		//AsyncStorage.removeItem('notifications');
+		//AsyncStorage.removeItem('theme')
 	}, []);
 
 	async function initApp() {
+		await initTheme();
 		initTrackers();
 		_initNotifications();
-		await initTheme();
 		await initSettings();
 		await initNotifications();
 		await _getQueue();
@@ -86,7 +87,7 @@ const App = () => {
 			allowOnLowPower,
 			canUseCellularNetwork,
 			requiresCharging,
-		} = settings.notifications;
+		} = settings;
 
 		BackgroundFetch.configure(
 			{
@@ -213,11 +214,7 @@ const App = () => {
 
 	//return <TestVideo />;
 
-	return <ThemeProvider>
-	<SettingsProvider>
-		<Navigator />
-	</SettingsProvider>
-	</ThemeProvider>
+	return <Navigator />
 	//	return <WhatsNewScreen />;
 
 	//return <OnboardScreen />

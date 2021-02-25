@@ -9,6 +9,7 @@ import {EmptyScreen} from './empty_screen';
 import TimeAgo from 'react-native-timeago';
 import {useTheme} from '../../Stores';
 import { useThemeComponentState } from '../Components/storeConnect';
+import { heightPercentageToDP } from 'react-native-responsive-screen';
 
 const HistoryScreen = () => {
   const [history, setHistory] = useState<HistoryModel[]>([]);
@@ -29,6 +30,7 @@ const HistoryScreen = () => {
       navigation.setOptions({
         headerRight: () => (
           <Icon
+          size={heightPercentageToDP(2.5)}
             name={'trash-can'}
             type={'MaterialCommunityIcons'}
             style={{marginRight: 12}}
@@ -74,16 +76,16 @@ const HistoryScreen = () => {
         bottomComponent={
           <View style={styles.row}>
             <View>
-              <ThemedText style={{fontWeight: '500', fontSize: 13}}>
+              <ThemedText style={{fontWeight: '500', fontSize: heightPercentageToDP(1.8)}}>
                 Episode {item.data.episode.episode}
               </ThemedText>
-              <ThemedText style={{color: theme.colors.accent, fontSize: 13}}>
+              <ThemedText style={{color: theme.colors.accent, fontSize: heightPercentageToDP(1.85)}}>
                 {item.data.episode.sourceName}
               </ThemedText>
             </View>
             <TimeAgo
               time={item.lastModified}
-              style={{color: 'grey', alignSelf: 'flex-end'}}
+              style={{color: 'grey', alignSelf: 'flex-end', fontSize: heightPercentageToDP(1.8)}}
             />
           </View>
         }

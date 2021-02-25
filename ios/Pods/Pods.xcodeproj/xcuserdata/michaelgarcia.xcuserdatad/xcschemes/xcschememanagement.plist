@@ -263,6 +263,13 @@
 			<key>orderHint</key>
 			<integer>70</integer>
 		</dict>
+		<key>RNSVG.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>72</integer>
+		</dict>
 		<key>RNScreens.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -275,7 +282,7 @@
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>72</integer>
+			<integer>73</integer>
 		</dict>
 		<key>React-Core-AccessibilityResources.xcscheme</key>
 		<dict>
@@ -415,35 +422,35 @@
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>73</integer>
+			<integer>74</integer>
 		</dict>
 		<key>SDWebImageWebPCoder.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>74</integer>
+			<integer>75</integer>
 		</dict>
 		<key>SSZipArchive.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>75</integer>
+			<integer>76</integer>
 		</dict>
 		<key>Yoga.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>76</integer>
+			<integer>78</integer>
 		</dict>
 		<key>YogaKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>77</integer>
+			<integer>79</integer>
 		</dict>
 		<key>boost-for-react-native.xcscheme</key>
 		<dict>

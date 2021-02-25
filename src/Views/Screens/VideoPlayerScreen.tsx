@@ -31,7 +31,7 @@ import {
 } from "../../Models/taiyaki";
 import {
 	useQueueStore,
-	useSettingsStore,
+	
 	// useTheme,
 	useUpNextStore,
 	useUserProfiles,
@@ -50,7 +50,8 @@ import { QueryCache } from "react-query";
 import { Modalize } from "react-native-modalize";
 import { SIMKL } from "../../Classes/Trackers/SIMKL";
 import { widgetHandler } from "../../Classes/Widgets/HistoryWidget";
-import { useThemeComponentState } from "../Components/storeConnect";
+import { useThemeComponentState, useSettingsComponentState } from "../Components/storeConnect";
+import { heightPercentageToDP } from "react-native-responsive-screen";
 
 LogBox.ignoreLogs(["Virtualized"]);
 
@@ -95,7 +96,7 @@ const VideoPlayerScreen: FC<Props> = (props) => {
 	const profiles = useUserProfiles((_) => _.profiles);
 	const upNextItems = useUpNextStore((_) => _.upNext);
 	const queueLength = useQueueStore((_) => _.queueLength);
-	const settings = useSettingsStore((_) => _.settings);
+	const settings = useSettingsComponentState().settings;
 	const removeUpNextItems = useUpNextStore((_) => _.removeAll);
 	const removeUpNextSingle = useUpNextStore((_) => _.removeSingle);
 	const navigation = useNavigation();
@@ -274,7 +275,7 @@ const VideoPlayerScreen: FC<Props> = (props) => {
 	}, [currentServer]);
 
 	const _preloadUpNext = () => {
-		if (!settings.general.video.preloadUpNext || preloadedVideoRef.current)
+		if (!settings.preloadUpNext || preloadedVideoRef.current)
 			return;
 		if (upNextItems.length > 0) {
 			const nextEpisode: SimklEpisodes = upNextItems[0];
@@ -415,7 +416,7 @@ const VideoPlayerScreen: FC<Props> = (props) => {
 							name={name}
 							type={"MaterialCommunityIcons"}
 							color={"grey"}
-							size={25}
+							size={heightPercentageToDP(2.3)}
 						/>
 						<ThemedText
 							style={{
@@ -586,7 +587,7 @@ const VideoPlayerScreen: FC<Props> = (props) => {
 							<Icon
 								name={"error"}
 								type={"MaterialIcons"}
-								size={35}
+								size={heightPercentageToDP(2.4)}
 								color={"white"}
 							/>
 							<ThemedText style={styles.errorText}>
@@ -676,7 +677,7 @@ const VideoPlayerScreen: FC<Props> = (props) => {
 						style={styles.detailedView}
 					>
 						<ThemedText
-							style={[styles.episode, { color: theme.colors.accent }]}
+							style={[styles.episode, { color: theme.colors.accent, fontSize: heightPercentageToDP(1.8) }]}
 						>
 							Episode {currentEpisode.episode.episode}
 						</ThemedText>
@@ -697,7 +698,7 @@ const VideoPlayerScreen: FC<Props> = (props) => {
 							<Icon
 								name={"cog"}
 								type={"MaterialCommunityIcons"}
-								size={35}
+								size={heightPercentageToDP(3.6)}
 								color={theme.colors.text}
 								onPress={() => {
 									optionsModal.current?.open();
@@ -705,7 +706,7 @@ const VideoPlayerScreen: FC<Props> = (props) => {
 							/>
 						</View>
 
-						<ThemedText style={{ fontSize: 13, color: "orange" }}>
+						<ThemedText style={{ fontSize: heightPercentageToDP(1.5), color: "orange" }}>
 							{currentEpisode.episode.sourceName}
 						</ThemedText>
 						<TouchableWithoutFeedback
@@ -819,7 +820,7 @@ const styles = StyleSheet.create({
 	},
 	errorText: {
 		fontWeight: "700",
-		fontSize: 18,
+		fontSize: heightPercentageToDP(1.9),
 	},
 	loadingView: {
 		position: "absolute",
@@ -831,30 +832,30 @@ const styles = StyleSheet.create({
 		alignItems: "center",
 	},
 	scrapingText: {
-		fontSize: 16,
+		fontSize: heightPercentageToDP(1.6),
 		fontWeight: "600",
 		color: "white",
 		marginTop: 6,
 	},
 	detailedView: {
-		padding: 12,
+		padding: heightPercentageToDP(1.3),
 	},
 	episode: {
 		fontWeight: "500",
 	},
 	episodeTitle: {
 		fontWeight: "600",
-		fontSize: 18,
-		maxWidth: "80%",
+		fontSize: heightPercentageToDP(2.5),
+		width: "80%",
 	},
 	desc: {
 		marginTop: 8,
 		color: "grey",
-		fontSize: 14,
+		fontSize: heightPercentageToDP(1.8),
 		fontWeight: "400",
 	},
 	upNextQueueTitle: {
-		fontSize: 19,
+		fontSize: heightPercentageToDP(2),
 		fontWeight: "700",
 		marginLeft: 8,
 		marginTop: height * 0.025,

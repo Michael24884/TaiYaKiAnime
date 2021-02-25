@@ -8,6 +8,7 @@ import {
 	StyleSheet,
 	View,
 } from "react-native";
+import { isTablet } from "react-native-device-info";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { heightPercentageToDP } from "react-native-responsive-screen";
 import {
@@ -17,13 +18,12 @@ import {
 } from "../../Models/Anilist";
 import { SimklEpisodes } from "../../Models/SIMKL";
 import { DetailedDatabaseModel, MyQueueModel } from "../../Models/taiyaki";
-import { useSettingsStore } from "../../Stores";
 import { useQueueStore } from "../../Stores/queue";
 import { TaiyakiParsedText, ThemedCard, ThemedText } from "./base";
 import { Chip } from "./Chip";
 import DangoImage from "./image";
 import { FlavoredButtons } from "./rows";
-import { useThemeComponentState } from "./storeConnect";
+import { useSettingsComponentState, useThemeComponentState } from "./storeConnect";
 
 const { height, width } = Dimensions.get("window");
 
@@ -65,12 +65,12 @@ export const RecCards: FC<{ items: AnilistRecommendationPageEdgeModel }> = (
 	return (
 		<ThemedCard
 			style={{
-				height:
-					expanded || (description?.length ?? 0) < 85
-						? undefined
-						: Platform.OS === "ios"
-						? height * 0.46
-						: height * 0.56,
+				// height:
+				// 	expanded || (description?.length ?? 0) < 85
+				// 		? undefined
+				// 		: Platform.OS === "ios"
+				// 		? height * 0.46
+				// 		: height * 0.56,
 			}}
 		>
 			<>
@@ -113,17 +113,17 @@ export const RecCards: FC<{ items: AnilistRecommendationPageEdgeModel }> = (
 						flex: 1,
 						justifyContent: "flex-end",
 						flexDirection: "row",
-						marginTop: 4,
+						marginTop: heightPercentageToDP(1),
 					}}
 				>
 					<FlavoredButtons
-						size={40}
+						
 						name={"page-next"}
 						onPress={() => navigation.push("Detail", { id })}
 					/>
 					{(description?.length ?? 0) > 85 ? (
 						<FlavoredButtons
-							size={40}
+							
 							name={expanded ? "arrow-up" : "arrow-down"}
 							onPress={() => {
 								LayoutAnimation.configureNext(LayoutAnimation.Presets.spring);
@@ -147,8 +147,8 @@ const _EpisodeTiles: FC<{
 }> = (props) => {
 	const { episode, onPlay, detail, currentEpisode } = props;
 	const { title } = detail;
-	const isBlurred = useSettingsStore((_) => _.settings.general.blurSpoilers);
-
+	//const isBlurred = useSettingsStore((_) => _.settings.general.blurSpoilers);
+	const isBlurred = useSettingsComponentState().settings.blurSpoilers;
 	const [hidden, setHidden] = useState<boolean>(isBlurred);
 	const [descExpanded, setExpanded] = useState<boolean>(false);
 	const {theme} = useThemeComponentState();
@@ -257,7 +257,7 @@ const _EpisodeTiles: FC<{
 						<View
 							style={{
 								flexDirection: "row",
-								padding: 8,
+								padding: heightPercentageToDP(0.2),
 								justifyContent: "space-between",
 								alignItems: "flex-end",
 
@@ -266,7 +266,7 @@ const _EpisodeTiles: FC<{
 						>
 							{episode.description?.length ?? 0 > 650 ? (
 								<FlavoredButtons
-									size={40}
+									size={heightPercentageToDP(4.5)}
 									name={descExpanded ? "arrow-up" : "arrow-down"}
 									onPress={() => {
 										LayoutAnimation.configureNext(
@@ -357,7 +357,7 @@ const styles = {
 			flexDirection: "row",
 		},
 		title: {
-			fontSize: 16,
+			fontSize: heightPercentageToDP(1.8),
 			fontWeight: "600",
 		},
 		absolute: {
@@ -388,8 +388,8 @@ const styles = {
 		imageView: {
 			marginTop: -height * 0.08,
 			marginLeft: width * 0.02,
-			height: Platform.OS === "ios" ? height * 0.17 : height * 0.23,
-			width: "30%",
+			height: Platform.OS === "ios" ? isTablet()  ? heightPercentageToDP(20) : height * 0.17 : height * 0.23,
+			width: isTablet() ? heightPercentageToDP(16) : "30%",
 		},
 		image: {
 			height: "100%",

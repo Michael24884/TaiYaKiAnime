@@ -110,7 +110,30 @@ export type Media = {
   startDate: AnilistDates;
   endDate: AnilistDates;
   mappedEntry: StatusInfo;
+  stats: AnilistStats
+  relations: AnilistRelations;
 };
+
+export type AnilistRelations = {
+  edges: {
+    relationType: string;
+    node: {
+      title: {romaji: string};
+      coverImage: {extraLarge: string};
+      id: number;
+    }
+  }[]
+}
+
+type AnilistStats = {
+  scoreDistribution: AnilistStatsScoreDistributionModel[]
+}
+
+export type AnilistStatsScoreDistributionModel = {
+  score: number;
+  amount: number;
+}
+
 
 export type AnilistMediaListEntry = {
   progress: number;

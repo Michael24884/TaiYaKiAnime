@@ -159,7 +159,7 @@ export const TaiyakiParsedText: FC<ParsedProps> = (props) => {
 	return (
 		<ParsedText
 			numberOfLines={numberOfLines ?? 0}
-			style={[style, { color, fontFamily: "Poppins" }]}
+			style={[style, { color, fontFamily: "Poppins", fontSize: heightPercentageToDP(1.6) }]}
 			parse={[
 				{ pattern: /<br>/g, renderText: breakLine },
 				{ pattern: /<br >/g, renderText: breakLine },

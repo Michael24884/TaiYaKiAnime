@@ -153,6 +153,25 @@ query {
         }
       }
 
+      stats {
+        scoreDistribution {
+          score
+          amount
+        }
+      }
+
+      relations {
+        edges {
+          relationType
+          node{
+            title{romaji}
+            id
+            coverImage{extraLarge}
+          }
+        }
+      }
+
+
     }
   }
 `;

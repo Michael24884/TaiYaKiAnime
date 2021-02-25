@@ -28,7 +28,7 @@ import {
 	TrackingServiceTypes,
 	WatchingStatus,
 } from '../../Models/taiyaki';
-import { useSettingsStore, useTheme, useUserProfiles } from '../../Stores';
+import {  useUserProfiles } from '../../Stores';
 import { ThemedButton, ThemedCard, ThemedSurface, ThemedText } from './base';
 import { ListRow } from './list_rows';
 import { FlavoredButtons } from './rows';
@@ -40,6 +40,7 @@ import { SourceAbstract, sourceAbstractList } from '../../Classes/Sources';
 import WebView from 'react-native-webview';
 import CookieManager from '@react-native-community/cookies';
 import { heightPercentageToDP } from 'react-native-responsive-screen';
+import { useSettingsComponentState, useThemeComponentState } from './storeConnect';
 
 const { height, width } = Dimensions.get('window');
 
@@ -60,8 +61,8 @@ interface Props {
 const SearchBindPage: FC<Props> = (props) => {
 	const { title, id } = props.route.params;
 	const navigation = useNavigation();
-	const theme = useTheme((_) => _.theme);
-	const preferredLanguage = useSettingsStore((_) => _.settings.general.sourceLanguage);
+	const {theme} = useThemeComponentState();
+	const preferredLanguage = useSettingsComponentState().settings.sourceLanguage;
 	
 	const filteredAbstractList = sourceAbstractList.filter((i) => i.language === preferredLanguage);
 	const [query, setQuery] = useState<string>(title);
@@ -335,7 +336,7 @@ const SearchBindPage: FC<Props> = (props) => {
 };
 
 export const StatusCards: FC<{ onPress: () => void }> = (props) => {
-	const settings = useSettingsStore((_) => _.settings);
+	const settings = useSettingsComponentState().settings;
 
 	const { onPress } = props;
 	const profiles = useUserProfiles((_) => _.profiles);
@@ -347,15 +348,15 @@ export const StatusCards: FC<{ onPress: () => void }> = (props) => {
 					<ThemedText
 						style={[
 							styles.statusCards.title,
-							{ color: settings.sync.autoSync ? 'green' : 'red' },
+							{ color: settings.autoSync ? 'green' : 'red' },
 						]}>
-						{settings.sync.autoSync
+						{settings.autoSync
 							? 'Auto Tracking Enabled!'
 							: 'Auto Tracking Disabled'}
 					</ThemedText>
 					<Icon
-						name={settings.sync.autoSync ? 'check-circle' : 'error'}
-						color={settings.sync.autoSync ? 'green' : 'red'}
+						name={settings.autoSync ? 'check-circle' : 'error'}
+						color={settings.autoSync ? 'green' : 'red'}
 						type={'MaterialIcons'}
 					/>
 				</View>
@@ -379,7 +380,7 @@ export const UpdatingAnimeStatusPage: FC<{
 	tracker?: TrackingServiceTypes;
 }> = (props) => {
 	const { update, ids, dismiss, totalEpisodes, tracker } = props;
-	const theme = useTheme((_) => _.theme);
+	const {theme} = useThemeComponentState();
 	const profiles = useUserProfiles((_) => _.profiles);
 	const queryCache = new QueryCache();
 

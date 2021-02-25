@@ -28,6 +28,13 @@ export const MapKeyToPaths = new Map<AnilistRequestTypes, string>([
   ['Trending', AnilistTrendingGraph()],
 ]);
 
+export const NotificationFrequencyToString = new Map<number, string>([
+  [60, 'Every hour'],
+  [120, 'Every 2 hours'],
+  [360, 'Every 6 hours'],
+  [720, 'Once a day'],
+])
+
 export const dynamicMapPaths = (
   key: AnilistRequestTypes,
   index: number,
@@ -127,3 +134,17 @@ export const MapWatchingStatusToMAL = new Map<WatchingStatus, string>([
   ['Dropped', 'dropped'],
   ['Completed', 'completed'],
 ]);
+
+export const MapAnilistRelationsToString = new Map<string, string>([
+  ['PREQUEL', 'Prequel'],
+  ['SEQUEL', 'Sequel'],
+  ['PARENT', 'Parent'],
+  ['SIDE_STORY', 'Side Story'],
+  ['CHARACTER', 'Character',],
+  ['SUMMARY', 'Summary'],
+  ['SPIN_OFF', 'Spin Off'],
+  ['OTHER', 'Other'],
+  ['ADAPTATION', 'Adaptation'],
+  ['ALTERNATIVE', 'Alternative'],
+  ['OTHER', 'Other']
+])

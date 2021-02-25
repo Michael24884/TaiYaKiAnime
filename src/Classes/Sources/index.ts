@@ -30,19 +30,21 @@ export type TaiyakiSourceTypes=
 //STEP 3(OPTIONAL): If the source uses a language not added here put the proper language, if possible use Alphabetic order
 export type TaiyakiSourceLanguage = 'Arabic'| 'English' | 'French' | 'Spanish';
 
+export const TaiyakiSourceLanguageArray = ['All', 'English','French','Spanish'];
+
 //STEP 4: Add the class constructor here (Place at the end)
 const sourceAbstractList: SourceAbstract[] = [
     new Vidstreaming(),
     new FourAnime(),
-    new AnimeOwl(),
-    new KimAnime(),
-    new AnimeRush(),
+    // new AnimeOwl(),
+    // new KimAnime(),
+    // new AnimeRush(),
     new TioAnime(),
     new AniWatch(),
     // new XSAnime(),
     new Anime8(),
     new Shiro(),
-    new AnimePahe(),
+    // new AnimePahe(),
 ].sort((a, b) => a.options.name.localeCompare(b.options.name));
 
 //STEP 5: Add a map using the unique name from STEP 2, to the proper class constructor

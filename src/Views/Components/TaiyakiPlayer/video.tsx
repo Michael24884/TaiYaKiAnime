@@ -31,11 +31,12 @@ import {Modalize} from 'react-native-modalize';
 import {isTablet} from 'react-native-device-info';
 import {SimklEpisodes} from '../../../Models/SIMKL';
 import {LastWatchingModel, MyQueueModel} from '../../../Models/taiyaki';
-import {useSettingsStore, useTheme} from '../../../Stores';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useQueueStore, useUpNextStore} from '../../../Stores/queue';
 import DangoImage from '../image';
 import {ThemedButton} from '..';
+import { heightPercentageToDP } from 'react-native-responsive-screen';
+import { useSettingsComponentState, useThemeComponentState } from '../storeConnect';
 
 const {width, height} = Dimensions.get('window');
 
@@ -77,9 +78,9 @@ const _TaiyakiVideoPlayer: FC<Props> = (props) => {
   const {episode, detail} = animeInfo;
   const {lastWatching} = detail;
 
-  const theme = useTheme((_) => _.theme);
+  const {theme} = useThemeComponentState();
   // const {mergeItem} = useAsyncStorage(`${detail.ids.anilist}`);
-  const settings = useSettingsStore((_) => _.settings);
+  const settings = useSettingsComponentState().settings;
   const upNextItems = useUpNextStore((_) => _.upNext);
   const removeSingle = useUpNextStore((_) => _.removeSingle);
 
@@ -125,7 +126,7 @@ const _TaiyakiVideoPlayer: FC<Props> = (props) => {
    */
 
   const _animatePlayNext = async (): Promise<void> => {
-    if (settings.general.autoPlay.timerAt94 && isFullScreen) {
+    if (settings.timerAt94 && isFullScreen) {
       Animated.timing(autoPlayTimerController, {
         toValue: 1,
         useNativeDriver: true,
@@ -142,7 +143,7 @@ const _TaiyakiVideoPlayer: FC<Props> = (props) => {
       timeProgress(progress.currentTime / duration);
     _updateListener(progress.currentTime);
     if (
-      settings.general.autoPlay.timerAt94 &&
+      settings.timerAt94 &&
       duration &&
       progress.currentTime > 10 &&
       ((progress.currentTime / (duration ?? 0)) * 100).toFixed(0) === '94' &&
@@ -243,8 +244,8 @@ const _TaiyakiVideoPlayer: FC<Props> = (props) => {
     if (!duration) {
       return;
     }
-    if (settings.sync.autoSync && !didUpdate) {
-      if (settings.sync.syncAt75) {
+    if (settings.autoSync && !didUpdate) {
+      if (settings.syncAt75) {
         if (time >= duration * 0.75) {
           console.log('now auto syncing at 75%');
           setDidUpdate(true);
@@ -272,11 +273,11 @@ const _TaiyakiVideoPlayer: FC<Props> = (props) => {
     if (episode && episode.img && !isDragging) {
       if (
         !isPlaying &&
-        settings.customization.cover.showVideoCover &&
+        settings.showVideoCover &&
         isFullScreen
       ) {
         animateCoverIn();
-      } else if (settings.customization.cover.showVideoCover && isFullScreen) {
+      } else if (settings.showVideoCover && isFullScreen) {
         animateCoverOut();
       }
     }
@@ -295,7 +296,7 @@ const _TaiyakiVideoPlayer: FC<Props> = (props) => {
           easing: Easing.out(Easing.ease),
         }),
       ]).start();
-    }, settings.customization.cover.delay * 1000);
+    }, settings.delay * 1000);
   };
   const animateCoverOut = () => {
     if (transitionTimer.current) {
@@ -379,7 +380,7 @@ const _TaiyakiVideoPlayer: FC<Props> = (props) => {
    * Views
    */
   const _renderTopControls = () => {
-    return !settings.customization.cover.showVideoCover ||
+    return !settings.showVideoCover ||
       isPlaying ||
       !timerExhaused ||
       isDragging ||
@@ -392,7 +393,7 @@ const _TaiyakiVideoPlayer: FC<Props> = (props) => {
             left: 0,
             right: 0,
             top: 0,
-            opacity: settings.customization.cover.showVideoCover
+            opacity: settings.showVideoCover
               ? animationController
               : 1,
             flexDirection: 'row',
@@ -428,7 +429,7 @@ const _TaiyakiVideoPlayer: FC<Props> = (props) => {
               width: '100%',
             }}>
             {isFullScreen ? (
-              <View style={{maxWidth: width * 0.8}}>
+              <View style={{width: '75%', backgroundColor: 'orange'}}>
                 <Text numberOfLines={1} style={styles.topControlsTitle}>
                   {detail.title}
                 </Text>
@@ -445,9 +446,9 @@ const _TaiyakiVideoPlayer: FC<Props> = (props) => {
                 flexDirection: 'row',
               }}>
               <Icon
-                name={'resize'}
-                type={'MaterialCommunityIcons'}
-                size={35}
+                name={'insert-photo'}
+                type={'MaterialIcons'}
+                size={heightPercentageToDP(3.8)}
                 style={{marginRight: 10}}
                 color={'white'}
                 onPress={() => {
@@ -463,7 +464,7 @@ const _TaiyakiVideoPlayer: FC<Props> = (props) => {
                isFullScreen ?  <Icon
                name={'cog'}
                type={'MaterialCommunityIcons'}
-               size={35}
+               size={heightPercentageToDP(3.8)}
                color={'white'}
                onPress={onOptionsTapped}
                style={{marginHorizontal: width * 0.04}}
@@ -473,7 +474,7 @@ const _TaiyakiVideoPlayer: FC<Props> = (props) => {
               <Icon
                 name={isFullScreen ? 'fullscreen-exit' : 'fullscreen'}
                 type={'MaterialCommunityIcons'}
-                size={35}
+                size={heightPercentageToDP(3.8)}
                 color={'white'}
                 onPress={onFullScreen}
               />
@@ -485,7 +486,7 @@ const _TaiyakiVideoPlayer: FC<Props> = (props) => {
   };
 
   const _renderBottomControls = () => {
-    return !settings.customization.cover.showVideoCover ||
+    return !settings.showVideoCover ||
       !timerExhaused ||
       isPlaying ||
       isDragging ||
@@ -599,7 +600,7 @@ const _TaiyakiVideoPlayer: FC<Props> = (props) => {
 
           alignSelf: 'center',
           transform:
-            isFullScreen && settings.customization.cover.showVideoCover
+            isFullScreen && settings.showVideoCover
               ? [
                   {
                     scale: coverController.interpolate({
@@ -638,10 +639,10 @@ const _TaiyakiVideoPlayer: FC<Props> = (props) => {
         <View
           style={{
             flexDirection: 'row',
-            maxWidth: width * 0.5,
+            width: width * 0.5,
             justifyContent: 'space-between',
           }}>
-          {!(coverExposed && settings.customization.cover.showVideoCover) && (
+          {!(coverExposed && settings.showVideoCover) && (
             <Icon
               name={'rewind'}
               type={'MaterialCommunityIcons'}
@@ -659,16 +660,16 @@ const _TaiyakiVideoPlayer: FC<Props> = (props) => {
                 flexDirection: 'row',
                 alignItems: 'center',
                 backgroundColor:
-                  coverExposed && settings.customization.cover.showVideoCover
+                  coverExposed && settings.showVideoCover
                     ? theme.colors.accent
                     : 'transparent',
                 borderRadius: 40,
                 paddingLeft:
-                  coverExposed && settings.customization.cover.showVideoCover
+                  coverExposed && settings.showVideoCover
                     ? 10
                     : 0,
                 paddingHorizontal:
-                  coverExposed && settings.customization.cover.showVideoCover
+                  coverExposed && settings.showVideoCover
                     ? width * 0.2
                     : 0,
               }}>
@@ -681,7 +682,7 @@ const _TaiyakiVideoPlayer: FC<Props> = (props) => {
 
               {coverExposed &&
               isFullScreen &&
-              settings.customization.cover.showVideoCover ? (
+              settings.showVideoCover ? (
                 <Animated.Text
                   style={[styles.stoppedmessage, {opacity: coverController}]}>
                   Paused - tap to resume
@@ -689,7 +690,7 @@ const _TaiyakiVideoPlayer: FC<Props> = (props) => {
               ) : null}
             </View>
           </TouchableOpacity>
-          {!(coverExposed && settings.customization.cover.showVideoCover) ? (
+          {!(coverExposed && settings.showVideoCover) ? (
             <Icon
               name={'fast-forward'}
               type={'MaterialCommunityIcons'}
@@ -955,7 +956,7 @@ const _TaiyakiVideoPlayer: FC<Props> = (props) => {
 							}}
 						/> */}
             <Video
-              style={settings.general.video.followAspectRatio &&
+              style={settings.followAspectRatio &&
                 videoAspect &&
                 isFullScreen
                   ? {
@@ -967,7 +968,7 @@ const _TaiyakiVideoPlayer: FC<Props> = (props) => {
                     } : {height: '100%', width: '100%'}}
               ignoreSilentSwitch={'ignore'}
               ref={videoPlayerController}
-              pictureInPicture={settings.general.video.pip}
+              pictureInPicture={settings.pip}
               playWhenInactive={true}
               allowsExternalPlayback
               bufferConfig={settings.dev.videoBuffer}
@@ -996,7 +997,7 @@ const _TaiyakiVideoPlayer: FC<Props> = (props) => {
               }}
               onEnd={() => {
                 onEnd();
-                if (settings.general.autoPlay.changeAt100 ?? false) {
+                if (settings.changeAt100 ?? false) {
                   _tappedUpNext(0);
                 }
               }}
@@ -1025,7 +1026,7 @@ const _TaiyakiVideoPlayer: FC<Props> = (props) => {
           isFullScreen &&
           coverExposed &&
           episode.img &&
-          settings.customization.cover.showVideoCover &&
+          settings.showVideoCover &&
           !loading && (
             <VideoCover
               episodeData={episode}
@@ -1047,7 +1048,7 @@ const _TaiyakiVideoPlayer: FC<Props> = (props) => {
           ? renderUpNextList()
           : null}
 
-        {settings.general.autoPlay.timerAt94 &&
+        {settings.timerAt94 &&
         isFullScreen &&
         (upNextItems.length > 0 || upNextQueueItems.length > 0) &&
         autoPlayTimerValue !== -1
@@ -1066,7 +1067,7 @@ interface VideoCoverProps {
 }
 
 const VideoCover: FC<VideoCoverProps> = (props) => {
-  const theme = useTheme((_) => _.theme);
+  const {theme} = useThemeComponentState();
   const {episodeData, duration, currentTime, onFullscreen} = props;
   const {img, description, episode} = episodeData;
 
@@ -1214,16 +1215,17 @@ const styles = StyleSheet.create({
   },
   topControlsTitle: {
     color: 'white',
-    fontSize: 21,
+    fontSize: heightPercentageToDP(3),
     fontWeight: '800',
   },
   topControlsDescription: {
-    fontSize: 15,
+    fontSize: heightPercentageToDP(2),
     color: 'white',
     fontWeight: '600',
   },
   currentTime: {
     color: 'white',
+    fontSize: heightPercentageToDP(1.7)
   },
   percentage: {
     color: 'orange',
