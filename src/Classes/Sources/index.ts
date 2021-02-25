@@ -25,7 +25,7 @@ export type TaiyakiSourceTypes=
 'AniWatch';
 
 //STEP 3(OPTIONAL): If the source uses a language not added here put the proper language, if possible use Alphabetic order
-export type TaiyakiSourceLanguage = 'Arabic'| 'English' | 'French' | 'Spanish';
+export type TaiyakiSourceLanguage = 'Arabic'| 'English' | 'French' | 'Italian' | 'Spanish';
 
 //STEP 4: Add the class constructor here (Place at the end)
 const sourceAbstractList: SourceAbstract[] = [
