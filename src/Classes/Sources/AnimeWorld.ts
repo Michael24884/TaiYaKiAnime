@@ -52,6 +52,10 @@ class AnimeWorld extends SourceAbstract {
                 return $(server).find('li.episode').toArray().map(e => {
                     return "https://www.animeworld.tv" + $(e).find('a').attr('href')
                 })
+            } else if (serverNames[index] == 'StreamSB') {
+                return $(server).find('li.episode').toArray().map(e => {
+                    return "https://www.animeworld.tv" + $(e).find('a').attr('href')
+                })
             }
         }).filter(e => e != undefined)[0]
     }
