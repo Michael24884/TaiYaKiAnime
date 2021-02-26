@@ -1,6 +1,6 @@
 /* eslint-disable react-native/no-inline-styles */
 import Slider from '@react-native-community/slider';
-//import Slider from 'react-native-reanimated-slider';
+///import Slider from 'react-native-reanimated-slider';
 import React, {createRef, FC, memo, useEffect, useRef, useState} from 'react';
 import {HomeIndicator} from 'react-native-home-indicator';
 import {
@@ -429,7 +429,7 @@ const _TaiyakiVideoPlayer: FC<Props> = (props) => {
               width: '100%',
             }}>
             {isFullScreen ? (
-              <View style={{width: '75%', backgroundColor: 'orange'}}>
+              <View style={{width: '75%',}}>
                 <Text numberOfLines={1} style={styles.topControlsTitle}>
                   {detail.title}
                 </Text>
@@ -517,11 +517,11 @@ const _TaiyakiVideoPlayer: FC<Props> = (props) => {
                 setIsPlaying(true);
                 setIsDragging(false);
 
-                // _onSeek({
-                //   seekTime: value,
-                //   currentTime: currentTime ?? 0,
-                //   target: 0.25,
-                // });
+                _onSeek({
+                  seekTime: value,
+                  currentTime: currentTime ?? 0,
+                  target: 0.25,
+                });
               }}
               minimumTrackTintColor={theme.colors.accent}
               step={1}
@@ -546,15 +546,14 @@ const _TaiyakiVideoPlayer: FC<Props> = (props) => {
                 setIsPlaying(false);
               }}
               onSlidingComplete={(value: number) => {
+                videoPlayerController.current?.seek(value);
                 setIsPlaying(true);
                 setIsDragging(false);
                 // _onSeek({
                 //   seekTime: value,
                 //   currentTime: currentTime ?? 0,
                 //   target: 0.25,
-                // });
-                videoPlayerController.current?.seek(value);
-                setCurrentTime(value);
+                // })                
               }}
             /> */}
             <View
