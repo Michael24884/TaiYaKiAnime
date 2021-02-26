@@ -91,7 +91,7 @@ const WhatsNewScreen: FC<Props> = (props) => {
 				},
 				{
 					title: 'Some new sources',
-					description: 'Implemented Shiro. Special thanks to @Arjix. 🎉'
+					description: 'Implemented Shiro & AnimeWorld(Italian Beta). Special thanks to @Arjix who did all the work. 🎉'
 				}
 			],
 		},
