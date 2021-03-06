@@ -72,7 +72,7 @@ class AnimeWorld extends SourceAbstract {
                 server: server.text().match(/Download (.*?) - Ep./)[1].trim().toLowerCase()
             })
         })
-        return servers.filter(server => filter_servers.includes(server.server))
+        return servers.filter(server => filter_servers.includes(server.server.toLowerCase()))
     }
 }
 
