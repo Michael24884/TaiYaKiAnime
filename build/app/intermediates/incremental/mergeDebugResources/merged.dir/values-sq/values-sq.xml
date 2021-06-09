@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <plurals name="exo_controls_fastforward_by_amount_description">
+    <item quantity="one">Shpejt përpara %d sekondë</item>
+    <item quantity="other">Shpejt përpara %d sekonda</item>
+  </plurals>
+    <plurals name="exo_controls_rewind_by_amount_description">
+    <item quantity="one">Shko prapa %d sekondë</item>
+    <item quantity="other">Shko prapa %d sekonda</item>
+  </plurals>
+    <string msgid="7903180715631665059" name="abc_action_bar_home_description">"Orientohu për në shtëpi"</string>
+    <string msgid="6794660482873516081" name="abc_action_bar_up_description">"Ngjitu lart"</string>
+    <string msgid="1155814932213556626" name="abc_action_menu_overflow_description">"Opsione të tjera"</string>
+    <string msgid="2571498368472823490" name="abc_action_mode_done">"U krye"</string>
+    <string msgid="3732416590524162402" name="abc_activity_chooser_view_see_all">"Shfaq çdo gjë"</string>
+    <string msgid="1798588241954930982" name="abc_activitychooserview_choose_application">"Zgjidh një aplikacion"</string>
+    <string msgid="3403923230105792483" name="abc_capital_off">"JOAKTIV"</string>
+    <string msgid="7831734969929204599" name="abc_capital_on">"AKTIV"</string>
+    <string msgid="5725160506500770567" name="abc_menu_alt_shortcut_label">"Alt+"</string>
+    <string msgid="944415252197684443" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
+    <string msgid="129742188101734366" name="abc_menu_delete_shortcut_label">"delete"</string>
+    <string msgid="6840127756824236027" name="abc_menu_enter_shortcut_label">"enter"</string>
+    <string msgid="4974283687810130415" name="abc_menu_function_shortcut_label">"Funksioni+"</string>
+    <string msgid="8046416353848716905" name="abc_menu_meta_shortcut_label">"Meta+"</string>
+    <string msgid="3271697756921353410" name="abc_menu_shift_shortcut_label">"Shift+"</string>
+    <string msgid="2304645930658438191" name="abc_menu_space_shortcut_label">"hapësirë"</string>
+    <string msgid="8327365089695024394" name="abc_menu_sym_shortcut_label">"Sym+"</string>
+    <string msgid="3570106412128999382" name="abc_prepend_shortcut_label">"Menyja+"</string>
+    <string msgid="940844115270746197" name="abc_search_hint">"Kërko…"</string>
+    <string msgid="1769270744562318534" name="abc_searchview_description_clear">"Pastro pyetjen"</string>
+    <string msgid="908784302972860853" name="abc_searchview_description_query">"Kërko pyetjen"</string>
+    <string msgid="5466662225065974044" name="abc_searchview_description_search">"Kërko"</string>
+    <string msgid="8203855622131699655" name="abc_searchview_description_submit">"Dërgo pyetjen"</string>
+    <string msgid="3478748990613108725" name="abc_searchview_description_voice">"Kërkim me zë"</string>
+    <string msgid="2650565705514630347" name="abc_shareactionprovider_share_with">"Ndaje me"</string>
+    <string msgid="9009661856846212431" name="abc_shareactionprovider_share_with_application">"Ndaje me <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
+    <string msgid="6389460216547290468" name="abc_toolbar_collapse_description">"Palos"</string>
+    <string name="exo_controls_cc_disabled_description">Aktivizo titrat</string>
+    <string name="exo_controls_cc_enabled_description">Çaktivizo titrat</string>
+    <string name="exo_controls_fastforward_description">Përparo me shpejtësi</string>
+    <string name="exo_controls_fullscreen_enter_description">Hyr në luajtjen me ekran të plotë</string>
+    <string name="exo_controls_fullscreen_exit_description">Dil nga ekrani i plotë</string>
+    <string name="exo_controls_hide">Fshih komandat e luajtësit</string>
+    <string name="exo_controls_next_description">Para</string>
+    <string name="exo_controls_overflow_hide_description">Fshih cilësimet shtesë</string>
+    <string name="exo_controls_overflow_show_description">Shfaq cilësimet shtesë</string>
+    <string name="exo_controls_pause_description">Pauzë</string>
+    <string name="exo_controls_play_description">Luaj</string>
+    <string name="exo_controls_playback_speed">Shpejtësia</string>
+    <string name="exo_controls_playback_speed_normal">Normale</string>
+    <string name="exo_controls_previous_description">Prapa</string>
+    <string name="exo_controls_repeat_all_description">Përsërit të gjitha</string>
+    <string name="exo_controls_repeat_off_description">Mos përsërit asnjë</string>
+    <string name="exo_controls_repeat_one_description">Përsërit një</string>
+    <string name="exo_controls_rewind_description">Rikthe</string>
+    <string name="exo_controls_seek_bar_description">Progresi i luajtjes</string>
+    <string name="exo_controls_settings_description">Cilësimet</string>
+    <string name="exo_controls_show">Shfaq komandat e luajtësit</string>
+    <string name="exo_controls_shuffle_off_description">Përzierja joaktive</string>
+    <string name="exo_controls_shuffle_on_description">Përzierja aktive</string>
+    <string name="exo_controls_stop_description">Ndalo</string>
+    <string name="exo_controls_vr_description">Modaliteti RV</string>
+    <string name="exo_download_completed">Shkarkimi përfundoi</string>
+    <string name="exo_download_description">Shkarko</string>
+    <string name="exo_download_downloading">Po shkarkohet</string>
+    <string name="exo_download_failed">Shkarkimi dështoi</string>
+    <string name="exo_download_notification_channel_name">Shkarkimet</string>
+    <string name="exo_download_removing">Shkarkimet po hiqen</string>
+    <string name="exo_item_list">%1$s, %2$s</string>
+    <string name="exo_media_action_repeat_all_description">Përsërit të gjitha</string>
+    <string name="exo_media_action_repeat_off_description">Mos përsërit asnjë</string>
+    <string name="exo_media_action_repeat_one_description">Përsërit një</string>
+    <string name="exo_track_bitrate">%1$.2f Mbps</string>
+    <string name="exo_track_mono">Mono</string>
+    <string name="exo_track_resolution">%1$d × %2$d</string>
+    <string name="exo_track_role_alternate">Alternative</string>
+    <string name="exo_track_role_closed_captions">Titrat</string>
+    <string name="exo_track_role_commentary">Komente</string>
+    <string name="exo_track_role_supplementary">Plotësuese</string>
+    <string name="exo_track_selection_auto">Automatike</string>
+    <string name="exo_track_selection_none">Asnjë</string>
+    <string name="exo_track_selection_title_audio">Audio</string>
+    <string name="exo_track_selection_title_text">Tekst</string>
+    <string name="exo_track_selection_title_video">Video</string>
+    <string name="exo_track_stereo">Stereo</string>
+    <string name="exo_track_surround">Tingulli rrethues</string>
+    <string name="exo_track_surround_5_point_1">Tingull rrethues 5.1</string>
+    <string name="exo_track_surround_7_point_1">Tingull rrethues 7.1</string>
+    <string name="exo_track_unknown">E panjohur</string>
+    <string msgid="730395136688082741" name="search_menu_title">"Kërko"</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+</resources>

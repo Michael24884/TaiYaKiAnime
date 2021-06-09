@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <plurals name="exo_controls_fastforward_by_amount_description">
+    <item quantity="one">Avanza rapidamente %d segundo</item>
+    <item quantity="other">Avanza rapidamente %d segundos</item>
+  </plurals>
+    <plurals name="exo_controls_rewind_by_amount_description">
+    <item quantity="one">Rebobina %d segundo</item>
+    <item quantity="other">Rebobina %d segundos</item>
+  </plurals>
+    <string msgid="7903180715631665059" name="abc_action_bar_home_description">"Vai ao inicio"</string>
+    <string msgid="6794660482873516081" name="abc_action_bar_up_description">"Vai cara arriba"</string>
+    <string msgid="1155814932213556626" name="abc_action_menu_overflow_description">"Máis opcións"</string>
+    <string msgid="2571498368472823490" name="abc_action_mode_done">"Feito"</string>
+    <string msgid="3732416590524162402" name="abc_activity_chooser_view_see_all">"Ver todo"</string>
+    <string msgid="1798588241954930982" name="abc_activitychooserview_choose_application">"Selecciona unha aplicación"</string>
+    <string msgid="3403923230105792483" name="abc_capital_off">"DESACTIVAR"</string>
+    <string msgid="7831734969929204599" name="abc_capital_on">"ACTIVAR"</string>
+    <string msgid="5725160506500770567" name="abc_menu_alt_shortcut_label">"Alt +"</string>
+    <string msgid="944415252197684443" name="abc_menu_ctrl_shortcut_label">"Ctrl +"</string>
+    <string msgid="129742188101734366" name="abc_menu_delete_shortcut_label">"eliminar"</string>
+    <string msgid="6840127756824236027" name="abc_menu_enter_shortcut_label">"intro"</string>
+    <string msgid="4974283687810130415" name="abc_menu_function_shortcut_label">"Función +"</string>
+    <string msgid="8046416353848716905" name="abc_menu_meta_shortcut_label">"Meta +"</string>
+    <string msgid="3271697756921353410" name="abc_menu_shift_shortcut_label">"Maiús +"</string>
+    <string msgid="2304645930658438191" name="abc_menu_space_shortcut_label">"espazo"</string>
+    <string msgid="8327365089695024394" name="abc_menu_sym_shortcut_label">"Sym +"</string>
+    <string msgid="3570106412128999382" name="abc_prepend_shortcut_label">"Menú +"</string>
+    <string msgid="940844115270746197" name="abc_search_hint">"Busca…"</string>
+    <string msgid="1769270744562318534" name="abc_searchview_description_clear">"Borra a consulta"</string>
+    <string msgid="908784302972860853" name="abc_searchview_description_query">"Busca a consulta"</string>
+    <string msgid="5466662225065974044" name="abc_searchview_description_search">"Realiza buscas"</string>
+    <string msgid="8203855622131699655" name="abc_searchview_description_submit">"Envía a consulta"</string>
+    <string msgid="3478748990613108725" name="abc_searchview_description_voice">"Busca por voz"</string>
+    <string msgid="2650565705514630347" name="abc_shareactionprovider_share_with">"Comparte contido con"</string>
+    <string msgid="9009661856846212431" name="abc_shareactionprovider_share_with_application">"Comparte contido coa aplicación <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
+    <string msgid="6389460216547290468" name="abc_toolbar_collapse_description">"Contrae"</string>
+    <string name="exo_controls_cc_disabled_description">Activa os subtítulos</string>
+    <string name="exo_controls_cc_enabled_description">Desactiva os subtítulos</string>
+    <string name="exo_controls_fastforward_description">Avance rápido</string>
+    <string name="exo_controls_fullscreen_enter_description">Acceder a pantalla completa</string>
+    <string name="exo_controls_fullscreen_exit_description">Saír de pantalla completa</string>
+    <string name="exo_controls_hide">Ocultar controis do reprodutor</string>
+    <string name="exo_controls_next_description">Seguinte</string>
+    <string name="exo_controls_overflow_hide_description">Oculta a configuración adicional</string>
+    <string name="exo_controls_overflow_show_description">Mostra a configuración adicional</string>
+    <string name="exo_controls_pause_description">Pausar</string>
+    <string name="exo_controls_play_description">Reproducir</string>
+    <string name="exo_controls_playback_speed">Velocidade</string>
+    <string name="exo_controls_playback_speed_normal">Normal</string>
+    <string name="exo_controls_previous_description">Anterior</string>
+    <string name="exo_controls_repeat_all_description">Repetir todas as pistas</string>
+    <string name="exo_controls_repeat_off_description">Non repetir</string>
+    <string name="exo_controls_repeat_one_description">Repetir unha pista</string>
+    <string name="exo_controls_rewind_description">Retroceder</string>
+    <string name="exo_controls_seek_bar_description">Progreso da reprodución</string>
+    <string name="exo_controls_settings_description">Configuración</string>
+    <string name="exo_controls_show">Mostrar controis do reprodutor</string>
+    <string name="exo_controls_shuffle_off_description">Reprodución aleat. desactivada</string>
+    <string name="exo_controls_shuffle_on_description">Reprodución aleatoria activada</string>
+    <string name="exo_controls_stop_description">Deter</string>
+    <string name="exo_controls_vr_description">Modo RV</string>
+    <string name="exo_download_completed">Completouse a descarga</string>
+    <string name="exo_download_description">Descargar</string>
+    <string name="exo_download_downloading">Descargando</string>
+    <string name="exo_download_failed">Produciuse un erro na descarga</string>
+    <string name="exo_download_notification_channel_name">Descargas</string>
+    <string name="exo_download_removing">Quitando descargas</string>
+    <string name="exo_item_list">%1$s, %2$s</string>
+    <string name="exo_media_action_repeat_all_description">Repetir todas as pistas</string>
+    <string name="exo_media_action_repeat_off_description">Non repetir</string>
+    <string name="exo_media_action_repeat_one_description">Repetir unha pista</string>
+    <string name="exo_track_bitrate">%1$.2f Mbps</string>
+    <string name="exo_track_mono">Mono</string>
+    <string name="exo_track_resolution">%1$d × %2$d</string>
+    <string name="exo_track_role_alternate">Alternativa</string>
+    <string name="exo_track_role_closed_captions">Subtítulos</string>
+    <string name="exo_track_role_commentary">Comentarios</string>
+    <string name="exo_track_role_supplementary">Complementaria</string>
+    <string name="exo_track_selection_auto">Pista automática</string>
+    <string name="exo_track_selection_none">Ningunha pista</string>
+    <string name="exo_track_selection_title_audio">Audio</string>
+    <string name="exo_track_selection_title_text">Texto</string>
+    <string name="exo_track_selection_title_video">Vídeo</string>
+    <string name="exo_track_stereo">Estéreo</string>
+    <string name="exo_track_surround">Son envolvente</string>
+    <string name="exo_track_surround_5_point_1">Son envolvente 5.1</string>
+    <string name="exo_track_surround_7_point_1">Son envolvente 7.1</string>
+    <string name="exo_track_unknown">Descoñecido</string>
+    <string msgid="730395136688082741" name="search_menu_title">"Buscar"</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">">999"</string>
+</resources>

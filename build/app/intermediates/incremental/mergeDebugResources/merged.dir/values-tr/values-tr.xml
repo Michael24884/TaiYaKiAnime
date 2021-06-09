@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <plurals name="exo_controls_fastforward_by_amount_description">
+    <item quantity="one">%d saniye ileri sar</item>
+    <item quantity="other">%d saniye ileri sar</item>
+  </plurals>
+    <plurals name="exo_controls_rewind_by_amount_description">
+    <item quantity="one">%d saniye geri sar</item>
+    <item quantity="other">%d saniye geri sar</item>
+  </plurals>
+    <string msgid="7903180715631665059" name="abc_action_bar_home_description">"Eve gidiş yolunu göster"</string>
+    <string msgid="6794660482873516081" name="abc_action_bar_up_description">"Yukarı git"</string>
+    <string msgid="1155814932213556626" name="abc_action_menu_overflow_description">"Diğer seçenekler"</string>
+    <string msgid="2571498368472823490" name="abc_action_mode_done">"Bitti"</string>
+    <string msgid="3732416590524162402" name="abc_activity_chooser_view_see_all">"Tümünü göster"</string>
+    <string msgid="1798588241954930982" name="abc_activitychooserview_choose_application">"Bir uygulama seçin"</string>
+    <string msgid="3403923230105792483" name="abc_capital_off">"KAPAT"</string>
+    <string msgid="7831734969929204599" name="abc_capital_on">"AÇ"</string>
+    <string msgid="5725160506500770567" name="abc_menu_alt_shortcut_label">"Alt+"</string>
+    <string msgid="944415252197684443" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
+    <string msgid="129742188101734366" name="abc_menu_delete_shortcut_label">"sil"</string>
+    <string msgid="6840127756824236027" name="abc_menu_enter_shortcut_label">"enter"</string>
+    <string msgid="4974283687810130415" name="abc_menu_function_shortcut_label">"Function+"</string>
+    <string msgid="8046416353848716905" name="abc_menu_meta_shortcut_label">"Meta+"</string>
+    <string msgid="3271697756921353410" name="abc_menu_shift_shortcut_label">"Üst Karakter+"</string>
+    <string msgid="2304645930658438191" name="abc_menu_space_shortcut_label">"boşluk"</string>
+    <string msgid="8327365089695024394" name="abc_menu_sym_shortcut_label">"Sym+"</string>
+    <string msgid="3570106412128999382" name="abc_prepend_shortcut_label">"Menü+"</string>
+    <string msgid="940844115270746197" name="abc_search_hint">"Ara…"</string>
+    <string msgid="1769270744562318534" name="abc_searchview_description_clear">"Sorguyu temizle"</string>
+    <string msgid="908784302972860853" name="abc_searchview_description_query">"Arama sorgusu"</string>
+    <string msgid="5466662225065974044" name="abc_searchview_description_search">"Ara"</string>
+    <string msgid="8203855622131699655" name="abc_searchview_description_submit">"Sorguyu gönder"</string>
+    <string msgid="3478748990613108725" name="abc_searchview_description_voice">"Sesli arama"</string>
+    <string msgid="2650565705514630347" name="abc_shareactionprovider_share_with">"Şununla paylaş:"</string>
+    <string msgid="9009661856846212431" name="abc_shareactionprovider_share_with_application">"<ns1:g id="APPLICATION_NAME">%s</ns1:g> ile paylaş"</string>
+    <string msgid="6389460216547290468" name="abc_toolbar_collapse_description">"Daralt"</string>
+    <string name="exo_controls_cc_disabled_description">Altyazıları etkinleştir</string>
+    <string name="exo_controls_cc_enabled_description">Altyazıları devre dışı bırak</string>
+    <string name="exo_controls_fastforward_description">İleri sar</string>
+    <string name="exo_controls_fullscreen_enter_description">Tam ekrana geç</string>
+    <string name="exo_controls_fullscreen_exit_description">Tam ekrandan çık</string>
+    <string name="exo_controls_hide">Oynatıcı kontrollerini gizle</string>
+    <string name="exo_controls_next_description">Sonraki</string>
+    <string name="exo_controls_overflow_hide_description">Ek ayarları gizle</string>
+    <string name="exo_controls_overflow_show_description">Ek ayarları göster</string>
+    <string name="exo_controls_pause_description">Duraklat</string>
+    <string name="exo_controls_play_description">Çal</string>
+    <string name="exo_controls_playback_speed">Hız</string>
+    <string name="exo_controls_playback_speed_normal">Normal</string>
+    <string name="exo_controls_previous_description">Önceki</string>
+    <string name="exo_controls_repeat_all_description">Tümünü tekrarla</string>
+    <string name="exo_controls_repeat_off_description">Hiçbirini tekrarlama</string>
+    <string name="exo_controls_repeat_one_description">Birini tekrarla</string>
+    <string name="exo_controls_rewind_description">Geri sar</string>
+    <string name="exo_controls_seek_bar_description">Çalma ilerleme durumu</string>
+    <string name="exo_controls_settings_description">Ayarlar</string>
+    <string name="exo_controls_show">Oynatıcı kontrollerini göster</string>
+    <string name="exo_controls_shuffle_off_description">Karıştırma kapalı</string>
+    <string name="exo_controls_shuffle_on_description">Karıştırma açık</string>
+    <string name="exo_controls_stop_description">Durdur</string>
+    <string name="exo_controls_vr_description">VR modu</string>
+    <string name="exo_download_completed">İndirme işlemi tamamlandı</string>
+    <string name="exo_download_description">İndir</string>
+    <string name="exo_download_downloading">İndiriliyor</string>
+    <string name="exo_download_failed">İndirilemedi</string>
+    <string name="exo_download_notification_channel_name">İndirilenler</string>
+    <string name="exo_download_removing">İndirilenler kaldırılıyor</string>
+    <string name="exo_item_list">%1$s, %2$s</string>
+    <string name="exo_media_action_repeat_all_description">Tümünü tekrarla</string>
+    <string name="exo_media_action_repeat_off_description">Hiçbirini tekrarlama</string>
+    <string name="exo_media_action_repeat_one_description">Bir şarkıyı tekrarla</string>
+    <string name="exo_track_bitrate">%1$.2f Mbps</string>
+    <string name="exo_track_mono">Mono</string>
+    <string name="exo_track_resolution">%1$d × %2$d</string>
+    <string name="exo_track_role_alternate">Alternatif</string>
+    <string name="exo_track_role_closed_captions">Altyazı</string>
+    <string name="exo_track_role_commentary">Anlatım</string>
+    <string name="exo_track_role_supplementary">Ek kanal</string>
+    <string name="exo_track_selection_auto">Otomatik</string>
+    <string name="exo_track_selection_none">Yok</string>
+    <string name="exo_track_selection_title_audio">Ses</string>
+    <string name="exo_track_selection_title_text">Metin</string>
+    <string name="exo_track_selection_title_video">Video</string>
+    <string name="exo_track_stereo">Stereo</string>
+    <string name="exo_track_surround">Surround ses</string>
+    <string name="exo_track_surround_5_point_1">5.1 surround ses</string>
+    <string name="exo_track_surround_7_point_1">7.1 surround ses</string>
+    <string name="exo_track_unknown">Bilinmiyor</string>
+    <string msgid="730395136688082741" name="search_menu_title">"Ara"</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+</resources>

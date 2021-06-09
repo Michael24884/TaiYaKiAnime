@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <plurals name="exo_controls_fastforward_by_amount_description">
+    <item quantity="one">Перемотать на %d секунду вперед</item>
+    <item quantity="few">Перемотать на %d секунды вперед</item>
+    <item quantity="many">Перемотать на %d секунд вперед</item>
+    <item quantity="other">Перемотать на %d секунды вперед</item>
+  </plurals>
+    <plurals name="exo_controls_rewind_by_amount_description">
+    <item quantity="one">Перемотать на %d секунду назад</item>
+    <item quantity="few">Перемотать на %d секунды назад</item>
+    <item quantity="many">Перемотать на %d секунд назад</item>
+    <item quantity="other">Перемотать на %d секунды назад</item>
+  </plurals>
+    <string msgid="7903180715631665059" name="abc_action_bar_home_description">"Перейти на главный экран"</string>
+    <string msgid="6794660482873516081" name="abc_action_bar_up_description">"Перейти вверх"</string>
+    <string msgid="1155814932213556626" name="abc_action_menu_overflow_description">"Ещё"</string>
+    <string msgid="2571498368472823490" name="abc_action_mode_done">"Готово"</string>
+    <string msgid="3732416590524162402" name="abc_activity_chooser_view_see_all">"Показать все"</string>
+    <string msgid="1798588241954930982" name="abc_activitychooserview_choose_application">"Выберите приложение"</string>
+    <string msgid="3403923230105792483" name="abc_capital_off">"ВЫКЛ"</string>
+    <string msgid="7831734969929204599" name="abc_capital_on">"ВКЛ"</string>
+    <string msgid="5725160506500770567" name="abc_menu_alt_shortcut_label">"Alt +"</string>
+    <string msgid="944415252197684443" name="abc_menu_ctrl_shortcut_label">"Ctrl +"</string>
+    <string msgid="129742188101734366" name="abc_menu_delete_shortcut_label">"Delete"</string>
+    <string msgid="6840127756824236027" name="abc_menu_enter_shortcut_label">"Ввод"</string>
+    <string msgid="4974283687810130415" name="abc_menu_function_shortcut_label">"Fn +"</string>
+    <string msgid="8046416353848716905" name="abc_menu_meta_shortcut_label">"Meta +"</string>
+    <string msgid="3271697756921353410" name="abc_menu_shift_shortcut_label">"Shift +"</string>
+    <string msgid="2304645930658438191" name="abc_menu_space_shortcut_label">"Пробел"</string>
+    <string msgid="8327365089695024394" name="abc_menu_sym_shortcut_label">"Sym +"</string>
+    <string msgid="3570106412128999382" name="abc_prepend_shortcut_label">"Меню +"</string>
+    <string msgid="940844115270746197" name="abc_search_hint">"Введите запрос"</string>
+    <string msgid="1769270744562318534" name="abc_searchview_description_clear">"Удалить запрос"</string>
+    <string msgid="908784302972860853" name="abc_searchview_description_query">"Поисковый запрос"</string>
+    <string msgid="5466662225065974044" name="abc_searchview_description_search">"Поиск"</string>
+    <string msgid="8203855622131699655" name="abc_searchview_description_submit">"Отправить запрос"</string>
+    <string msgid="3478748990613108725" name="abc_searchview_description_voice">"Голосовой поиск"</string>
+    <string msgid="2650565705514630347" name="abc_shareactionprovider_share_with">"Поделиться с помощью"</string>
+    <string msgid="9009661856846212431" name="abc_shareactionprovider_share_with_application">"Поделиться с помощью <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
+    <string msgid="6389460216547290468" name="abc_toolbar_collapse_description">"Свернуть"</string>
+    <string name="exo_controls_cc_disabled_description">Включить субтитры</string>
+    <string name="exo_controls_cc_enabled_description">Выключить субтитры</string>
+    <string name="exo_controls_fastforward_description">Перемотать вперед</string>
+    <string name="exo_controls_fullscreen_enter_description">Полноэкранный режим</string>
+    <string name="exo_controls_fullscreen_exit_description">Выйти из полноэкранного режима</string>
+    <string name="exo_controls_hide">Скрыть панель управления</string>
+    <string name="exo_controls_next_description">Следующий трек</string>
+    <string name="exo_controls_overflow_hide_description">Скрыть дополнительные настройки</string>
+    <string name="exo_controls_overflow_show_description">Показать дополнительные настройки</string>
+    <string name="exo_controls_pause_description">Приостановить</string>
+    <string name="exo_controls_play_description">Воспроизвести</string>
+    <string name="exo_controls_playback_speed">Скорость</string>
+    <string name="exo_controls_playback_speed_normal">Стандартная</string>
+    <string name="exo_controls_previous_description">Предыдущий трек</string>
+    <string name="exo_controls_repeat_all_description">Повторять все</string>
+    <string name="exo_controls_repeat_off_description">Не повторять</string>
+    <string name="exo_controls_repeat_one_description">Повторять трек</string>
+    <string name="exo_controls_rewind_description">Перемотать назад</string>
+    <string name="exo_controls_seek_bar_description">Полоса прокрутки воспроизведения</string>
+    <string name="exo_controls_settings_description">Настройки</string>
+    <string name="exo_controls_show">Показать панель управления</string>
+    <string name="exo_controls_shuffle_off_description">Перемешивание отключено</string>
+    <string name="exo_controls_shuffle_on_description">Перемешивание включено</string>
+    <string name="exo_controls_stop_description">Остановить</string>
+    <string name="exo_controls_vr_description">VR-режим</string>
+    <string name="exo_download_completed">Скачивание завершено</string>
+    <string name="exo_download_description">Скачать</string>
+    <string name="exo_download_downloading">Скачивание…</string>
+    <string name="exo_download_failed">Ошибка скачивания</string>
+    <string name="exo_download_notification_channel_name">Скачивания</string>
+    <string name="exo_download_removing">Удаление скачанных файлов…</string>
+    <string name="exo_item_list">%1$s, %2$s</string>
+    <string name="exo_media_action_repeat_all_description">Повторять все</string>
+    <string name="exo_media_action_repeat_off_description">Не повторять</string>
+    <string name="exo_media_action_repeat_one_description">Повторять трек</string>
+    <string name="exo_track_bitrate">%1$.2f Мбит/сек</string>
+    <string name="exo_track_mono">Моно</string>
+    <string name="exo_track_resolution">%1$d × %2$d</string>
+    <string name="exo_track_role_alternate">Другая запись</string>
+    <string name="exo_track_role_closed_captions">Субтитры</string>
+    <string name="exo_track_role_commentary">Комментарии</string>
+    <string name="exo_track_role_supplementary">Дополнительные материалы</string>
+    <string name="exo_track_selection_auto">Авто</string>
+    <string name="exo_track_selection_none">Нет</string>
+    <string name="exo_track_selection_title_audio">Аудио</string>
+    <string name="exo_track_selection_title_text">Текст</string>
+    <string name="exo_track_selection_title_video">Видео</string>
+    <string name="exo_track_stereo">Стерео</string>
+    <string name="exo_track_surround">Объемный звук</string>
+    <string name="exo_track_surround_5_point_1">Система объемного звука 5.1</string>
+    <string name="exo_track_surround_7_point_1">Система объемного звука 7.1</string>
+    <string name="exo_track_unknown">Неизвестный трек</string>
+    <string msgid="730395136688082741" name="search_menu_title">"Поиск"</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">">999"</string>
+</resources>

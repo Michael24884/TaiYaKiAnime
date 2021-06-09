@@ -1,83 +1,60 @@
-
 # Taiyaki
 
+***This README is intended for the Flutter variant***
+
 <p align="center">
-<img src="ExtAssets/img/banner.svg" height="400">
+<img src="assets/icon.png" alt="Taiyaki Logo" width="200"/>
 </p>
 
----
+## NOTE
 
-## Here are a few key features / previews of the Taiyaki app
+Taiyaki is a FOSS (Free and Open Sourced Software) mobile app that allows the user to view their anime and have their data all in one place. It is built with Flutter and supports both Android and iOS platforms.
+
+This app is not intended to be used as a piracy tool, but in fact as a means to make it safer for the average watcher from viruses, harmful advirts, and scams found on typical shady websites.
+
+This app is free to use and will never cost the user any amount of money to use. As always please download the app on the Github site and not from any third party providers.
+
+### ABOUT THE APP
+
+Taiyaki lets you watch anime and sync across multiple third party trackers, such as MyAnimeList, Anilist, and SIMKL. Along with a good amount of information on the anime.
+
+#### Features
+
+* Sync to third party trackers: MyAnimeList, SIMKL, Anilist
+
+* Multiple third party sources.
+
+* Get notified when new episodes are available on sources.
+
+* Binge watch the entire series in one spot. Once an episode ends Taiyaki will automatically play the next one for you. No extra work necessary.
+
+* Hide unwatched episodes, to prevent any unwanted spoilers.
+
+* See your follower's activities(Limited to Anilist only as other trackers have yet to implement it to their API. But will be updated if it ever is published).
+
+* Having a hard time choosing what to watch next? Use the large amount of filters to pin down exactly the anime you're looking for.
+
+#### Work in Progress
+
+- Simkl Support
+- Update Detailed Sync Support
+- TBA
 
 
-|                           Home Screen                           |     Dark Version           |
-| :---------------------------------------------------------------: | :-------------------------------------------------: |
-| <img src="ExtAssets/img/detail9.png" width="300">          |  <img src="ExtAssets/img/detail4.png" width="300">|
-|       Light Version                                      |      Queue Player support to binge all your anime in one sitting             |
-|<img src="ExtAssets/img/detail3.png" width="300">           |  <img src="ExtAssets/img/detail6.png" width="300">|
-|       See multiple recommendations                        |     Spoiler-free support to prevent accidental reveals |
-|<img src="ExtAssets/img/detail10.png" width="300">           |  <img src="ExtAssets/img/detail5.png" width="300">  |
-|       Multiple third party tracker support                                           |     Update all your data in one place  |
-|<img src="ExtAssets/img/detail7.png" width="300">           |  <img src="ExtAssets/img/detail8.png" width="300"> |
-|       In App video player                                       |     In App video player + Up Next                   |
-|<img src="ExtAssets/img/detail1.png"  width="500">          | <img src="ExtAssets/img/detail2.png" width="500">|
+If you like the app, please ⭐️  the project to show your support!
 
-(Images are on an iPhone but are the same for Android)
+| Features  |  Screenshots - Android  | Screenshots - iOS |
+|---|---|---|
+| Home   | <img src="assets/presentation/home_light.png"  width="350" alt="Home"/>  | <img src="assets/presentation/ios/home_dark.png"  width="350" alt="Home"/> |
+| Episodes | <img src="assets/presentation/episodes_light.png"  width="350" alt="Episodes"/>  | <img src="assets/presentation/ios/episodes_dark.png"  width="350" alt="Episodes"/> |
+| Sync | <img src="assets/presentation/sync_light.png"  width="350" alt="Sync"/>  | <img src="assets/presentation/ios/sync_dark.png"  width="350" alt="Sync"/> |
+| Search - Filter | <img src="assets/presentation/search_light.png"  width="350" alt="Search"/>  | <img src="assets/presentation/ios/search_dark.png"  width="350" alt="Search"/> |
+| Overview | <img src="assets/presentation/info_light.png"  width="350" alt="Overview"/> | <img src="assets/presentation/ios/overview_dark.png"  width="350" alt="Overview"/> |
+| Profile| <img src="assets/presentation/profile_light.png"  width="350" alt="Profile"/> | <img src="assets/presentation/ios/profile_dark.png"  width="350" alt="Profile"/> |
+| Smart Playlist UI | <img src="assets/presentation/playlist.png"  width="550" alt="Playlist UI"/>|
 
----
+### Contributing
 
-### Note: This app is not intended to promote piracy, and instead makes it safer and much more reliable for the intended user
+Taiyaki is built by community service, help is always welcomed. If you want to help out you can fork the repository, do some work and changes on it, then create a pull request.
 
-### Please Note that Taiyaki will always remain free with no ads. If you ever encounter ads or require payment to use any part of the app, please uninstall them and report it
-
----
-
-## FAQ
-
-_Is Taiyaki legal?_
-
-#### Yes! Taiyaki does not host any of these anime on any server, neither is it maintained. Instead Taiyaki scrapes the data of various websites, stripping the unnecessary (and sometimes harmful) ads out of the way
-
----
-
-_Will Taiyaki be available for my Android TV or Desktop?_
-
-#### As Taiyaki improves more devices will be supported. But the most certain answer would be most likely. This would be a quicker process as most of the logic is done, the layout however would have to be updated to be reflected based on the desired screen size
-
----
-
-_Can I request a source?_
-
-#### Of course! Join the Discord server and ask around to see if anyone is willing to fulfill your request. You can contribute by learning how to make one and then making it available for the rest of the community
-
----
-
-_How do I report a bug?_
-
-#### No app is perfect. If you find any bugs or something that doesn't look right, you can report this in the Discord where it would most definitely be seen. Most of the users on there should be able to help you out for any other issues that you may be having
-
----
-
-_How do I contribute to Taiyaki?_
-
-#### The source code for Taiyaki is available on Github. You can help out by forking the project, modifying, adding, or fixing up bugs, then make a pull request, and wait for it to be reviewed and merged!
-
----
-
-## iOS
-
-Taiyaki is available on TestFlight and is compatible with iPhone and iPad. TestFlight is limited to only 10,000 users
-
-[Download on TestFlight](https://testflight.apple.com/join/MLL0nUqr "Download on TestFlight")
-
-### Android
-
-Taiyaki is available on all Android devices. Support for more screen sizes are arriving later on(e.g Android TV, Tablets, etc). No limit for Android users
-
-[Download on Github](https://github.com/Michael24884/TaiYaKiAnime/releases "Download through Github")
-
-## TODO
-
-- [ ] Downloads
-- [ ] Increase Sources
-- [ ] Prettify / Remove unnecessary code
+If instead you'd prefer to build sources and/or hosts, head into the Sources/ folder to get started on how to build one.

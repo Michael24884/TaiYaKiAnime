@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <plurals name="exo_controls_fastforward_by_amount_description">
+    <item quantity="one">ເລື່ອນໄປໜ້າ %d ວິນາທີ</item>
+    <item quantity="other">ເລື່ອນໄປໜ້າ %d ວິນາທີ</item>
+  </plurals>
+    <plurals name="exo_controls_rewind_by_amount_description">
+    <item quantity="one">ຖອຍຫຼັງ %d ວິນາທີ</item>
+    <item quantity="other">ຖອຍຫຼັງ %d ວິນາທີ</item>
+  </plurals>
+    <string msgid="7903180715631665059" name="abc_action_bar_home_description">"ກັບໄປໜ້າຫຼັກ"</string>
+    <string msgid="6794660482873516081" name="abc_action_bar_up_description">"ເລື່ອນຂຶ້ນເທິງ"</string>
+    <string msgid="1155814932213556626" name="abc_action_menu_overflow_description">"ຕົວເລືອກເພີ່ມເຕີມ"</string>
+    <string msgid="2571498368472823490" name="abc_action_mode_done">"ແລ້ວໆ"</string>
+    <string msgid="3732416590524162402" name="abc_activity_chooser_view_see_all">"ເບິ່ງທັງໝົດ"</string>
+    <string msgid="1798588241954930982" name="abc_activitychooserview_choose_application">"ເລືອກແອັບ"</string>
+    <string msgid="3403923230105792483" name="abc_capital_off">"ປິດ"</string>
+    <string msgid="7831734969929204599" name="abc_capital_on">"ເປີດ"</string>
+    <string msgid="5725160506500770567" name="abc_menu_alt_shortcut_label">"Alt+"</string>
+    <string msgid="944415252197684443" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
+    <string msgid="129742188101734366" name="abc_menu_delete_shortcut_label">"ລຶບ"</string>
+    <string msgid="6840127756824236027" name="abc_menu_enter_shortcut_label">"enter"</string>
+    <string msgid="4974283687810130415" name="abc_menu_function_shortcut_label">"Function+"</string>
+    <string msgid="8046416353848716905" name="abc_menu_meta_shortcut_label">"Meta+"</string>
+    <string msgid="3271697756921353410" name="abc_menu_shift_shortcut_label">"Shift+"</string>
+    <string msgid="2304645930658438191" name="abc_menu_space_shortcut_label">"ຍະຫວ່າງ"</string>
+    <string msgid="8327365089695024394" name="abc_menu_sym_shortcut_label">"Sym+"</string>
+    <string msgid="3570106412128999382" name="abc_prepend_shortcut_label">"Menu+"</string>
+    <string msgid="940844115270746197" name="abc_search_hint">"ຊອກຫາ…"</string>
+    <string msgid="1769270744562318534" name="abc_searchview_description_clear">"ລຶບຂໍ້ຄວາມຊອກຫາ"</string>
+    <string msgid="908784302972860853" name="abc_searchview_description_query">"ຄຳສຳລັບຄົ້ນຫາ"</string>
+    <string msgid="5466662225065974044" name="abc_searchview_description_search">"ຊອກຫາ"</string>
+    <string msgid="8203855622131699655" name="abc_searchview_description_submit">"ສົ່ງຂໍ້ມູນ"</string>
+    <string msgid="3478748990613108725" name="abc_searchview_description_voice">"ຊອກຫາດ້ວຍສຽງ"</string>
+    <string msgid="2650565705514630347" name="abc_shareactionprovider_share_with">"ແບ່ງປັນກັບ"</string>
+    <string msgid="9009661856846212431" name="abc_shareactionprovider_share_with_application">"ແບ່ງປັນດ້ວຍ <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
+    <string msgid="6389460216547290468" name="abc_toolbar_collapse_description">"ຫຍໍ້ລົງ"</string>
+    <string name="exo_controls_cc_disabled_description">ເປີດການນຳໃຊ້ຄຳແປ</string>
+    <string name="exo_controls_cc_enabled_description">ປິດການນຳໃຊ້ຄຳແປ</string>
+    <string name="exo_controls_fastforward_description">ເລື່ອນໄປໜ້າ</string>
+    <string name="exo_controls_fullscreen_enter_description">ເຂົ້າສູ່ໂໝດເຕັມຈໍ</string>
+    <string name="exo_controls_fullscreen_exit_description">ອອກຈາກເຕັມຈໍ</string>
+    <string name="exo_controls_hide">ເຊື່ອງຕົວຄວບ​ຄຸມ​ເຄື່ອງ​ຫຼິ້ນ</string>
+    <string name="exo_controls_next_description">ຕໍ່ໄປ</string>
+    <string name="exo_controls_overflow_hide_description">ເຊື່ອງການຕັ້ງຄ່າເພີ່ມເຕີມ</string>
+    <string name="exo_controls_overflow_show_description">ສະແດງການຕັ້ງຄ່າເພີ່ມເຕີມ</string>
+    <string name="exo_controls_pause_description">ຢຸດຊົ່ວຄາວ</string>
+    <string name="exo_controls_play_description">ຫຼິ້ນ</string>
+    <string name="exo_controls_playback_speed">ຄວາມໄວ</string>
+    <string name="exo_controls_playback_speed_normal">ທົ່ວໄປ</string>
+    <string name="exo_controls_previous_description">ກ່ອນໜ້າ</string>
+    <string name="exo_controls_repeat_all_description">ຫຼິ້ນຊ້ຳທັງໝົດ</string>
+    <string name="exo_controls_repeat_off_description">ບໍ່ຫຼິ້ນຊ້ຳ</string>
+    <string name="exo_controls_repeat_one_description">ຫຼິ້ນຊໍ້າ</string>
+    <string name="exo_controls_rewind_description">ຍ້ອນກັບ</string>
+    <string name="exo_controls_seek_bar_description">ສະຖານະການຫຼິ້ນ</string>
+    <string name="exo_controls_settings_description">ຕັ້ງຄ່າ</string>
+    <string name="exo_controls_show">ສະ​ແດງຕົວຄວບ​ຄຸມ​ເຄື່ອງ​ຫຼິ້ນ</string>
+    <string name="exo_controls_shuffle_off_description">ປິດການສຸ່ມເພງແລ້ວ</string>
+    <string name="exo_controls_shuffle_on_description">ເປີດການສຸ່ມເພງແລ້ວ</string>
+    <string name="exo_controls_stop_description">ຢຸດ</string>
+    <string name="exo_controls_vr_description">ໂໝດ VR</string>
+    <string name="exo_download_completed">ດາວໂຫລດສຳເລັດແລ້ວ</string>
+    <string name="exo_download_description">ດາວໂຫລດ</string>
+    <string name="exo_download_downloading">ກຳລັງດາວໂຫລດ</string>
+    <string name="exo_download_failed">ດາວໂຫຼດບໍ່ສຳເລັດ</string>
+    <string name="exo_download_notification_channel_name">ດາວໂຫລດ</string>
+    <string name="exo_download_removing">ກຳລັງລຶບການດາວໂຫລດອອກ</string>
+    <string name="exo_item_list">%1$s, %2$s</string>
+    <string name="exo_media_action_repeat_all_description">ຫຼິ້ນຊ້ຳທັງໝົດ</string>
+    <string name="exo_media_action_repeat_off_description">ບໍ່ຫຼິ້ນຊ້ຳ</string>
+    <string name="exo_media_action_repeat_one_description">ຫຼິ້ນຊໍ້າ</string>
+    <string name="exo_track_bitrate">%1$.2f Mbps</string>
+    <string name="exo_track_mono">ໂມໂນ</string>
+    <string name="exo_track_resolution">%1$d × %2$d</string>
+    <string name="exo_track_role_alternate">ສຳຮອງ</string>
+    <string name="exo_track_role_closed_captions">ຄຳບັນຍາຍ</string>
+    <string name="exo_track_role_commentary">ຄຳເຫັນ</string>
+    <string name="exo_track_role_supplementary">ສ່ວນເສີມ</string>
+    <string name="exo_track_selection_auto">ອັດຕະໂນມັດ</string>
+    <string name="exo_track_selection_none">ບໍ່ມີ</string>
+    <string name="exo_track_selection_title_audio">ສຽງ</string>
+    <string name="exo_track_selection_title_text">ຂໍ້ຄວາມ</string>
+    <string name="exo_track_selection_title_video">ວິດີໂອ</string>
+    <string name="exo_track_stereo">ສະເຕຣິໂອ</string>
+    <string name="exo_track_surround">ສຽງຮອບທິດທາງ</string>
+    <string name="exo_track_surround_5_point_1">ສຽງຮອບທິດທາງ 5.1</string>
+    <string name="exo_track_surround_7_point_1">ສຽງຮອບທິດທາງ 7.1</string>
+    <string name="exo_track_unknown">ບໍ່ຮູ້ຈັກ</string>
+    <string msgid="730395136688082741" name="search_menu_title">"ຊອກຫາ"</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+</resources>

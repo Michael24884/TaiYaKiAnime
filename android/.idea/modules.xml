@@ -2,30 +2,15 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Taiyaki_Typed.iml" filepath="$PROJECT_DIR$/.idea/modules/Taiyaki_Typed.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Taiyaki_Typed.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Taiyaki_Typed.app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1863685307/Taiyaki_Typed.react-native-async-storage_async-storage.iml" filepath="$PROJECT_DIR$/.idea/modules/1863685307/Taiyaki_Typed.react-native-async-storage_async-storage.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1667473441/Taiyaki_Typed.react-native-background-fetch.iml" filepath="$PROJECT_DIR$/.idea/modules/1667473441/Taiyaki_Typed.react-native-background-fetch.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1933960929/Taiyaki_Typed.react-native-bootsplash.iml" filepath="$PROJECT_DIR$/.idea/modules/-1933960929/Taiyaki_Typed.react-native-bootsplash.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-90838458/Taiyaki_Typed.react-native-code-push.iml" filepath="$PROJECT_DIR$/.idea/modules/-90838458/Taiyaki_Typed.react-native-code-push.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1653199383/Taiyaki_Typed.react-native-community_blur.iml" filepath="$PROJECT_DIR$/.idea/modules/1653199383/Taiyaki_Typed.react-native-community_blur.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/2018359161/Taiyaki_Typed.react-native-community_datetimepicker.iml" filepath="$PROJECT_DIR$/.idea/modules/2018359161/Taiyaki_Typed.react-native-community_datetimepicker.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/974630839/Taiyaki_Typed.react-native-community_masked-view.iml" filepath="$PROJECT_DIR$/.idea/modules/974630839/Taiyaki_Typed.react-native-community_masked-view.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/45711166/Taiyaki_Typed.react-native-community_picker.iml" filepath="$PROJECT_DIR$/.idea/modules/45711166/Taiyaki_Typed.react-native-community_picker.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1882919791/Taiyaki_Typed.react-native-community_slider.iml" filepath="$PROJECT_DIR$/.idea/modules/-1882919791/Taiyaki_Typed.react-native-community_slider.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1462880690/Taiyaki_Typed.react-native-community_viewpager.iml" filepath="$PROJECT_DIR$/.idea/modules/-1462880690/Taiyaki_Typed.react-native-community_viewpager.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/189661695/Taiyaki_Typed.react-native-device-info.iml" filepath="$PROJECT_DIR$/.idea/modules/189661695/Taiyaki_Typed.react-native-device-info.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1261940976/Taiyaki_Typed.react-native-fast-image.iml" filepath="$PROJECT_DIR$/.idea/modules/1261940976/Taiyaki_Typed.react-native-fast-image.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1182251776/Taiyaki_Typed.react-native-gesture-handler.iml" filepath="$PROJECT_DIR$/.idea/modules/-1182251776/Taiyaki_Typed.react-native-gesture-handler.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/615352919/Taiyaki_Typed.react-native-inappbrowser-reborn.iml" filepath="$PROJECT_DIR$/.idea/modules/615352919/Taiyaki_Typed.react-native-inappbrowser-reborn.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-562300654/Taiyaki_Typed.react-native-linear-gradient.iml" filepath="$PROJECT_DIR$/.idea/modules/-562300654/Taiyaki_Typed.react-native-linear-gradient.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1027355397/Taiyaki_Typed.react-native-orientation-locker.iml" filepath="$PROJECT_DIR$/.idea/modules/-1027355397/Taiyaki_Typed.react-native-orientation-locker.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1678481528/Taiyaki_Typed.react-native-push-notification.iml" filepath="$PROJECT_DIR$/.idea/modules/1678481528/Taiyaki_Typed.react-native-push-notification.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1423623908/Taiyaki_Typed.react-native-reanimated.iml" filepath="$PROJECT_DIR$/.idea/modules/-1423623908/Taiyaki_Typed.react-native-reanimated.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1621222039/Taiyaki_Typed.react-native-safe-area-context.iml" filepath="$PROJECT_DIR$/.idea/modules/-1621222039/Taiyaki_Typed.react-native-safe-area-context.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/2127723713/Taiyaki_Typed.react-native-screens.iml" filepath="$PROJECT_DIR$/.idea/modules/2127723713/Taiyaki_Typed.react-native-screens.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/389280470/Taiyaki_Typed.react-native-vector-icons.iml" filepath="$PROJECT_DIR$/.idea/modules/389280470/Taiyaki_Typed.react-native-vector-icons.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-557384139/Taiyaki_Typed.react-native-video.iml" filepath="$PROJECT_DIR$/.idea/modules/-557384139/Taiyaki_Typed.react-native-video.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/android.iml" filepath="$PROJECT_DIR$/.idea/modules/android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/android.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/android.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1691646729/android.fijkplayer.iml" filepath="$PROJECT_DIR$/.idea/modules/-1691646729/android.fijkplayer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/525600310/android.flutter_animation_set.iml" filepath="$PROJECT_DIR$/.idea/modules/525600310/android.flutter_animation_set.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/663498619/android.flutter_secure_storage.iml" filepath="$PROJECT_DIR$/.idea/modules/663498619/android.flutter_secure_storage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1515412676/android.flutter_web_auth.iml" filepath="$PROJECT_DIR$/.idea/modules/-1515412676/android.flutter_web_auth.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1225589628/android.path_provider.iml" filepath="$PROJECT_DIR$/.idea/modules/1225589628/android.path_provider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-130349042/android.sqflite.iml" filepath="$PROJECT_DIR$/.idea/modules/-130349042/android.sqflite.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1184925834/android.webview_flutter.iml" filepath="$PROJECT_DIR$/.idea/modules/1184925834/android.webview_flutter.iml" />
     </modules>
   </component>
 </project>
