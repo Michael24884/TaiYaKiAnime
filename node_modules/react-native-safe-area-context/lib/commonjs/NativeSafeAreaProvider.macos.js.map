@@ -1,1 +1,0 @@
-{"version":3,"sources":["NativeSafeAreaProvider.macos.tsx"],"names":["CompatNativeSafeAreaProvider"],"mappings":";;;;;;;AAAA;;eAEeA,0D","sourcesContent":["import { CompatNativeSafeAreaProvider } from './CompatNativeSafeAreaProvider';\n\nexport default CompatNativeSafeAreaProvider;\n"]}

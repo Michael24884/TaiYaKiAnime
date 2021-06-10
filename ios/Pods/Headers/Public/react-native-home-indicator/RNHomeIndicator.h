@@ -1,1 +1,0 @@
-../../../../../node_modules/react-native-home-indicator/ios/RNHomeIndicator.h

@@ -1,4 +1,0 @@
-#Wed Dec 16 22:12:29 PST 2020
-base.0=/Users/michaelgarcia/Documents/GitHub/TaiYaKiAnime/android/app/build/intermediates/transforms/r8/release/0/classes.dex
-path.0=classes.dex
-renamed.0=classes.dex

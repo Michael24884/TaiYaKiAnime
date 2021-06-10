@@ -1,1 +1,0 @@
-../../../JWT/Core/Coding/JWTCoding+VersionOne.h

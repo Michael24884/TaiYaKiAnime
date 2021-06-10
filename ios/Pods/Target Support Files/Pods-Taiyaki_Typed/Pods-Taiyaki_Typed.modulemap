@@ -1,6 +1,0 @@
-module Pods_Taiyaki_Typed {
-  umbrella header "Pods-Taiyaki_Typed-umbrella.h"
-
-  export *
-  module * { export * }
-}

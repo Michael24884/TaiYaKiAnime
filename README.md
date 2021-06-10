@@ -34,13 +34,6 @@ Taiyaki lets you watch anime and sync across multiple third party trackers, such
 
 * Having a hard time choosing what to watch next? Use the large amount of filters to pin down exactly the anime you're looking for.
 
-#### Work in Progress
-
-- Simkl Support
-- Update Detailed Sync Support
-- TBA
-
-
 If you like the app, please ⭐️  the project to show your support!
 
 | Features  |  Screenshots - Android  | Screenshots - iOS |
