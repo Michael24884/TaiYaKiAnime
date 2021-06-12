@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Volumes/EKKO/taiyakiFF-May-12/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-v23/values-v23.xml",
+            "outputFile": "/home/simrat39/dev/TaiYaKiAnime/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-v23/values-v23.xml",
             "map": [
                 {
-                    "source": "/Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/f419bf2442c9ba50831eeba89000c9a9/appcompat-1.1.0/res/values-v23/values-v23.xml",
+                    "source": "/home/simrat39/.gradle/caches/transforms-2/files-2.1/f419bf2442c9ba50831eeba89000c9a9/appcompat-1.1.0/res/values-v23/values-v23.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,20,34,35,36,37,41,42,43,44",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "/Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/8166b8c0f2cbf9ac297d564747e624e9/work-runtime-2.5.0/res/values-v23/values-v23.xml",
+                    "source": "/home/simrat39/.gradle/caches/transforms-2/files-2.1/8166b8c0f2cbf9ac297d564747e624e9/work-runtime-2.5.0/res/values-v23/values-v23.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",

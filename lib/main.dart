@@ -27,7 +27,7 @@ import 'package:taiyaki/Views/app.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  await DotEnv.load();
+  // await DotEnv.load();
   await _initApp();
 
   runApp(CreateApp());
@@ -51,9 +51,10 @@ Future<void> _initApp() async {
     GlobalUserStore.store.dispatch(GlobalUserActionCreator.onUpdateUser(
         UpdateModel(
             model: _anilistUser, tracker: ThirdPartyTrackersEnum.anilist)));
-    new AnilistAPI()
-        .getProfile()
-        .whenComplete(() => AnilistAPI().getAnimeList().whenComplete(() => Timer(const Duration(minutes: 10), () async => AnilistAPI().getFollowersActivity())));
+    new AnilistAPI().getProfile().whenComplete(() => AnilistAPI()
+        .getAnimeList()
+        .whenComplete(() => Timer(const Duration(minutes: 10),
+            () async => AnilistAPI().getFollowersActivity())));
   }
 
   final _mal = await _storage.read(key: 'myanimelist');
@@ -62,7 +63,9 @@ Future<void> _initApp() async {
     GlobalUserStore.store.dispatch(GlobalUserActionCreator.onUpdateUser(
         UpdateModel(
             model: _malUser, tracker: ThirdPartyTrackersEnum.myanimelist)));
-    await new MyAnimeListAPI().getProfile().whenComplete(() => MyAnimeListAPI().getAnimeList());
+    await new MyAnimeListAPI()
+        .getProfile()
+        .whenComplete(() => MyAnimeListAPI().getAnimeList());
   }
 
   final _simkl = await _storage.read(key: 'simkl');
@@ -70,7 +73,9 @@ Future<void> _initApp() async {
     final UserModel _simklUser = UserModel.fromJson(json.decode(_simkl));
     GlobalUserStore.store.dispatch(GlobalUserActionCreator.onUpdateUser(
         UpdateModel(model: _simklUser, tracker: ThirdPartyTrackersEnum.simkl)));
-    await new SimklAPI().getProfile().whenComplete(() => SimklAPI().getAnimeList());
+    await new SimklAPI()
+        .getProfile()
+        .whenComplete(() => SimklAPI().getAnimeList());
   }
 
   Hive.registerAdapter(DetailDatabaseModelAdapter());

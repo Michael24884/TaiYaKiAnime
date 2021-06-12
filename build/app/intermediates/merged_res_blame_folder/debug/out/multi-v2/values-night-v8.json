@@ -1,29 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Volumes/EKKO/taiyakiFF-May-12/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-night-v8/values-night-v8.xml",
+            "outputFile": "/home/simrat39/dev/TaiYaKiAnime/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-night-v8/values-night-v8.xml",
             "map": [
                 {
-                    "source": "/Volumes/EKKO/taiyakiFF-May-12/android/app/src/main/res/values-night/styles.xml",
-                    "from": {
-                        "startLines": "3,14",
-                        "startColumns": "4,4",
-                        "startOffsets": "172,815",
-                        "endLines": "7,16",
-                        "endColumns": "12,12",
-                        "endOffsets": "464,979"
-                    },
-                    "to": {
-                        "startLines": "2,7",
-                        "startColumns": "4,4",
-                        "startOffsets": "55,352",
-                        "endLines": "6,9",
-                        "endColumns": "12,12",
-                        "endOffsets": "347,516"
-                    }
-                },
-                {
-                    "source": "/Users/michaelgarcia/.gradle/caches/transforms-2/files-2.1/f419bf2442c9ba50831eeba89000c9a9/appcompat-1.1.0/res/values-night-v8/values-night-v8.xml",
+                    "source": "/home/simrat39/.gradle/caches/transforms-2/files-2.1/f419bf2442c9ba50831eeba89000c9a9/appcompat-1.1.0/res/values-night-v8/values-night-v8.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",
@@ -32,11 +13,30 @@
                         "endOffsets": "120,204,288,384,486,588,682,771"
                     },
                     "to": {
-                        "startLines": "10,11,12,13,14,15,16,17",
+                        "startLines": "11,12,13,14,15,16,17,18",
                         "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "521,591,675,759,855,957,1059,1153",
+                        "startOffsets": "580,650,734,818,914,1016,1118,1212",
                         "endColumns": "69,83,83,95,101,101,93,88",
-                        "endOffsets": "586,670,754,850,952,1054,1148,1237"
+                        "endOffsets": "645,729,813,909,1011,1113,1207,1296"
+                    }
+                },
+                {
+                    "source": "/home/simrat39/dev/TaiYaKiAnime/android/app/src/main/res/values-night/styles.xml",
+                    "from": {
+                        "startLines": "3,15",
+                        "startColumns": "4,4",
+                        "startOffsets": "172,874",
+                        "endLines": "8,17",
+                        "endColumns": "12,12",
+                        "endOffsets": "523,1038"
+                    },
+                    "to": {
+                        "startLines": "2,8",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,411",
+                        "endLines": "7,10",
+                        "endColumns": "12,12",
+                        "endOffsets": "406,575"
                     }
                 }
             ]
