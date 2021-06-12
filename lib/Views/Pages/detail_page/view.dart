@@ -90,10 +90,13 @@ Widget buildView(
                               ],
                             ),
                           ),
-                          bottom: TabBar(
-                            isScrollable: true,
-                            controller: state.tabController,
-                            tabs: state.tabs,
+                          bottom: PreferredSize(
+                            preferredSize: Size.fromHeight(15),
+                            child: TabBar(
+                              isScrollable: true,
+                              controller: state.tabController,
+                              tabs: state.tabs,
+                            ),
                           ),
                         )
                       ],

@@ -30,20 +30,38 @@ class _CreateAppState extends State<CreateApp> {
 
   @override
   Widget build(BuildContext context) {
+    var accent = Color(int.parse('0xff$_accent'));
+    var bgColor = Color(0xff121212);
+    var cardColor = Color(0xff1D1D1D);
+    var bottomNavbarColor = Color(0xff1f1f1f);
+
     return MaterialApp(
       theme: _isDark
           ? ThemeData.dark().copyWith(
-              accentColor: Color(int.parse('0xff$_accent')),
-              toggleableActiveColor: Color(int.parse('0xff$_accent')),
-              // colorScheme: ,
-              primaryColor: Color(int.parse('0xff$_accent')),
+              cardColor: cardColor,
+              scaffoldBackgroundColor: bgColor,
+              dialogBackgroundColor: bgColor,
+              appBarTheme: AppBarTheme(
+                color: bgColor,
+                elevation: 0.0,
+              ),
+              bottomNavigationBarTheme: BottomNavigationBarThemeData(
+                backgroundColor: bottomNavbarColor,
+                type: BottomNavigationBarType.fixed,
+                elevation: 8.0,
+                showSelectedLabels: true,
+                showUnselectedLabels: false,
+              ),
+              accentColor: accent,
+              toggleableActiveColor: accent,
+              primaryColor: accent,
               brightness: Brightness.dark,
               colorScheme: darkColorScheme(_accent),
               textTheme:
                   GoogleFonts.poppinsTextTheme(ThemeData.dark().textTheme))
           : ThemeData.light().copyWith(
-              primaryColor: Color(int.parse('0xff$_accent')),
-              accentColor: Color(int.parse('0xff$_accent')),
+              primaryColor: accent,
+              accentColor: accent,
               brightness: Brightness.light,
               colorScheme: lightColorScheme(_accent),
               textTheme:
