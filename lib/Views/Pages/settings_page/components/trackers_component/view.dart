@@ -68,33 +68,39 @@ class _TrackerCards extends StatelessWidget {
     final bool isLoggedIn = model != null;
 
     return Card(
-        margin: EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
-        child: Padding(
-          padding: const EdgeInsets.only(left: 10.0, right: 8.0, bottom: 10.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(name,
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 21)),
-                  IconButton(
-                      icon: Icon(
-                        Icons.login,
-                        color: isLoggedIn ? Colors.red : Colors.green,
-                      ),
-                      onPressed: isLoggedIn ? onLogout : onLogin)
-                ],
-              ),
-              Text(
-                  model?.username != null
-                      ? 'Logged in as: ' + model!.username!
-                      : 'Not logged in',
-                  style: TextStyle(fontWeight: FontWeight.w300, fontSize: 18))
-            ],
-          ),
-        ));
+      margin: EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+      child: Padding(
+        padding: const EdgeInsets.only(left: 10.0, right: 8.0, bottom: 10.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  name,
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
+                  ),
+                ),
+                IconButton(
+                  icon: Icon(
+                    Icons.login,
+                    color: isLoggedIn ? Colors.red : Colors.green,
+                  ),
+                  onPressed: isLoggedIn ? onLogout : onLogin,
+                )
+              ],
+            ),
+            Text(
+              model?.username != null
+                  ? 'Logged in as: ' + model!.username!
+                  : 'Not logged in',
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
