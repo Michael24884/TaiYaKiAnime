@@ -11,7 +11,8 @@ Reducer<CustomizationSettingState> buildReducer() {
   );
 }
 
-CustomizationSettingState _onAction(CustomizationSettingState state, Action action) {
+CustomizationSettingState _onAction(
+    CustomizationSettingState state, Action action) {
   final CustomizationSettingState newState = state.clone();
   return newState;
 }

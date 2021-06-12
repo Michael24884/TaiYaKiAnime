@@ -86,7 +86,8 @@ void _showSnack(Action action, Context<DetailState> ctx) {
   final SnackDetail snack = action.payload;
   ScaffoldMessenger.of(ctx.context).showSnackBar(
     SnackBar(
-      content: Text(snack.message, style: TextStyle(color: snack.isError ? Colors.white : null)),
+      content: Text(snack.message,
+          style: TextStyle(color: snack.isError ? Colors.white : null)),
       backgroundColor: snack.isError ? Colors.redAccent : null,
       duration: const Duration(milliseconds: 4450),
     ),
@@ -98,10 +99,13 @@ void _onInit(Action action, Context<DetailState> ctx) async {
   ctx.state.tabController =
       new TabController(length: ctx.state.tabs.length, vsync: _ticker);
 
-  final AnilistNode data = await AnilistAPI().getDetailData(ctx.state.id, idMal: ctx.state.isMal ? ctx.state.id : null);
+  final AnilistNode data = await AnilistAPI().getDetailData(ctx.state.id,
+      idMal: ctx.state.isMal ? ctx.state.id : null);
   ctx.dispatch(DetailActionCreator.updateAnilistData(data));
-  ctx.dispatch(DetailActionCreator.updateCovers(data.bannerImage ?? data.coverImage));
-  ctx.state.coverTimer = new Timer.periodic(const Duration(seconds: 20), (timer) => ctx.dispatch(DetailActionCreator.switchCovers()));
+  ctx.dispatch(
+      DetailActionCreator.updateCovers(data.bannerImage ?? data.coverImage));
+  ctx.state.coverTimer = new Timer.periodic(const Duration(seconds: 20),
+      (timer) => ctx.dispatch(DetailActionCreator.switchCovers()));
   ctx.dispatch(DetailActionCreator.fetchDetailDatabase());
   ctx.dispatch(DetailActionCreator.initTempDatabase());
 
@@ -118,26 +122,21 @@ void _onInit(Action action, Context<DetailState> ctx) async {
   if (ctx.state.detailDatabaseModel != null &&
       ctx.state.detailDatabaseModel!.ids.simkl == null) {
     try {
-    final _simklID = await SimklAPI().fetchSimklID(data.idMal);
-    if (_simklID != null)
-      ctx.dispatch(DetailActionCreator.udpateDetailDatabase(
-          ctx.state.detailDatabaseModel!.copyWith(
-              ids: ctx.state.detailDatabaseModel!.ids..simkl = _simklID)));
+      final _simklID = await SimklAPI().fetchSimklID(data.idMal);
+      if (_simklID != null)
+        ctx.dispatch(DetailActionCreator.udpateDetailDatabase(
+            ctx.state.detailDatabaseModel!.copyWith(
+                ids: ctx.state.detailDatabaseModel!.ids..simkl = _simklID)));
 
-    SimklAPI().fetchSimklData(_simklID!)
-        .then((data) {
-      if (data.fanart != null)
-        ctx.dispatch(DetailActionCreator.updateCovers(data.fanart!));
-      return ctx.dispatch(DetailActionCreator.onUpdateSimklData(data));
-    });
-
-
-    } catch(error) {
-      ctx.dispatch(DetailActionCreator.showSnackMessage(SnackDetail(message: error.toString(),isError: true)));
+      SimklAPI().fetchSimklData(_simklID!).then((data) {
+        if (data.fanart != null)
+          ctx.dispatch(DetailActionCreator.updateCovers(data.fanart!));
+        return ctx.dispatch(DetailActionCreator.onUpdateSimklData(data));
+      });
+    } catch (error) {
+      ctx.dispatch(DetailActionCreator.showSnackMessage(
+          SnackDetail(message: error.toString(), isError: true)));
     }
-
-
-
   }
 
   ctx.dispatch(DetailActionCreator.fetchTrackers());
@@ -145,14 +144,11 @@ void _onInit(Action action, Context<DetailState> ctx) async {
   //Fetches link if database has a link
 }
 
-
-
 void _fetchTrackers(Action action, Context<DetailState> ctx) {
   if (GlobalUserStore.store.getState().anilistUser != null) {
     AnilistAPI().getMediaList(ctx.state.id).then((value) {
-      return ctx.dispatch(
-        DetailActionCreator.updateAnilistData(
-            ctx.state.anilistData!..mediaListEntryModel = value));
+      return ctx.dispatch(DetailActionCreator.updateAnilistData(
+          ctx.state.anilistData!..mediaListEntryModel = value));
     });
   }
 
@@ -195,7 +191,6 @@ void _initEmptyDatabase(Action action, Context<DetailState> ctx) {
   }
   final _data = ctx.state.anilistData!;
 
-
   final _newDatabase = DetailDatabaseModel(
       title: _data.title,
       coverImage: _data.coverImage,
@@ -204,17 +199,13 @@ void _initEmptyDatabase(Action action, Context<DetailState> ctx) {
   ctx.dispatch(DetailActionCreator.udpateDetailDatabase(_newDatabase));
 }
 
-
-
-
 void _onFetchSimklEpisodes(Action action, Context<DetailState> ctx) async {
   final String _link = action.payload;
   if (ctx.state.detailDatabaseModel?.sourceName == null) return;
 
   final int? _simklID = ctx.state.detailDatabaseModel!.ids.simkl;
   if (_simklID == null) return;
-  SimklAPI().fetchSimklData(_simklID)
-      .then((data) {
+  SimklAPI().fetchSimklData(_simklID).then((data) {
     if (data.fanart != null)
       ctx.dispatch(DetailActionCreator.updateCovers(data.fanart!));
     return ctx.dispatch(DetailActionCreator.onUpdateSimklData(data));

@@ -6,10 +6,8 @@ import 'view.dart';
 class StatsComponent extends Component<StatsState> {
   StatsComponent()
       : super(
-            view: buildView,
-            dependencies: Dependencies<StatsState>(
-                adapter: null,
-                slots: <String, Dependent<StatsState>>{
-                }),);
-
+          view: buildView,
+          dependencies: Dependencies<StatsState>(
+              adapter: null, slots: <String, Dependent<StatsState>>{}),
+        );
 }

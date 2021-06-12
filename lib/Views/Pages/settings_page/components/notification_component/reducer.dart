@@ -11,7 +11,8 @@ Reducer<NotificationSettingsState> buildReducer() {
   );
 }
 
-NotificationSettingsState _onAction(NotificationSettingsState state, Action action) {
+NotificationSettingsState _onAction(
+    NotificationSettingsState state, Action action) {
   final NotificationSettingsState newState = state.clone();
   return newState;
 }

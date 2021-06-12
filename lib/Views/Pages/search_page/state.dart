@@ -4,7 +4,6 @@ import 'package:taiyaki/Models/Anilist/typed_models.dart';
 import 'package:taiyaki/Views/Pages/search_page/cells/state.dart';
 
 class SearchState extends ImmutableSource implements Cloneable<SearchState> {
-
   bool isLoading = false;
 
   List<AnilistNode> results = [];
@@ -15,18 +14,16 @@ class SearchState extends ImmutableSource implements Cloneable<SearchState> {
   int? year;
   String? query;
 
-
   @override
   SearchState clone() {
     return SearchState()
-    ..isLoading = isLoading
-    ..results = results
+      ..isLoading = isLoading
+      ..results = results
       ..year = year
       ..query = query
       ..enabledTags = enabledTags
-    ..enabledGenres = enabledGenres
-      ..enabledSeason = enabledSeason
-    ;
+      ..enabledGenres = enabledGenres
+      ..enabledSeason = enabledSeason;
   }
 
   @override

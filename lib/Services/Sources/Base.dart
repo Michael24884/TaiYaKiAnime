@@ -13,22 +13,18 @@ abstract class SourceBase {
   SourceInfo get info;
 
   SourceBase() {
-    request.interceptors.add(InterceptorsWrapper(
-        onRequest: (RequestOptions options, RequestInterceptorHandler handler) {
-          print('hello world');
-       if (options.uri.scheme != 'https') {
-         final _newUrl = options.baseUrl.replaceFirst('http', 'https');
-         options.copyWith(baseUrl: _newUrl);
-       }
-      return handler.next(options);
-    },
-    onResponse: (Response response, handler) {
-          print('returning data');
-    }
-    ),
-
-
-
+    request.interceptors.add(
+      InterceptorsWrapper(onRequest:
+          (RequestOptions options, RequestInterceptorHandler handler) {
+        print('hello world');
+        if (options.uri.scheme != 'https') {
+          final _newUrl = options.baseUrl.replaceFirst('http', 'https');
+          options.copyWith(baseUrl: _newUrl);
+        }
+        return handler.next(options);
+      }, onResponse: (Response response, handler) {
+        print('returning data');
+      }),
     );
   }
 }

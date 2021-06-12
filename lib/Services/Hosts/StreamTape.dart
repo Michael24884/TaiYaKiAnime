@@ -36,7 +36,7 @@ class StreamTape with HostsAPIRequests implements HostsBase {
     final _hostModel = HostsLinkModel(
         name: 'Custom',
         link: realLink.toString(),
-        headers: {'Referer' :'https://streamtape.com/e/$id/$title'});
+        headers: {'Referer': 'https://streamtape.com/e/$id/$title'});
 
     return [_hostModel];
   }

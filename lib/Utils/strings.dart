@@ -34,11 +34,11 @@ String convertSecondsToDays(int seconds) {
   return 'Delayed';
 }
 
-String? simklThumbnailGen(String? tag, {bool isPoster = false, bool isFanArt = false}) {
+String? simklThumbnailGen(String? tag,
+    {bool isPoster = false, bool isFanArt = false}) {
   if (tag != null) {
     if (isFanArt) return 'https://simkl.in/fanart/${tag}_mobile.jpg';
-    if (isPoster)
-    return 'https://simkl.in/posters/${tag}_ca.jpg';
+    if (isPoster) return 'https://simkl.in/posters/${tag}_ca.jpg';
     return 'https://simkl.in/episodes/${tag}_w.jpg';
   }
 }

@@ -8,12 +8,10 @@ import 'view.dart';
 class HistoryCellsComponent extends Component<HistoryCellsState> {
   HistoryCellsComponent()
       : super(
-            effect: buildEffect(),
-            reducer: buildReducer(),
-            view: buildView,
-            dependencies: Dependencies<HistoryCellsState>(
-                adapter: null,
-                slots: <String, Dependent<HistoryCellsState>>{
-                }),);
-
+          effect: buildEffect(),
+          reducer: buildReducer(),
+          view: buildView,
+          dependencies: Dependencies<HistoryCellsState>(
+              adapter: null, slots: <String, Dependent<HistoryCellsState>>{}),
+        );
 }

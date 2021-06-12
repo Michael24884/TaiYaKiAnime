@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'action.dart';
 import 'state.dart';
 
-Widget buildView(ContinueWatchingRowState state, Dispatch dispatch, ViewService viewService) {
+Widget buildView(ContinueWatchingRowState state, Dispatch dispatch,
+    ViewService viewService) {
   return Container();
 }

@@ -3,7 +3,8 @@ import 'package:taiyaki/Models/Anilist/models.dart';
 import 'package:taiyaki/Views/Pages/discovery_page/components/follower_cells/state.dart';
 import 'package:taiyaki/Views/Pages/discovery_page/state.dart';
 
-class FollowerCardsState extends ImmutableSource implements Cloneable<FollowerCardsState> {
+class FollowerCardsState extends ImmutableSource
+    implements Cloneable<FollowerCardsState> {
   List<AnilistFollowersActivityModel> activity = [];
 
   @override
@@ -19,7 +20,7 @@ class FollowerCardsState extends ImmutableSource implements Cloneable<FollowerCa
 
   @override
   String getItemType(int index) {
-return 'follower_cells';
+    return 'follower_cells';
   }
 
   @override
@@ -32,13 +33,12 @@ return 'follower_cells';
   }
 }
 
-
-class FollowersCardsConnector extends ConnOp<DiscoveryState, FollowerCardsState> {
+class FollowersCardsConnector
+    extends ConnOp<DiscoveryState, FollowerCardsState> {
   @override
   FollowerCardsState get(DiscoveryState state) {
     final subState = FollowerCardsState().clone();
     subState.activity = state.activity;
     return subState;
-
   }
 }

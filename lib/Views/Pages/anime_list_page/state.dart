@@ -37,5 +37,7 @@ class AnimeListState extends ImmutableSource
 }
 
 AnimeListState initState(AnimeListPageArguments args) {
-  return AnimeListState()..list = args.list..tracker = args.tracker;
+  return AnimeListState()
+    ..list = args.list
+    ..tracker = args.tracker;
 }

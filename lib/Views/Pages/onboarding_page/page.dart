@@ -18,21 +18,21 @@ import 'view.dart';
 class OnboardingPage extends Page<OnboardingState, Map<String, dynamic>> {
   OnboardingPage()
       : super(
-            initState: initState,
-            effect: buildEffect(),
-            reducer: buildReducer(),
-            view: buildView,
-            dependencies: Dependencies<OnboardingState>(
-                adapter: null,
-                slots: <String, Dependent<OnboardingState>>{
-                  'page_one': OnboardPage1Connector() + OnboardPage1Component(),
-                  'page_two': OnboardPage2Connector() +  OnboardingPage2Component(),
-                  'page_three': OnboardPage3Connector() + OnboardPage3Component(),
-                  'page_four': OnboardingPage4Connector() + OnboardingPage4Component(),
-                  'page_five': OnboardPage5Connector() + OnboardPage5Component(),
-
-                }),
-            middleware: <Middleware<OnboardingState>>[
-            ],);
-
+          initState: initState,
+          effect: buildEffect(),
+          reducer: buildReducer(),
+          view: buildView,
+          dependencies: Dependencies<OnboardingState>(
+              adapter: null,
+              slots: <String, Dependent<OnboardingState>>{
+                'page_one': OnboardPage1Connector() + OnboardPage1Component(),
+                'page_two':
+                    OnboardPage2Connector() + OnboardingPage2Component(),
+                'page_three': OnboardPage3Connector() + OnboardPage3Component(),
+                'page_four':
+                    OnboardingPage4Connector() + OnboardingPage4Component(),
+                'page_five': OnboardPage5Connector() + OnboardPage5Component(),
+              }),
+          middleware: <Middleware<OnboardingState>>[],
+        );
 }

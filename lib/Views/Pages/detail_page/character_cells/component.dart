@@ -6,10 +6,8 @@ import 'view.dart';
 class CharacterCellsComponent extends Component<CharacterCellsState> {
   CharacterCellsComponent()
       : super(
-            view: buildView,
-            dependencies: Dependencies<CharacterCellsState>(
-                adapter: null,
-                slots: <String, Dependent<CharacterCellsState>>{
-                }),);
-
+          view: buildView,
+          dependencies: Dependencies<CharacterCellsState>(
+              adapter: null, slots: <String, Dependent<CharacterCellsState>>{}),
+        );
 }

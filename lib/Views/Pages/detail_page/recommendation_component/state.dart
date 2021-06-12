@@ -4,14 +4,13 @@ import 'package:taiyaki/Views/Pages/detail_page/recommendation_component/cells/s
 
 import '../state.dart';
 
-class RecommendationState extends ImmutableSource implements Cloneable<RecommendationState> {
-
+class RecommendationState extends ImmutableSource
+    implements Cloneable<RecommendationState> {
   List<AnilistNode> recommendations = [];
 
   @override
   RecommendationState clone() {
-    return RecommendationState()
-    ..recommendations = recommendations;
+    return RecommendationState()..recommendations = recommendations;
   }
 
   @override

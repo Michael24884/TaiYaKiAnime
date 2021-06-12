@@ -11,16 +11,16 @@ import 'view.dart';
 class SearchPage extends Page<SearchState, Map<String, dynamic>> {
   SearchPage()
       : super(
-            initState: initState,
-            effect: buildEffect(),
-            reducer: buildReducer(),
-            view: buildView,
-            dependencies: Dependencies<SearchState>(
-                adapter: NoneConn<SearchState>() + SearchAdapter(),
-                slots: <String, Dependent<SearchState>>{
-                  'filter_bottom_sheet':FilterSheetConnector() + FilterSheetComponent()
-                }),
-            middleware: <Middleware<SearchState>>[
-            ],);
-
+          initState: initState,
+          effect: buildEffect(),
+          reducer: buildReducer(),
+          view: buildView,
+          dependencies: Dependencies<SearchState>(
+              adapter: NoneConn<SearchState>() + SearchAdapter(),
+              slots: <String, Dependent<SearchState>>{
+                'filter_bottom_sheet':
+                    FilterSheetConnector() + FilterSheetComponent()
+              }),
+          middleware: <Middleware<SearchState>>[],
+        );
 }

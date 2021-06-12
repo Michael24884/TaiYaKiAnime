@@ -4,14 +4,11 @@ import 'package:taiyaki/Models/Taiyaki/Settings.dart';
 import '../../state.dart';
 
 class OnboardPage1State implements Cloneable<OnboardPage1State> {
-
   AppSettingsModel? appSettingsModel;
-
 
   @override
   OnboardPage1State clone() {
-    return OnboardPage1State()
-    ..appSettingsModel = appSettingsModel;
+    return OnboardPage1State()..appSettingsModel = appSettingsModel;
   }
 }
 
@@ -27,6 +24,4 @@ class OnboardPage1Connector extends ConnOp<OnboardingState, OnboardPage1State> {
   void set(OnboardingState state, OnboardPage1State subState) {
     state.appSettings = subState.appSettingsModel!;
   }
-
-
 }

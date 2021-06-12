@@ -59,11 +59,12 @@ class SyncConnector extends ConnOp<DetailState, SyncState> {
     }
 
     if (_globalState.simklUser != null) {
-      final _match = SimklAPI.findMatch(id: state.detailDatabaseModel?.ids.simkl ?? 0, malID: state.anilistData?.idMal);
+      final _match = SimklAPI.findMatch(
+          id: state.detailDatabaseModel?.ids.simkl ?? 0,
+          malID: state.anilistData?.idMal);
       if (_match != null) {
-
         subState.simklSync = SyncModel(
-            progress: _match.progress,
+          progress: _match.progress,
           episodes: _match.totalEpisodes,
           score: _match.score.toInt(),
           status: _match.status,

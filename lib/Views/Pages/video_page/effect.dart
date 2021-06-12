@@ -48,7 +48,7 @@ void _onSettings(Action action, Context<VideoState> ctx) {
                 // height: TaiyakiSize.height * 0.28,
                 width: TaiyakiSize.width * 0.45,
                 child: ListView.builder(
-                  shrinkWrap: true,
+                    shrinkWrap: true,
                     itemExtent: TaiyakiSize.height * 0.09,
                     itemCount: ctx.state.allAvailableQualities.length,
                     itemBuilder: (context, index) => Container(
@@ -61,10 +61,15 @@ void _onSettings(Action action, Context<VideoState> ctx) {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Text(
-                                    ctx.state.allAvailableQualities[index].name),
-                                if (ctx.state.allAvailableQualities[index].name == ctx.state.currentSelectedQuality?.name)
-                                  Icon(Icons.check, color: Colors.green,)
+                                Text(ctx
+                                    .state.allAvailableQualities[index].name),
+                                if (ctx.state.allAvailableQualities[index]
+                                        .name ==
+                                    ctx.state.currentSelectedQuality?.name)
+                                  Icon(
+                                    Icons.check,
+                                    color: Colors.green,
+                                  )
                               ],
                             )))),
               ),
@@ -86,21 +91,22 @@ void _onSettings(Action action, Context<VideoState> ctx) {
                     itemExtent: TaiyakiSize.height * 0.09,
                     itemCount: ctx.state.allAvailableHosts.length,
                     itemBuilder: (context, index) => Container(
-                        child: SizedBox(
-                          height:TaiyakiSize.height * 0.09,
+                            child: SizedBox(
+                          height: TaiyakiSize.height * 0.09,
                           child: GestureDetector(
                               onTap: () => ctx.dispatch(
                                   VideoActionCreator.setCurrentHost(
                                       ctx.state.allAvailableHosts[index])),
-                              child:
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Text(ctx.state.allAvailableHosts[index].host),
-                                      if (ctx.state.allAvailableHosts[index].host == ctx.state.currentSelectedHost?.host)
-                                        Icon(Icons.check, color: Colors.green)
-                                    ],
-                                  )),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(ctx.state.allAvailableHosts[index].host),
+                                  if (ctx.state.allAvailableHosts[index].host ==
+                                      ctx.state.currentSelectedHost?.host)
+                                    Icon(Icons.check, color: Colors.green)
+                                ],
+                              )),
                         ))),
               ),
             ));
@@ -181,34 +187,38 @@ void _saveHistory(Action action, Context<VideoState> ctx) {
 }
 
 void _setUpPlayer(Action action, Context<VideoState> ctx) {
-  final BetterPlayerConfiguration _betterPlayerConfiguration = BetterPlayerConfiguration(
-      allowedScreenSleep: false,
-      autoPlay: true,
-      handleLifecycle: false,
-      autoDispose: false,
-
-
-      controlsConfiguration: BetterPlayerControlsConfiguration(
-          playerTheme: BetterPlayerTheme.custom ,
-          customControlsBuilder: (BetterPlayerController _) {
-            return TaiyakiControls(
-                togglePlaylist: () =>
-                ctx.dispatch(VideoActionCreator.togglePlaylist(true)),
-              episode: ctx.state.episode!,
-                controlsConfiguration: BetterPlayerControlsConfiguration(
-                  controlsHideTime: const Duration(milliseconds: 250),
-                  controlBarHeight: 55,
-                ),
-                onControlsVisibilityChanged: (bool controlsVisible) {},
-                onFS: () => ctx.dispatch(VideoActionCreator.onFS()), isFullscreen: ctx.state.isFullscreen);
+  final BetterPlayerConfiguration _betterPlayerConfiguration =
+      BetterPlayerConfiguration(
+          allowedScreenSleep: false,
+          autoPlay: true,
+          handleLifecycle: false,
+          autoDispose: false,
+          controlsConfiguration: BetterPlayerControlsConfiguration(
+              playerTheme: BetterPlayerTheme.custom,
+              customControlsBuilder: (BetterPlayerController _) {
+                return TaiyakiControls(
+                    togglePlaylist: () =>
+                        ctx.dispatch(VideoActionCreator.togglePlaylist(true)),
+                    episode: ctx.state.episode!,
+                    controlsConfiguration: BetterPlayerControlsConfiguration(
+                      controlsHideTime: const Duration(milliseconds: 250),
+                      controlBarHeight: 55,
+                    ),
+                    onControlsVisibilityChanged: (bool controlsVisible) {},
+                    onFS: () => ctx.dispatch(VideoActionCreator.onFS()),
+                    isFullscreen: ctx.state.isFullscreen);
+              }),
+          routePageBuilder: (BuildContext context,
+              Animation<double> enterFS,
+              Animation<double> exitFS,
+              BetterPlayerControllerProvider provider) {
+            return Container();
           }
-      ),
-      routePageBuilder: (BuildContext context, Animation<double> enterFS, Animation<double> exitFS, BetterPlayerControllerProvider provider ) {
-        return Container();
-      }
-    // routePageBuilder:
+          // routePageBuilder:
+          );
+  ctx.state.videoController = new BetterPlayerController(
+    _betterPlayerConfiguration,
   );
-  ctx.state.videoController = new BetterPlayerController(_betterPlayerConfiguration, );
   // ctx.state.playerController = new FijkPlayer()
   //   // ..setOption(
   //   //     FijkOption.formatCategory, 'headers', widget.hostsLinkModel.headers)
@@ -225,19 +235,18 @@ void _setUpPlayer(Action action, Context<VideoState> ctx) {
 
 void _onInit(Action action, Context<VideoState> ctx) async {
   _setUpPlayer(action, ctx);
-
 }
 
 void _setSimklEpisode(Action action, Context<VideoState> ctx) async {
-
   // ctx.state.playerController?.release();
   // ctx.state.playerController?.dispose();
 
   // if (ctx.state.playerController?.dataSource != null) {
-    // ctx.state.playerController = new FijkPlayer();
+  // ctx.state.playerController = new FijkPlayer();
   // }
 
-  ctx.state.videoController = new BetterPlayerController(BetterPlayerConfiguration());
+  ctx.state.videoController =
+      new BetterPlayerController(BetterPlayerConfiguration());
   final SimklEpisodeModel episode = action.payload;
 
   ctx.dispatch(VideoActionCreator.updateSimklEpisode(episode));

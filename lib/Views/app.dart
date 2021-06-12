@@ -47,7 +47,7 @@ class _CreateAppState extends State<CreateApp> {
               colorScheme: lightColorScheme(_accent),
               textTheme:
                   GoogleFonts.poppinsTextTheme(ThemeData.light().textTheme)),
-       // home: TaiyakiBottomNavigation(),
+      // home: TaiyakiBottomNavigation(),
       home: GlobalUserStore.store.getState().passedOnboarding
           ? TaiyakiBottomNavigation()
           : routes.buildPage('onboarding_page', null),

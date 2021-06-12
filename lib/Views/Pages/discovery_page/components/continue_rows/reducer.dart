@@ -11,7 +11,8 @@ Reducer<ContinueWatchingRowState> buildReducer() {
   );
 }
 
-ContinueWatchingRowState _onAction(ContinueWatchingRowState state, Action action) {
+ContinueWatchingRowState _onAction(
+    ContinueWatchingRowState state, Action action) {
   final ContinueWatchingRowState newState = state.clone();
   return newState;
 }

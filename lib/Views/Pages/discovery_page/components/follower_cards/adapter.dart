@@ -3,12 +3,9 @@ import 'package:taiyaki/Views/Pages/discovery_page/components/follower_cells/com
 
 import 'state.dart';
 
-
 class FollowerCardsAdapter extends SourceFlowAdapter<FollowerCardsState> {
-  FollowerCardsAdapter():
-      super(
-        pool: <String, Component<Object>>{
+  FollowerCardsAdapter()
+      : super(pool: <String, Component<Object>>{
           'follower_cells': FollowersCellsComponent(),
-        }
-      );
+        });
 }

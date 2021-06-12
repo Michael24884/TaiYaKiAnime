@@ -56,8 +56,8 @@ Widget buildView(
           viewService.buildComponent('activity_slot'),
         // viewService.buildComponent('seasonal_slot'),
         viewService.buildComponent('popular_slot'),
-       // viewService.buildComponent('next_season_slot'),
-       //  viewService.buildComponent('just_added_slot'),
+        // viewService.buildComponent('next_season_slot'),
+        //  viewService.buildComponent('just_added_slot'),
       ],
     ),
   );

@@ -9,5 +9,4 @@ Effect<ListCellState> buildEffect() {
   });
 }
 
-void _onAction(Action action, Context<ListCellState> ctx) {
-}
+void _onAction(Action action, Context<ListCellState> ctx) {}

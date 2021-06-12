@@ -6,10 +6,8 @@ import 'view.dart';
 class FollowersCellsComponent extends Component<FollowersCellsState> {
   FollowersCellsComponent()
       : super(
-            view: buildView,
-            dependencies: Dependencies<FollowersCellsState>(
-                adapter: null,
-                slots: <String, Dependent<FollowersCellsState>>{
-                }),);
-
+          view: buildView,
+          dependencies: Dependencies<FollowersCellsState>(
+              adapter: null, slots: <String, Dependent<FollowersCellsState>>{}),
+        );
 }

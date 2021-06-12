@@ -86,5 +86,4 @@ class GogoAnime implements SourceBase {
 
   @override
   bool get usesCloudflare => false;
-
 }

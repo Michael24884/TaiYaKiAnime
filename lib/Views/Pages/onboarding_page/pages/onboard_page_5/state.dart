@@ -3,7 +3,6 @@ import 'package:fish_redux/fish_redux.dart';
 import '../../state.dart';
 
 class OnboardPage5State implements Cloneable<OnboardPage5State> {
-
   @override
   OnboardPage5State clone() {
     return OnboardPage5State();

@@ -5,15 +5,15 @@ part 'Settings.g.dart';
 @HiveType(typeId: 7)
 class AppSettingsModel {
   @HiveField(0)
-   bool blurSpoilers;
+  bool blurSpoilers;
   @HiveField(1)
-   bool autoChange100;
+  bool autoChange100;
   @HiveField(2)
-   bool isDarkMode;
+  bool isDarkMode;
   @HiveField(3)
-   String accent;
+  String accent;
   @HiveField(4)
-   bool updateAt75;
+  bool updateAt75;
 
   AppSettingsModel(
       {this.autoChange100 = true,

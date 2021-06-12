@@ -4,25 +4,23 @@ import 'package:taiyaki/Models/Anilist/typed_models.dart';
 import 'package:taiyaki/Views/Pages/search_page/state.dart';
 
 class FilterSheetState implements Cloneable<FilterSheetState> {
-
   List<String> enabledGenres = [];
   String enabledSeason = 'ALL';
   List<String> enabledTags = [];
   int? year;
 
-
   @override
   FilterSheetState clone() {
     return FilterSheetState()
-    ..year = year
-    ..enabledGenres = enabledGenres
-    ..enabledSeason = enabledSeason
-    ..enabledTags = enabledTags;
+      ..year = year
+      ..enabledGenres = enabledGenres
+      ..enabledSeason = enabledSeason
+      ..enabledTags = enabledTags;
   }
 }
 
 class FilterSheetConnector extends ConnOp<SearchState, FilterSheetState> {
- @override
+  @override
   FilterSheetState get(SearchState state) {
     final subState = FilterSheetState().clone();
     subState.enabledGenres = state.enabledGenres;
@@ -39,5 +37,4 @@ class FilterSheetConnector extends ConnOp<SearchState, FilterSheetState> {
     state.enabledSeason = subState.enabledSeason;
     state.enabledTags = subState.enabledTags;
   }
-
 }

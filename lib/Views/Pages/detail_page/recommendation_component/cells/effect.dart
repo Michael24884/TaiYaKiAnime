@@ -12,5 +12,6 @@ Effect<RecommendationCellsState> buildEffect() {
 }
 
 void _onAction(Action action, Context<RecommendationCellsState> ctx) {
-  Navigator.of(ctx.context).pushNamed('detail_page', arguments: DetailPageArguments(id: ctx.state.media!.id));
+  Navigator.of(ctx.context).pushNamed('detail_page',
+      arguments: DetailPageArguments(id: ctx.state.media!.id));
 }

@@ -36,8 +36,9 @@ Widget buildView(VideoState state, Dispatch dispatch, ViewService viewService) {
                 //     color: Colors.green, height: TaiyakiSize.height * 0.3),
 
                 : TaiyakiPlayer(
-              handlePlaylist: (value) => dispatch(VideoActionCreator.togglePlaylist(value)),
-              isPlaylistVisible: state.isPlaylistVisible,
+                    handlePlaylist: (value) =>
+                        dispatch(VideoActionCreator.togglePlaylist(value)),
+                    isPlaylistVisible: state.isPlaylistVisible,
                     playerController: state.videoController,
                     args: VideoPageArguments(
                         episode: state.episode!,
@@ -50,7 +51,6 @@ Widget buildView(VideoState state, Dispatch dispatch, ViewService viewService) {
                     qualities: state.allAvailableQualities,
                     onEpisodeSelected: (episode) =>
                         dispatch(VideoActionCreator.setSimklEpisode(episode)),
-
                     playlist: state.playlist,
                     onSettings: () => dispatch(VideoActionCreator.onSettings()),
                   ),

@@ -27,7 +27,6 @@ class SnackDetail {
   final bool isError;
 
   SnackDetail({required this.message, this.isError = false});
-
 }
 
 class DetailActionCreator {

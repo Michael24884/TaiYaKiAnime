@@ -19,8 +19,8 @@ class StatsState implements Cloneable<StatsState> {
     return StatsState()
       ..scoreDistribution = scoreDistribution
       ..statusDistribution = statusDistribution
-    ..trendsAverageScore = trendsAverageScore
-    ..trendsWatchers = trendsWatchers;
+      ..trendsAverageScore = trendsAverageScore
+      ..trendsWatchers = trendsWatchers;
   }
 }
 
@@ -31,7 +31,9 @@ class StatsConnector extends ConnOp<DetailState, StatsState> {
 
     final _scoreDistribution = state.anilistData!.scoreDistribution;
     final _statusDistribution = state.anilistData!.statusDistribution;
-    final _trends = state.anilistData!.trends.reversed.where((element) => element.episode != null).toList();
+    final _trends = state.anilistData!.trends.reversed
+        .where((element) => element.episode != null)
+        .toList();
 
     subState.scoreDistribution = [
       ColumnSeries<AnilistScoreDistributionModel, String>(
@@ -55,17 +57,24 @@ class StatsConnector extends ConnOp<DetailState, StatsState> {
           name: 'Status Distribution',
           dataSource: _statusDistribution,
           legendIconType: LegendIconType.circle,
-          pointColorMapper: (AnilistStatusDistributionModel model, _) => _anilistStatusMapper(model.status),
+          pointColorMapper: (AnilistStatusDistributionModel model, _) =>
+              _anilistStatusMapper(model.status),
           xValueMapper: (AnilistStatusDistributionModel model, _) =>
               model.status,
           yValueMapper: (AnilistStatusDistributionModel model, _) =>
               model.amount),
     ];
     subState.trendsWatchers = [
-      SplineSeries(dataSource: _trends, xValueMapper: (data, _) => data.episode.toString(), yValueMapper: (data, _) => data.popularity),
+      SplineSeries(
+          dataSource: _trends,
+          xValueMapper: (data, _) => data.episode.toString(),
+          yValueMapper: (data, _) => data.popularity),
     ];
     subState.trendsAverageScore = [
-      SplineSeries(dataSource: _trends, xValueMapper: (data, _) => data.episode.toString(), yValueMapper: (data, _) => data.averageScore),
+      SplineSeries(
+          dataSource: _trends,
+          xValueMapper: (data, _) => data.episode.toString(),
+          yValueMapper: (data, _) => data.averageScore),
     ];
 
     return subState;
@@ -100,12 +109,18 @@ Color _anilistColors(int score) {
 }
 
 Color _anilistStatusMapper(String status) {
-  switch(status) {
-    case 'COMPLETED': return Color(0xff67D639);
-    case 'PLANNING': return Color(0xff01a9fe);
-    case 'CURRENT': return Color(0xff9156f2);
-    case 'PAUSED': return Color(0xfff879a4);
-    case 'DROPPED': return Color(0xffe75d74);
-    default: return Colors.grey;
+  switch (status) {
+    case 'COMPLETED':
+      return Color(0xff67D639);
+    case 'PLANNING':
+      return Color(0xff01a9fe);
+    case 'CURRENT':
+      return Color(0xff9156f2);
+    case 'PAUSED':
+      return Color(0xfff879a4);
+    case 'DROPPED':
+      return Color(0xffe75d74);
+    default:
+      return Colors.grey;
   }
 }

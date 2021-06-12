@@ -9,5 +9,4 @@ Effect<OverviewState> buildEffect() {
   });
 }
 
-void _onAction(Action action, Context<OverviewState> ctx) {
-}
+void _onAction(Action action, Context<OverviewState> ctx) {}

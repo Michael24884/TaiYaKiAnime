@@ -18,9 +18,7 @@ Widget buildView(Card3State state, Dispatch dispatch, ViewService viewService) {
             ),
             SfCircularChart(
               series: state.genreStats,
-              tooltipBehavior: TooltipBehavior(
-                enable: true
-              ),
+              tooltipBehavior: TooltipBehavior(enable: true),
               legend: Legend(
                   isVisible: true,
                   overflowMode: LegendItemOverflowMode.wrap,

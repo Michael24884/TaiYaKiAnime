@@ -31,8 +31,6 @@ SearchState _setResults(SearchState state, Action action) {
   return newState;
 }
 
-
-
 SearchState _setQuery(SearchState state, Action action) {
   final SearchState newState = state.clone();
   newState.query = action.payload;

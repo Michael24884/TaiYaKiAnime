@@ -13,8 +13,7 @@ Effect<SearchState> buildEffect() {
   });
 }
 
-void _onAction(Action action, Context<SearchState> ctx) {
-}
+void _onAction(Action action, Context<SearchState> ctx) {}
 
 void _onSearch(Action action, Context<SearchState> ctx) async {
   ctx.dispatch(SearchActionCreator.setLoading(true));
@@ -24,12 +23,10 @@ void _onSearch(Action action, Context<SearchState> ctx) async {
   final _year = ctx.state.year;
   final _search = ctx.state.query;
 
-   AnilistAPI().getSearchResults(_genres, _tags, _search, _year, _season)
-  .then((value) => ctx.dispatch(SearchActionCreator.setResults(value)))
-  .whenComplete(() => ctx.dispatch(SearchActionCreator.setLoading(false)));
-  
+  AnilistAPI()
+      .getSearchResults(_genres, _tags, _search, _year, _season)
+      .then((value) => ctx.dispatch(SearchActionCreator.setResults(value)))
+      .whenComplete(() => ctx.dispatch(SearchActionCreator.setLoading(false)));
 }
 
-
-void _displayFilter(Action action, Context<SearchState> ctx) {
-}
+void _displayFilter(Action action, Context<SearchState> ctx) {}

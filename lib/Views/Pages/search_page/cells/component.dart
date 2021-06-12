@@ -7,11 +7,9 @@ import 'view.dart';
 class SearchCellsComponent extends Component<SearchCellsState> {
   SearchCellsComponent()
       : super(
-            effect: buildEffect(),
-            view: buildView,
-            dependencies: Dependencies<SearchCellsState>(
-                adapter: null,
-                slots: <String, Dependent<SearchCellsState>>{
-                }),);
-
+          effect: buildEffect(),
+          view: buildView,
+          dependencies: Dependencies<SearchCellsState>(
+              adapter: null, slots: <String, Dependent<SearchCellsState>>{}),
+        );
 }
