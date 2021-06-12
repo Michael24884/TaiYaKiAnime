@@ -34,6 +34,7 @@ class _CreateAppState extends State<CreateApp> {
       theme: _isDark
           ? ThemeData.dark().copyWith(
               accentColor: Color(int.parse('0xff$_accent')),
+              toggleableActiveColor: Color(int.parse('0xff$_accent')),
               // colorScheme: ,
               primaryColor: Color(int.parse('0xff$_accent')),
               brightness: Brightness.dark,
