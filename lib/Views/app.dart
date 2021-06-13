@@ -57,6 +57,7 @@ class _CreateAppState extends State<CreateApp> {
                 showSelectedLabels: true,
                 showUnselectedLabels: false,
               ),
+              indicatorColor: accent,
               accentColor: accent,
               toggleableActiveColor: accent,
               primaryColor: accent,
@@ -65,6 +66,7 @@ class _CreateAppState extends State<CreateApp> {
               textTheme:
                   GoogleFonts.poppinsTextTheme(ThemeData.dark().textTheme))
           : ThemeData.light().copyWith(
+              indicatorColor: ThemeData.light().scaffoldBackgroundColor,
               primaryColor: accent,
               accentColor: accent,
               toggleableActiveColor: accent,
