@@ -25,6 +25,7 @@ Widget buildView(
                   child: TaiyakiImage(
                     url: state.coverImage,
                     height: TaiyakiSize.height * 0.28,
+                    width: double.infinity,
                   ),
                 ),
                 Expanded(
