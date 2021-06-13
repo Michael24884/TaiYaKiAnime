@@ -58,6 +58,7 @@ Widget buildView(
         viewService.buildComponent('popular_slot'),
         // viewService.buildComponent('next_season_slot'),
         //  viewService.buildComponent('just_added_slot'),
+        SizedBox(height: 8),
       ],
     ),
   );
