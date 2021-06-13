@@ -9,7 +9,7 @@ Widget buildView(RowsState state, Dispatch dispatch, ViewService viewService) {
   final TextStyle title = TextStyle(
       fontWeight: FontWeight.w600, fontSize: TaiyakiSize.height * 0.03);
   return Container(
-    height: TaiyakiSize.height * 0.5,
+    height: TaiyakiSize.height * 0.43,
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
