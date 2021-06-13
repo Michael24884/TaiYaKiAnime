@@ -31,16 +31,14 @@ Widget buildView(RowsState state, Dispatch dispatch, ViewService viewService) {
               ? Center(
                   child: const CircularProgressIndicator(),
                 )
-              : Scrollbar(
-                  child: ListView.builder(
-                    cacheExtent: 10000,
-                    itemExtent: TaiyakiSize.height * 0.21,
-                    key: PageStorageKey(state.rowTitle),
-                    scrollDirection: Axis.horizontal,
-                    itemBuilder: _adapter.itemBuilder,
-                    itemCount: _adapter.itemCount,
-                    addAutomaticKeepAlives: true,
-                  ),
+              : ListView.builder(
+                  cacheExtent: 10000,
+                  itemExtent: TaiyakiSize.height * 0.21,
+                  key: PageStorageKey(state.rowTitle),
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: _adapter.itemBuilder,
+                  itemCount: _adapter.itemCount,
+                  addAutomaticKeepAlives: true,
                 ),
         )
       ],
