@@ -27,7 +27,7 @@ import 'package:taiyaki/Views/app.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // await DotEnv.load();
+  await DotEnv.load();
   await _initApp();
 
   runApp(CreateApp());
