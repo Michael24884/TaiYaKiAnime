@@ -67,6 +67,7 @@ class _CreateAppState extends State<CreateApp> {
           : ThemeData.light().copyWith(
               primaryColor: accent,
               accentColor: accent,
+              toggleableActiveColor: accent,
               brightness: Brightness.light,
               cardTheme: CardTheme(
                 shape: RoundedRectangleBorder(
