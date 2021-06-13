@@ -11,7 +11,7 @@ Widget buildView(
     DiscoveryRowCellsState state, Dispatch dispatch, ViewService viewService) {
   return Container(
     width: TaiyakiSize.height * 0.19,
-    margin: const EdgeInsets.symmetric(horizontal: 8.0),
+    margin: const EdgeInsets.symmetric(horizontal: 4.0),
     child: Stack(
       children: [
         Positioned.fill(
