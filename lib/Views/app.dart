@@ -45,6 +45,13 @@ class _CreateAppState extends State<CreateApp> {
                 color: bgColor,
                 elevation: 0.0,
               ),
+              cardTheme: CardTheme(
+                margin: EdgeInsets.zero,
+                clipBehavior: Clip.antiAlias,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+              ),
               bottomNavigationBarTheme: BottomNavigationBarThemeData(
                 backgroundColor: bottomNavbarColor,
                 type: BottomNavigationBarType.fixed,
@@ -63,6 +70,13 @@ class _CreateAppState extends State<CreateApp> {
               primaryColor: accent,
               accentColor: accent,
               brightness: Brightness.light,
+              cardTheme: CardTheme(
+                margin: EdgeInsets.zero,
+                clipBehavior: Clip.antiAlias,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+              ),
               colorScheme: lightColorScheme(_accent),
               textTheme:
                   GoogleFonts.poppinsTextTheme(ThemeData.light().textTheme)),
