@@ -9,9 +9,8 @@ import 'state.dart';
 
 Widget buildView(
     DiscoveryRowCellsState state, Dispatch dispatch, ViewService viewService) {
-  return Container(
-    width: TaiyakiSize.height * 0.19,
-    margin: const EdgeInsets.symmetric(horizontal: 4.0),
+  return Padding(
+    padding: const EdgeInsets.symmetric(horizontal: 4.0),
     child: Stack(
       children: [
         Positioned.fill(
@@ -20,32 +19,34 @@ Widget buildView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(8),
-                  child: TaiyakiImage(
-                    url: state.coverImage,
-                    height: TaiyakiSize.height * 0.28,
-                    width: double.infinity,
+                Flexible(
+                  fit: FlexFit.loose,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(8),
+                    child: TaiyakiImage(
+                      url: state.coverImage,
+                      height: double.infinity,
+                      width: double.infinity,
+                    ),
                   ),
                 ),
-                Expanded(
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 8.0,
-                      vertical: 6.0,
-                    ),
-                    child: Align(
-                      alignment: Alignment.centerLeft,
-                      child: AutoSizeText(
-                        state.title,
-                        textAlign: TextAlign.left,
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 13,
-                        ),
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
+                Container(
+                  height: 50,
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 8.0,
+                    vertical: 6.0,
+                  ),
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: AutoSizeText(
+                      state.title,
+                      textAlign: TextAlign.left,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 13,
                       ),
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
                     ),
                   ),
                 ),
