@@ -157,6 +157,7 @@ mutation {
     title{romaji}
     coverImage{extraLarge}
     id
+    description
   }
 }
 }
