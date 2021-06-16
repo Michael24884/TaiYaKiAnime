@@ -2,9 +2,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.taiyaki">
 
+    <uses-permission android:name="android.permission.INTERNET" />
 
-
-   <application
+    <application
         tools:replace="android:label"
         android:label="Taiyaki"
         android:icon="@mipmap/launcher_icon">
