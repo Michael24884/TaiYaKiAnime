@@ -16,12 +16,13 @@ class PlatformScaffold extends StatelessWidget {
     if (Platform.isIOS) {
       return CupertinoPageScaffold(
           child: NestedScrollView(
-
         headerSliverBuilder: (BuildContext context, bool isInnerBoxScrolled) {
           return [
             CupertinoSliverNavigationBar(
               heroTag: appBarTitle,
-              largeTitle: Text(appBarTitle, style: TextStyle(color: Theme.of(context).textTheme.bodyText1!.color)),
+              largeTitle: Text(appBarTitle,
+                  style: TextStyle(
+                      color: Theme.of(context).textTheme.bodyText1!.color)),
               trailing: (actions?.isNotEmpty ?? false) ? actions!.first : null,
             )
           ];

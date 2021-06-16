@@ -9,5 +9,4 @@ Effect<FollowerCardsState> buildEffect() {
   });
 }
 
-void _onAction(Action action, Context<FollowerCardsState> ctx) {
-}
+void _onAction(Action action, Context<FollowerCardsState> ctx) {}

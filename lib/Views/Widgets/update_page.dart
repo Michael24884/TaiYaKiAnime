@@ -18,8 +18,6 @@ class UpdatePage extends StatefulWidget {
   final Function(SyncModel?) onUpdateMAL;
   final Function(SyncModel?) onUpdateSimkl;
 
-
-
   UpdatePage(
       {Key key = const ValueKey('update_page'),
       required this.id,
@@ -47,8 +45,6 @@ class _UpdatePageState extends State<UpdatePage> {
     super.initState();
   }
 
-
-
   bool isUpdating = false;
 
   Future<void> _onUpdate(SyncModel syncModel) async {
@@ -67,11 +63,12 @@ class _UpdatePageState extends State<UpdatePage> {
       widget.onUpdateMAL(updatedModel);
       // return updatedModel;
     }
-    if (widget.tracker == ThirdPartyTrackersEnum.simkl || widget.bulkIds?.simkl != null ) {
-      final updatedModel = await SimklAPI().syncProgress(widget.bulkIds?.simkl ?? widget.id, syncModel);
+    if (widget.tracker == ThirdPartyTrackersEnum.simkl ||
+        widget.bulkIds?.simkl != null) {
+      final updatedModel = await SimklAPI()
+          .syncProgress(widget.bulkIds?.simkl ?? widget.id, syncModel);
       widget.onUpdateSimkl(updatedModel);
-    }
-    else
+    } else
       return;
     // throw new APIException(message: 'No valid tracker to update progress to');
   }
@@ -167,7 +164,8 @@ class _UpdatePageState extends State<UpdatePage> {
                 children: [
                   MaterialButton(
                     onPressed: () => this.setState(() {
-                      if (widget.syncModel.episodes == 0) currentProgress += 1;
+                      if (widget.syncModel.episodes == 0)
+                        currentProgress += 1;
                       else if ((currentProgress + 1) <=
                           (widget.syncModel.episodes ?? double.infinity))
                         currentProgress += 1;
@@ -192,7 +190,6 @@ class _UpdatePageState extends State<UpdatePage> {
                 ],
               ),
             ),
-
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -200,7 +197,6 @@ class _UpdatePageState extends State<UpdatePage> {
                 Text(widget.syncModel.score.toString()),
               ],
             ),
-
             SfSlider(
               onChanged: (value) => this.setState(() => _score = value),
               value: _score,
@@ -210,15 +206,9 @@ class _UpdatePageState extends State<UpdatePage> {
               showTicks: true,
               labelFormatterCallback: (s, value) => s.ceil().toInt().toString(),
             ),
-
-
             SizedBox(
               height: TaiyakiSize.height * 0.3,
             ),
-
-
-
-
             Align(
               alignment: Alignment.center,
               child: SizedBox(

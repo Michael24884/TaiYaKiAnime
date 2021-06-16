@@ -9,9 +9,11 @@ import 'package:taiyaki/Store/GlobalSettingsStore/GlobalSettingsStore.dart';
 import 'package:taiyaki/Store/GlobalUserStore/GlobalUserState.dart';
 import 'package:taiyaki/Store/GlobalUserStore/GlobalUserStore.dart';
 
-class OnboardingState implements GlobalUserBaseState, GlobalSettingsBaseState, Cloneable<OnboardingState> {
-
-
+class OnboardingState
+    implements
+        GlobalUserBaseState,
+        GlobalSettingsBaseState,
+        Cloneable<OnboardingState> {
   final animeKey = AnimatorKey();
 
   PageController? pageController;
@@ -22,11 +24,13 @@ class OnboardingState implements GlobalUserBaseState, GlobalSettingsBaseState, C
   }
 
   @override
-  AppSettingsModel get appSettings => GlobalSettingsStore.store.getState().appSettings;
+  AppSettingsModel get appSettings =>
+      GlobalSettingsStore.store.getState().appSettings;
 
   @override
   set appSettings(AppSettingsModel _appSettings) {
-    GlobalSettingsStore.store.dispatch(GlobalSettingsActionCreator.onUpdateSettings(_appSettings));
+    GlobalSettingsStore.store
+        .dispatch(GlobalSettingsActionCreator.onUpdateSettings(_appSettings));
     // appSettings = _appSettings;
   }
 
@@ -38,12 +42,6 @@ class OnboardingState implements GlobalUserBaseState, GlobalSettingsBaseState, C
 
   @override
   UserModel? simklUser = GlobalUserStore.store.getState().simklUser;
-
-
-
-
-
-
 }
 
 OnboardingState initState(Map<String, dynamic> args) {

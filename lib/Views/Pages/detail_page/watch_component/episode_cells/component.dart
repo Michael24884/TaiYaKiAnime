@@ -8,12 +8,10 @@ import 'view.dart';
 class EpisodeCellComponent extends Component<EpisodeCellState> {
   EpisodeCellComponent()
       : super(
-            effect: buildEffect(),
-            reducer: buildReducer(),
-            view: buildView,
-            dependencies: Dependencies<EpisodeCellState>(
-                adapter: null,
-                slots: <String, Dependent<EpisodeCellState>>{
-                }),);
-
+          effect: buildEffect(),
+          reducer: buildReducer(),
+          view: buildView,
+          dependencies: Dependencies<EpisodeCellState>(
+              adapter: null, slots: <String, Dependent<EpisodeCellState>>{}),
+        );
 }

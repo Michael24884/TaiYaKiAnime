@@ -34,27 +34,33 @@ FilterSheetState _onFilterSeason(FilterSheetState state, Action action) {
   return newState;
 }
 
-
 FilterSheetState _onFilterGenre(FilterSheetState state, Action action) {
   final FilterSheetState newState = state.clone();
   final String _genre = action.payload;
-  if (_genre == 'All') newState.enabledGenres = [];
+  if (_genre == 'All')
+    newState.enabledGenres = [];
   else {
-    if (state.enabledGenres.contains(_genre)) newState.enabledGenres =  state.enabledGenres.where((element) => element != _genre).toList();
-    else newState.enabledGenres.add(_genre);
+    if (state.enabledGenres.contains(_genre))
+      newState.enabledGenres =
+          state.enabledGenres.where((element) => element != _genre).toList();
+    else
+      newState.enabledGenres.add(_genre);
   }
 
   return newState;
 }
 
-
 FilterSheetState _onFilterTag(FilterSheetState state, Action action) {
   final FilterSheetState newState = state.clone();
   final String _tag = action.payload;
-  if (_tag == 'All') newState.enabledTags = [];
+  if (_tag == 'All')
+    newState.enabledTags = [];
   else {
-    if (state.enabledTags.contains(_tag)) newState.enabledTags =  state.enabledTags.where((element) => element != _tag).toList();
-    else newState.enabledTags.add(_tag);
+    if (state.enabledTags.contains(_tag))
+      newState.enabledTags =
+          state.enabledTags.where((element) => element != _tag).toList();
+    else
+      newState.enabledTags.add(_tag);
   }
 
   return newState;

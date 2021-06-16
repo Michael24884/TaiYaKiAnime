@@ -21,10 +21,15 @@ OnboardPage1State _onUpdateTheme(OnboardPage1State state, Action action) {
   final OnboardPage1State newState = state.clone();
   final String themeName = action.payload;
 
-  switch(themeName) {
-    case 'Light': newState.appSettingsModel = state.appSettingsModel!..isDarkMode = false; break;
-    case 'Dark': newState.appSettingsModel = state.appSettingsModel!..isDarkMode = true; break;
-    default: break;
+  switch (themeName) {
+    case 'Light':
+      newState.appSettingsModel = state.appSettingsModel!..isDarkMode = false;
+      break;
+    case 'Dark':
+      newState.appSettingsModel = state.appSettingsModel!..isDarkMode = true;
+      break;
+    default:
+      break;
   }
 
   return newState;

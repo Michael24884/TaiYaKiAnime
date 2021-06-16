@@ -3,7 +3,6 @@ import 'package:taiyaki/Models/Taiyaki/Settings.dart';
 import 'package:taiyaki/Views/Pages/onboarding_page/state.dart';
 
 class OnboardingPage2State implements Cloneable<OnboardingPage2State> {
-
   AppSettingsModel? appSettingsModel;
 
   @override
@@ -12,7 +11,8 @@ class OnboardingPage2State implements Cloneable<OnboardingPage2State> {
   }
 }
 
-class OnboardPage2Connector extends ConnOp<OnboardingState, OnboardingPage2State> {
+class OnboardPage2Connector
+    extends ConnOp<OnboardingState, OnboardingPage2State> {
   @override
   OnboardingPage2State get(OnboardingState state) {
     final subState = OnboardingPage2State().clone();

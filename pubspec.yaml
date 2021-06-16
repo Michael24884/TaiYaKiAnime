@@ -63,7 +63,7 @@ dependencies:
   path_provider: ^2.0.1
   http: ^0.13.3
   better_player: ^0.0.68
- # url_launcher: ^6.0.4
+  url_launcher: ^6.0.4
 
 dev_dependencies:
   flutter_test:

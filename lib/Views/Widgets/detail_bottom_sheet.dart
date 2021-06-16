@@ -14,31 +14,37 @@ class DetailBottomSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: TaiyakiSize.height * 0.25,
-        child: ListView(
-          children: [
-            Container(
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    children: [
-                      Material(child: Text('Auto sync this anime', style: _title),),
-                      Material(child: Switch(value: individualSettingsModel.autoSync, onChanged: (val) {}))
-                    ],
-                  ),
-                ),),
-            Padding(
+      height: TaiyakiSize.height * 0.25,
+      child: ListView(
+        children: [
+          Container(
+            child: Padding(
               padding: const EdgeInsets.all(8.0),
-              child: ElevatedButton(
-                  onPressed: eraseLink,
-                  style: ElevatedButton.styleFrom(primary: Colors.red),
-                  child: Text(
-                    'Remove saved link',
-                    style: _title,
-                  )),
-            )
-          ],
-        ),
+              child: Row(
+                children: [
+                  Material(
+                    child: Text('Auto sync this anime', style: _title),
+                  ),
+                  Material(
+                      child: Switch(
+                          value: individualSettingsModel.autoSync,
+                          onChanged: (val) {}))
+                ],
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: ElevatedButton(
+                onPressed: eraseLink,
+                style: ElevatedButton.styleFrom(primary: Colors.red),
+                child: Text(
+                  'Remove saved link',
+                  style: _title,
+                )),
+          )
+        ],
+      ),
     );
   }
 }

@@ -7,8 +7,11 @@ class SimklNode {
   final String? fanart;
 
   SimklNode({required this.fanart});
-  
-  factory SimklNode.fromJson(Map<String, dynamic> json) => SimklNode(fanart: json['fanart'] != null ? simklThumbnailGen(json['fanart'], isFanArt: true) : null);
+
+  factory SimklNode.fromJson(Map<String, dynamic> json) => SimklNode(
+      fanart: json['fanart'] != null
+          ? simklThumbnailGen(json['fanart'], isFanArt: true)
+          : null);
 }
 
 class SimklUserModel {
@@ -79,15 +82,24 @@ class SimklEpisodeModel {
           isFiller: isFiller ?? this.isFiller);
 }
 
-
 class SimklUserListModel {
   final int score, progress, totalEpisodes;
   final String status;
   final _SimklShow show;
 
-  SimklUserListModel({required this.score, required this.progress, required this.totalEpisodes, required this.status, required this.show});
-  factory SimklUserListModel.fromJson(Map<String, dynamic> json) => 
-      SimklUserListModel(score: json['user_rating'], totalEpisodes: json['total_episodes_count'], progress: json['watched_episodes_count'], status: json['status'], show: _SimklShow.fromJson(json['show']));
+  SimklUserListModel(
+      {required this.score,
+      required this.progress,
+      required this.totalEpisodes,
+      required this.status,
+      required this.show});
+  factory SimklUserListModel.fromJson(Map<String, dynamic> json) =>
+      SimklUserListModel(
+          score: json['user_rating'],
+          totalEpisodes: json['total_episodes_count'],
+          progress: json['watched_episodes_count'],
+          status: json['status'],
+          show: _SimklShow.fromJson(json['show']));
 }
 
 class _SimklShow {
@@ -95,8 +107,9 @@ class _SimklShow {
   final _SimklIDS ids;
 
   _SimklShow(this.title, this.poster, this.ids);
-  
-  factory _SimklShow.fromJson(Map<String, dynamic> json) => _SimklShow(json['title'], json['poster'], _SimklIDS.fromJson(json['ids']));
+
+  factory _SimklShow.fromJson(Map<String, dynamic> json) => _SimklShow(
+      json['title'], json['poster'], _SimklIDS.fromJson(json['ids']));
 }
 
 class _SimklIDS {
@@ -104,6 +117,7 @@ class _SimklIDS {
   final String mal;
 
   _SimklIDS({required this.id, required this.mal});
-  
-  factory _SimklIDS.fromJson(Map<String, dynamic> json) => _SimklIDS(id: json['simkl'], mal: json['mal']);
+
+  factory _SimklIDS.fromJson(Map<String, dynamic> json) =>
+      _SimklIDS(id: json['simkl'], mal: json['mal']);
 }

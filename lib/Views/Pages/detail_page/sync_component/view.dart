@@ -97,7 +97,9 @@ Widget buildView(SyncState state, Dispatch dispatch, ViewService viewService) {
                                         model));
                                 },
                                 onUpdateSimkl: (model) {
-                                  if (model != null) dispatch(SyncActionCreator.onUpdateSimkl(model));
+                                  if (model != null)
+                                    dispatch(
+                                        SyncActionCreator.onUpdateSimkl(model));
                                 },
                                 onUpdateMAL: (model) {
                                   if (model != null)

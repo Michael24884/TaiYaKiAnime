@@ -7,11 +7,9 @@ import 'view.dart';
 class BadeCellsComponent extends Component<BadeCellsState> {
   BadeCellsComponent()
       : super(
-            reducer: buildReducer(),
-            view: buildView,
-            dependencies: Dependencies<BadeCellsState>(
-                adapter: null,
-                slots: <String, Dependent<BadeCellsState>>{
-                }),);
-
+          reducer: buildReducer(),
+          view: buildView,
+          dependencies: Dependencies<BadeCellsState>(
+              adapter: null, slots: <String, Dependent<BadeCellsState>>{}),
+        );
 }

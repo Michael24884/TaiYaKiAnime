@@ -7,11 +7,10 @@ import 'effect.dart';
 class RecommendationCellsComponent extends Component<RecommendationCellsState> {
   RecommendationCellsComponent()
       : super(
-            view: buildView,
-            effect: buildEffect(),
-            dependencies: Dependencies<RecommendationCellsState>(
-                adapter: null,
-                slots: <String, Dependent<RecommendationCellsState>>{
-                }),);
-
+          view: buildView,
+          effect: buildEffect(),
+          dependencies: Dependencies<RecommendationCellsState>(
+              adapter: null,
+              slots: <String, Dependent<RecommendationCellsState>>{}),
+        );
 }

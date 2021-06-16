@@ -6,12 +6,16 @@ import 'package:taiyaki/Views/Widgets/search_bar.dart';
 import 'action.dart';
 import 'state.dart';
 
-Widget buildView(SearchState state, Dispatch dispatch, ViewService viewService) {
+Widget buildView(
+    SearchState state, Dispatch dispatch, ViewService viewService) {
   final _adapter = viewService.buildAdapter();
 
   return Scaffold(
     floatingActionButton: FloatingActionButton(
-      onPressed: () =>   showCupertinoModalBottomSheet(context: viewService.context, builder: (BuildContext context) => viewService.buildComponent('filter_bottom_sheet')  ),
+      onPressed: () => showCupertinoModalBottomSheet(
+          context: viewService.context,
+          builder: (BuildContext context) =>
+              viewService.buildComponent('filter_bottom_sheet')),
       child: Icon(Icons.filter_alt_sharp),
     ),
     appBar: AppBar(
@@ -19,20 +23,27 @@ Widget buildView(SearchState state, Dispatch dispatch, ViewService viewService) 
     ),
     body: ListView(
       children: [
-          SearchBar(
-            onEnter: (String query) => dispatch(SearchActionCreator.setQuery(query)),
-          ),
+        SearchBar(
+          onEnter: (String query) =>
+              dispatch(SearchActionCreator.setQuery(query)),
+        ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8.0),
-          child: ElevatedButton(onPressed: () => dispatch(SearchActionCreator.onSearch()), child: Text('Search')),
+          child: ElevatedButton(
+              onPressed: () => dispatch(SearchActionCreator.onSearch()),
+              child: Text('Search')),
         ),
         if (state.isLoading)
-          Center(child: CircularProgressIndicator() ,)
+          Center(
+            child: CircularProgressIndicator(),
+          )
         else
-         ListView.builder(
-          shrinkWrap: true,
-          itemBuilder:_adapter.itemBuilder, itemCount: _adapter.itemCount, physics: NeverScrollableScrollPhysics(),)
-
+          ListView.builder(
+            shrinkWrap: true,
+            itemBuilder: _adapter.itemBuilder,
+            itemCount: _adapter.itemCount,
+            physics: NeverScrollableScrollPhysics(),
+          )
       ],
     ),
   );

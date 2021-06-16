@@ -7,11 +7,9 @@ import 'view.dart';
 class QueueCellComponent extends Component<QueueCellState> {
   QueueCellComponent()
       : super(
-            reducer: buildReducer(),
-            view: buildView,
-            dependencies: Dependencies<QueueCellState>(
-                adapter: null,
-                slots: <String, Dependent<QueueCellState>>{
-                }),);
-
+          reducer: buildReducer(),
+          view: buildView,
+          dependencies: Dependencies<QueueCellState>(
+              adapter: null, slots: <String, Dependent<QueueCellState>>{}),
+        );
 }

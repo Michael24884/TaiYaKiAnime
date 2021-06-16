@@ -54,23 +54,29 @@ Widget buildView(
                               children: [
                                 // 1
                                 Theme(
-
-                                  data: Theme.of(context).copyWith(colorScheme: Theme.of(context).colorScheme.copyWith(secondary: Theme.of(context).colorScheme.surface)),
+                                  data: Theme.of(context).copyWith(
+                                      colorScheme: Theme.of(context)
+                                          .colorScheme
+                                          .copyWith(
+                                              secondary: Theme.of(context)
+                                                  .colorScheme
+                                                  .surface)),
                                   child: KenBurns(
-                                     minAnimationDuration:
-                                     const Duration(seconds: 12),
-                                     maxAnimationDuration:
-                                     const Duration(seconds: 20),
-                                     maxScale: 1.3,
-
-                                     child: AnimatedSwitcher(
-                                         duration: const Duration(milliseconds: 1550),
-                                         child: Container(
-                                           height: TaiyakiSize.height * 0.35,
-                                             width: TaiyakiSize.width + 150,
-                                             key: UniqueKey(),
-                                             child: TaiyakiImage(url: state.covers.first)))),
-                                ) ,
+                                      minAnimationDuration:
+                                          const Duration(seconds: 12),
+                                      maxAnimationDuration:
+                                          const Duration(seconds: 20),
+                                      maxScale: 1.3,
+                                      child: AnimatedSwitcher(
+                                          duration: const Duration(
+                                              milliseconds: 1550),
+                                          child: Container(
+                                              height: TaiyakiSize.height * 0.35,
+                                              width: TaiyakiSize.width + 150,
+                                              key: UniqueKey(),
+                                              child: TaiyakiImage(
+                                                  url: state.covers.first)))),
+                                ),
                                 Container(
                                   decoration: BoxDecoration(
                                       gradient: LinearGradient(
@@ -84,10 +90,13 @@ Widget buildView(
                               ],
                             ),
                           ),
-                          bottom: TabBar(
-                            isScrollable: true,
-                            controller: state.tabController,
-                            tabs: state.tabs,
+                          bottom: PreferredSize(
+                            preferredSize: Size.fromHeight(15),
+                            child: TabBar(
+                              isScrollable: true,
+                              controller: state.tabController,
+                              tabs: state.tabs,
+                            ),
                           ),
                         )
                       ],

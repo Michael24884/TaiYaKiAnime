@@ -5,7 +5,9 @@ import 'package:taiyaki/Models/Taiyaki/Trackers.dart';
 class ListCellState implements Cloneable<ListCellState> {
   AnimeListModel? model;
 
-  ListCellState({this.model,});
+  ListCellState({
+    this.model,
+  });
 
   @override
   ListCellState clone() {

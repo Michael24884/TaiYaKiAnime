@@ -8,12 +8,10 @@ import 'view.dart';
 class SyncComponent extends Component<SyncState> {
   SyncComponent()
       : super(
-            effect: buildEffect(),
-            reducer: buildReducer(),
-            view: buildView,
-            dependencies: Dependencies<SyncState>(
-                adapter: null,
-                slots: <String, Dependent<SyncState>>{
-                }),);
-
+          effect: buildEffect(),
+          reducer: buildReducer(),
+          view: buildView,
+          dependencies: Dependencies<SyncState>(
+              adapter: null, slots: <String, Dependent<SyncState>>{}),
+        );
 }

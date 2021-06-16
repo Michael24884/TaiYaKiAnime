@@ -4,9 +4,7 @@ import 'package:taiyaki/Views/Pages/detail_page/recommendation_component/state.d
 
 class RecommendationAdapter extends SourceFlowAdapter<RecommendationState> {
   RecommendationAdapter()
-  : super(
-    pool: <String, Component<Object>> {
-      'recommendation_cells': RecommendationCellsComponent(),
-    }
-  );
+      : super(pool: <String, Component<Object>>{
+          'recommendation_cells': RecommendationCellsComponent(),
+        });
 }

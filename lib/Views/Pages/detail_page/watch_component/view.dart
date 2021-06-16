@@ -86,8 +86,8 @@ Widget buildView(WatchState state, Dispatch dispatch, ViewService viewService) {
                             isFollowing:
                                 !(state.databaseModel?.isFollowing ?? false))));
 
-                    dispatch(DetailActionCreator.showSnackMessage(
-                        SnackDetail(message: (state.databaseModel?.isFollowing ?? false)
+                    dispatch(DetailActionCreator.showSnackMessage(SnackDetail(
+                        message: (state.databaseModel?.isFollowing ?? false)
                             ? 'No longer following this anime'
                             : "You'll be notified on new episodes")));
                   },

@@ -32,14 +32,13 @@ class TaiyakiPlayer extends StatefulWidget {
   BetterPlayerController? playerController;
   final List<SimklEpisodeModel> playlist;
 
-
   TaiyakiPlayer(
       {required this.isFullscreen,
       required this.onFS,
-        required this.handlePlaylist,
-        required this.isPlaylistVisible,
+      required this.handlePlaylist,
+      required this.isPlaylistVisible,
       required this.playerController,
-        required this.qualities,
+      required this.qualities,
       this.playlist = const [],
       required this.onEpisodeSelected,
       required this.args,
@@ -94,15 +93,19 @@ class _TaiyakiPlayerState extends State<TaiyakiPlayer>
   void _setUpPlayer({bool updateInProgress = false}) async {
     print('the new link: ${widget.hostsLinkModel.link}');
     final _betterPlayerDataSource = BetterPlayerDataSource(
-      BetterPlayerDataSourceType.network, widget.hostsLinkModel.link,
+      BetterPlayerDataSourceType.network,
+      widget.hostsLinkModel.link,
       headers: widget.hostsLinkModel.headers,
       cacheConfiguration: BetterPlayerCacheConfiguration(
         useCache: true,
       ),
       liveStream: false,
-      resolutions: new Map.fromIterable(widget.qualities, key: (e) => e.name, value: (e) => e.link),
+      resolutions: new Map.fromIterable(widget.qualities,
+          key: (e) => e.name, value: (e) => e.link),
     );
-    widget.playerController?.setupDataSource(_betterPlayerDataSource, );
+    widget.playerController?.setupDataSource(
+      _betterPlayerDataSource,
+    );
     widget.playerController?.addEventsListener(_playerWatcher);
     // widget.playerController
     //     ?.setDataSource(widget.hostsLinkModel.link, autoPlay: true);
@@ -135,15 +138,15 @@ class _TaiyakiPlayerState extends State<TaiyakiPlayer>
               ElevatedButton(
                   onPressed: () {
                     Navigator.of(context).pop();
-                    widget.playerController?.seekTo(Duration(milliseconds: _item))
-                    .whenComplete(() => widget.playerController?.play());
+                    widget.playerController
+                        ?.seekTo(Duration(milliseconds: _item))
+                        .whenComplete(() => widget.playerController?.play());
                   },
                   child: Text('Continue')),
             ],
           ),
         );
       } else {
-
         // widget.playerController?.start();
       }
     }
@@ -219,7 +222,6 @@ class _TaiyakiPlayerState extends State<TaiyakiPlayer>
     }
 
     if (events.betterPlayerEventType == BetterPlayerEventType.initialized) {
-
       final _value = widget.playerController!.videoPlayerController?.value;
       this.setState(() => videoDuration = _value?.duration);
     }
@@ -234,33 +236,32 @@ class _TaiyakiPlayerState extends State<TaiyakiPlayer>
       }
     }
 
-
     if (events.betterPlayerEventType == BetterPlayerEventType.finished) {
       final _box = Hive.box<DetailDatabaseModel>(HIVE_DETAIL_BOX);
-     if (_box.isNotEmpty) {
-       final DetailDatabaseModel? _currentAnime =
-       _box.get(widget.args.databaseModel.ids.anilist);
-       if (_currentAnime != null) {
-         (_currentAnime.episodeProgress ??= {}).addAll({
-           widget.args.episode.episode:
-           100.0,
-         });
-         _box.put(widget.args.databaseModel.ids.anilist, _currentAnime);
-       }
-     }
-
-      if (GlobalSettingsStore.store.getState().appSettings.autoChange100) {
-        //Move To next video
-        final _index = widget.playlist.indexWhere((element) => element.episode == widget.args.episode.episode);
-        if ((_index + 1) <= widget.playlist.length) {
-          final _newEp = widget.playlist[_index+1];
-          widget.onEpisodeSelected(_newEp);
+      if (_box.isNotEmpty) {
+        final DetailDatabaseModel? _currentAnime =
+            _box.get(widget.args.databaseModel.ids.anilist);
+        if (_currentAnime != null) {
+          (_currentAnime.episodeProgress ??= {}).addAll({
+            widget.args.episode.episode: 100.0,
+          });
+          _box.put(widget.args.databaseModel.ids.anilist, _currentAnime);
         }
       }
 
+      if (GlobalSettingsStore.store.getState().appSettings.autoChange100) {
+        //Move To next video
+        final _index = widget.playlist.indexWhere(
+            (element) => element.episode == widget.args.episode.episode);
+        if ((_index + 1) <= widget.playlist.length) {
+          final _newEp = widget.playlist[_index + 1];
+          widget.onEpisodeSelected(_newEp);
+        }
+      }
     }
 
-    if (events.betterPlayerEventType == BetterPlayerEventType.finished || events.betterPlayerEventType == BetterPlayerEventType.pause) {
+    if (events.betterPlayerEventType == BetterPlayerEventType.finished ||
+        events.betterPlayerEventType == BetterPlayerEventType.pause) {
       Wakelock.disable();
     }
 
@@ -271,7 +272,8 @@ class _TaiyakiPlayerState extends State<TaiyakiPlayer>
   @override
   void dispose() {
     Wakelock.disable();
-    widget.playerController?.videoPlayerController!.videoEventStreamController.close();
+    widget.playerController?.videoPlayerController!.videoEventStreamController
+        .close();
     widget.playerController?.removeEventsListener(_playerWatcher);
     widget.playerController?.dispose(forceDispose: true);
     // widget.playerController?.removeListener(_playerWatcher);
@@ -313,17 +315,19 @@ class _TaiyakiPlayerState extends State<TaiyakiPlayer>
         child: Stack(
           fit: StackFit.expand,
           children: [
-            widget.playerController == null ? Container(
-              child: Center(
-                child: CircularProgressIndicator(),
-              )
-            ) :
-            Container(
-    height: widget.isFullscreen ? TaiyakiSize.width : TaiyakiSize.height * 0.3,
-              child: BetterPlayer(
-                controller: widget.playerController!,
-              ),
-            ),
+            widget.playerController == null
+                ? Container(
+                    child: Center(
+                    child: CircularProgressIndicator(),
+                  ))
+                : Container(
+                    height: widget.isFullscreen
+                        ? TaiyakiSize.width
+                        : TaiyakiSize.height * 0.3,
+                    child: BetterPlayer(
+                      controller: widget.playerController!,
+                    ),
+                  ),
             // FijkView(
             //     color: Colors.black,
             //     height: widget.isFullscreen
@@ -467,7 +471,9 @@ class __TaiyakiPlaylistState extends State<TaiyakiPlaylist> {
                               'Episode ${_selectedEpisode.episode} - ${_selectedEpisode.title}',
                               textAlign: TextAlign.right,
                               style: TextStyle(
-                                  fontWeight: FontWeight.w600, fontSize: 15, color: Colors.white)),
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 15,
+                                  color: Colors.white)),
                           Padding(
                             padding: const EdgeInsets.only(top: 20.0),
                             child: SizedBox(
@@ -477,7 +483,8 @@ class __TaiyakiPlaylistState extends State<TaiyakiPlaylist> {
                                       _selectedEpisode.description ??
                                           'No description for this episode',
                                       textAlign: TextAlign.right,
-                                      style: TextStyle(fontSize: 14, color: Colors.white)),
+                                      style: TextStyle(
+                                          fontSize: 14, color: Colors.white)),
                                 )),
                           ),
                         ]),
@@ -537,8 +544,10 @@ class _TaiyakiPlaylistEpisodeCells extends StatelessWidget {
           ),
           SizedBox(height: 5),
           Text("Episode ${episode.episode}",
-              style: TextStyle(fontWeight: FontWeight.w600, color: Colors.white)),
-          Text(episode.title, style: TextStyle(fontSize: 13, color: Colors.white), maxLines: 1)
+              style:
+                  TextStyle(fontWeight: FontWeight.w600, color: Colors.white)),
+          Text(episode.title,
+              style: TextStyle(fontSize: 13, color: Colors.white), maxLines: 1)
         ]));
   }
 }

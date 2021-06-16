@@ -1,7 +1,6 @@
 import 'package:fish_redux/fish_redux.dart';
 
 class BadeCellsState implements Cloneable<BadeCellsState> {
-
   @override
   BadeCellsState clone() {
     return BadeCellsState();

@@ -34,7 +34,6 @@ class TaiyakiControls extends StatefulWidget {
 
   const TaiyakiControls({
     Key? key,
-
     required this.togglePlaylist,
     required this.episode,
     required this.onFS,
@@ -49,8 +48,7 @@ class TaiyakiControls extends StatefulWidget {
   }
 }
 
-class _TaiyakiControlsState
-    extends BetterPlayerControlsState<TaiyakiControls> {
+class _TaiyakiControlsState extends BetterPlayerControlsState<TaiyakiControls> {
   VideoPlayerValue? _latestValue;
   double? _latestVolume;
   bool _hideStuff = true;
@@ -78,7 +76,6 @@ class _TaiyakiControlsState
 
   @override
   Widget build(BuildContext context) {
-
     _wasLoading = isLoading(_latestValue);
     if (_latestValue?.hasError == true) {
       return Container(
@@ -89,17 +86,18 @@ class _TaiyakiControlsState
     return Stack(
       fit: StackFit.expand,
       children: [
-        AnimatedOpacity(opacity: _hideStuff ? 0 : 1, duration: widget.controlsConfiguration.controlsHideTime,
-        child:  Container(
-            color: Colors.black.withOpacity(0.65)
-        ),),
+        AnimatedOpacity(
+          opacity: _hideStuff ? 0 : 1,
+          duration: widget.controlsConfiguration.controlsHideTime,
+          child: Container(color: Colors.black.withOpacity(0.65)),
+        ),
         GestureDetector(
           onTap: () {
             _hideStuff
                 ? cancelAndRestartTimer()
                 : setState(() {
-              _hideStuff = true;
-            });
+                    _hideStuff = true;
+                  });
           },
           onDoubleTap: () {
             cancelAndRestartTimer();
@@ -197,49 +195,60 @@ class _TaiyakiControlsState
     }
 
     return Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-        AnimatedOpacity(
-            opacity: _hideStuff ? 0.0 : 1.0,
-            duration: _controlsConfiguration.controlsHideTime,
-            onEnd: _onPlayerHide,
-            child: Container(
-              width: widget.isFullscreen ? TaiyakiSize.height : null,
-              height: _controlsConfiguration.controlBarHeight,
-              child: Padding(
-                padding: const EdgeInsets.all(6.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                   if (widget.isFullscreen)
-                    SizedBox(
-                      width: TaiyakiSize.height * 0.8,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(widget.episode.title, style: const TextStyle(fontWeight: FontWeight.w700)),
-                          Text('Episode ${widget.episode.episode}'),
-                        ],
-                      ),
-                    )  else SizedBox(
-                     width: TaiyakiSize.width * 0.7,
-                   ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
+      AnimatedOpacity(
+        opacity: _hideStuff ? 0.0 : 1.0,
+        duration: _controlsConfiguration.controlsHideTime,
+        onEnd: _onPlayerHide,
+        child: Container(
+          width: widget.isFullscreen ? TaiyakiSize.height : null,
+          height: _controlsConfiguration.controlBarHeight,
+          child: Padding(
+            padding: const EdgeInsets.all(6.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                if (widget.isFullscreen)
+                  SizedBox(
+                    width: TaiyakiSize.height * 0.8,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        if (widget.isFullscreen)
-                          IconButton(icon: Icon(Icons.featured_play_list), onPressed: () {
-                            _controller?.pause();
-                            widget.togglePlaylist();
-                          },)
-                        else const SizedBox(width: 45),
-                        IconButton(icon: Icon(Icons.more_vert), onPressed: onShowMoreClicked,),
+                        Text(widget.episode.title,
+                            style:
+                                const TextStyle(fontWeight: FontWeight.w700)),
+                        Text('Episode ${widget.episode.episode}'),
                       ],
+                    ),
+                  )
+                else
+                  SizedBox(
+                    width: TaiyakiSize.width * 0.7,
+                  ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    if (widget.isFullscreen)
+                      IconButton(
+                        icon: Icon(Icons.featured_play_list),
+                        onPressed: () {
+                          _controller?.pause();
+                          widget.togglePlaylist();
+                        },
+                      )
+                    else
+                      const SizedBox(width: 45),
+                    IconButton(
+                      icon: Icon(Icons.more_vert),
+                      onPressed: onShowMoreClicked,
                     ),
                   ],
                 ),
-              ),
+              ],
             ),
-          )
+          ),
+        ),
+      )
 
       // if (_controlsConfiguration.enablePip)
       //   _buildPipButtonWrapperWidget(_hideStuff, _onPlayerHide)
@@ -341,7 +350,7 @@ class _TaiyakiControlsState
             // if (_controlsConfiguration.enablePlayPause)
             //   _buildPlayPause(_controller!)
             // else
-              const SizedBox(),
+            const SizedBox(),
             if (_betterPlayerController!.isLiveStream())
               _buildLiveWidget()
             else
@@ -434,7 +443,7 @@ class _TaiyakiControlsState
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           // if (_controlsConfiguration.enableSkips)
-            _buildSkipButton(),
+          _buildSkipButton(),
           // else
           //   const SizedBox(),
           // _buildReplayButton(),
@@ -470,19 +479,19 @@ class _TaiyakiControlsState
   }
 
   Widget _buildSkipButton() {
-    return
-      IconButton(icon: Icon(
+    return IconButton(
+      icon: Icon(
         Icons.fast_rewind,
         size: 45,
         color: _controlsConfiguration.iconsColor,
       ),
-        onPressed: skipBack,
-      );
+      onPressed: skipBack,
+    );
   }
 
   Widget _buildForwardButton() {
-    return
-      IconButton(icon: Icon(
+    return IconButton(
+      icon: Icon(
         Icons.fast_forward,
         size: 45,
         color: _controlsConfiguration.iconsColor,
@@ -492,11 +501,14 @@ class _TaiyakiControlsState
   }
 
   Widget _buildPlayPauseButton() {
-    return IconButton(icon: Icon(
-            _controller!.value.isPlaying ? Icons.pause : Icons.play_arrow,
-            size: 65,
-            color: _controlsConfiguration.iconsColor,
-          ), onPressed: _onPlayPause,);
+    return IconButton(
+      icon: Icon(
+        _controller!.value.isPlaying ? Icons.pause : Icons.play_arrow,
+        size: 65,
+        color: _controlsConfiguration.iconsColor,
+      ),
+      onPressed: _onPlayPause,
+    );
     //   icon: Icon(
     //     _controller!.value.isPlaying ? Icons.pause : Icons.play_arrow,
     //     size: 32,
@@ -574,8 +586,8 @@ class _TaiyakiControlsState
   }
 
   Widget _buildMuteButton(
-      VideoPlayerController? controller,
-      ) {
+    VideoPlayerController? controller,
+  ) {
     return BetterPlayerMaterialClickableWidget(
       onTap: () {
         cancelAndRestartTimer();
@@ -624,7 +636,7 @@ class _TaiyakiControlsState
 
   Widget _buildPosition() {
     final position =
-    _latestValue != null ? _latestValue!.position : Duration.zero;
+        _latestValue != null ? _latestValue!.position : Duration.zero;
     final duration = _latestValue != null && _latestValue!.duration != null
         ? _latestValue!.duration!
         : Duration.zero;
@@ -673,13 +685,13 @@ class _TaiyakiControlsState
 
     _controlsVisibilityStreamSubscription =
         _betterPlayerController!.controlsVisibilityStream.listen((state) {
-          setState(() {
-            _hideStuff = !state;
-          });
-          if (!_hideStuff) {
-            cancelAndRestartTimer();
-          }
-        });
+      setState(() {
+        _hideStuff = !state;
+      });
+      if (!_hideStuff) {
+        cancelAndRestartTimer();
+      }
+    });
   }
 
   void _onExpandCollapse() {
@@ -689,10 +701,10 @@ class _TaiyakiControlsState
       widget.onFS();
       _showAfterExpandCollapseTimer =
           Timer(_controlsConfiguration.controlsHideTime, () {
-            setState(() {
-              cancelAndRestartTimer();
-            });
-          });
+        setState(() {
+          cancelAndRestartTimer();
+        });
+      });
     });
   }
 
@@ -768,7 +780,7 @@ class _TaiyakiControlsState
               handleColor: _controlsConfiguration.progressBarHandleColor,
               bufferedColor: _controlsConfiguration.progressBarBufferedColor,
               backgroundColor:
-              _controlsConfiguration.progressBarBackgroundColor),
+                  _controlsConfiguration.progressBarBackgroundColor),
         ),
       ),
     );
@@ -786,7 +798,7 @@ class _TaiyakiControlsState
 
     return CircularProgressIndicator(
       valueColor:
-      AlwaysStoppedAnimation<Color>(_controlsConfiguration.loadingColor),
+          AlwaysStoppedAnimation<Color>(_controlsConfiguration.loadingColor),
     );
   }
 }

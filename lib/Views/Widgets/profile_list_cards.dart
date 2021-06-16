@@ -1,4 +1,3 @@
-
 import 'dart:io';
 import 'dart:math';
 
@@ -78,7 +77,8 @@ class _ProfileListCardsState extends State<ProfileListCards> {
       onTap: () => Navigator.of(context).pushNamed('profile_page',
           arguments: ProfilePageArguments(tracker: widget.tracker)),
       child: Container(
-        margin: EdgeInsets.symmetric(horizontal: 5.0, vertical: Platform.isIOS ? 2.0 : 8.0),
+        margin: EdgeInsets.symmetric(
+            horizontal: 5.0, vertical: Platform.isIOS ? 2.0 : 8.0),
         color: Theme.of(context).colorScheme.surface,
         height: TaiyakiSize.height * 0.22,
         width: _cardWidth,

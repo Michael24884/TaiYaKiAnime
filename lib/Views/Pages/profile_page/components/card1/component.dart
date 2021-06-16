@@ -7,11 +7,9 @@ import 'view.dart';
 class Card1Component extends Component<Card1State> {
   Card1Component()
       : super(
-            reducer: buildReducer(),
-            view: buildView,
-            dependencies: Dependencies<Card1State>(
-                adapter: null,
-                slots: <String, Dependent<Card1State>>{
-                }),);
-
+          reducer: buildReducer(),
+          view: buildView,
+          dependencies: Dependencies<Card1State>(
+              adapter: null, slots: <String, Dependent<Card1State>>{}),
+        );
 }

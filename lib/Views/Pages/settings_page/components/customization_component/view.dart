@@ -6,8 +6,6 @@ import 'package:taiyaki/Views/Widgets/TaiyakiSize.dart';
 
 import 'state.dart';
 
-
-
 Widget buildView(CustomizationSettingState state, Dispatch dispatch,
     ViewService viewService) {
   return Scaffold(

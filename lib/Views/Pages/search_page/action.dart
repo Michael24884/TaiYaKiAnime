@@ -2,7 +2,14 @@ import 'package:fish_redux/fish_redux.dart';
 import 'package:taiyaki/Models/Anilist/models.dart';
 
 //TODO replace with your own action
-enum SearchAction { action, displayFilter, search, setQuery, setResults, setIsLoading }
+enum SearchAction {
+  action,
+  displayFilter,
+  search,
+  setQuery,
+  setResults,
+  setIsLoading
+}
 
 class SearchActionCreator {
   static Action onAction() {

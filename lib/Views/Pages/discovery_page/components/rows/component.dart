@@ -10,7 +10,7 @@ class RowsComponent extends Component<RowsState> {
       : super(
           reducer: buildReducer(),
           view: buildView,
-           // clearOnDependenciesChanged: false,
+          // clearOnDependenciesChanged: false,
           // shouldUpdate: (o, n) => o.itemCount != n.itemCount,
           dependencies: Dependencies<RowsState>(
               adapter: NoneConn<RowsState>() + RowsAdapter(),

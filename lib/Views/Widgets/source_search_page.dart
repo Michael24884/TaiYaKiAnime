@@ -52,18 +52,16 @@ class _SourceSearchPageState extends State<SourceSearchPage> {
     return Scaffold(
       body: Container(
           child: SingleChildScrollView(
-            child: Column(
-        children: [
-          SearchBar(
-              isLoading: isLoading,
-              placeholder: 'Enter a custom query',
-              onDelayedEnter: (String query) {
-                this.setState(() => results = []);
-                _search(query);
-              },
-              onEnter: (_) {
-
-              }),
+        child: Column(
+          children: [
+            SearchBar(
+                isLoading: isLoading,
+                placeholder: 'Enter a custom query',
+                onDelayedEnter: (String query) {
+                  this.setState(() => results = []);
+                  _search(query);
+                },
+                onEnter: (_) {}),
             if (isLoading)
               Center(
                 child: CircularProgressIndicator(),
@@ -80,7 +78,6 @@ class _SourceSearchPageState extends State<SourceSearchPage> {
               Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: ElevatedButton(
@@ -106,7 +103,8 @@ class _SourceSearchPageState extends State<SourceSearchPage> {
                                                 SourceTiles(
                                                     onTap: () {
                                                       final _newSource =
-                                                          TAIYAKI_SOURCES[index];
+                                                          TAIYAKI_SOURCES[
+                                                              index];
                                                       this.setState(() =>
                                                           _currentSource =
                                                               _newSource);
@@ -120,7 +118,8 @@ class _SourceSearchPageState extends State<SourceSearchPage> {
                                   );
                                 });
                           },
-                          child: Text('Current Source: ${_currentSource.name}')),
+                          child:
+                              Text('Current Source: ${_currentSource.name}')),
                     ),
                     Container(
                         height: TaiyakiSize.height * 0.85,
@@ -140,9 +139,9 @@ class _SourceSearchPageState extends State<SourceSearchPage> {
                               );
                             }))
                   ])
-        ],
-      ),
-          )),
+          ],
+        ),
+      )),
     );
   }
 }

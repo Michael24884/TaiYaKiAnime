@@ -8,11 +8,11 @@ import 'view.dart';
 class RecommendationComponent extends Component<RecommendationState> {
   RecommendationComponent()
       : super(
-            effect: buildEffect(),
-            view: buildView,
-            dependencies: Dependencies<RecommendationState>(
-                adapter: NoneConn<RecommendationState>() + RecommendationAdapter(),
-                slots: <String, Dependent<RecommendationState>>{
-                }),);
-
+          effect: buildEffect(),
+          view: buildView,
+          dependencies: Dependencies<RecommendationState>(
+              adapter:
+                  NoneConn<RecommendationState>() + RecommendationAdapter(),
+              slots: <String, Dependent<RecommendationState>>{}),
+        );
 }

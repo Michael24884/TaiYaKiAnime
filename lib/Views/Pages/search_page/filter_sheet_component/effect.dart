@@ -9,5 +9,4 @@ Effect<FilterSheetState> buildEffect() {
   });
 }
 
-void _onAction(Action action, Context<FilterSheetState> ctx) {
-}
+void _onAction(Action action, Context<FilterSheetState> ctx) {}

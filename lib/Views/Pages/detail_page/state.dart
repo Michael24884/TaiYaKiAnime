@@ -26,11 +26,9 @@ class DetailState implements Cloneable<DetailState> {
 
   Timer? coverTimer;
 
-
   final GlobalKey<ScaffoldState> scaffoldKey = new GlobalKey<ScaffoldState>();
 
   MyAnimeListEntryModel? malEntryData;
-
 
   DetailDatabaseModel? _detailDatabaseModel;
 
@@ -78,5 +76,7 @@ class DetailState implements Cloneable<DetailState> {
 }
 
 DetailState initState(DetailPageArguments args) {
-  return DetailState()..id = args.id..isMal = args.isMal;
+  return DetailState()
+    ..id = args.id
+    ..isMal = args.isMal;
 }

@@ -9,5 +9,4 @@ Effect<RecommendationState> buildEffect() {
   });
 }
 
-void _onAction(Action action, Context<RecommendationState> ctx) {
-}
+void _onAction(Action action, Context<RecommendationState> ctx) {}

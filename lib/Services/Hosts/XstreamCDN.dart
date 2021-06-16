@@ -31,9 +31,10 @@ class XstreamCDN with HostsAPIRequests implements HostsBase {
 
     return _results
         .map((e) => HostsLinkModel(
-            name: e.label,
-            link: e.file,
-            headers: {"Referer": 'https://fcdn.stream/'}, ))
+              name: e.label,
+              link: e.file,
+              headers: {"Referer": 'https://fcdn.stream/'},
+            ))
         .toList();
   }
 

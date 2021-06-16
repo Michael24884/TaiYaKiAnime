@@ -52,9 +52,7 @@ class _SimklSyncModel {
     ''';
     }
   }
-
 }
-
 
 class SimklAPI with OauthLoginHandler implements BaseTracker {
   final Dio _request =
@@ -135,25 +133,24 @@ class SimklAPI with OauthLoginHandler implements BaseTracker {
 
   @override
   Future<SyncModel> syncProgress(int id, SyncModel syncModel) async {
-
     if (syncModel.status != null) {
-    final _json = _SimklSyncModel(
-      id: id,
-      status: syncModel.status,
-    ).toJson();
+      final _json = _SimklSyncModel(
+        id: id,
+        status: syncModel.status,
+      ).toJson();
 
-    final _response = await _request.post('/sync/add-to-list', data: _json);
-
-
+      final _response = await _request.post('/sync/add-to-list', data: _json);
     }
 
-    if ( syncModel.progress != null || syncModel.progress != 0) {
-      final _json = _SimklSyncModel(id: id, episodes: syncModel.progress).toJson();
+    if (syncModel.progress != null || syncModel.progress != 0) {
+      final _json =
+          _SimklSyncModel(id: id, episodes: syncModel.progress).toJson();
       final _response = await _request.post('/sync/history', data: _json);
-      if (_response.statusCode == 200) return syncModel;
-      else throw new APIException(message: 'Simkl could not update the episodes');
+      if (_response.statusCode == 200)
+        return syncModel;
+      else
+        throw new APIException(message: 'Simkl could not update the episodes');
     }
-
 
     throw UnimplementedError();
   }
@@ -161,17 +158,23 @@ class SimklAPI with OauthLoginHandler implements BaseTracker {
   Future<int?> fetchSimklID(int malID) async {
     final _response =
         await _request.get('/search/id', queryParameters: {'mal': malID});
-    if (_response.data == null || (_response.data as List).isEmpty) throw new APIException(message: 'SIMKL does not have the ID for this anime. Is it airing yet?');
+    if (_response.data == null || (_response.data as List).isEmpty)
+      throw new APIException(
+          message:
+              'SIMKL does not have the ID for this anime. Is it airing yet?');
     final _id = SimklIDLookupModel.fromJson((_response.data as List).first);
     return _id.simklID;
   }
-  
+
   Future<SimklNode> fetchSimklData(int simklID) async {
-    final _response = await _request.get('/anime/$simklID', queryParameters: {'extended': 'full'});
+    final _response = await _request
+        .get('/anime/$simklID', queryParameters: {'extended': 'full'});
     if (_response.statusCode == 200) {
       final _json = SimklNode.fromJson(_response.data);
       return _json;
-    } throw new APIException(message: 'Simkl could not find any anime associated with this ID');
+    }
+    throw new APIException(
+        message: 'Simkl could not find any anime associated with this ID');
   }
 
   Future<List<SimklEpisodeModel>> fetchSimklEpisodes(int simklID) async {
@@ -184,11 +187,21 @@ class SimklAPI with OauthLoginHandler implements BaseTracker {
 
   @override
   Future<List<AnimeListModel>> getAnimeList() async {
-   final _response = await _request.get('/sync/all-items/anime');
-    final List<SimklUserListModel> _list = new List<SimklUserListModel>.from(_response.data['anime'].map((e) => SimklUserListModel.fromJson(e) ).toList());
-    final List<AnimeListModel> _appList = _list.reversed.map((e) => AnimeListModel(title: e.show.title, status: _simklStatusToNative(e.status), coverImage: simklThumbnailGen(e.show.poster, isPoster: true)!, id: e.show.ids.id)).toList();
-    GlobalUserStore.store.dispatch(GlobalUserActionCreator.onUpdateUserList(_appList, ThirdPartyTrackersEnum.simkl));
-   return _appList;
+    final _response = await _request.get('/sync/all-items/anime');
+    final List<SimklUserListModel> _list = new List<SimklUserListModel>.from(
+        _response.data['anime']
+            .map((e) => SimklUserListModel.fromJson(e))
+            .toList());
+    final List<AnimeListModel> _appList = _list.reversed
+        .map((e) => AnimeListModel(
+            title: e.show.title,
+            status: _simklStatusToNative(e.status),
+            coverImage: simklThumbnailGen(e.show.poster, isPoster: true)!,
+            id: e.show.ids.id))
+        .toList();
+    GlobalUserStore.store.dispatch(GlobalUserActionCreator.onUpdateUserList(
+        _appList, ThirdPartyTrackersEnum.simkl));
+    return _appList;
   }
 
   static AnimeListModel? findMatch({required int id, int? malID}) {
@@ -205,26 +218,37 @@ class SimklAPI with OauthLoginHandler implements BaseTracker {
         GlobalUserActionCreator.removeUser(ThirdPartyTrackersEnum.simkl));
   }
 
-
   String _simklStatusToNative(String status) {
-    switch(status) {
-      case 'watching': return 'Watching';
-      case 'plantowatch': return 'Plan to Watch';
-      case 'completed': return 'Completed';
-      case 'hold': return 'On Hold';
-      case 'notinteresting': return 'Dropped';
-      default: return status;
+    switch (status) {
+      case 'watching':
+        return 'Watching';
+      case 'plantowatch':
+        return 'Plan to Watch';
+      case 'completed':
+        return 'Completed';
+      case 'hold':
+        return 'On Hold';
+      case 'notinteresting':
+        return 'Dropped';
+      default:
+        return status;
     }
   }
-  
 }
-  String _nativeToSimklStatus(String status) {
-    switch(status) {
-      case 'Watching': return 'watching';
-      case 'Plan to Watch': return 'plantowatch';
-      case 'Completed': return 'completed';
-      case 'On Hold': return 'hold';
-      case 'Dropped': return 'notinteresting';
-      default: return status;
-    }
+
+String _nativeToSimklStatus(String status) {
+  switch (status) {
+    case 'Watching':
+      return 'watching';
+    case 'Plan to Watch':
+      return 'plantowatch';
+    case 'Completed':
+      return 'completed';
+    case 'On Hold':
+      return 'hold';
+    case 'Dropped':
+      return 'notinteresting';
+    default:
+      return status;
   }
+}

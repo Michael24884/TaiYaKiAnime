@@ -9,5 +9,4 @@ Effect<EpisodeCellState> buildEffect() {
   });
 }
 
-void _onAction(Action action, Context<EpisodeCellState> ctx) {
-}
+void _onAction(Action action, Context<EpisodeCellState> ctx) {}

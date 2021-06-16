@@ -9,5 +9,4 @@ Effect<DownloadsState> buildEffect() {
   });
 }
 
-void _onAction(Action action, Context<DownloadsState> ctx) {
-}
+void _onAction(Action action, Context<DownloadsState> ctx) {}

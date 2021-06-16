@@ -96,8 +96,8 @@ class AnilistAPI with OauthLoginHandler implements BaseTracker {
   }
 
   Future<AnilistNode> getDetailData(int id, {int? idMal}) async {
-    final _response = await _request
-        .post('', data: {'query': AnilistGraphTypes.detailData(id, idMal: idMal)});
+    final _response = await _request.post('',
+        data: {'query': AnilistGraphTypes.detailData(id, idMal: idMal)});
 
     if (_response.statusCode == 200) {
       final AnilistNode data =

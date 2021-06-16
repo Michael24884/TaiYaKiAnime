@@ -27,8 +27,9 @@ class Card3Connector extends ConnOp<ProfileState, Card3State> {
           dataLabelMapper: (z, _) => '${z.genreName}',
           enableTooltip: true,
           dataLabelSettings: DataLabelSettings(
-            showZeroValue: false,
-              isVisible: true, labelPosition: ChartDataLabelPosition.outside))
+              showZeroValue: false,
+              isVisible: true,
+              labelPosition: ChartDataLabelPosition.outside))
     ];
 
     return subState;

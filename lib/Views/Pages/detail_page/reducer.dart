@@ -25,7 +25,6 @@ DetailState _onAction(DetailState state, Action action) {
   return newState;
 }
 
-
 DetailState _updateCover(DetailState state, Action action) {
   final DetailState newState = state.clone();
   final String image = action.payload;
@@ -35,13 +34,12 @@ DetailState _updateCover(DetailState state, Action action) {
 
 DetailState _switchCovers(DetailState state, Action action) {
   final DetailState newState = state.clone();
- if (state.covers.length > 1) {
-   final last = state.covers.removeAt(0);
-     newState.covers = state.covers.sublist(1)..add(last);
- }
+  if (state.covers.length > 1) {
+    final last = state.covers.removeAt(0);
+    newState.covers = state.covers.sublist(1)..add(last);
+  }
   return newState;
 }
-
 
 DetailState _updateSimklData(DetailState state, Action action) {
   final DetailState newState = state.clone();

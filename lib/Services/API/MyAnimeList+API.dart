@@ -30,13 +30,14 @@ class _Bearer {
       refreshToken: json['refresh_token']);
 }
 
-
 class MyAnimeListUserlistModel {
   final _ListStatus status;
   final _Node node;
 
   MyAnimeListUserlistModel(this.status, this.node);
-  factory MyAnimeListUserlistModel.fromJson(Map<String, dynamic> json) => MyAnimeListUserlistModel(_ListStatus.fromJson(json['list_status']), _Node.fromJson(json['node']));
+  factory MyAnimeListUserlistModel.fromJson(Map<String, dynamic> json) =>
+      MyAnimeListUserlistModel(_ListStatus.fromJson(json['list_status']),
+          _Node.fromJson(json['node']));
 }
 
 class _ListStatus {
@@ -45,8 +46,8 @@ class _ListStatus {
 
   _ListStatus(this.status, this.score, this.num_watched);
 
-  factory _ListStatus.fromJson(Map<String, dynamic> json ) => _ListStatus(json['status'], json['score'], json['num_episodes_watched']);
-
+  factory _ListStatus.fromJson(Map<String, dynamic> json) =>
+      _ListStatus(json['status'], json['score'], json['num_episodes_watched']);
 }
 
 class _Node {
@@ -55,9 +56,13 @@ class _Node {
 
   _Node(this.id, this.title, this.image, this.episodes);
 
-  factory _Node.fromJson(Map<String, dynamic> json) => _Node(json['id'], json['title'], json['main_picture']['large'] != null ? json['main_picture']['large'] : json['main_picture']['medium'], json['num_episodes']);
-
-
+  factory _Node.fromJson(Map<String, dynamic> json) => _Node(
+      json['id'],
+      json['title'],
+      json['main_picture']['large'] != null
+          ? json['main_picture']['large']
+          : json['main_picture']['medium'],
+      json['num_episodes']);
 }
 
 class MyAnimeListAPI with OauthLoginHandler implements BaseTracker {
@@ -129,10 +134,9 @@ class MyAnimeListAPI with OauthLoginHandler implements BaseTracker {
       await Future.sync(() => GlobalUserStore.store
           .dispatch(GlobalUserActionCreator.onUpdateUser(updateModel)));
 
-       _storage
+      _storage
           .write(key: 'myanimelist', value: json.encode(model.toMap()))
           .whenComplete(() => this.getProfile());
-
 
       return updateModel;
     } else
@@ -228,16 +232,30 @@ class MyAnimeListAPI with OauthLoginHandler implements BaseTracker {
 
   @override
   Future<List<AnimeListModel>> getAnimeList() async {
-    final _response = await _request.get('/users/@me/animelist', queryParameters: {'sort' : 'list_updated_at', 'limit' : 1000, 'fields': 'list_status,num_episodes'});
-    final List<MyAnimeListUserlistModel> myAnimeListUserlistModel = List<MyAnimeListUserlistModel>.from(_response.data['data'].map((i) => MyAnimeListUserlistModel.fromJson(i) ).toList());
-    final List<AnimeListModel> list = myAnimeListUserlistModel.map((e) => AnimeListModel(title: e.node.title, status: _myanimelistToNative(e.status.status), coverImage: e.node.image, id: e.node.id, progress: e.status.num_watched, score: (e.status.score).toDouble(), totalEpisodes: e.node.episodes )).toList();
+    final _response = await _request.get('/users/@me/animelist',
+        queryParameters: {
+          'sort': 'list_updated_at',
+          'limit': 1000,
+          'fields': 'list_status,num_episodes'
+        });
+    final List<MyAnimeListUserlistModel> myAnimeListUserlistModel =
+        List<MyAnimeListUserlistModel>.from(_response.data['data']
+            .map((i) => MyAnimeListUserlistModel.fromJson(i))
+            .toList());
+    final List<AnimeListModel> list = myAnimeListUserlistModel
+        .map((e) => AnimeListModel(
+            title: e.node.title,
+            status: _myanimelistToNative(e.status.status),
+            coverImage: e.node.image,
+            id: e.node.id,
+            progress: e.status.num_watched,
+            score: (e.status.score).toDouble(),
+            totalEpisodes: e.node.episodes))
+        .toList();
     GlobalUserStore.store.dispatch(GlobalUserActionCreator.onUpdateUserList(
         list, ThirdPartyTrackersEnum.myanimelist));
     return list;
   }
-
-
-
 
   @override
   Future<void> logout() async {
@@ -247,14 +265,19 @@ class MyAnimeListAPI with OauthLoginHandler implements BaseTracker {
   }
 }
 
-
 String _myanimelistToNative(String status) {
-  switch(status) {
-    case 'watching': return 'Watching';
-    case 'plan_to_watch': return 'Plan to Watch';
-    case 'completed': return 'Completed';
-    case 'on_hold': return 'On Hold';
-    case 'dropped': return 'Dropped';
-    default: return status;
+  switch (status) {
+    case 'watching':
+      return 'Watching';
+    case 'plan_to_watch':
+      return 'Plan to Watch';
+    case 'completed':
+      return 'Completed';
+    case 'on_hold':
+      return 'On Hold';
+    case 'dropped':
+      return 'Dropped';
+    default:
+      return status;
   }
 }

@@ -19,19 +19,18 @@ Effect<OnboardingState> buildEffect() {
   });
 }
 
-void _onAction(Action action, Context<OnboardingState> ctx) {
-}
+void _onAction(Action action, Context<OnboardingState> ctx) {}
 
 void _dismissOnboarding(Action action, Context<OnboardingState> ctx) async {
   final _storage = FlutterSecureStorage();
   await _storage.write(key: 'onboarding', value: '1');
-    GlobalUserStore.store
-        .dispatch(GlobalUserActionCreator.onUpdateOnboarding());
-    Navigator.of(ctx.context).pushReplacement(MaterialPageRoute(builder: (BuildContext context) => TaiyakiBottomNavigation() ));
+  GlobalUserStore.store.dispatch(GlobalUserActionCreator.onUpdateOnboarding());
+  Navigator.of(ctx.context).pushReplacement(MaterialPageRoute(
+      builder: (BuildContext context) => TaiyakiBottomNavigation()));
 }
 
 void _openDiscord(Action action, Context<OnboardingState> ctx) async {
-  final _discordURI =  Uri(scheme: 'https', host: 'discord.gg', path: '8fzmNSB');
+  final _discordURI = Uri(scheme: 'https', host: 'discord.gg', path: '8fzmNSB');
   await launch(_discordURI.toString());
 }
 
@@ -39,17 +38,17 @@ void _moveToPage(Action action, Context<OnboardingState> ctx) {
   final int? page = action.payload;
   final int currentPage = (ctx.state.pageController?.page?.ceil() ?? 0);
   if (page != null) {
-    ctx.state.pageController?.animateToPage(page, duration: const Duration(milliseconds: 500), curve: Curves.ease);
+    ctx.state.pageController?.animateToPage(page,
+        duration: const Duration(milliseconds: 500), curve: Curves.ease);
   } else {
-    ctx.state.pageController?.animateToPage(currentPage + 1, duration: const Duration(milliseconds: 500), curve: Curves.ease);
+    ctx.state.pageController?.animateToPage(currentPage + 1,
+        duration: const Duration(milliseconds: 500), curve: Curves.ease);
   }
 }
-
 
 void _onInit(Action action, Context<OnboardingState> ctx) {
   ctx.addObservable(GlobalUserStore.store.subscribe);
   ctx.state.pageController = new PageController(
     keepPage: true,
   );
-
 }

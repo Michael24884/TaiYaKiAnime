@@ -14,13 +14,15 @@ UserModel mapTrackerToUser(ThirdPartyTrackersEnum tracker) {
 }
 
 String mapTrackerToAsset(ThirdPartyTrackersEnum tracker) {
-  switch(tracker) {
-    case ThirdPartyTrackersEnum.myanimelist: return 'assets/images/mal_icon.png';
-    case ThirdPartyTrackersEnum.simkl: return 'assets/images/simkl_icon.png';
-    case ThirdPartyTrackersEnum.anilist: return 'assets/images/anilist_icon.png';
+  switch (tracker) {
+    case ThirdPartyTrackersEnum.myanimelist:
+      return 'assets/images/mal_icon.png';
+    case ThirdPartyTrackersEnum.simkl:
+      return 'assets/images/simkl_icon.png';
+    case ThirdPartyTrackersEnum.anilist:
+      return 'assets/images/anilist_icon.png';
   }
 }
-
 
 const taiyakiAccentColors = [
   'ffbe0b',
