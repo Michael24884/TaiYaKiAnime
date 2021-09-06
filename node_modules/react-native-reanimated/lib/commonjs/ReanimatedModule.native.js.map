@@ -1,1 +1,0 @@
-{"version":3,"sources":["ReanimatedModule.native.js"],"names":["ReanimatedModule","NativeModules"],"mappings":";;;;;;;AAAA;;AAEA,MAAM;AAAEA,EAAAA;AAAF,IAAuBC,0BAA7B;eAEeD,gB","sourcesContent":["import { NativeModules } from 'react-native';\n\nconst { ReanimatedModule } = NativeModules;\n\nexport default ReanimatedModule;\n"]}

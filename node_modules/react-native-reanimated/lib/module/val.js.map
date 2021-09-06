@@ -1,1 +1,0 @@
-{"version":3,"sources":["val.js"],"names":["val","v","__getValue"],"mappings":"AAAA,OAAO,SAASA,GAAT,CAAaC,CAAb,EAAgB;AACrB,SAAOA,CAAC,IAAIA,CAAC,CAACC,UAAP,GAAoBD,CAAC,CAACC,UAAF,EAApB,GAAqCD,CAAC,IAAI,CAAjD;AACD","sourcesContent":["export function val(v) {\n  return v && v.__getValue ? v.__getValue() : v || 0;\n}\n"]}
